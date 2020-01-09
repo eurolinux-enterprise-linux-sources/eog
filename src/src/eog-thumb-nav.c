@@ -14,9 +14,9 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
- * You should have received a copy of the GNU General Public License along
- * with this program; if not, write to the Free Software Foundation, Inc.,
- * 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
 #ifdef HAVE_CONFIG_H
@@ -32,6 +32,11 @@
 #include <gtk/gtk.h>
 #include <math.h>
 #include <string.h>
+
+#define EOG_THUMB_NAV_GET_PRIVATE(object) \
+	(G_TYPE_INSTANCE_GET_PRIVATE ((object), EOG_TYPE_THUMB_NAV, EogThumbNavPrivate))
+
+G_DEFINE_TYPE (EogThumbNav, eog_thumb_nav, GTK_TYPE_BOX);
 
 #define EOG_THUMB_NAV_SCROLL_INC      20
 #define EOG_THUMB_NAV_SCROLL_MOVE     20
@@ -60,8 +65,6 @@ struct _EogThumbNavPrivate {
 	GtkAdjustment    *adj;
 };
 
-G_DEFINE_TYPE_WITH_PRIVATE (EogThumbNav, eog_thumb_nav, GTK_TYPE_BOX);
-
 static gboolean
 eog_thumb_nav_scroll_event (GtkWidget *widget, GdkEventScroll *event, gpointer user_data)
 {
@@ -81,6 +84,7 @@ eog_thumb_nav_scroll_event (GtkWidget *widget, GdkEventScroll *event, gpointer u
 	case GDK_SCROLL_RIGHT:
 		break;
 
+#if GTK_CHECK_VERSION (3, 3, 18)
 	case GDK_SCROLL_SMOOTH:
 	{
 		/* Compatibility code to catch smooth events from mousewheels */
@@ -97,7 +101,7 @@ eog_thumb_nav_scroll_event (GtkWidget *widget, GdkEventScroll *event, gpointer u
 		inc *= (gint) y_delta;
 	}
 	break;
-
+#endif
 	default:
 		g_assert_not_reached ();
 		return FALSE;
@@ -119,7 +123,7 @@ eog_thumb_nav_adj_changed (GtkAdjustment *adj, gpointer user_data)
 	gboolean ltr;
 
 	nav = EOG_THUMB_NAV (user_data);
-	priv = eog_thumb_nav_get_instance_private (nav);
+	priv = EOG_THUMB_NAV_GET_PRIVATE (nav);
 	ltr = gtk_widget_get_direction (priv->sw) == GTK_TEXT_DIR_LTR;
 
 	gtk_widget_set_sensitive (ltr ? priv->button_right : priv->button_left,
@@ -136,7 +140,7 @@ eog_thumb_nav_adj_value_changed (GtkAdjustment *adj, gpointer user_data)
 	gboolean ltr;
 
 	nav = EOG_THUMB_NAV (user_data);
-	priv = eog_thumb_nav_get_instance_private (nav);
+	priv = EOG_THUMB_NAV_GET_PRIVATE (nav);
 	ltr = gtk_widget_get_direction (priv->sw) == GTK_TEXT_DIR_LTR;
 
 	gtk_widget_set_sensitive (ltr ? priv->button_left : priv->button_right,
@@ -331,17 +335,20 @@ eog_thumb_nav_class_init (EogThumbNavClass *class)
 							   EOG_THUMB_NAV_MODE_MULTIPLE_ROWS,
 							   EOG_THUMB_NAV_MODE_ONE_ROW,
 	                                                   (G_PARAM_READABLE | G_PARAM_WRITABLE)));
+
+	g_type_class_add_private (g_object_class, sizeof (EogThumbNavPrivate));
 }
 
 static void
 eog_thumb_nav_init (EogThumbNav *nav)
 {
 	EogThumbNavPrivate *priv;
+	GtkWidget *arrow;
 
 	gtk_orientable_set_orientation (GTK_ORIENTABLE (nav),
 					GTK_ORIENTATION_HORIZONTAL);
 
-	nav->priv = eog_thumb_nav_get_instance_private (nav);
+	nav->priv = EOG_THUMB_NAV_GET_PRIVATE (nav);
 
 	priv = nav->priv;
 
@@ -349,11 +356,15 @@ eog_thumb_nav_init (EogThumbNav *nav)
 
 	priv->show_buttons = TRUE;
 
-	priv->button_left = gtk_button_new_from_icon_name ("go-previous-symbolic",
-							   GTK_ICON_SIZE_BUTTON);
+        priv->button_left = gtk_button_new ();
 	gtk_button_set_relief (GTK_BUTTON (priv->button_left), GTK_RELIEF_NONE);
 
-	gtk_box_pack_start (GTK_BOX (nav), priv->button_left, FALSE, FALSE, 0);
+	arrow = gtk_arrow_new (GTK_ARROW_LEFT, GTK_SHADOW_ETCHED_IN);
+	gtk_container_add (GTK_CONTAINER (priv->button_left), arrow);
+
+	gtk_widget_set_size_request (GTK_WIDGET (priv->button_left), 25, 0);
+
+        gtk_box_pack_start (GTK_BOX (nav), priv->button_left, FALSE, FALSE, 0);
 
 	g_signal_connect (priv->button_left,
 			  "clicked",
@@ -399,13 +410,17 @@ eog_thumb_nav_init (EogThumbNav *nav)
 			  G_CALLBACK (eog_thumb_nav_adj_value_changed),
 			  nav);
 
-	gtk_box_pack_start (GTK_BOX (nav), priv->sw, TRUE, TRUE, 0);
+        gtk_box_pack_start (GTK_BOX (nav), priv->sw, TRUE, TRUE, 0);
 
-	priv->button_right = gtk_button_new_from_icon_name ("go-next-symbolic",
-							    GTK_ICON_SIZE_BUTTON);
+        priv->button_right = gtk_button_new ();
 	gtk_button_set_relief (GTK_BUTTON (priv->button_right), GTK_RELIEF_NONE);
 
-	gtk_box_pack_start (GTK_BOX (nav), priv->button_right, FALSE, FALSE, 0);
+	arrow = gtk_arrow_new (GTK_ARROW_RIGHT, GTK_SHADOW_NONE);
+	gtk_container_add (GTK_CONTAINER (priv->button_right), arrow);
+
+	gtk_widget_set_size_request (GTK_WIDGET (priv->button_right), 25, 0);
+
+        gtk_box_pack_start (GTK_BOX (nav), priv->button_right, FALSE, FALSE, 0);
 
 	g_signal_connect (priv->button_right,
 			  "clicked",
@@ -422,8 +437,7 @@ eog_thumb_nav_init (EogThumbNav *nav)
 			  G_CALLBACK (eog_thumb_nav_stop_scroll),
 			  nav);
 
-	/* Update nav button states */
-	eog_thumb_nav_adj_value_changed (priv->adj, nav);
+	gtk_adjustment_value_changed (priv->adj);
 }
 
 /**
@@ -444,7 +458,6 @@ eog_thumb_nav_new (GtkWidget       *thumbview,
 	GObject *nav;
 
 	nav = g_object_new (EOG_TYPE_THUMB_NAV,
-			    "name", "eog-thumb-nav",
 		            "show-buttons", show_buttons,
 		            "mode", mode,
 		            "thumbview", thumbview,

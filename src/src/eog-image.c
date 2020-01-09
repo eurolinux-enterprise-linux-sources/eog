@@ -14,9 +14,9 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
- * You should have received a copy of the GNU General Public License along
- * with this program; if not, write to the Free Software Foundation, Inc.,
- * 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
 #ifdef HAVE_CONFIG_H
@@ -58,10 +58,6 @@
 #include <libexif/exif-loader.h>
 #endif
 
-#ifdef HAVE_EXEMPI
-#include <exempi/xmp.h>
-#endif
-
 #ifdef HAVE_LCMS
 #include <lcms2.h>
 #ifndef EXIF_TAG_GAMMA
@@ -73,7 +69,10 @@
 #include <librsvg/rsvg.h>
 #endif
 
-G_DEFINE_TYPE_WITH_PRIVATE (EogImage, eog_image, G_TYPE_OBJECT)
+#define EOG_IMAGE_GET_PRIVATE(object) \
+	(G_TYPE_INSTANCE_GET_PRIVATE ((object), EOG_TYPE_IMAGE, EogImagePrivate))
+
+G_DEFINE_TYPE (EogImage, eog_image, G_TYPE_OBJECT)
 
 enum {
 	SIGNAL_CHANGED,
@@ -291,12 +290,14 @@ eog_image_class_init (EogImageClass *klass)
 						     NULL, NULL,
 						     g_cclosure_marshal_VOID__VOID,
 						     G_TYPE_NONE, 0);
+
+	g_type_class_add_private (object_class, sizeof (EogImagePrivate));
 }
 
 static void
 eog_image_init (EogImage *img)
 {
-	img->priv = eog_image_get_instance_private (img);
+	img->priv = EOG_IMAGE_GET_PRIVATE (img);
 
 	img->priv->file = NULL;
 	img->priv->image = NULL;
@@ -310,7 +311,8 @@ eog_image_init (EogImage *img)
 	img->priv->file_is_changed = FALSE;
 	g_mutex_init (&img->priv->status_mutex);
 	img->priv->status = EOG_IMAGE_STATUS_UNKNOWN;
-	img->priv->metadata_status = EOG_IMAGE_METADATA_NOT_READ;
+        img->priv->metadata_status = EOG_IMAGE_METADATA_NOT_READ;
+	img->priv->is_monitored = FALSE;
 	img->priv->undo_stack = NULL;
 	img->priv->trans = NULL;
 	img->priv->trans_autorotate = NULL;
@@ -332,14 +334,25 @@ eog_image_init (EogImage *img)
 }
 
 EogImage *
-eog_image_new_file (GFile *file, const gchar *caption)
+eog_image_new (const char *txt_uri)
+{
+	EogImage *img;
+
+	img = EOG_IMAGE (g_object_new (EOG_TYPE_IMAGE, NULL));
+
+	img->priv->file = g_file_new_for_uri (txt_uri);
+
+	return img;
+}
+
+EogImage *
+eog_image_new_file (GFile *file)
 {
 	EogImage *img;
 
 	img = EOG_IMAGE (g_object_new (EOG_TYPE_IMAGE, NULL));
 
 	img->priv->file = g_object_ref (file);
-	img->priv->caption = g_strdup (caption);
 
 	return img;
 }
@@ -482,9 +495,43 @@ do_emit_size_prepared_signal (EogImage *img)
 static void
 eog_image_emit_size_prepared (EogImage *img)
 {
-	g_idle_add_full (G_PRIORITY_DEFAULT_IDLE,
-			 (GSourceFunc) do_emit_size_prepared_signal,
-			 g_object_ref (img), g_object_unref);
+	gdk_threads_add_idle_full (G_PRIORITY_DEFAULT_IDLE,
+				   (GSourceFunc) do_emit_size_prepared_signal,
+				   g_object_ref (img), g_object_unref);
+}
+
+static gboolean
+check_loader_threadsafety (GdkPixbufLoader *loader, gboolean *result)
+{
+	GdkPixbufFormat *format;
+	gboolean ret_val = FALSE;
+
+	format = gdk_pixbuf_loader_get_format (loader);
+	if (format) {
+		ret_val = TRUE;
+		if (result)
+		/* FIXME: We should not be accessing this struct internals
+ 		 * directly. Keep track of bug #469209 to fix that. */
+			*result = format->flags & GDK_PIXBUF_FORMAT_THREADSAFE;
+	}
+
+	return ret_val;
+}
+
+static void
+eog_image_pre_size_prepared (GdkPixbufLoader *loader,
+			     gint width,
+			     gint height,
+			     gpointer data)
+{
+	EogImage *img;
+
+	eog_debug (DEBUG_IMAGE_LOAD);
+
+	g_return_if_fail (EOG_IS_IMAGE (data));
+
+	img = EOG_IMAGE (data);
+	check_loader_threadsafety (loader, &img->priv->threadsafe_format);
 }
 
 static void
@@ -509,7 +556,9 @@ eog_image_size_prepared (GdkPixbufLoader *loader,
 	g_mutex_unlock (&img->priv->status_mutex);
 
 #ifdef HAVE_EXIF
-	if (!img->priv->autorotate || img->priv->exif)
+	if (img->priv->threadsafe_format && (!img->priv->autorotate || img->priv->exif))
+#else
+	if (img->priv->threadsafe_format)
 #endif
 		eog_image_emit_size_prepared (img);
 }
@@ -646,36 +695,7 @@ eog_image_apply_display_profile (EogImage *img, cmsHPROFILE screen)
 
 	priv = img->priv;
 
-	if (screen == NULL) return;
-
-	if (priv->profile == NULL) {
-		/* Check whether GdkPixbuf was able to extract a profile */
-		const char* data = gdk_pixbuf_get_option (priv->image,
-		                                          "icc-profile");
-
-		if(data) {
-			gsize   profile_size = 0;
-			guchar *profile_data = g_base64_decode(data,
-			                                       &profile_size);
-
-			if (profile_data && profile_size > 0) {
-				eog_debug_message (DEBUG_LCMS,
-				                   "Using ICC profile "
-				                   "extracted by GdkPixbuf");
-				priv->profile =
-					cmsOpenProfileFromMem(profile_data,
-					                      profile_size);
-				g_free(profile_data);
-			}
-		}
-
-		if(priv->profile == NULL) {
-			/* Assume sRGB color space for images without ICC profile */
-			eog_debug_message (DEBUG_LCMS, "Image has no ICC profile. "
-					   "Assuming sRGB.");
-			priv->profile = cmsCreate_sRGBProfile ();
-		}
-	}
+	if (screen == NULL || priv->profile == NULL) return;
 
 	/* TODO: support other colorspaces than RGB */
 	if (cmsGetColorSpace (priv->profile) != cmsSigRgbData ||
@@ -684,17 +704,18 @@ eog_image_apply_display_profile (EogImage *img, cmsHPROFILE screen)
 		return;
 	}
 
-	cmsUInt32Number color_type = TYPE_RGB_8;
-
-	if (gdk_pixbuf_get_has_alpha (priv->image))
-		color_type = TYPE_RGBA_8;
+	/* TODO: find the right way to colorcorrect RGBA images */
+	if (gdk_pixbuf_get_has_alpha (priv->image)) {
+		eog_debug_message (DEBUG_LCMS, "Colorcorrecting RGBA images is unsupported.");
+		return;
+	}
 
 	transform = cmsCreateTransform (priv->profile,
-	                                color_type,
-	                                screen,
-	                                color_type,
-	                                INTENT_PERCEPTUAL,
-	                                0);
+				        TYPE_RGB_8,
+				        screen,
+				        TYPE_RGB_8,
+				        INTENT_PERCEPTUAL,
+				        0);
 
 	if (G_LIKELY (transform != NULL)) {
 		rows = gdk_pixbuf_get_height (priv->image);
@@ -925,6 +946,8 @@ eog_image_real_load (EogImage *img,
 		priv->file_type = NULL;
 	}
 
+	priv->threadsafe_format = FALSE;
+
 	eog_image_get_file_info (img, &priv->bytes, &mime_type, error);
 
 	if (error && *error) {
@@ -967,6 +990,8 @@ eog_image_real_load (EogImage *img,
 	buffer = g_new0 (guchar, EOG_IMAGE_READ_BUFFER_SIZE);
 
 	if (read_image_data || read_only_dimension) {
+		gboolean checked_threadsafety = FALSE;
+
 #ifdef HAVE_RSVG
 		if (priv->svg != NULL) {
 			g_object_unref (priv->svg);
@@ -996,7 +1021,20 @@ eog_image_real_load (EogImage *img,
 				*error = NULL;
 
 				loader = gdk_pixbuf_loader_new ();
+			} else {
+				/* The mimetype-based loader should know the
+				 * format here already. */
+				checked_threadsafety = check_loader_threadsafety (loader, &priv->threadsafe_format);
 			}
+
+		/* This is used to detect non-threadsafe loaders and disable
+ 		 * any possible asyncronous task that could bring deadlocks
+ 		 * to image loading process. */
+			if (!checked_threadsafety)
+				g_signal_connect (loader,
+					  "size-prepared",
+					  G_CALLBACK (eog_image_pre_size_prepared),
+					  img);
 
 			g_signal_connect_object (G_OBJECT (loader),
 					 "size-prepared",
@@ -1050,17 +1088,9 @@ eog_image_real_load (EogImage *img,
 
 		bytes_read_total += bytes_read;
 
-		/* For now allow calling from outside of jobs */
-		if (job != NULL)
-		{
-			/* check that load job wasn't cancelled */
-			if (eog_job_is_cancelled (job)) {
-				eog_image_cancel_load (img);
-				continue;
-			} else {
-				float progress = (float) bytes_read_total / (float) priv->bytes;
-				eog_job_set_progress (job, progress);
-			}
+		if (job != NULL) {
+			float progress = (float) bytes_read_total / (float) priv->bytes;
+			eog_job_set_progress (job, progress);
 		}
 
 		if (first_run) {
@@ -1070,13 +1100,16 @@ eog_image_real_load (EogImage *img,
 				if (data2read == EOG_IMAGE_DATA_EXIF) {
 					g_set_error (error,
 						     EOG_IMAGE_ERROR,
-						     EOG_IMAGE_ERROR_GENERIC,
-						     _("EXIF not supported for this file format."));
+                                	             EOG_IMAGE_ERROR_GENERIC,
+                                	             _("EXIF not supported for this file format."));
 					break;
 				}
 
-				priv->metadata_status = EOG_IMAGE_METADATA_NOT_AVAILABLE;
-			}
+				if (priv->threadsafe_format)
+					eog_image_emit_size_prepared (img);
+
+                                priv->metadata_status = EOG_IMAGE_METADATA_NOT_AVAILABLE;
+                        }
 
 			first_run = FALSE;
 		}
@@ -1096,7 +1129,7 @@ eog_image_real_load (EogImage *img,
 					eog_image_set_xmp_data (img, md_reader);
 #endif
 					set_metadata = FALSE;
-					priv->metadata_status = EOG_IMAGE_METADATA_READY;
+                                        priv->metadata_status = EOG_IMAGE_METADATA_READY;
 				}
 
 				if (data2read == EOG_IMAGE_DATA_EXIF)
@@ -1113,10 +1146,7 @@ eog_image_real_load (EogImage *img,
 	if (read_image_data || read_only_dimension) {
 #ifdef HAVE_RSVG
 		if (use_rsvg) {
-			/* Ignore the error if loading failed earlier
-			 * as the error will already be set in that case */
-			rsvg_handle_close (priv->svg,
-			                   (failed ? NULL : error));
+			rsvg_handle_close (priv->svg, error);
 		} else
 #endif
 		if (failed) {
@@ -1127,8 +1157,8 @@ eog_image_real_load (EogImage *img,
 				 * images as well. */
 				g_clear_error (error);
 			}
-		}
-	}
+	        }
+        }
 
 	g_free (buffer);
 
@@ -1192,10 +1222,12 @@ eog_image_real_load (EogImage *img,
 
 			/* Set orientation again for safety, eg. if we don't
 			 * have Exif data or HAVE_EXIF is undefined. */
-			if (priv->autorotate) {
-				eog_image_set_orientation (img);
+			eog_image_set_orientation (img);
+
+			/* If it's non-threadsafe loader, then trigger window
+ 			 * showing in the end of the process. */
+			if (!priv->threadsafe_format)
 				eog_image_emit_size_prepared (img);
-			}
 		} else {
 			/* Some loaders don't report errors correctly.
 			 * Error will be set below. */
@@ -2424,14 +2456,6 @@ eog_image_get_svg (EogImage *img)
 }
 #endif
 
-/**
- * eog_image_get_transform:
- * @img: a #EogImage
- *
- * Get @img transform.
- *
- * Returns: (transfer none): A #EogTransform.
- */
 
 EogTransform *
 eog_image_get_transform (EogImage *img)
@@ -2440,15 +2464,6 @@ eog_image_get_transform (EogImage *img)
 
 	return img->priv->trans;
 }
-
-/**
- * eog_image_get_autorotate_transform:
- * @img: a #EogImage
- *
- * Get @img autorotate transform.
- *
- * Returns: (transfer none): A #EogTransform.
- */
 
 EogTransform*
 eog_image_get_autorotate_transform (EogImage *img)
@@ -2509,34 +2524,4 @@ eog_image_is_jpeg (EogImage *img)
 	g_return_val_if_fail (EOG_IS_IMAGE (img), FALSE);
 
 	return ((img->priv->file_type != NULL) && (g_ascii_strcasecmp (img->priv->file_type, EOG_FILE_FORMAT_JPEG) == 0));
-}
-
-/**
- * eog_image_is_multipaged:
- * @img: an #EogImage
- *
- * Check whether the image actually contains multiple images/pages.
- * This can happen for TIFF files. GIF animations are not multipaged.
- *
- * Note that this only works if the image data is loaded.
- *
- * Returns: %TRUE if @img is multipaged, %FALSE if not or the image data wasn't loaded.
- * Since: 3.18
- **/
-gboolean
-eog_image_is_multipaged (EogImage *img)
-{
-	gboolean result = FALSE;
-
-	g_return_val_if_fail (EOG_IS_IMAGE (img), FALSE);
-
-	if (img->priv->image != NULL)
-	{
-		const gchar* value = gdk_pixbuf_get_option (img->priv->image,
-							    "multipage");
-
-		result = (g_strcmp0 ("yes", value) == 0);
-	}
-
-	return result;
 }

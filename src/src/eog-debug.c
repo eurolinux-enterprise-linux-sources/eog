@@ -20,9 +20,9 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
- * You should have received a copy of the GNU General Public License along
- * with this program; if not, write to the Free Software Foundation, Inc.,
- * 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
 #ifdef HAVE_CONFIG_H
@@ -106,14 +106,12 @@ eog_debug_message (EogDebug   section,
 {
 	if (G_UNLIKELY (debug & section))
 	{
-		va_list args;
-		gchar *msg;
-
 #ifdef ENABLE_PROFILING
 		gdouble seconds;
-
-		g_return_if_fail (timer != NULL);
 #endif
+
+		va_list args;
+		gchar *msg;
 
 		g_return_if_fail (format != NULL);
 
@@ -122,6 +120,8 @@ eog_debug_message (EogDebug   section,
 		va_end (args);
 
 #ifdef ENABLE_PROFILING
+		g_return_if_fail (timer != NULL);
+
 		seconds = g_timer_elapsed (timer, NULL);
 		g_print ("[%f (%f)] %s:%d (%s) %s\n",
 			 seconds, seconds - last,  file, line, function, msg);

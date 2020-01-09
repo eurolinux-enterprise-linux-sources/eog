@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="topic" style="task" id="plugin-postr" xml:lang="lv">
+
+  <info>
+   <link type="guide" xref="index#plugins"/>
+   <desc>Ir nepieciešams instalēt Flickr Augšupielādētāju, lai varētu sūtīt attēlus uz tiešsaistes Flickr foto galerijām.</desc>
+
+   <revision pkgversion="3.2" version="0.1" date="2011-09-06" status="final"/>
+   <credit type="author">
+     <name>Tiffany Antopolski</name>
+     <email>tiffany.antopolski@gmail.com</email>
+   </credit>
+   <license>
+     <p>Creative Commons Share Alike 3.0 licence.</p>
+   </license>
+
+  </info>
+
+<title>Augšupielādē fotogrāfijas uz <app>Flickr</app></title>
+
+<p><em>Flickr</em> ir fotogrāfiju albumu pakalpojums, kurš ļauj tev dalīties ar attēliem ar cilvēkiem tiešsaistē. Uz Flickr attēlus tu vari augšupielādēt tieši no attēlu skatītāja.</p>
+
+<p>Lai varētu lietot <app>Flickr Augšupielādētājs</app>, tev būs nepieciešams instalēt <app>Postr</app> lietotni, izmantojot tavas Linux distribūcijas <app>paku pārvadnieku</app>. Kolīdz tas ir ieinstalēts, tu varēsi augšupielādēt fotogrāfijas uz Flickr.</p>
+
+<steps>
+ <item>
+  <p>Fotogrāfijas augšupielādēšanas pirmajā reizē, <app>Flickr Augšupielādētājs</app> tev prasīs pieteikties Flickr pakalpojumam. Tīmekļa vietnē tev prasīs pilnvarot <app>Postr</app> piekļuvei tavam kontam.</p>
+ </item>
+ <item>
+  <p>Atpakaļ attēlu skatītājā, spied <guiseq><gui>Attēls</gui><gui>Atvērt Ar</gui><gui>Flickr Augšupielādētājs</gui></guiseq>.</p>
+ </item>
+ <item>
+  <p>Spied <gui>Augšupielādēt</gui>.</p>
+ </item>
+</steps>
+
+<section id="tools-plugin">
+ <title>Pievieno <gui>Rīki</gui> izvēlnes ierakstu</title>
+ <p>Tu vari pievienot saīsnes pogu, lai augšupielādētu attēlus Flickr.</p>
+ <p>Lai to izdarītu, pārliecinies, ka ir instalēts <link xref="plugins">eog-plugins</link>. Tad nospied <guiseq><gui>Rediģēt</gui><gui>Iestatījumi</gui></guiseq>, ej uz <gui>Spraudņi</gui> cilni un atzīmē <gui>Augšupielādēt uz Flickr</gui>.</p>
+ <p>Tas tev dos ērtu <guiseq><gui>Rīki</gui><gui>Augšupielādēt Flickr</gui></guiseq> izvēlnes ierakstu.</p>
+ <media type="image" src="figures/plugin-tools-flickr.png" style="floatend"/>
+</section>
+
+</page>

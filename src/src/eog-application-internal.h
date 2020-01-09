@@ -17,9 +17,9 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
- * You should have received a copy of the GNU General Public License along
- * with this program; if not, write to the Free Software Foundation, Inc.,
- * 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
 #ifndef __EOG_APPLICATION_INTERNAL_H__
@@ -32,11 +32,14 @@
 
 #include "eog-application.h"
 #include "eog-plugin-engine.h"
+#include "egg-toolbars-model.h"
 #include "eog-window.h"
 
 G_BEGIN_DECLS
 
 struct _EogApplicationPrivate {
+	EggToolbarsModel *toolbars_model;
+	gchar            *toolbars_file;
 	EogPluginEngine  *plugin_engine;
 
 	EogStartupFlags   flags;
@@ -46,6 +49,12 @@ struct _EogApplicationPrivate {
 	PeasExtensionSet *extensions;
 };
 
+
+EggToolbarsModel *eog_application_get_toolbars_model  (EogApplication *application);
+
+void              eog_application_save_toolbars_model (EogApplication *application);
+
+void		  eog_application_reset_toolbars_model (EogApplication *app);
 
 void              eog_application_screensaver_enable  (EogApplication *application);
 

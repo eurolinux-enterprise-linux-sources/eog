@@ -14,9 +14,9 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
- * You should have received a copy of the GNU General Public License along
- * with this program; if not, write to the Free Software Foundation, Inc.,
- * 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
 #include <gtk/gtk.h>
@@ -25,6 +25,11 @@
 
 #include "eog-image.h"
 #include "eog-print-preview.h"
+
+#define EOG_PRINT_PREVIEW_GET_PRIVATE(object)				\
+	(G_TYPE_INSTANCE_GET_PRIVATE ((object), EOG_TYPE_PRINT_PREVIEW, EogPrintPreviewPrivate))
+
+G_DEFINE_TYPE (EogPrintPreview, eog_print_preview, GTK_TYPE_ASPECT_FRAME)
 
 struct _EogPrintPreviewPrivate {
 	GtkWidget *area;
@@ -90,8 +95,6 @@ enum {
 	PROP_PAGE_TOP_MARGIN,
 	PROP_PAGE_BOTTOM_MARGIN
 };
-
-G_DEFINE_TYPE_WITH_PRIVATE (EogPrintPreview, eog_print_preview, GTK_TYPE_ASPECT_FRAME)
 
 static void eog_print_preview_draw (EogPrintPreview *preview, cairo_t *cr);
 static void eog_print_preview_finalize (GObject *object);
@@ -399,6 +402,8 @@ eog_print_preview_class_init (EogPrintPreviewClass *klass)
 			      G_SIGNAL_RUN_FIRST, 0, NULL, NULL,
 			      g_cclosure_marshal_VOID__VOID, G_TYPE_NONE,
 			      0, NULL);
+
+	g_type_class_add_private (klass, sizeof (EogPrintPreviewPrivate));
 }
 
 static void
@@ -432,7 +437,7 @@ eog_print_preview_init (EogPrintPreview *preview)
 	EogPrintPreviewPrivate *priv;
 	gfloat ratio;
 
-	priv = preview->priv = eog_print_preview_get_instance_private (preview);
+	priv = preview->priv = EOG_PRINT_PREVIEW_GET_PRIVATE (preview);
 
 	priv->area = GTK_WIDGET (gtk_drawing_area_new ());
 
@@ -613,15 +618,13 @@ press_inside_image_area (EogPrintPreview *preview,
 			 guint y)
 {
 	EogPrintPreviewPrivate *priv;
-	const gint xs = (gint) x;
-	const gint ys = (gint) y;
 	gint x0, y0;
 
 	priv = preview->priv;
 	get_current_image_coordinates (preview, &x0, &y0);
 
-	if (xs >= x0 &&  ys >= y0 &&
-	    xs <= x0 + priv->r_width && ys <= y0 + priv->r_height)
+	if (x >= x0 &&  y >= y0 &&
+	    x <= x0 + priv->r_width && y <= y0 + priv->r_height)
 		return TRUE;
 
 	return FALSE;
@@ -703,6 +706,98 @@ create_preview_buffer (EogPrintPreview *preview)
 	return pixbuf;
 }
 
+/*
+  Function inspired from gdk_cairo_set_source_pixbuf (). The main reason is
+  that I want to save the cairo_surface_t created from the scaled buffer to
+  improve performance.
+*/
+static cairo_surface_t *
+create_surface_from_pixbuf (GdkPixbuf *pixbuf)
+{
+  gint width = gdk_pixbuf_get_width (pixbuf);
+  gint height = gdk_pixbuf_get_height (pixbuf);
+  guchar *gdk_pixels = gdk_pixbuf_get_pixels (pixbuf);
+  int gdk_rowstride = gdk_pixbuf_get_rowstride (pixbuf);
+  int n_channels = gdk_pixbuf_get_n_channels (pixbuf);
+  int cairo_stride;
+  guchar *cairo_pixels;
+  cairo_format_t format;
+  cairo_surface_t *surface;
+  static const cairo_user_data_key_t key;
+  int j;
+
+  if (n_channels == 3)
+    format = CAIRO_FORMAT_RGB24;
+  else
+    format = CAIRO_FORMAT_ARGB32;
+
+  cairo_stride = cairo_format_stride_for_width (format, width);
+  cairo_pixels = g_malloc (height * cairo_stride);
+  surface = cairo_image_surface_create_for_data ((unsigned char *)cairo_pixels,
+						 format,
+						 width, height, cairo_stride);
+  cairo_surface_set_user_data (surface, &key,
+			       cairo_pixels, (cairo_destroy_func_t)g_free);
+
+  for (j = height; j; j--)
+    {
+      guchar *p = gdk_pixels;
+      guchar *q = cairo_pixels;
+
+      if (n_channels == 3)
+	{
+	  guchar *end = p + 3 * width;
+
+	  while (p < end)
+	    {
+#if G_BYTE_ORDER == G_LITTLE_ENDIAN
+	      q[0] = p[2];
+	      q[1] = p[1];
+	      q[2] = p[0];
+#else
+	      q[1] = p[0];
+	      q[2] = p[1];
+	      q[3] = p[2];
+#endif
+	      p += 3;
+	      q += 4;
+	    }
+	}
+      else
+	{
+	  guchar *end = p + 4 * width;
+	  guint t1,t2,t3;
+
+#define MULT(d,c,a,t) G_STMT_START { t = c * a + 0x7f; d = ((t >> 8) + t) >> 8; } G_STMT_END
+
+	  while (p < end)
+	    {
+#if G_BYTE_ORDER == G_LITTLE_ENDIAN
+	      MULT(q[0], p[2], p[3], t1);
+	      MULT(q[1], p[1], p[3], t2);
+	      MULT(q[2], p[0], p[3], t3);
+	      q[3] = p[3];
+#else
+	      q[0] = p[3];
+	      MULT(q[1], p[0], p[3], t1);
+	      MULT(q[2], p[1], p[3], t2);
+	      MULT(q[3], p[2], p[3], t3);
+#endif
+
+	      p += 4;
+	      q += 4;
+	    }
+
+#undef MULT
+	}
+
+      gdk_pixels += gdk_rowstride;
+      cairo_pixels += cairo_stride;
+    }
+
+  return surface;
+}
+
 static void
 create_surface (EogPrintPreview *preview)
 {
@@ -716,9 +811,7 @@ create_surface (EogPrintPreview *preview)
 
 	pixbuf = create_preview_buffer (preview);
 	if (pixbuf) {
-		priv->surface =
-			gdk_cairo_surface_create_from_pixbuf (pixbuf, 0,
-							      gtk_widget_get_window (GTK_WIDGET (preview)));
+		priv->surface = create_surface_from_pixbuf (pixbuf);
 		g_object_unref (pixbuf);
 	}
 	priv->flag_create_surface = FALSE;
@@ -746,8 +839,6 @@ button_press_event_cb (GtkWidget *widget,
 	case 1:
 		preview->priv->grabbed = press_inside_image_area (preview, event->x, event->y);
 		break;
-	default:
-		break;
 	}
 
 	if (preview->priv->grabbed) {
@@ -772,9 +863,7 @@ button_release_event_cb (GtkWidget *widget,
 		preview->priv->r_dx = 0;
 		preview->priv->r_dy = 0;
 		gtk_widget_queue_draw (GTK_WIDGET (preview));
-		break;
-	default:
-		break;
+
 	}
 	return FALSE;
 }
@@ -806,8 +895,6 @@ key_press_event_cb (GtkWidget   *widget,
 	case GDK_KEY_Down:
 		property = "image-y-align";
 		delta = 0.01;
-		break;
-	default:
 		break;
 	}
 

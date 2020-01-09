@@ -1,0 +1,130 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>EogWindowActivatable</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
+<link rel="home" href="index.html" title="Eye of GNOME Reference Manual">
+<link rel="up" href="ch01.html" title="User Interface">
+<link rel="prev" href="eog-eog-window.html" title="EogWindow">
+<link rel="next" href="EogStatusbar.html" title="EogStatusbar">
+<meta name="generator" content="GTK-Doc V1.18 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="eog-eog-window.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Eye of GNOME Reference Manual</th>
+<td><a accesskey="n" href="EogStatusbar.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#EogWindowActivatable.synopsis" class="shortcut">Top</a>
+                   | 
+                  <a href="#EogWindowActivatable.description" class="shortcut">Description</a>
+                   | 
+                  <a href="#EogWindowActivatable.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                   | 
+                  <a href="#EogWindowActivatable.prerequisites" class="shortcut">Prerequisites</a>
+                   | 
+                  <a href="#EogWindowActivatable.properties" class="shortcut">Properties</a>
+</td></tr>
+</table>
+<div class="refentry">
+<a name="EogWindowActivatable"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="EogWindowActivatable.top_of_page"></a>EogWindowActivatable</span></h2>
+<p>EogWindowActivatable</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv">
+<a name="EogWindowActivatable.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">                    <a class="link" href="EogWindowActivatable.html#EogWindowActivatable-struct" title="EogWindowActivatable">EogWindowActivatable</a>;
+struct              <a class="link" href="EogWindowActivatable.html#EogWindowActivatableInterface" title="struct EogWindowActivatableInterface">EogWindowActivatableInterface</a>;
+<span class="returnvalue">void</span>                <a class="link" href="EogWindowActivatable.html#eog-window-activatable-activate" title="eog_window_activatable_activate ()">eog_window_activatable_activate</a>     (<em class="parameter"><code><a class="link" href="EogWindowActivatable.html" title="EogWindowActivatable"><span class="type">EogWindowActivatable</span></a> *activatable</code></em>);
+<span class="returnvalue">void</span>                <a class="link" href="EogWindowActivatable.html#eog-window-activatable-deactivate" title="eog_window_activatable_deactivate ()">eog_window_activatable_deactivate</a>   (<em class="parameter"><code><a class="link" href="EogWindowActivatable.html" title="EogWindowActivatable"><span class="type">EogWindowActivatable</span></a> *activatable</code></em>);
+</pre>
+</div>
+<div class="refsect1">
+<a name="EogWindowActivatable.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  GInterface
+   +----EogWindowActivatable
+</pre>
+</div>
+<div class="refsect1">
+<a name="EogWindowActivatable.prerequisites"></a><h2>Prerequisites</h2>
+<p>
+EogWindowActivatable requires
+ <a href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject">GObject</a>.</p>
+</div>
+<div class="refsect1">
+<a name="EogWindowActivatable.properties"></a><h2>Properties</h2>
+<pre class="synopsis">
+  "<a class="link" href="EogWindowActivatable.html#EogWindowActivatable--window" title='The "window" property'>window</a>"                   <a class="link" href="eog-eog-window.html#EogWindow"><span class="type">EogWindow</span></a>*            : Read / Write / Construct Only
+</pre>
+</div>
+<div class="refsect1">
+<a name="EogWindowActivatable.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1">
+<a name="EogWindowActivatable.details"></a><h2>Details</h2>
+<div class="refsect2">
+<a name="EogWindowActivatable-struct"></a><h3>EogWindowActivatable</h3>
+<pre class="programlisting">typedef struct _EogWindowActivatable EogWindowActivatable;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="EogWindowActivatableInterface"></a><h3>struct EogWindowActivatableInterface</h3>
+<pre class="programlisting">struct EogWindowActivatableInterface {
+	GTypeInterface g_iface;
+
+	/* vfuncs */
+
+	void (*activate) (EogWindowActivatable *activatable);
+	void (*deactivate) (EogWindowActivatable *activatable);
+};
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="eog-window-activatable-activate"></a><h3>eog_window_activatable_activate ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                eog_window_activatable_activate     (<em class="parameter"><code><a class="link" href="EogWindowActivatable.html" title="EogWindowActivatable"><span class="type">EogWindowActivatable</span></a> *activatable</code></em>);</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2">
+<a name="eog-window-activatable-deactivate"></a><h3>eog_window_activatable_deactivate ()</h3>
+<pre class="programlisting"><span class="returnvalue">void</span>                eog_window_activatable_deactivate   (<em class="parameter"><code><a class="link" href="EogWindowActivatable.html" title="EogWindowActivatable"><span class="type">EogWindowActivatable</span></a> *activatable</code></em>);</pre>
+<p>
+</p>
+</div>
+</div>
+<div class="refsect1">
+<a name="EogWindowActivatable.property-details"></a><h2>Property Details</h2>
+<div class="refsect2">
+<a name="EogWindowActivatable--window"></a><h3>The <code class="literal">"window"</code> property</h3>
+<pre class="programlisting">  "window"                   <a class="link" href="eog-eog-window.html#EogWindow"><span class="type">EogWindow</span></a>*            : Read / Write / Construct Only</pre>
+<p>
+This is the <a class="link" href="eog-eog-window.html#EogWindow"><span class="type">EogWindow</span></a> this <a class="link" href="EogWindowActivatable.html" title="EogWindowActivatable"><span class="type">EogWindowActivatable</span></a> instance
+should be attached to.
+</p>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.18</div>
+</body>
+</html>

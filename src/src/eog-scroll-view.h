@@ -18,18 +18,15 @@ typedef struct _EogScrollViewPrivate EogScrollViewPrivate;
 
 
 struct _EogScrollView {
-	GtkGrid  base_instance;
+	GtkTable  widget;
 
 	EogScrollViewPrivate *priv;
 };
 
 struct _EogScrollViewClass {
-	GtkGridClass parent_class;
+	GtkTableClass parent_class;
 
 	void (* zoom_changed) (EogScrollView *view, double zoom);
-	void (* rotation_changed) (EogScrollView *view, double degrees);
-	void (* next_image) (EogScrollView *view);
-	void (* previous_image) (EogScrollView *view);
 };
 
 /**
@@ -62,9 +59,6 @@ typedef enum {
 	EOG_ZOOM_MODE_SHRINK_TO_FIT
 } EogZoomMode;
 
-#define EOG_SCROLL_VIEW_MAX_ZOOM_FACTOR (20)
-#define EOG_SCROLL_VIEW_MIN_ZOOM_FACTOR (0.02)
-
 GType    eog_scroll_view_get_type         (void) G_GNUC_CONST;
 GtkWidget* eog_scroll_view_new            (void);
 
@@ -77,18 +71,18 @@ EogImage* eog_scroll_view_get_image       (EogScrollView *view);
 void     eog_scroll_view_set_scroll_wheel_zoom (EogScrollView *view, gboolean scroll_wheel_zoom);
 void     eog_scroll_view_set_zoom_upscale (EogScrollView *view, gboolean upscale);
 void     eog_scroll_view_set_zoom_multiplier (EogScrollView *view, gdouble multiplier);
-void     eog_scroll_view_set_zoom_mode (EogScrollView *view, EogZoomMode mode);
+void	eog_scroll_view_set_zoom_mode (EogScrollView *view, EogZoomMode mode);
 EogZoomMode	eog_scroll_view_get_zoom_mode (EogScrollView *view);
 void     eog_scroll_view_set_antialiasing_in (EogScrollView *view, gboolean state);
 void     eog_scroll_view_set_antialiasing_out (EogScrollView *view, gboolean state);
-void     eog_scroll_view_set_transparency_color (EogScrollView *view, GdkRGBA *color);
+void	eog_scroll_view_set_transparency_color (EogScrollView *view, GdkColor *color);
 void     eog_scroll_view_set_transparency (EogScrollView *view, EogTransparencyStyle style);
 gboolean eog_scroll_view_scrollbars_visible (EogScrollView *view);
 void	 eog_scroll_view_set_popup (EogScrollView *view, GtkMenu *menu);
 void	 eog_scroll_view_set_background_color (EogScrollView *view,
-					       const GdkRGBA *color);
+					       const GdkColor *color);
 void	 eog_scroll_view_override_bg_color (EogScrollView *view,
-					    const GdkRGBA *color);
+					    const GdkColor *color);
 void     eog_scroll_view_set_use_bg_color (EogScrollView *view, gboolean use);
 /* zoom api */
 void     eog_scroll_view_zoom_in          (EogScrollView *view, gboolean smooth);

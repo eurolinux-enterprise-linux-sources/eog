@@ -1,0 +1,37 @@
+<!-- ##### SECTION Title ##### -->
+eog-plugin-engine
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### SECTION Image ##### -->
+
+
+<!-- ##### STRUCT EogPluginEngine ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### FUNCTION eog_plugin_engine_new ##### -->
+<para>
+
+</para>
+
+@void: 
+@Returns: 
+
+

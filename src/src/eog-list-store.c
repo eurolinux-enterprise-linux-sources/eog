@@ -16,18 +16,23 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
- * You should have received a copy of the GNU General Public License along
- * with this program; if not, write to the Free Software Foundation, Inc.,
- * 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
 #include "eog-list-store.h"
 #include "eog-thumbnail.h"
 #include "eog-image.h"
-#include "eog-job-scheduler.h"
+#include "eog-job-queue.h"
 #include "eog-jobs.h"
 
 #include <string.h>
+
+#define EOG_LIST_STORE_GET_PRIVATE(object) \
+	(G_TYPE_INSTANCE_GET_PRIVATE ((object), EOG_TYPE_LIST_STORE, EogListStorePrivate))
+
+G_DEFINE_TYPE (EogListStore, eog_list_store, GTK_TYPE_LIST_STORE);
 
 struct _EogListStorePrivate {
 	GList *monitors;          /* Monitors for the directories */
@@ -36,8 +41,6 @@ struct _EogListStorePrivate {
 	GdkPixbuf *missing_image; /* Missing image icon */
 	GMutex mutex;             /* Mutex for saving the jobs in the model */
 };
-
-G_DEFINE_TYPE_WITH_PRIVATE (EogListStore, eog_list_store, GTK_TYPE_LIST_STORE);
 
 static void
 foreach_monitors_free (gpointer data, gpointer user_data)
@@ -87,6 +90,8 @@ eog_list_store_class_init (EogListStoreClass *klass)
 
 	object_class->dispose = eog_list_store_dispose;
 	object_class->finalize = eog_list_store_finalize;
+
+	g_type_class_add_private (object_class, sizeof (EogListStorePrivate));
 }
 
 /*
@@ -156,7 +161,7 @@ eog_list_store_init (EogListStore *self)
 	gtk_list_store_set_column_types (GTK_LIST_STORE (self),
 					 EOG_LIST_STORE_NUM_COLUMNS, types);
 
-	self->priv = eog_list_store_get_instance_private (self);
+	self->priv = EOG_LIST_STORE_GET_PRIVATE (self);
 
 	self->priv->monitors = NULL;
 	self->priv->initial_image = -1;
@@ -286,7 +291,6 @@ eog_job_thumbnail_cb (EogJobThumbnail *job, gpointer data)
 				    EOG_LIST_STORE_EOG_JOB, NULL,
 				    -1);
 
-		g_object_unref (image);
 		g_object_unref (thumbnail);
 	}
 
@@ -358,14 +362,13 @@ eog_list_store_append_image (EogListStore *store, EogImage *image)
 
 static void
 eog_list_store_append_image_from_file (EogListStore *store,
-				       GFile *file,
-				       const gchar *caption)
+				       GFile *file)
 {
 	EogImage *image;
 
 	g_return_if_fail (EOG_IS_LIST_STORE (store));
 
-	image = eog_image_new_file (file, caption);
+	image = eog_image_new_file (file);
 
 	eog_list_store_append_image (store, image);
 }
@@ -383,10 +386,9 @@ file_monitor_changed_cb (GFileMonitor *monitor,
 	EogImage *image;
 
 	switch (event) {
-	case G_FILE_MONITOR_EVENT_CHANGES_DONE_HINT:
+	case G_FILE_MONITOR_EVENT_CHANGED:
 		file_info = g_file_query_info (file,
-					       G_FILE_ATTRIBUTE_STANDARD_CONTENT_TYPE ","
-					       G_FILE_ATTRIBUTE_STANDARD_DISPLAY_NAME,
+					       G_FILE_ATTRIBUTE_STANDARD_CONTENT_TYPE,
 					       0, NULL, NULL);
 		if (file_info == NULL) {
 			break;
@@ -406,10 +408,7 @@ file_monitor_changed_cb (GFileMonitor *monitor,
 			}
 		} else {
 			if (eog_image_is_supported_mime_type (mimetype)) {
-				const gchar *caption;
-
-				caption = g_file_info_get_display_name (file_info);
-				eog_list_store_append_image_from_file (store, file, caption);
+				eog_list_store_append_image_from_file (store, file);
 			}
 		}
 		g_object_unref (file_info);
@@ -428,8 +427,7 @@ file_monitor_changed_cb (GFileMonitor *monitor,
 	case G_FILE_MONITOR_EVENT_CREATED:
 		if (!is_file_in_list_store_file (store, file, NULL)) {
 			file_info = g_file_query_info (file,
-						       G_FILE_ATTRIBUTE_STANDARD_CONTENT_TYPE ","
-						       G_FILE_ATTRIBUTE_STANDARD_DISPLAY_NAME,
+						       G_FILE_ATTRIBUTE_STANDARD_CONTENT_TYPE,
 						       0, NULL, NULL);
 			if (file_info == NULL) {
 				break;
@@ -437,10 +435,7 @@ file_monitor_changed_cb (GFileMonitor *monitor,
 			mimetype = g_file_info_get_content_type (file_info);
 
 			if (eog_image_is_supported_mime_type (mimetype)) {
-				const gchar *caption;
-
-				caption = g_file_info_get_display_name (file_info);
-				eog_list_store_append_image_from_file (store, file, caption);
+				eog_list_store_append_image_from_file (store, file);
 			}
 			g_object_unref (file_info);
 		}
@@ -459,7 +454,7 @@ file_monitor_changed_cb (GFileMonitor *monitor,
 		}
 		g_object_unref (file_info);
 		break;
-	case G_FILE_MONITOR_EVENT_CHANGED:
+	case G_FILE_MONITOR_EVENT_CHANGES_DONE_HINT:
 	case G_FILE_MONITOR_EVENT_PRE_UNMOUNT:
 	case G_FILE_MONITOR_EVENT_UNMOUNTED:
 	case G_FILE_MONITOR_EVENT_MOVED:
@@ -491,11 +486,8 @@ directory_visit (GFile *directory,
 	}
 
 	if (load_uri) {
-		const gchar *caption;
-
 		child = g_file_get_child (directory, name);
-		caption = g_file_info_get_display_name (children_info);
-		eog_list_store_append_image_from_file (store, child, caption);
+		eog_list_store_append_image_from_file (store, child);
 	}
 }
 
@@ -524,7 +516,6 @@ eog_list_store_append_directory (EogListStore *store,
 
 	file_enumerator = g_file_enumerate_children (file,
 						     G_FILE_ATTRIBUTE_STANDARD_CONTENT_TYPE ","
-						     G_FILE_ATTRIBUTE_STANDARD_DISPLAY_NAME ","
 						     G_FILE_ATTRIBUTE_STANDARD_NAME,
 						     0, NULL, NULL);
 	file_info = g_file_enumerator_next_file (file_enumerator, NULL, NULL);
@@ -571,18 +562,14 @@ eog_list_store_add_files (EogListStore *store, GList *file_list)
 
 	for (it = file_list; it != NULL; it = it->next) {
 		GFile *file = (GFile *) it->data;
-		gchar *caption = NULL;
 
 		file_info = g_file_query_info (file,
 					       G_FILE_ATTRIBUTE_STANDARD_TYPE","
-					       G_FILE_ATTRIBUTE_STANDARD_CONTENT_TYPE","
-					       G_FILE_ATTRIBUTE_STANDARD_DISPLAY_NAME,
+					       G_FILE_ATTRIBUTE_STANDARD_CONTENT_TYPE,
 					       0, NULL, NULL);
 		if (file_info == NULL) {
 			continue;
 		}
-
-		caption = g_strdup (g_file_info_get_display_name (file_info));
 		file_type = g_file_info_get_file_type (file_info);
 
 		/* Workaround for gvfs backends that don't set the GFileType. */
@@ -623,18 +610,16 @@ eog_list_store_add_files (EogListStore *store, GList *file_list)
 				if (!is_file_in_list_store_file (store,
 								 initial_file,
 								 &iter)) {
-					eog_list_store_append_image_from_file (store, initial_file, caption);
+					eog_list_store_append_image_from_file (store, initial_file);
 				}
 			} else {
-				eog_list_store_append_image_from_file (store, initial_file, caption);
+				eog_list_store_append_image_from_file (store, initial_file);
 			}
 			g_object_unref (file);
 		} else if (file_type == G_FILE_TYPE_REGULAR &&
 			   g_list_length (file_list) > 1) {
-			eog_list_store_append_image_from_file (store, file, caption);
+			eog_list_store_append_image_from_file (store, file);
 		}
-
-		g_free (caption);
 	}
 
 	gtk_tree_sortable_set_sort_column_id (GTK_TREE_SORTABLE (store),
@@ -827,7 +812,7 @@ eog_list_store_remove_thumbnail_job (EogListStore *store,
 
 	if (job != NULL) {
 		g_mutex_lock (&store->priv->mutex);
-		eog_job_cancel (job);
+		eog_job_queue_remove_job (job);
 		gtk_list_store_set (GTK_LIST_STORE (store), iter,
 				    EOG_LIST_STORE_EOG_JOB, NULL,
 				    -1);
@@ -864,7 +849,7 @@ eog_list_store_add_thumbnail_job (EogListStore *store, GtkTreeIter *iter)
 	gtk_list_store_set (GTK_LIST_STORE (store), iter,
 			    EOG_LIST_STORE_EOG_JOB, job,
 			    -1);
-	eog_job_scheduler_add_job (job);
+	eog_job_queue_add_job (job);
 	g_mutex_unlock (&store->priv->mutex);
 	g_object_unref (job);
 	g_object_unref (image);

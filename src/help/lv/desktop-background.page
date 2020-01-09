@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="topic" style="task" id="desktop-background" xml:lang="lv">
+
+  <info>
+    <link type="guide" xref="index#tips"/>
+    <desc>Iestatīt sev tīkamu attēlu kā darbvirsmas fona attēlu.</desc>
+
+    <revision pkgversion="3.2" version="0.1" date="2011-09-05" status="final"/>
+    <credit type="author">
+      <name>Tiffany Antopolski</name>
+      <email>tiffany@antopolski.com</email>
+    </credit>
+    <license>
+      <p>Creative Commons Share Alike 3.0 licence.</p>
+    </license>
+
+  </info>
+
+<title>Padari aktuālo attēlu par darbvirsmas fonu</title>
+<p>To set the picture that you are currently viewing as the background 
+image on your desktop, click <guiseq><gui>Image</gui><gui>Set as Wallpaper</gui>
+</guiseq>.</p>
+
+<p>Tas uzreiz nomainīs fona attēlu uz aktuālo attēlu skatītājā. Tad tev tiks jautāts, vai tu vēlies izmainīt attēlu izskatu, izmantojot <gui>fons</gui> iestatījumu logu. Ja tu nospiedīsi <gui>Paslēpt</gui>, ziņa pazudīs.</p>
+</page>

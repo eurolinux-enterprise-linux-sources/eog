@@ -14,14 +14,15 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
- * You should have received a copy of the GNU General Public License along
- * with this program; if not, write to the Free Software Foundation, Inc.,
- * 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
 #ifndef __EOG_PROPERTIES_DIALOG_H__
 #define __EOG_PROPERTIES_DIALOG_H__
 
+#include "eog-dialog.h"
 #include "eog-image.h"
 #include "eog-thumb-view.h"
 
@@ -50,21 +51,21 @@ typedef enum {
 } EogPropertiesDialogPage;
 
 struct _EogPropertiesDialog {
-	GtkDialog dialog;
+	EogDialog dialog;
 
 	EogPropertiesDialogPrivate *priv;
 };
 
 struct _EogPropertiesDialogClass {
-	GtkDialogClass parent_class;
+	EogDialogClass parent_class;
 };
 
 GType	    eog_properties_dialog_get_type	(void) G_GNUC_CONST;
 
-GtkWidget  *eog_properties_dialog_new		(GtkWindow               *parent,
-						 EogThumbView            *thumbview,
-						 const gchar             *next_image_action,
-						 const gchar             *previous_image_action);
+GObject    *eog_properties_dialog_new	  	(GtkWindow               *parent,
+                                                 EogThumbView            *thumbview,
+						 GtkAction               *next_image_action,
+						 GtkAction               *previous_image_action);
 
 void	    eog_properties_dialog_update  	(EogPropertiesDialog     *prop,
 						 EogImage                *image);

@@ -17,9 +17,9 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
- * You should have received a copy of the GNU General Public License along
- * with this program; if not, write to the Free Software Foundation, Inc.,
- * 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
 #ifdef HAVE_CONFIG_H
@@ -123,10 +123,9 @@ create_thumbnail_from_pixbuf (EogThumbData *data,
 
 	perc = CLAMP (128.0/(MAX (width, height)), 0, 1);
 
-	thumb = gdk_pixbuf_scale_simple (pixbuf,
-					 width*perc,
-					 height*perc,
-					 GDK_INTERP_HYPER);
+	thumb = gnome_desktop_thumbnail_scale_down_pixbuf (pixbuf,
+							   width*perc,
+							   height*perc);
 
 	return thumb;
 }
@@ -445,7 +444,7 @@ eog_thumbnail_fit_to_size (GdkPixbuf *thumbnail, gint dimension)
 		width  = MAX (width  * factor, 1);
 		height = MAX (height * factor, 1);
 
-		result_pixbuf = gdk_pixbuf_scale_simple (thumbnail, width, height, GDK_INTERP_HYPER);
+		result_pixbuf = gnome_desktop_thumbnail_scale_down_pixbuf (thumbnail, width, height);
 
 		return result_pixbuf;
 	}
@@ -535,8 +534,6 @@ eog_thumbnail_init (void)
 	}
 
 	if (frame == NULL) {
-		frame = gdk_pixbuf_new_from_resource (
-				"/org/gnome/eog/ui/pixmaps/thumbnail-frame.png",
-				NULL);
+		frame = gdk_pixbuf_new_from_file (EOG_DATA_DIR "/pixmaps/thumbnail-frame.png", NULL);
 	}
 }

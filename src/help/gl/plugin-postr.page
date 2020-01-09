@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="topic" style="task" id="plugin-postr" xml:lang="gl">
+
+  <info>
+   <link type="guide" xref="index#plugins"/>
+   <desc>Debe instalar o Cargador para Flickr para poder enviar fotos aos álbumes de fotografías en liña de Flickr.</desc>
+
+   <revision pkgversion="3.2" version="0.1" date="2011-09-06" status="final"/>
+   <credit type="author">
+     <name>Tiffany Antopolski</name>
+     <email>tiffany.antopolski@gmail.com</email>
+   </credit>
+   <license>
+     <p>Creative Commons Compartir Igual 3.0</p>
+   </license>
+
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Fran Dieguez</mal:name>
+      <mal:email>frandieguez@gnome.org</mal:email>
+      <mal:years>2011-2012.</mal:years>
+    </mal:credit>
+  </info>
+
+<title>Subir fotos a <app>Flickr</app></title>
+
+<p><em>Flickr</em> é un servizo de álbums de fotos que lle permite compartir imaxes en liña con xente. Pode subir directamente fotos a Flickr desde o Visor de imaxes.</p>
+
+<p>Para poder usar o <app>Cargador para Flickr</app> debe instalar <app>Postr</app> usando o <app>xestor de paquetes</app> da súa distribución GNU/Linux. Unha vez que o teña instalado poderá subir fotos a Flickr:</p>
+
+<steps>
+ <item>
+  <p>A primeira vez que suba unha foto, o <app>Cargador de Flickr</app> pediralle que inicie sesión en Flickr. O sitio web pediralle que autorice a <app>Postr</app> para acceder á súa conta.</p>
+ </item>
+ <item>
+  <p>De volta no Visor de imaxes, prema <guiseq><gui>Imaxen</gui><gui>Abrir con</gui><gui>Cargador para Flickr</gui></guiseq>.</p>
+ </item>
+ <item>
+  <p>Prema <gui>Subir</gui>.</p>
+ </item>
+</steps>
+
+<section id="tools-plugin">
+ <title>Engadir un elemento de menú <gui>Ferramentas</gui></title>
+ <p>Tamén pode engadir un botón para subir imaxes a Flickr.</p>
+ <p>Para iso, asegúrese de que <link xref="plugins">eog-plugins</link> está instalado. Despois, prema <guiseq><gui>Editar</gui><gui>Preferencias</gui></guiseq> e vaia á lapela <gui>Engadidos</gui> e marque <gui>Cargador para Flickr</gui>.</p>
+ <p>Isto fornecerálle o elemento de menú <guiseq><gui>Ferramentas</gui><gui>Subir a Flick</gui></guiseq>.</p>
+ <media type="image" src="figures/plugin-tools-flickr.png" style="floatend"/>
+</section>
+
+</page>

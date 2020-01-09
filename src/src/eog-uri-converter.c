@@ -5,7 +5,6 @@
 #include <math.h>
 #include <string.h>
 #include <glib.h>
-#include <glib/gi18n.h>
 
 #include "eog-uri-converter.h"
 #include "eog-pixbuf-util.h"
@@ -52,7 +51,10 @@ static void eog_uri_converter_get_property (GObject    *object,
 					    GValue     *value,
 					    GParamSpec *pspec);
 
-G_DEFINE_TYPE_WITH_PRIVATE (EogURIConverter, eog_uri_converter, G_TYPE_OBJECT)
+#define EOG_URI_CONVERTER_GET_PRIVATE(object) \
+	(G_TYPE_INSTANCE_GET_PRIVATE ((object), EOG_TYPE_URI_CONVERTER, EogURIConverterPrivate))
+
+G_DEFINE_TYPE (EogURIConverter, eog_uri_converter, G_TYPE_OBJECT)
 
 static void
 free_token (gpointer data)
@@ -95,11 +97,11 @@ eog_uri_converter_dispose (GObject *object)
 }
 
 static void
-eog_uri_converter_init (EogURIConverter *conv)
+eog_uri_converter_init (EogURIConverter *obj)
 {
 	EogURIConverterPrivate *priv;
 
-	priv = conv->priv = eog_uri_converter_get_instance_private (conv);
+	priv = obj->priv = EOG_URI_CONVERTER_GET_PRIVATE (obj);
 
 	priv->convert_spaces   = FALSE;
 	priv->space_character  = '_';
@@ -159,6 +161,8 @@ eog_uri_converter_class_init (EogURIConverterClass *klass)
 				  G_MAXUINT,
 				  1,
 				  G_PARAM_WRITABLE));
+
+	g_type_class_add_private (klass, sizeof (EogURIConverterPrivate));
 }
 
 GQuark
@@ -832,10 +836,8 @@ eog_uri_converter_preview (const char *format_str, EogImage *img, GdkPixbufForma
 
 	str = g_string_new ("");
 
-	if (!g_utf8_validate (format_str, -1, NULL)) {
-		g_string_free(str, TRUE);
-		return NULL;
-	}
+	if (!g_utf8_validate (format_str, -1, NULL))
+	    return NULL;
 
 	len = g_utf8_strlen (format_str, -1);
 	s = format_str;
@@ -941,13 +943,6 @@ eog_uri_converter_requires_exif (EogURIConverter *converter)
 	return converter->priv->requires_exif;
 }
 
-/**
- * eog_uri_converter_check:
- * @converter: a #EogURIConverter
- * @img_list: (element-type GFile): a #Gfile list
- * @error: a #GError location to store the error occurring, or NULL to ignore
- */
-
 gboolean
 eog_uri_converter_check (EogURIConverter *converter, GList *img_list, GError **error)
 {
@@ -988,8 +983,6 @@ eog_uri_converter_check (EogURIConverter *converter, GList *img_list, GError **e
 			     EOG_UC_ERROR_EQUAL_FILENAMES,
 			     _("At least two file names are equal."));
 	}
-
-	g_list_free (file_list);
 
 	return all_different;
 }

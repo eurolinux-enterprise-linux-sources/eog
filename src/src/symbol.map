@@ -1,6 +1,0 @@
-{
-global:
-  eog_*;
-local:
-  *;
-};

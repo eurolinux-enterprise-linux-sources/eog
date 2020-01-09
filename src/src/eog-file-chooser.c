@@ -9,9 +9,10 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
- * You should have received a copy of the GNU General Public License along
- * with this program; if not, write to the Free Software Foundation, Inc.,
- * 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330,
+ * Boston, MA 02111-1307, USA.
  */
 
 #ifdef HAVE_CONFIG_H
@@ -39,6 +40,10 @@ static char *last_dir[] = { NULL, NULL, NULL, NULL };
 
 #define FILE_FORMAT_KEY "file-format"
 
+#define EOG_FILE_CHOOSER_GET_PRIVATE(object)(G_TYPE_INSTANCE_GET_PRIVATE ((object), \
+					     EOG_TYPE_FILE_CHOOSER,		    \
+					     EogFileChooserPrivate))
+
 struct _EogFileChooserPrivate
 {
 	GnomeDesktopThumbnailFactory *thumb_factory;
@@ -49,7 +54,7 @@ struct _EogFileChooserPrivate
 	GtkWidget *creator_label;
 };
 
-G_DEFINE_TYPE_WITH_PRIVATE (EogFileChooser, eog_file_chooser, GTK_TYPE_FILE_CHOOSER_DIALOG)
+G_DEFINE_TYPE(EogFileChooser, eog_file_chooser, GTK_TYPE_FILE_CHOOSER_DIALOG)
 
 static void
 eog_file_chooser_finalize (GObject *object)
@@ -70,12 +75,14 @@ eog_file_chooser_class_init (EogFileChooserClass *klass)
 	GObjectClass *object_class = (GObjectClass *) klass;
 
 	object_class->finalize = eog_file_chooser_finalize;
+
+	g_type_class_add_private (object_class, sizeof (EogFileChooserPrivate));
 }
 
 static void
 eog_file_chooser_init (EogFileChooser *chooser)
 {
-	chooser->priv = eog_file_chooser_get_instance_private (chooser);
+	chooser->priv = EOG_FILE_CHOOSER_GET_PRIVATE (chooser);
 }
 
 static void
@@ -453,24 +460,24 @@ eog_file_chooser_new (GtkFileChooserAction action)
 	switch (action) {
 	case GTK_FILE_CHOOSER_ACTION_OPEN:
 		gtk_dialog_add_buttons (GTK_DIALOG (chooser),
-					_("_Cancel"), GTK_RESPONSE_CANCEL,
-					_("_Open"), GTK_RESPONSE_OK,
+					GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL,
+					GTK_STOCK_OPEN, GTK_RESPONSE_OK,
 					NULL);
 		title = _("Open Image");
 		break;
 
 	case GTK_FILE_CHOOSER_ACTION_SAVE:
 		gtk_dialog_add_buttons (GTK_DIALOG (chooser),
-					_("_Cancel"), GTK_RESPONSE_CANCEL,
-					_("_Save"), GTK_RESPONSE_OK,
+					GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL,
+					GTK_STOCK_SAVE, GTK_RESPONSE_OK,
 					NULL);
 		title = _("Save Image");
 		break;
 
 	case GTK_FILE_CHOOSER_ACTION_SELECT_FOLDER:
 		gtk_dialog_add_buttons (GTK_DIALOG (chooser),
-					_("_Cancel"), GTK_RESPONSE_CANCEL,
-					_("_Open"), GTK_RESPONSE_OK,
+					GTK_STOCK_CANCEL, GTK_RESPONSE_CANCEL,
+					GTK_STOCK_OPEN, GTK_RESPONSE_OK,
 					NULL);
 		title = _("Open Folder");
 		break;

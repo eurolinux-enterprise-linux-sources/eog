@@ -15,9 +15,9 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
- * You should have received a copy of the GNU General Public License along
- * with this program; if not, write to the Free Software Foundation, Inc.,
- * 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
 #ifdef HAVE_CONFIG_H
@@ -30,18 +30,23 @@
 #include <glib/gi18n.h>
 #include <gtk/gtk.h>
 
+#define EOG_STATUSBAR_GET_PRIVATE(object) \
+	(G_TYPE_INSTANCE_GET_PRIVATE ((object), EOG_TYPE_STATUSBAR, EogStatusbarPrivate))
+
+G_DEFINE_TYPE (EogStatusbar, eog_statusbar, GTK_TYPE_STATUSBAR)
+
 struct _EogStatusbarPrivate
 {
 	GtkWidget *progressbar;
 	GtkWidget *img_num_label;
 };
 
-G_DEFINE_TYPE_WITH_PRIVATE (EogStatusbar, eog_statusbar, GTK_TYPE_STATUSBAR)
-
 static void
 eog_statusbar_class_init (EogStatusbarClass *klass)
 {
-    /* empty */
+	GObjectClass *g_object_class = G_OBJECT_CLASS (klass);
+
+	g_type_class_add_private (g_object_class, sizeof (EogStatusbarPrivate));
 }
 
 static void
@@ -50,19 +55,18 @@ eog_statusbar_init (EogStatusbar *statusbar)
 	EogStatusbarPrivate *priv;
 	GtkWidget *vbox;
 
-	g_object_set (statusbar, "margin", 0, NULL);
-
-	statusbar->priv = eog_statusbar_get_instance_private (statusbar);
+	statusbar->priv = EOG_STATUSBAR_GET_PRIVATE (statusbar);
 	priv = statusbar->priv;
 
 	priv->img_num_label = gtk_label_new (NULL);
+	gtk_widget_set_size_request (priv->img_num_label, 100, 10);
 	gtk_widget_show (priv->img_num_label);
 
 	gtk_box_pack_end (GTK_BOX (statusbar),
 			  priv->img_num_label,
 			  FALSE,
 			  TRUE,
-			  6);
+			  0);
 
 	vbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
 
@@ -70,15 +74,24 @@ eog_statusbar_init (EogStatusbar *statusbar)
 			  vbox,
 			  FALSE,
 			  FALSE,
-			  6);
+			  2);
 
 	statusbar->priv->progressbar = gtk_progress_bar_new ();
 
 	gtk_box_pack_end (GTK_BOX (vbox),
 			  priv->progressbar,
 			  TRUE,
-			  FALSE,
+			  TRUE,
 			  0);
+
+	/* Set margins by hand to avoid causing redraws due to the statusbar
+	 * becoming too small for the progressbar */
+	gtk_widget_set_margin_left (priv->progressbar, 2);
+	gtk_widget_set_margin_right (priv->progressbar, 2);
+	gtk_widget_set_margin_top (priv->progressbar, 1);
+	gtk_widget_set_margin_bottom (priv->progressbar, 0);
+
+	gtk_widget_set_size_request (priv->progressbar, -1, 10);
 
 	gtk_widget_show (vbox);
 

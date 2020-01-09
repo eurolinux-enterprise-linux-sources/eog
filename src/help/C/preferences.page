@@ -21,10 +21,15 @@ xref="preferences#plugins">plugins</link>.</desc>
 
 <title>Preferences</title>
 <p>This topic explains all of the settings that you can change in the 
-image viewer. Open the application menu on the top bar and click
-<gui style="menuitem">Preferences</gui> to start changing the preferences.</p>
+image viewer. Click <guiseq><gui>Edit</gui><gui>Preferences</gui></guiseq> to 
+start changing the preferences.</p>
 
-<links type="section" />
+<list>
+ <item><p><link xref="#view"/></p></item>
+ <item><p><link xref="#slideshow"/></p></item>
+ <item><p><link xref="#plugins"/></p></item>
+</list>
+
 
 <section id="view">
 <title>Image view preferences</title>
@@ -32,7 +37,7 @@ image viewer. Open the application menu on the top bar and click
 <terms>
   <item>
     <title>Image enhancements</title>
-    <p>Select <gui>Smooth images when zoomed out</gui> to enable <em>image 
+    <p>Select <gui>Smooth images when zoomed-out</gui> to enable <em>image 
     smoothing</em> when you zoom in and out. This makes low-resolution 
     (pixelated) pictures look better by smoothing out jagged edges.</p>
     <p>If you enable <gui>Automatic orientation</gui>, pictures will be 

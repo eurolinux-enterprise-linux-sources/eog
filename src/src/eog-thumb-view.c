@@ -14,9 +14,9 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
- * You should have received a copy of the GNU General Public License along
- * with this program; if not, write to the Free Software Foundation, Inc.,
- * 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
 #ifdef HAVE_CONFIG_H
@@ -26,7 +26,7 @@
 #include "eog-thumb-view.h"
 #include "eog-list-store.h"
 #include "eog-image.h"
-#include "eog-job-scheduler.h"
+#include "eog-job-queue.h"
 
 #ifdef HAVE_EXIF
 #include "eog-exif-util.h"
@@ -45,12 +45,20 @@ enum {
 
 #define EOG_THUMB_VIEW_SPACING 0
 
+#define EOG_THUMB_VIEW_GET_PRIVATE(object)				\
+	(G_TYPE_INSTANCE_GET_PRIVATE ((object), EOG_TYPE_THUMB_VIEW, EogThumbViewPrivate))
+
 static void eog_thumb_view_init (EogThumbView *thumbview);
 
 static EogImage* eog_thumb_view_get_image_from_path (EogThumbView      *thumbview,
 						     GtkTreePath       *path);
 
+static void      eog_thumb_view_popup_menu          (EogThumbView      *widget,
+						     GdkEventButton    *event);
 static void      eog_thumb_view_update_columns      (EogThumbView *view);
+
+G_DEFINE_TYPE_WITH_CODE (EogThumbView, eog_thumb_view, GTK_TYPE_ICON_VIEW,
+			G_IMPLEMENT_INTERFACE (GTK_TYPE_ORIENTABLE, NULL));
 
 static gboolean
 thumbview_on_query_tooltip_cb (GtkWidget  *widget,
@@ -84,10 +92,6 @@ struct _EogThumbViewPrivate {
 	gulong image_removed_id;
 };
 
-G_DEFINE_TYPE_WITH_CODE (EogThumbView, eog_thumb_view, GTK_TYPE_ICON_VIEW,
-			 G_IMPLEMENT_INTERFACE (GTK_TYPE_ORIENTABLE, NULL) \
-			 G_ADD_PRIVATE (EogThumbView));
-
 /* Drag 'n Drop */
 
 static void
@@ -107,6 +111,7 @@ eog_thumb_view_constructed (GObject *object)
 				    FALSE);
 
 	g_object_set (thumbview->priv->pixbuf_cell,
+	              "follow-state", FALSE,
 	              "height", 100,
 	              "width", 115,
 	              "yalign", 0.5,
@@ -231,6 +236,8 @@ eog_thumb_view_class_init (EogThumbViewClass *class)
 
 	g_object_class_override_property (gobject_class, PROP_ORIENTATION,
 	                                  "orientation");
+
+	g_type_class_add_private (class, sizeof (EogThumbViewPrivate));
 }
 
 static void
@@ -402,7 +409,6 @@ static gboolean
 thumbview_on_button_press_event_cb (GtkWidget *thumbview, GdkEventButton *event,
 				    gpointer user_data)
 {
-	EogThumbView *view = EOG_THUMB_VIEW (thumbview);
 	GtkTreePath *path;
 
 	/* Ignore double-clicks and triple-clicks */
@@ -420,8 +426,7 @@ thumbview_on_button_press_event_cb (GtkWidget *thumbview, GdkEventButton *event,
 			gtk_icon_view_select_path (GTK_ICON_VIEW (thumbview), path);
 			gtk_icon_view_set_cursor (GTK_ICON_VIEW (thumbview), path, NULL, FALSE);
 		}
-		gtk_menu_popup_at_pointer (GTK_MENU (view->priv->menu),
-					   (const GdkEvent*) event);
+		eog_thumb_view_popup_menu (EOG_THUMB_VIEW (thumbview), event);
 
 		gtk_tree_path_free (path);
 
@@ -489,7 +494,6 @@ thumbview_get_tooltip_string (EogImage *image)
 				       0, NULL, NULL);
 	g_object_unref (file);
 	if (file_info == NULL) {
-		g_free(bytes);
 		return NULL;
 	}
 
@@ -611,7 +615,7 @@ thumbview_on_query_tooltip_cb (GtkWidget  *widget,
 		g_signal_connect (G_OBJECT (job), "finished",
 				  G_CALLBACK (on_data_loaded_cb),
 				  widget);
-		eog_job_scheduler_add_job (job);
+		eog_job_queue_add_job (job);
 		g_object_unref (image);
 		g_object_unref (job);
 		return FALSE;
@@ -633,7 +637,7 @@ thumbview_on_query_tooltip_cb (GtkWidget  *widget,
 static void
 eog_thumb_view_init (EogThumbView *thumbview)
 {
-	thumbview->priv = eog_thumb_view_get_instance_private (thumbview);
+	thumbview->priv = EOG_THUMB_VIEW_GET_PRIVATE (thumbview);
 
 	thumbview->priv->visible_range_changed_id = 0;
 	thumbview->priv->image_add_id = 0;
@@ -1043,7 +1047,7 @@ eog_thumb_view_set_thumbnail_popup (EogThumbView *thumbview,
 	g_return_if_fail (EOG_IS_THUMB_VIEW (thumbview));
 	g_return_if_fail (thumbview->priv->menu == NULL);
 
-	thumbview->priv->menu = g_object_ref (GTK_WIDGET (menu));
+	thumbview->priv->menu = g_object_ref (menu);
 
 	gtk_menu_attach_to_widget (GTK_MENU (thumbview->priv->menu),
 				   GTK_WIDGET (thumbview),
@@ -1052,4 +1056,25 @@ eog_thumb_view_set_thumbnail_popup (EogThumbView *thumbview,
 	g_signal_connect (G_OBJECT (thumbview), "button_press_event",
 			  G_CALLBACK (thumbview_on_button_press_event_cb), NULL);
 
+}
+
+
+static void
+eog_thumb_view_popup_menu (EogThumbView *thumbview, GdkEventButton *event)
+{
+	GtkWidget *popup;
+	int button, event_time;
+
+	popup = thumbview->priv->menu;
+
+	if (event) {
+		button = event->button;
+		event_time = event->time;
+	} else {
+		button = 0;
+		event_time = gtk_get_current_event_time ();
+	}
+
+	gtk_menu_popup (GTK_MENU (popup), NULL, NULL, NULL, NULL,
+			button, event_time);
 }

@@ -18,9 +18,9 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
- * You should have received a copy of the GNU General Public License along
- * with this program; if not, write to the Free Software Foundation, Inc.,
- * 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
 #ifndef __EOG_CONFIG_KEYS_H__
@@ -54,6 +54,7 @@
 #define EOG_CONF_FULLSCREEN_UPSCALE		"upscale"
 #define EOG_CONF_FULLSCREEN_SECONDS		"seconds"
 
+#define EOG_CONF_UI_TOOLBAR			"toolbar"
 #define EOG_CONF_UI_STATUSBAR			"statusbar"
 #define EOG_CONF_UI_IMAGE_GALLERY		"image-gallery"
 #define EOG_CONF_UI_IMAGE_GALLERY_POSITION	"image-gallery-position"
@@ -64,6 +65,7 @@
 #define EOG_CONF_UI_DISABLE_TRASH_CONFIRMATION	"disable-trash-confirmation"
 #define EOG_CONF_UI_FILECHOOSER_XDG_FALLBACK	"filechooser-xdg-fallback"
 #define EOG_CONF_UI_PROPSDIALOG_NETBOOK_MODE	"propsdialog-netbook-mode"
+#define EOG_CONF_UI_EXTERNAL_EDITOR		"external-editor"
 
 #define EOG_CONF_PLUGINS_ACTIVE_PLUGINS         "active-plugins"
 

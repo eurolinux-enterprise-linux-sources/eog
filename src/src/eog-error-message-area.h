@@ -1,4 +1,4 @@
-/* Eye Of Gnome - Error Message Area
+/* Eye Of Gnome - Erro Message Area
  *
  * Copyright (C) 2007 The Free Software Foundation
  *
@@ -17,9 +17,9 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
- * You should have received a copy of the GNU General Public License along
- * with this program; if not, write to the Free Software Foundation, Inc.,
- * 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
 #ifndef __EOG_ERROR_MESSAGE_AREA__
@@ -43,8 +43,7 @@ typedef enum
 	EOG_ERROR_MESSAGE_AREA_RESPONSE_NONE   = 0,
 	EOG_ERROR_MESSAGE_AREA_RESPONSE_CANCEL = 1,
 	EOG_ERROR_MESSAGE_AREA_RESPONSE_RELOAD = 2,
-	EOG_ERROR_MESSAGE_AREA_RESPONSE_SAVEAS = 3,
-	EOG_ERROR_MESSAGE_AREA_RESPONSE_OPEN_WITH_EVINCE = 4
+	EOG_ERROR_MESSAGE_AREA_RESPONSE_SAVEAS = 3
 } EogErrorMessageAreaResponseType;
 
 G_GNUC_INTERNAL
@@ -57,8 +56,5 @@ GtkWidget   *eog_image_save_error_message_area_new   (const gchar  *caption,
 
 G_GNUC_INTERNAL
 GtkWidget   *eog_no_images_error_message_area_new    (GFile *file);
-
-G_GNUC_INTERNAL
-GtkWidget   *eog_multipage_error_message_area_new    (void);
 
 #endif /* __EOG_ERROR_MESSAGE_AREA__ */

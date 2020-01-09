@@ -6,7 +6,7 @@
     <link type="guide" xref="index#edit"/>
     <desc>Horizontal/vertical, clockwise/counter-clockwise</desc>
 
-    <revision pkgversion="3.2" version="0.1" date="2011-09-05" status="outdated"/>
+    <revision pkgversion="3.2" version="0.1" date="2011-09-05" status="final"/>
     <credit type="author">
       <name>Tiffany Antopolski</name>
       <email>tiffany@antopolski.com</email>
@@ -22,14 +22,13 @@
 <p>If your pictures are the wrong way up or back-to-front, you can flip or 
 rotate them so that they look right.</p>
 
-<!-- TODO: Outdated in 3.24 - see https://bugzilla.gnome.org/show_bug.cgi?id=786012 -->
 <section id="flip">
 <title>Flip a picture</title>
 <steps>
  <item><p>Click <gui>Edit</gui>.</p></item>
  <item><p>Select either <gui>Flip Horizontal</gui> or <gui>Flip Vertical</gui>.</p></item>
  <item>
-  <p>If you want to keep the picture flipped in this way, click <gui style="menuitem">Save</gui>.</p>
+  <p>If you want to keep the picture flipped in this way, click <guiseq><gui>Image</gui><gui>Save</gui></guiseq>.</p>
   <p>Otherwise, don't save the picture and it will be returned to its original orientation the next time you open it.</p>
  </item>
 </steps>
@@ -38,16 +37,17 @@ rotate them so that they look right.</p>
 <section id="rotate">
 <title>Rotate a picture</title>
 <steps>
- <item><p>Move the mouse pointer over the image. Two buttons with arrow will appear at the bottom.</p></item>
- <item><p>Select either <gui>Rotate the image 90 degrees to the left</gui> or <gui>Rotate
-the image 90 degrees to the right</gui>.</p></item>
+ <item><p>Click <gui>Edit</gui>.</p></item>
+ <item><p>Select either <gui>Rotate Clockwise</gui> or <gui>Rotate
+Counter-clockwise</gui>.</p></item>
  <item>
-  <p>If you want to keep the picture rotated in this way, click <gui style="menuitem">Save</gui>.</p>
+  <p>If you want to keep the picture rotated in this way, click <guiseq><gui>Image</gui><gui>Save</gui></guiseq>.</p>
   <p>Otherwise, don't save the picture and it will be returned to its original orientation the next time you open it.</p>
  </item>
 </steps>
 
-<p>You can also use the keyboard shortcuts:</p>
+<p>You can use the tools in the <link xref="toolbar">toolbar</link> to do this 
+instead. You can also use the keyboard shortcuts:</p>
 
 <table>
   <tr>

@@ -15,9 +15,9 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
- * You should have received a copy of the GNU General Public License along
- * with this program; if not, write to the Free Software Foundation, Inc.,
- * 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
 #ifdef HAVE_CONFIG_H
@@ -48,15 +48,18 @@
 #endif
 
 #if HAVE_METADATA
-#include "eog-metadata-details.h"
+#include "eog-exif-details.h"
 #endif
+
+#define EOG_PROPERTIES_DIALOG_GET_PRIVATE(object) \
+	(G_TYPE_INSTANCE_GET_PRIVATE ((object), EOG_TYPE_PROPERTIES_DIALOG, EogPropertiesDialogPrivate))
+
+G_DEFINE_TYPE (EogPropertiesDialog, eog_properties_dialog, EOG_TYPE_DIALOG);
 
 enum {
         PROP_0,
         PROP_THUMBVIEW,
-        PROP_NETBOOK_MODE,
-        PROP_NEXT_ACTION,
-        PROP_PREV_ACTION
+        PROP_NETBOOK_MODE
 };
 
 struct _EogPropertiesDialogPrivate {
@@ -66,6 +69,7 @@ struct _EogPropertiesDialogPrivate {
 	EogPropertiesDialogPage current_page;
 
 	GtkWidget      *notebook;
+	GtkWidget      *close_button;
 	GtkWidget      *next_button;
 	GtkWidget      *previous_button;
 
@@ -78,7 +82,8 @@ struct _EogPropertiesDialogPrivate {
 	GtkWidget      *bytes_label;
 	GtkWidget      *folder_button;
 	gchar          *folder_button_uri;
-
+	GtkWidget      *created_label;
+	GtkWidget      *modified_label;
 #ifdef HAVE_EXIF
 	GtkWidget      *exif_aperture_label;
 	GtkWidget      *exif_exposure_label;
@@ -95,14 +100,11 @@ struct _EogPropertiesDialogPrivate {
 	GtkWidget      *xmp_keywords_label;
 	GtkWidget      *xmp_creator_label;
 	GtkWidget      *xmp_rights_label;
-#else
-	GtkWidget      *xmp_box;
-	GtkWidget      *xmp_box_label;
 #endif
 #if HAVE_METADATA
-	GtkWidget      *metadata_box;
-	GtkWidget      *metadata_details_expander;
-	GtkWidget      *metadata_details;
+	GtkWidget      *exif_box;
+	GtkWidget      *exif_details_expander;
+	GtkWidget      *exif_details;
 	GtkWidget      *metadata_details_box;
 	GtkWidget      *metadata_details_sw;
 #endif
@@ -110,40 +112,11 @@ struct _EogPropertiesDialogPrivate {
 	gboolean        netbook_mode;
 };
 
-G_DEFINE_TYPE_WITH_PRIVATE (EogPropertiesDialog, eog_properties_dialog, GTK_TYPE_DIALOG);
-
-static void
-parent_file_display_name_query_info_cb (GObject *source_object,
-					GAsyncResult *res,
-					gpointer user_data)
-{
-	EogPropertiesDialog *prop_dlg = EOG_PROPERTIES_DIALOG (user_data);
-	GFile *parent_file = G_FILE (source_object);
-	GFileInfo *file_info;
-	gchar *display_name;
-
-
-	file_info = g_file_query_info_finish (parent_file, res, NULL);
-	if (file_info == NULL) {
-		display_name = g_file_get_basename (parent_file);
-	} else {
-		display_name = g_strdup (
-			g_file_info_get_display_name (file_info));
-		g_object_unref (file_info);
-	}
-	gtk_button_set_label (GTK_BUTTON (prop_dlg->priv->folder_button),
-			      display_name);
-	gtk_widget_set_sensitive (prop_dlg->priv->folder_button, TRUE);
-
-	g_free (display_name);
-	g_object_unref (prop_dlg);
-}
-
 static void
 pd_update_general_tab (EogPropertiesDialog *prop_dlg,
 		       EogImage            *image)
 {
-	gchar *bytes_str;
+	gchar *bytes_str, *dir_str;
 	gchar *width_str, *height_str;
 	GFile *file, *parent_file;
 	GFileInfo *file_info;
@@ -198,23 +171,16 @@ pd_update_general_tab (EogPropertiesDialog *prop_dlg,
 		/* file is root directory itself */
 		parent_file = g_object_ref (file);
 	}
-
-	gtk_widget_set_sensitive (prop_dlg->priv->folder_button, FALSE);
-	gtk_button_set_label (GTK_BUTTON (prop_dlg->priv->folder_button), NULL);
+	dir_str = g_file_get_basename (parent_file);
+	gtk_button_set_label (GTK_BUTTON (prop_dlg->priv->folder_button),
+			      dir_str);
 	g_free (prop_dlg->priv->folder_button_uri);
 	prop_dlg->priv->folder_button_uri = g_file_get_uri (parent_file);
-
-	g_file_query_info_async (parent_file,
-				 G_FILE_ATTRIBUTE_STANDARD_DISPLAY_NAME,
-				 G_FILE_QUERY_INFO_NONE,
-				 G_PRIORITY_DEFAULT,
-				 NULL,
-				 parent_file_display_name_query_info_cb,
-				 g_object_ref (prop_dlg));
-
 	g_object_unref (parent_file);
+
 	g_free (type_str);
 	g_free (bytes_str);
+	g_free (dir_str);
 }
 
 #if HAVE_EXEMPI
@@ -306,8 +272,8 @@ pd_update_metadata_tab (EogPropertiesDialog *prop_dlg,
 			gtk_notebook_set_current_page (notebook, EOG_PROPERTIES_DIALOG_PAGE_GENERAL);
 		}
 
-		if (gtk_widget_get_visible (priv->metadata_box)) {
-			gtk_widget_hide (priv->metadata_box);
+		if (gtk_widget_get_visible (priv->exif_box)) {
+			gtk_widget_hide (priv->exif_box);
 		}
 		if (gtk_widget_get_visible (priv->metadata_details_box)) {
 			gtk_widget_hide (priv->metadata_details_box);
@@ -315,12 +281,12 @@ pd_update_metadata_tab (EogPropertiesDialog *prop_dlg,
 
 		return;
 	} else {
-		if (!gtk_widget_get_visible (priv->metadata_box))
-			gtk_widget_show_all (priv->metadata_box);
+		if (!gtk_widget_get_visible (priv->exif_box))
+			gtk_widget_show_all (priv->exif_box);
 		if (priv->netbook_mode &&
 		    !gtk_widget_get_visible (priv->metadata_details_box)) {
 			gtk_widget_show_all (priv->metadata_details_box);
-			gtk_widget_hide (priv->metadata_details_expander);
+			gtk_widget_hide (priv->exif_details_expander);
 		}
 	}
 
@@ -351,7 +317,7 @@ pd_update_metadata_tab (EogPropertiesDialog *prop_dlg,
 	eog_exif_util_set_label_text (GTK_LABEL (priv->exif_date_label),
 				      exif_data, EXIF_TAG_DATE_TIME_ORIGINAL);
 
-	eog_metadata_details_update (EOG_METADATA_DETAILS (priv->metadata_details),
+	eog_exif_details_update (EOG_EXIF_DETAILS (priv->exif_details),
 				 exif_data);
 
 	/* exif_data_unref can handle NULL-values */
@@ -387,7 +353,7 @@ pd_update_metadata_tab (EogPropertiesDialog *prop_dlg,
 				   "rights",
 				   priv->xmp_rights_label);
 
-		eog_metadata_details_xmp_update (EOG_METADATA_DETAILS (priv->metadata_details), xmp_data);
+		eog_exif_details_xmp_update (EOG_EXIF_DETAILS (priv->exif_details), xmp_data);
 
 		xmp_free (xmp_data);
 	} else {
@@ -436,19 +402,27 @@ pd_exif_details_activated_cb (GtkExpander *expander,
 #endif
 
 static void
+pd_close_button_clicked_cb (GtkButton *button,
+			    gpointer   user_data)
+{
+	eog_dialog_hide (EOG_DIALOG (user_data));
+}
+
+static void
 pd_folder_button_clicked_cb (GtkButton *button, gpointer data)
 {
 	EogPropertiesDialogPrivate *priv = EOG_PROPERTIES_DIALOG (data)->priv;
-	GtkWindow *window;
+	GdkScreen *screen;
 	guint32 timestamp;
+
 
 	if (!priv->folder_button_uri)
 		return;
 	
+	screen = gtk_widget_get_screen (GTK_WIDGET (button));
 	timestamp = gtk_get_current_event_time ();
 
-	window = GTK_WINDOW (data);
-	gtk_show_uri_on_window (window, priv->folder_button_uri, timestamp, NULL);
+	gtk_show_uri (screen, priv->folder_button_uri, timestamp, NULL);
 }
 
 static gboolean
@@ -457,8 +431,21 @@ eog_properties_dialog_page_switch (GtkNotebook     *notebook,
 				   gint             page_index,
 				   EogPropertiesDialog *prop_dlg)
 {
+
 	if (prop_dlg->priv->update_page)
 		prop_dlg->priv->current_page = page_index;
+
+	return TRUE;
+}
+
+static gint
+eog_properties_dialog_delete (GtkWidget   *widget,
+			      GdkEventAny *event,
+			      gpointer     user_data)
+{
+	g_return_val_if_fail (EOG_IS_PROPERTIES_DIALOG (user_data), FALSE);
+
+	eog_dialog_hide (EOG_DIALOG (user_data));
 
 	return TRUE;
 }
@@ -480,23 +467,17 @@ eog_properties_dialog_set_netbook_mode (EogPropertiesDialog *dlg,
 
 #ifdef HAVE_METADATA
 	if (enable) {
-		g_object_ref (priv->metadata_details_sw);
-		gtk_container_remove (GTK_CONTAINER (gtk_widget_get_parent (priv->metadata_details_sw)),
-				      priv->metadata_details_sw);
-		gtk_container_add (GTK_CONTAINER (priv->metadata_details_box), priv->metadata_details_sw);
-		g_object_unref (priv->metadata_details_sw);
+		gtk_widget_reparent (priv->metadata_details_sw,
+				     priv->metadata_details_box);
 		// Only show details box if metadata is being displayed
-		if (gtk_widget_get_visible (priv->metadata_box))
+		if (gtk_widget_get_visible (priv->exif_box))
 			gtk_widget_show_all (priv->metadata_details_box);
 
-		gtk_widget_hide (priv->metadata_details_expander);
+		gtk_widget_hide (priv->exif_details_expander);
 	} else {
-		g_object_ref (priv->metadata_details_sw);
-		gtk_container_remove (GTK_CONTAINER (gtk_widget_get_parent (priv->metadata_details_sw)),
-				      priv->metadata_details_sw);
-		gtk_container_add (GTK_CONTAINER (priv->metadata_details_expander), priv->metadata_details_sw);
-		g_object_unref (priv->metadata_details_sw);
-		gtk_widget_show_all (priv->metadata_details_expander);
+		gtk_widget_reparent (priv->metadata_details_sw,
+				     priv->exif_details_expander);
+		gtk_widget_show_all (priv->exif_details_expander);
 
 		if (gtk_notebook_get_current_page (GTK_NOTEBOOK (priv->notebook)) == EOG_PROPERTIES_DIALOG_PAGE_DETAILS)
 			gtk_notebook_prev_page (GTK_NOTEBOOK (priv->notebook));
@@ -521,16 +502,6 @@ eog_properties_dialog_set_property (GObject      *object,
 			eog_properties_dialog_set_netbook_mode (prop_dlg,
 						   g_value_get_boolean (value));
 			break;
-		case PROP_NEXT_ACTION:
-			gtk_actionable_set_action_name (GTK_ACTIONABLE (prop_dlg->priv->next_button),
-							g_value_get_string (value));
-			gtk_button_set_always_show_image(GTK_BUTTON(prop_dlg->priv->next_button), TRUE);
-			break;
-		case PROP_PREV_ACTION:
-			gtk_actionable_set_action_name (GTK_ACTIONABLE (prop_dlg->priv->previous_button),
-							g_value_get_string (value));
-			gtk_button_set_always_show_image(GTK_BUTTON(prop_dlg->priv->previous_button), TRUE);
-			break;
 		default:
 			G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id,
 							   pspec);
@@ -554,20 +525,6 @@ eog_properties_dialog_get_property (GObject    *object,
 			g_value_set_boolean (value,
 					     prop_dlg->priv->netbook_mode);
 			break;
-		case PROP_NEXT_ACTION:
-		{
-			const gchar* action = gtk_actionable_get_action_name (
-						      GTK_ACTIONABLE (prop_dlg->priv->next_button));
-			g_value_set_string (value, action);
-			break;
-		}
-		case PROP_PREV_ACTION:
-		{
-			const gchar* action = gtk_actionable_get_action_name (
-						      GTK_ACTIONABLE (prop_dlg->priv->previous_button));
-			g_value_set_string (value, action);
-			break;
-		}
 		default:
 			G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id,
 							   pspec);
@@ -599,9 +556,9 @@ eog_properties_dialog_dispose (GObject *object)
 }
 
 static void
-eog_properties_dialog_class_init (EogPropertiesDialogClass *klass)
+eog_properties_dialog_class_init (EogPropertiesDialogClass *class)
 {
-	GObjectClass *g_object_class = (GObjectClass *) klass;
+	GObjectClass *g_object_class = (GObjectClass *) class;
 
 	g_object_class->dispose = eog_properties_dialog_dispose;
 	g_object_class->set_property = eog_properties_dialog_set_property;
@@ -615,7 +572,9 @@ eog_properties_dialog_class_init (EogPropertiesDialogClass *klass)
 							      EOG_TYPE_THUMB_VIEW,
 							      G_PARAM_READWRITE |
 							      G_PARAM_CONSTRUCT_ONLY |
-							      G_PARAM_STATIC_STRINGS));
+							      G_PARAM_STATIC_NAME |
+							      G_PARAM_STATIC_NICK |
+							      G_PARAM_STATIC_BLURB));
 	g_object_class_install_property (g_object_class, PROP_NETBOOK_MODE,
 					 g_param_spec_boolean ("netbook-mode",
 					 		      "Netbook Mode",
@@ -623,155 +582,94 @@ eog_properties_dialog_class_init (EogPropertiesDialogClass *klass)
 							      FALSE,
 							      G_PARAM_READWRITE |
 							      G_PARAM_STATIC_STRINGS));
-	g_object_class_install_property (g_object_class,
-					 PROP_NEXT_ACTION,
-					 g_param_spec_string ("next-action",
-							      "Next Action",
-							      "Action for Next button",
-							      NULL,
-							      G_PARAM_READWRITE |
-							      G_PARAM_CONSTRUCT_ONLY |
-							      G_PARAM_STATIC_STRINGS));
-	g_object_class_install_property (g_object_class,
-					 PROP_PREV_ACTION,
-					 g_param_spec_string ("prev-action",
-							      "Prev Action",
-							      "Action for Prev button",
-							      NULL,
-							      G_PARAM_READWRITE |
-							      G_PARAM_CONSTRUCT_ONLY |
-							      G_PARAM_STATIC_STRINGS));
 
-	gtk_widget_class_set_template_from_resource ((GtkWidgetClass *) klass, "/org/gnome/eog/ui/eog-image-properties-dialog.ui");
-
-	GtkWidgetClass *wklass = (GtkWidgetClass*) klass;
-	gtk_widget_class_bind_template_child_private(wklass,
-						     EogPropertiesDialog,
-						     notebook);
-	gtk_widget_class_bind_template_child_private(wklass,
-						     EogPropertiesDialog,
-						     previous_button);
-	gtk_widget_class_bind_template_child_private(wklass,
-						     EogPropertiesDialog,
-						     next_button);
-	gtk_widget_class_bind_template_child_private(wklass,
-						     EogPropertiesDialog,
-						     thumbnail_image);
-	gtk_widget_class_bind_template_child_private(wklass,
-						     EogPropertiesDialog,
-						     general_box);
-	gtk_widget_class_bind_template_child_private(wklass,
-						     EogPropertiesDialog,
-						     name_label);
-	gtk_widget_class_bind_template_child_private(wklass,
-						     EogPropertiesDialog,
-						     width_label);
-	gtk_widget_class_bind_template_child_private(wklass,
-						     EogPropertiesDialog,
-						     height_label);
-	gtk_widget_class_bind_template_child_private(wklass,
-						     EogPropertiesDialog,
-						     type_label);
-	gtk_widget_class_bind_template_child_private(wklass,
-						     EogPropertiesDialog,
-						     bytes_label);
-	gtk_widget_class_bind_template_child_private(wklass,
-						     EogPropertiesDialog,
-						     folder_button);
-
-#if HAVE_EXIF
-	gtk_widget_class_bind_template_child_private(wklass,
-						     EogPropertiesDialog,
-						     exif_aperture_label);
-	gtk_widget_class_bind_template_child_private(wklass,
-						     EogPropertiesDialog,
-						     exif_exposure_label);
-	gtk_widget_class_bind_template_child_private(wklass,
-						     EogPropertiesDialog,
-						     exif_focal_label);
-	gtk_widget_class_bind_template_child_private(wklass,
-						     EogPropertiesDialog,
-						     exif_flash_label);
-	gtk_widget_class_bind_template_child_private(wklass,
-						     EogPropertiesDialog,
-						     exif_iso_label);
-	gtk_widget_class_bind_template_child_private(wklass,
-						     EogPropertiesDialog,
-						     exif_metering_label);
-	gtk_widget_class_bind_template_child_private(wklass,
-						     EogPropertiesDialog,
-						     exif_model_label);
-	gtk_widget_class_bind_template_child_private(wklass,
-						     EogPropertiesDialog,
-						     exif_date_label);
-#endif
-#if HAVE_EXEMPI
-	gtk_widget_class_bind_template_child_private(wklass,
-						     EogPropertiesDialog,
-						     xmp_location_label);
-	gtk_widget_class_bind_template_child_private(wklass,
-						     EogPropertiesDialog,
-						     xmp_description_label);
-	gtk_widget_class_bind_template_child_private(wklass,
-						     EogPropertiesDialog,
-						     xmp_keywords_label);
-	gtk_widget_class_bind_template_child_private(wklass,
-						     EogPropertiesDialog,
-						     xmp_creator_label);
-	gtk_widget_class_bind_template_child_private(wklass,
-						     EogPropertiesDialog,
-						     xmp_rights_label);
-#else
-	gtk_widget_class_bind_template_child_private(wklass,
-						     EogPropertiesDialog,
-						     xmp_box);
-	gtk_widget_class_bind_template_child_private(wklass,
-						     EogPropertiesDialog,
-						     xmp_box_label);
-#endif
-#ifdef HAVE_METADATA
-	gtk_widget_class_bind_template_child_private(wklass,
-						     EogPropertiesDialog,
-						     metadata_box);
-	gtk_widget_class_bind_template_child_private(wklass,
-						     EogPropertiesDialog,
-						     metadata_details_expander);
-	gtk_widget_class_bind_template_child_private(wklass,
-						     EogPropertiesDialog,
-						     metadata_details_box);
-
-	gtk_widget_class_bind_template_callback(wklass,
-						pd_exif_details_activated_cb);
-#endif
-	gtk_widget_class_bind_template_callback(wklass,
-						eog_properties_dialog_page_switch);
-	gtk_widget_class_bind_template_callback(wklass,
-						pd_folder_button_clicked_cb);
-
+	g_type_class_add_private (g_object_class, sizeof (EogPropertiesDialogPrivate));
 }
 
 static void
 eog_properties_dialog_init (EogPropertiesDialog *prop_dlg)
 {
 	EogPropertiesDialogPrivate *priv;
+	GtkWidget *dlg;
+#ifndef HAVE_EXEMPI
+	GtkWidget *xmp_box, *xmp_box_label;
+#endif
 #if HAVE_METADATA
 	GtkWidget *sw;
 #endif
 
-	prop_dlg->priv = eog_properties_dialog_get_instance_private (prop_dlg);
+	prop_dlg->priv = EOG_PROPERTIES_DIALOG_GET_PRIVATE (prop_dlg);
 
 	priv = prop_dlg->priv;
 
 	priv->update_page = FALSE;
 
-	gtk_widget_init_template (GTK_WIDGET (prop_dlg));
+	eog_dialog_construct (EOG_DIALOG (prop_dlg),
+			      "eog-image-properties-dialog.ui",
+			      "eog_image_properties_dialog");
 
+	eog_dialog_get_controls (EOG_DIALOG (prop_dlg),
+			         "eog_image_properties_dialog", &dlg,
+			         "notebook", &priv->notebook,
+			         "previous_button", &priv->previous_button,
+			         "next_button", &priv->next_button,
+			         "close_button", &priv->close_button,
+			         "thumbnail_image", &priv->thumbnail_image,
+			         "general_box", &priv->general_box,
+			         "name_label", &priv->name_label,
+			         "width_label", &priv->width_label,
+			         "height_label", &priv->height_label,
+			         "type_label", &priv->type_label,
+			         "bytes_label", &priv->bytes_label,
+				 "folder_button", &priv->folder_button,
+			         "created_label", &priv->created_label,
+			         "modified_label", &priv->modified_label,
+#ifdef HAVE_EXIF
+			         "exif_aperture_label", &priv->exif_aperture_label,
+			         "exif_exposure_label", &priv->exif_exposure_label,
+			         "exif_focal_label", &priv->exif_focal_label,
+			         "exif_flash_label", &priv->exif_flash_label,
+			         "exif_iso_label", &priv->exif_iso_label,
+			         "exif_metering_label", &priv->exif_metering_label,
+			         "exif_model_label", &priv->exif_model_label,
+			         "exif_date_label", &priv->exif_date_label,
+#endif
+#ifdef HAVE_EXEMPI
+				 "xmp_location_label", &priv->xmp_location_label,
+				 "xmp_description_label", &priv->xmp_description_label,
+				 "xmp_keywords_label", &priv->xmp_keywords_label,
+				 "xmp_creator_label", &priv->xmp_creator_label,
+				 "xmp_rights_label", &priv->xmp_rights_label,
+#else
+				 "xmp_box", &xmp_box,
+				 "xmp_box_label", &xmp_box_label,
+#endif
+#ifdef HAVE_METADATA
+			         "exif_box", &priv->exif_box,
+				 "exif_details_expander", &priv->exif_details_expander,
+				 "metadata_details_box", &priv->metadata_details_box,
+#endif
+			         NULL);
 
-	g_signal_connect (prop_dlg,
+	g_signal_connect (dlg,
 			  "delete-event",
-			  G_CALLBACK (gtk_widget_hide_on_delete),
+			  G_CALLBACK (eog_properties_dialog_delete),
 			  prop_dlg);
 
+	g_signal_connect (priv->notebook,
+			  "switch-page",
+			  G_CALLBACK (eog_properties_dialog_page_switch),
+			  prop_dlg);
+
+	g_signal_connect (priv->close_button,
+			  "clicked",
+			  G_CALLBACK (pd_close_button_clicked_cb),
+			  prop_dlg);
+
+	g_signal_connect (priv->folder_button,
+			  "clicked",
+			  G_CALLBACK (pd_folder_button_clicked_cb),
+			  prop_dlg);
 	gtk_widget_set_tooltip_text (GTK_WIDGET (priv->folder_button),
 				     _("Show the folder which contains this "
 				       "file in the file manager"));
@@ -789,28 +687,32 @@ eog_properties_dialog_init (EogPropertiesDialog *prop_dlg)
 					GTK_POLICY_AUTOMATIC,
 					GTK_POLICY_AUTOMATIC);
 
-	priv->metadata_details = eog_metadata_details_new ();
-	gtk_widget_set_size_request (priv->metadata_details, -1, 170);
-	gtk_widget_set_vexpand (priv->metadata_details, TRUE);
+	priv->exif_details = eog_exif_details_new ();
+	gtk_widget_set_size_request (priv->exif_details, -1, 170);
 	gtk_container_set_border_width (GTK_CONTAINER (sw), 6);
 
-	gtk_container_add (GTK_CONTAINER (sw), priv->metadata_details);
+	gtk_container_add (GTK_CONTAINER (sw), priv->exif_details);
 	gtk_widget_show_all (sw);
 
 	priv->metadata_details_sw = sw;
 
 	if (priv->netbook_mode) {
-		gtk_widget_hide (priv->metadata_details_expander);
+		gtk_widget_hide (priv->exif_details_expander);
 		gtk_box_pack_start (GTK_BOX (priv->metadata_details_box),
 				    sw, TRUE, TRUE, 6);
 	} else {
-		gtk_container_add (GTK_CONTAINER (priv->metadata_details_expander),
+		gtk_container_add (GTK_CONTAINER (priv->exif_details_expander),
 				   sw);
 	}
 
+	g_signal_connect_after (G_OBJECT (priv->exif_details_expander),
+			        "notify::expanded",
+			  	G_CALLBACK (pd_exif_details_activated_cb),
+			  	dlg);
+
 #ifndef HAVE_EXEMPI
-	gtk_widget_hide (priv->xmp_box);
-	gtk_widget_hide (priv->xmp_box_label);
+	gtk_widget_hide (xmp_box);
+	gtk_widget_hide (xmp_box_label);
 #endif
 
 #else
@@ -825,43 +727,38 @@ eog_properties_dialog_init (EogPropertiesDialog *prop_dlg)
 
 /**
  * eog_properties_dialog_new:
- * @parent: the dialog's parent window
+ * @parent: 
  * @thumbview: 
  * @next_image_action: 
  * @previous_image_action: 
  *
- * If %parent implements #GActionMap its actions will be automatically
- * inserted in the "win" namespace.
+ * 
  *
  * Returns: (transfer full) (type EogPropertiesDialog): a new #EogPropertiesDialog
  **/
-GtkWidget *
+GObject *
 eog_properties_dialog_new (GtkWindow    *parent,
 			   EogThumbView *thumbview,
-			   const gchar  *next_image_action,
-			   const gchar  *previous_image_action)
+			   GtkAction    *next_image_action,
+			   GtkAction    *previous_image_action)
 {
 	GObject *prop_dlg;
 
 	g_return_val_if_fail (GTK_IS_WINDOW (parent), NULL);
 	g_return_val_if_fail (EOG_IS_THUMB_VIEW (thumbview), NULL);
+	g_return_val_if_fail (GTK_IS_ACTION (next_image_action), NULL);
+	g_return_val_if_fail (GTK_IS_ACTION (previous_image_action), NULL);
 
 	prop_dlg = g_object_new (EOG_TYPE_PROPERTIES_DIALOG,
+				 "parent-window", parent,
 			     	 "thumbview", thumbview,
-				 "next-action", next_image_action,
-				 "prev-action", previous_image_action,
-				 "use-header-bar", TRUE,
 			     	 NULL);
 
-	gtk_window_set_transient_for (GTK_WINDOW (prop_dlg), parent);
+	gtk_activatable_set_related_action (GTK_ACTIVATABLE (EOG_PROPERTIES_DIALOG (prop_dlg)->priv->next_button), next_image_action);
 
-	if (G_LIKELY (G_IS_ACTION_GROUP (parent))) {
-		gtk_widget_insert_action_group (GTK_WIDGET (prop_dlg),
-						"win",
-						G_ACTION_GROUP (parent));
-	}
+	gtk_activatable_set_related_action (GTK_ACTIVATABLE (EOG_PROPERTIES_DIALOG (prop_dlg)->priv->previous_button), previous_image_action);
 
-	return GTK_WIDGET (prop_dlg);
+	return prop_dlg;
 }
 
 void

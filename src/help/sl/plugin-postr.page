@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="topic" style="task" id="plugin-postr" xml:lang="sl">
+
+  <info>
+   <link type="guide" xref="index#plugins"/>
+   <desc>Za pošiljanje fotografij na spletne albume Flickr potebujete Pošiljevalnik Flickr.</desc>
+
+   <revision pkgversion="3.2" version="0.1" date="2011-09-06" status="final"/>
+   <credit type="author">
+     <name>Tiffany Antopolski</name>
+     <email>tiffany.antopolski@gmail.com</email>
+   </credit>
+   <license>
+     <p>Dovoljenje Creative Commons - deljenje pod istimi pogoji 3.0</p>
+   </license>
+
+  </info>
+
+<title>Pošiljanje fotografij na <app>Flickr</app></title>
+
+<p><em>Flickr</em> je storitev albuma fotografij, ki vam omogoča deljenje slik na spletu. Fotografije lahko pošljete na Flickr neposredno iz pregledovalnika slik.</p>
+
+<p>Da bi lahko uporabili <app>Pošiljalnik Flickr</app>, boste morali z <app>upravljalnikom paketov</app> svoje distribucije namestiti <app>Postr</app>. Ko je nameščen, lahko na Flickr pošljete fotografije:</p>
+
+<steps>
+ <item>
+  <p>Ko prvič pošljete fotografijo, vas bo <app>Pošiljalnik Flickr</app> pozval k prijavi v Flickr. Spletišče vas bo vprašalo za overitev <app>Postr</app> za dostop do vašega računa.</p>
+ </item>
+ <item>
+  <p>V pregledovalniku slik kliknite <guiseq><gui>Slika</gui><gui>Odpri z</gui><gui>Pošiljalnik Flickr</gui></guiseq>.</p>
+ </item>
+ <item>
+  <p>Kliknite <gui>Pošlji</gui>.</p>
+ </item>
+</steps>
+
+<section id="tools-plugin">
+ <title>Doda predmet menija <gui>Orodja</gui></title>
+ <p>Za pošiljanje slik na Flickr lahko dodate gumb bližnjice.</p>
+ <p>Prepričajte se, da je paket <link xref="plugins">eog-plugins</link> nameščen. Nato kliknite <guiseq><gui>Uredi</gui><gui>Možnosti</gui></guiseq>, pojdite v zavihek <gui>Vstavki</gui> in izberite <gui>Pošlji na Flickr</gui>.</p>
+ <p>To zagotovi priročen predmet menija <guiseq><gui>Orodja</gui><gui>Pošlji na Flickr</gui></guiseq>.</p>
+ <media type="image" src="figures/plugin-tools-flickr.png" style="floatend"/>
+</section>
+
+</page>

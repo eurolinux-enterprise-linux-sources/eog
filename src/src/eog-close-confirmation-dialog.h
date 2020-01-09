@@ -18,9 +18,10 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
- * You should have received a copy of the GNU General Public License along
- * with this program; if not, write to the Free Software Foundation, Inc.,
- * 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330,
+ * Boston, MA 02111-1307, USA.
  */
 
 #ifndef __EOG_CLOSE_CONFIRMATION_DIALOG_H__
@@ -44,7 +45,7 @@ typedef struct _EogCloseConfirmationDialogPrivate 	EogCloseConfirmationDialogPri
 
 struct _EogCloseConfirmationDialog
 {
-	GtkMessageDialog parent;
+	GtkDialog parent;
 
 	/*< private > */
 	EogCloseConfirmationDialogPrivate *priv;
@@ -52,7 +53,7 @@ struct _EogCloseConfirmationDialog
 
 struct _EogCloseConfirmationDialogClass
 {
-	GtkMessageDialogClass parent_class;
+	GtkDialogClass parent_class;
 };
 
 /**

@@ -17,9 +17,9 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
- * You should have received a copy of the GNU General Public License along
- * with this program; if not, write to the Free Software Foundation, Inc.,
- * 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
 #ifdef HAVE_CONFIG_H
@@ -38,11 +38,11 @@
 
 #define EOG_PLUGIN_DATA_DIR EOG_DATA_DIR G_DIR_SEPARATOR_S "plugins"
 
+G_DEFINE_TYPE (EogPluginEngine, eog_plugin_engine, PEAS_TYPE_ENGINE)
+
 struct _EogPluginEnginePrivate {
     GSettings *plugins_settings;
 };
-
-G_DEFINE_TYPE_WITH_PRIVATE (EogPluginEngine, eog_plugin_engine, PEAS_TYPE_ENGINE);
 
 static void
 eog_plugin_engine_dispose (GObject *object)
@@ -63,6 +63,8 @@ eog_plugin_engine_class_init (EogPluginEngineClass *klass)
 {
   GObjectClass *object_class = G_OBJECT_CLASS (klass);
 
+  g_type_class_add_private (klass, sizeof (EogPluginEnginePrivate));
+
   object_class->dispose = eog_plugin_engine_dispose;
 }
 
@@ -71,7 +73,9 @@ eog_plugin_engine_init (EogPluginEngine *engine)
 {
 	eog_debug (DEBUG_PLUGINS);
 
-	engine->priv = eog_plugin_engine_get_instance_private (engine);
+	engine->priv = G_TYPE_INSTANCE_GET_PRIVATE (engine,
+						    EOG_TYPE_PLUGIN_ENGINE,
+						    EogPluginEnginePrivate);
 
 	engine->priv->plugins_settings = g_settings_new ("org.gnome.eog.plugins");
 }
@@ -121,7 +125,7 @@ eog_plugin_engine_new (void)
 	engine = EOG_PLUGIN_ENGINE (g_object_new (EOG_TYPE_PLUGIN_ENGINE,
 						  NULL));
 
-	peas_engine_enable_loader (PEAS_ENGINE (engine), "python3");
+	peas_engine_enable_loader (PEAS_ENGINE (engine), "python");
 
 	user_plugin_path = g_build_filename (g_get_user_data_dir (),
 					     "eog", "plugins", NULL);

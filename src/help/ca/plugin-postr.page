@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="topic" style="task" id="plugin-postr" xml:lang="ca">
+
+  <info>
+   <link type="guide" xref="index#plugins"/>
+   <desc>Per poder penjar fotografies als àlbums de fotografies en línia del Flickr heu d'instal·lar el Flickr Uploader.</desc>
+
+   <revision pkgversion="3.2" version="0.1" date="2011-09-06" status="final"/>
+   <credit type="author">
+     <name>Tiffany Antopolski</name>
+     <email>tiffany.antopolski@gmail.com</email>
+   </credit>
+   <license>
+     <p>Creative Commons Share Alike 3.0</p>
+   </license>
+
+  </info>
+
+<title>Pengeu les fotografies a <app>Flickr</app></title>
+
+<p>El <em>Flickr</em> és un servei d'àlbums de fotografies que us permet compartir imatges amb d'altres persones en línia. Podeu penjar fotografies al Flickr directament des del visualitzador d'imatges.</p>
+
+<p>Per poder utilitzar el <app>Flickr Uploader</app> haureu d'instal·lar l'aplicació <app>Postr</app> utilitzant <app>el gestor de paquets informàtics</app> de la vostra distribució de Linux. Una vegada instal·lat podeu penjar fotografies al Flickr:</p>
+
+<steps>
+ <item>
+  <p>La primera vegada que pengeu una fotografia, el <app>Flickr Uploader</app> us demanarà que inicieu la sessió al Flickr. El lloc web us demanarà que autoritzeu l'accés al vostre compte a l'aplicació <app>Postr</app>.</p>
+ </item>
+ <item>
+  <p>Torneu al visualitzador d'imatges i feu clic a <guiseq><gui>Imatge</gui><gui>Obre amb</gui><gui>Flickr Uploader</gui></guiseq>.</p>
+ </item>
+ <item>
+  <p>Feu clic a <gui>Penja</gui>.</p>
+ </item>
+</steps>
+
+<section id="tools-plugin">
+ <title>Addició d'un element al menú <gui>Eines</gui></title>
+ <p>Podeu afegir un botó de drecera per penjar imatges al Flickr.</p>
+ <p>Per fer-ho, assegureu-vos que l'<link xref="plugins">eog-plugins</link> estigui instal·lat. A continuació, feu clic a <guiseq><gui>Edita</gui><gui>Preferències</gui></guiseq>, aneu a la pestanya <gui>Connectors</gui> i seleccioneu <gui>Penja al Flickr</gui>.</p>
+ <p>Us afegirà l'element de menú <guiseq><gui>Eines</gui><gui>Penja al Flickr</gui></guiseq>.</p>
+ <media type="image" src="figures/plugin-tools-flickr.png" style="floatend"/>
+</section>
+
+</page>

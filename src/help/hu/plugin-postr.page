@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="topic" style="task" id="plugin-postr" xml:lang="hu">
+
+  <info>
+   <link type="guide" xref="index#plugins"/>
+   <desc>A Flickr feltöltő segítségével fényképeket küldhet az online Flickr albumaiba.</desc>
+
+   <revision pkgversion="3.2" version="0.1" date="2011-09-06" status="final"/>
+   <credit type="author">
+     <name>Tiffany Antopolski</name>
+     <email>tiffany.antopolski@gmail.com</email>
+   </credit>
+   <license>
+     <p>Creative Commons Share Alike 3.0</p>
+   </license>
+
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Kelemen Gábor</mal:name>
+      <mal:email>kelemeng at gnome dot hu</mal:email>
+      <mal:years>2011, 2012, 2013.</mal:years>
+    </mal:credit>
+  </info>
+
+<title>Fényképek feltöltése a <app>Flickr-re</app></title>
+
+<p>A <em>Flickr</em> egy fényképalbum-szolgáltatás, amely lehetővé teszi képek megosztását online. Képeit közvetlenül a képmegjelenítőből is feltöltheti a Flickr-re.</p>
+
+<p>A <app>Flickr feltöltő</app> használatához telepítenie kell a <app>Postr</app> alkalmazást a disztribúciója <app>csomagkezelőjével</app>. Ennek telepítése után feltöltheti képeit a Flickr-re:</p>
+
+<steps>
+ <item>
+  <p>Az első fénykép feltöltésekor a <app>Flickr feltöltő</app> felkéri a Flickr-re való bejelentkezésre. A weboldal megkéri, hogy hatalmazza fel a <app>Postr</app> alkalmazást a fiókjának használatára.</p>
+ </item>
+ <item>
+  <p>A képmegjelenítőben ezután válassza a <guiseq><gui>Kép</gui><gui>Megnyitás ezzel</gui><gui>Flickr feltöltő</gui></guiseq> menüpontot.</p>
+ </item>
+ <item>
+  <p>Kattintson a <gui>Feltöltés</gui> gombra.</p>
+ </item>
+</steps>
+
+<section id="tools-plugin">
+ <title><gui>Eszközök</gui> menüpont hozzáadása</title>
+ <p>Felvehet egy gombot a képek feltöltéséhez Flickr-re.</p>
+ <p>Ehhez győződjön meg róla, hogy az <link xref="plugins">eog-plugins</link> telepítve van. Ezután válassza a <guiseq><gui>Szerkesztés</gui><gui>Beállítások</gui></guiseq> menüpontot, lépjen a <gui>Bővítmények</gui> lapra, és jelölje be a <gui>Flickr feltöltő</gui> bővítményt.</p>
+ <p>Ezután használhatja a kényelmes <guiseq><gui>Eszközök</gui><gui>Feltöltés a Flickr-re</gui></guiseq> menüpontot.</p>
+ <media type="image" src="figures/plugin-tools-flickr.png" style="floatend"/>
+</section>
+
+</page>

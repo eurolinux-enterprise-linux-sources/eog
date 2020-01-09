@@ -1,49 +1,50 @@
 %global _changelog_trimtime %(date +%s -d "1 year ago")
 
-%define gtk3_version 3.22.0
-%define glib2_version 2.42.0
+%define gtk3_version 3.3.8
+%define glib2_version 2.31.0
 %define gnome_desktop_version 2.91.2
+%define gnome_icon_theme_version 2.19.1
+%define desktop_file_utils_version 0.9
 %define libexif_version 0.6.14
 
-Name:    eog
-Version: 3.28.3
-Release: 1%{?dist}
 Summary: Eye of GNOME image viewer
+Name:    eog
+Version: 3.8.2
+Release: 2%{?dist}
+URL: http://projects.gnome.org/eog/
+#VCS: git:git://git.gnome.org/eog
+Source: http://download.gnome.org/sources/eog/3.8/%{name}-%{version}.tar.xz
 
 # The GFDL has an "or later version" clause embedded inside the license.
 # There is no need to add the + here.
 License: GPLv2+ and GFDL
-URL:     https://wiki.gnome.org/Apps/EyeOfGnome
-Source0: http://download.gnome.org/sources/%{name}/3.28/%{name}-%{version}.tar.xz
-
-Patch1:  no-python3.patch
-
-BuildRequires: pkgconfig(exempi-2.0)
-BuildRequires: pkgconfig(gdk-pixbuf-2.0)
-BuildRequires: pkgconfig(glib-2.0) >= %{glib2_version}
-BuildRequires: pkgconfig(gnome-desktop-3.0) >= %{gnome_desktop_version}
-BuildRequires: pkgconfig(gobject-introspection-1.0)
-BuildRequires: pkgconfig(gsettings-desktop-schemas)
-BuildRequires: pkgconfig(gtk+-3.0) >= %{gtk3_version}
-BuildRequires: pkgconfig(lcms2)
-BuildRequires: pkgconfig(libexif) >= %{libexif_version}
-BuildRequires: pkgconfig(libpeas-1.0) >= 0.7.4
-BuildRequires: pkgconfig(libpeas-gtk-1.0) >= 0.7.4
-BuildRequires: pkgconfig(librsvg-2.0)
-BuildRequires: pkgconfig(shared-mime-info)
-BuildRequires: pkgconfig(x11)
-BuildRequires: desktop-file-utils
-BuildRequires: gettext
-BuildRequires: gtk-doc
-BuildRequires: itstool
+Group: User Interface/Desktops
+BuildRequires: glib2-devel >= %{glib2_version}
+BuildRequires: gtk3-devel >= %{gtk3_version}
+BuildRequires: libexif-devel >= %{libexif_version}
+BuildRequires: exempi-devel
+BuildRequires: lcms2-devel
+BuildRequires: intltool >= 0.50.0-1
 BuildRequires: libjpeg-devel
-BuildRequires: meson
+BuildRequires: gettext
+BuildRequires: desktop-file-utils >= %{desktop_file_utils_version}
+BuildRequires: gnome-desktop3-devel >= %{gnome_desktop_version}
+BuildRequires: gnome-icon-theme >= %{gnome_icon_theme_version}
+BuildRequires: libXt-devel
+BuildRequires: libxml2-devel
+BuildRequires: librsvg2-devel
+BuildRequires: libpeas-devel >= 0.7.4
+BuildRequires: gdk-pixbuf2-devel
+BuildRequires: shared-mime-info
+BuildRequires: gsettings-desktop-schemas-devel
+BuildRequires: dbus-glib-devel
+BuildRequires: gobject-introspection-devel
 BuildRequires: zlib-devel
-BuildRequires: /usr/bin/appstream-util
-
+BuildRequires: itstool
 Requires:      gsettings-desktop-schemas
-Requires:      glib2%{?_isa} >= %{glib2_version}
-Requires:      gtk3%{?_isa} >= %{gtk3_version}
+
+Requires(post):   desktop-file-utils >= %{desktop_file_utils_version}
+Requires(postun): desktop-file-utils >= %{desktop_file_utils_version}
 
 %description
 The Eye of GNOME image viewer (eog) is the official image viewer for the
@@ -54,7 +55,9 @@ eog is extensible through a plugin system.
 
 %package devel
 Summary: Support for developing plugins for the eog image viewer
-Requires: %{name}%{?_isa} = %{version}-%{release}
+Group: Development/Libraries
+Requires: %{name} = %{version}-%{release}
+Requires: gtk3-devel
 
 %description devel
 The Eye of GNOME image viewer (eog) is the official image viewer for the
@@ -63,20 +66,20 @@ functionality to eog.
 
 %prep
 %setup -q
-%patch1 -p1 -b .no-py3
 
 %build
-%meson -Dgtk_doc=true -Dinstalled_tests=false
-%meson_build
+%configure
+make %{?_smp_mflags}
 
 %install
-%meson_install
+make install DESTDIR=$RPM_BUILD_ROOT
 
 %find_lang %{name} --with-gnome
 
-%check
-appstream-util validate-relax --nonet %{buildroot}/%{_datadir}/metainfo/*.appdata.xml
-desktop-file-validate %{buildroot}/%{_datadir}/applications/eog.desktop
+rm -rf $RPM_BUILD_ROOT%{_libdir}/eog/plugins/*.la
+
+desktop-file-validate $RPM_BUILD_ROOT%{_datadir}/applications/eog.desktop
+
 
 %post
 update-desktop-database >&/dev/null || :
@@ -95,8 +98,7 @@ gtk-update-icon-cache %{_datadir}/icons/hicolor >&/dev/null || :
 glib-compile-schemas %{_datadir}/glib-2.0/schemas >&/dev/null || :
 
 %files -f %{name}.lang
-%doc AUTHORS NEWS README
-%license COPYING
+%doc AUTHORS COPYING NEWS README
 %{_datadir}/eog
 %{_datadir}/applications/eog.desktop
 %{_datadir}/icons/hicolor/*/apps/*
@@ -105,7 +107,6 @@ glib-compile-schemas %{_datadir}/glib-2.0/schemas >&/dev/null || :
 %{_datadir}/GConf/gsettings/eog.convert
 %{_datadir}/glib-2.0/schemas/org.gnome.eog.enums.xml
 %{_datadir}/glib-2.0/schemas/org.gnome.eog.gschema.xml
-%{_datadir}/metainfo/eog.appdata.xml
 
 %files devel
 %{_includedir}/eog-3.0
@@ -113,36 +114,6 @@ glib-compile-schemas %{_datadir}/glib-2.0/schemas >&/dev/null || :
 %{_datadir}/gtk-doc/
 
 %changelog
-* Wed Jul 25 2018 Kalev Lember <klember@redhat.com> - 3.28.3-1
-- Update to 3.28.3
-- Resolves: #1567185
-
-* Wed Jun 06 2018 Richard Hughes <rhughes@redhat.com> - 3.28.2-1
-- Update to 3.28.2
-- Resolves: #1567185
-
-* Tue Apr 18 2017 Richard Hughes <rhughes@redhat.com> - 3.20.5-2
-- Do not build the tests subpackage, the required deps are not available.
-- Resolves: #1433402
-
-* Thu Feb 23 2017 Matthias Clasen <mclasen@redhat.com> - 3.20.5-1
-- Rebase to 3.20.5
-  Resolves: rhbz#1386850
-
-* Mon Mar 23 2015 Richard Hughes <rhughes@redhat.com> - 3.14.3-1
-- Update to 3.14.3
-- Resolves: #1174581
-
-* Tue Feb 25 2014 Matthias Clasen <mclasen@redhat.com> - 3.8.2-5
-- Update translations
-Resolves: #1047841
-
-* Fri Jan 24 2014 Daniel Mach <dmach@redhat.com> - 3.8.2-4
-- Mass rebuild 2014-01-24
-
-* Fri Dec 27 2013 Daniel Mach <dmach@redhat.com> - 3.8.2-3
-- Mass rebuild 2013-12-27
-
 * Sat Jun 22 2013 Matthias Clasen <mclasen@redhat.com> - 3.8.2-2
 - Trim %%changelog
 

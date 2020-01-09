@@ -47,8 +47,6 @@ eog_image_get_transform
 eog_image_is_animation
 eog_image_is_svg
 eog_image_start_animation
-eog_image_is_file_writable
-eog_image_is_multipaged
 <SUBSECTION Standard>
 EOG_IMAGE
 EOG_IS_IMAGE
@@ -237,13 +235,20 @@ EOG_JOB_COPY
 EOG_JOB_COPY_CLASS
 <TITLE>EogJob</TITLE>
 EogJob
+<TITLE>EogJobThumbnail</TITLE>
 EogJobThumbnail
+<TITLE>EogJobLoad</TITLE>
 EogJobLoad
+<TITLE>EogJobModel</TITLE>
 EogJobModel
+<TITLE>EogJobTransform</TITLE>
 EogJobTransform
 EogJobSaveResponse
+<TITLE>EogJobSave</TITLE>
 EogJobSave
+<TITLE>EogJobSaveAs</TITLE>
 EogJobSaveAs
+<TITLE>EogJobCopy</TITLE>
 EogJobCopy
 eog_job_finished
 eog_job_run
@@ -383,6 +388,9 @@ eog_application_open_uri_list
 eog_application_open_file_list
 eog_application_open_uris
 eog_application_get_windows
+eog_application_get_toolbars_model
+eog_application_save_toolbars_model
+eog_application_reset_toolbars_model
 eog_application_screensaver_enable
 eog_application_screensaver_disable
 <SUBSECTION Standard>
@@ -445,7 +453,6 @@ EogStartupFlags
 <TITLE>EogWindow</TITLE>
 EogWindow
 eog_window_new
-eog_window_get_gear_menu_section
 eog_window_get_mode
 eog_window_set_mode
 eog_window_get_ui_manager
@@ -503,20 +510,52 @@ EOG_STATUSBAR_GET_CLASS
 </SECTION>
 
 <SECTION>
-<FILE>eog-metadata-details</FILE>
-<TITLE>EogMetadataDetails</TITLE>
-EogMetadataDetails
-eog_metadata_details_new
-eog_metadata_details_update
-eog_metadata_details_xmp_update
+<FILE>eog-exif-details</FILE>
+<TITLE>EogExifDetails</TITLE>
+EogExifDetails
+eog_exif_details_new
+eog_exif_details_update
+eog_exif_details_xmp_update
 <SUBSECTION Standard>
-EOG_METADATA_DETAILS
-EOG_IS_METADATA_DETAILS
-EOG_TYPE_METADATA_DETAILS
-eog_metadata_details_get_type
-EOG_METADATA_DETAILS_CLASS
-EOG_IS_METADATA_DETAILS_CLASS
-EOG_METADATA_DETAILS_GET_CLASS
+EOG_EXIF_DETAILS
+EOG_IS_EXIF_DETAILS
+EOG_TYPE_EXIF_DETAILS
+eog_exif_details_get_type
+EOG_EXIF_DETAILS_CLASS
+EOG_IS_EXIF_DETAILS_CLASS
+EOG_EXIF_DETAILS_GET_CLASS
+</SECTION>
+
+<SECTION>
+<FILE>eog-metadata-reader-jpg</FILE>
+<TITLE>EogMetadataReaderJpg</TITLE>
+EogMetadataReaderJpg
+<SUBSECTION Standard>
+EOG_METADATA_READER_JPG
+EOG_IS_METADATA_READER_JPG
+EOG_TYPE_METADATA_READER_JPG
+eog_metadata_reader_jpg_get_type
+EOG_METADATA_READER_JPG_CLASS
+EOG_IS_METADATA_READER_JPG_CLASS
+EOG_METADATA_READER_JPG_GET_CLASS
+</SECTION>
+
+<SECTION>
+<FILE>eog-dialog</FILE>
+<TITLE>EogDialog</TITLE>
+EogDialog
+eog_dialog_construct
+eog_dialog_show
+eog_dialog_hide
+eog_dialog_get_controls
+<SUBSECTION Standard>
+EOG_DIALOG
+EOG_IS_DIALOG
+EOG_TYPE_DIALOG
+eog_dialog_get_type
+EOG_DIALOG_CLASS
+EOG_IS_DIALOG_CLASS
+EOG_DIALOG_GET_CLASS
 </SECTION>
 
 <SECTION>
@@ -588,11 +627,10 @@ eog_debug_message
 </SECTION>
 
 <SECTION>
-<FILE>eog-job-scheduler</FILE>
-<TITLE>EogJobScheduler</TITLE>
-eog_job_scheduler_init
-eog_job_scheduler_add_job
-eog_job_scheduler_add_job_with_priority
+<FILE>eog-job-queue</FILE>
+eog_job_queue_init
+eog_job_queue_add_job
+eog_job_queue_remove_job
 </SECTION>
 
 <SECTION>
@@ -659,6 +697,7 @@ EOG_CONF_VIEW_USE_BG_COLOR
 EOG_CONF_FULLSCREEN_LOOP
 EOG_CONF_FULLSCREEN_UPSCALE
 EOG_CONF_FULLSCREEN_SECONDS
+EOG_CONF_UI_TOOLBAR
 EOG_CONF_UI_STATUSBAR
 EOG_CONF_UI_SIDEBAR
 EOG_CONF_UI_SCROLL_BUTTONS
@@ -713,7 +752,6 @@ eog_util_filename_get_extension
 
 <SECTION>
 <FILE>eog-clipboard-handler</FILE>
-<TITLE>EogClipboardHandler</TITLE>
 EogClipboardHandler
 eog_clipboard_handler_new
 eog_clipboard_handler_copy_to_clipboard

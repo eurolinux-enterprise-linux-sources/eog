@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="topic" style="task" id="plugin-postr" xml:lang="el">
+
+  <info>
+   <link type="guide" xref="index#plugins"/>
+   <desc>Χρειάζεται η εγκατάσταση του φορτωτή Flickr για να μπορέσετε να στείλετε φωτογραφίες στη συνδεμένη συλλογή φωτογραφιών Flickr.</desc>
+
+   <revision pkgversion="3.2" version="0.1" date="2011-09-06" status="final"/>
+   <credit type="author">
+     <name>Tiffany Antopolski</name>
+     <email>tiffany.antopolski@gmail.com</email>
+   </credit>
+   <license>
+     <p>Creative Commons Share Alike 3.0</p>
+   </license>
+
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name> Φώτης Τσάμης</mal:name>
+      <mal:email>ftsamis@gmail.com</mal:email>
+      <mal:years>2009</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name> Μάριος Ζηντίλης</mal:name>
+      <mal:email>m.zindilis@dmajor.org</mal:email>
+      <mal:years>2009</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name> Δημήτρης Σπίγγος</mal:name>
+      <mal:email>dmtrs32@gmail.com</mal:email>
+      <mal:years>2012, 2013</mal:years>
+    </mal:credit>
+  </info>
+
+<title>Αποστολή φωτογραφιών στο <app>Flickr</app></title>
+
+<p>Το <em>Flickr</em> είναι μια υπηρεσία φωτογραφικού λευκώματος που επιτρέπει τον μερισμό εικόνων με συνδεμένα άτομα. Μπορείτε να φορτώσετε φωτογραφίες στο Flickr άμεσα από τον προβολέα εικόνας.</p>
+
+<p>Για να μπορέσετε να χρησιμοποιήσετε τον <app>φορτωτή Flickr</app>, θα χρειαστεί η εγκατάσταση της εφαρμογής <app>Postr</app> χρησιμοποιώντας το <app>διαχειριστή πακέτου</app> της διανομή σας Linux. Αφού εγκατασταθεί, μπορείτε να ανεβάσετε τις φωτογραφίες στο Flickr:</p>
+
+<steps>
+ <item>
+  <p>Την πρώτη φορά που θα ανεβάσετε μια φωτογραφία, ο <app>φορτωτής Flickr</app> θα σας ζητήσει να συνδεθείτε στο Flickr. Η ιστοσελίδα θα σας ζητήσει την εξουσιοδότηση του <app>Postr</app> για πρόσβαση του λογαριασμού σας.</p>
+ </item>
+ <item>
+  <p>Πίσω στον προβολέα εικόνας, κλικ στο <guiseq><gui>εικόνα</gui><gui>άνοιγμα με</gui><gui>φορτωτή Flickr</gui></guiseq>.</p>
+ </item>
+ <item>
+  <p>Κλικ στο <gui>ανέβασμα</gui>.</p>
+ </item>
+</steps>
+
+<section id="tools-plugin">
+ <title>Προσθήκη στοιχείου μενού <gui>εργαλεία</gui></title>
+ <p>Μπορείτε να προσθέσετε ένα κουμπί συντόμευσης για ανέβασμα εικόνων στο Flickr.</p>
+ <p>Για να το κάνετε αυτό, βεβαιωθείτε ότι τα <link xref="plugins">πρόσθετα eog</link> έχουν εγκατασταθεί. Έπειτα, κλικ στο <guiseq><gui>επεξεργασία</gui><gui>προτιμήσεις</gui></guiseq>, μετάβαση στην καρτέλα <gui>πρόσθετα</gui> και σημειώστε <gui>ανέβασμα στο Flickr</gui>.</p>
+ <p>Αυτό θα σας δώσει ένα βολικό στοιχείο μενού <guiseq><gui>εργαλεία</gui><gui>ανέβασμα στο Flickr</gui></guiseq>.</p>
+ <media type="image" src="figures/plugin-tools-flickr.png" style="floatend"/>
+</section>
+
+</page>

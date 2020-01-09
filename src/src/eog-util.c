@@ -17,9 +17,9 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
- * You should have received a copy of the GNU General Public License along
- * with this program; if not, write to the Free Software Foundation, Inc.,
- * 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
 #ifdef HAVE_CONFIG_H
@@ -53,8 +53,8 @@ eog_util_show_help (const gchar *section, GtkWindow *parent)
 	if (section)
 		uri = g_strdup_printf ("help:eog/%s", section);
 
-	gtk_show_uri_on_window (parent, ((uri != NULL) ? uri : "help:eog"),
-                                gtk_get_current_event_time (), &error);
+	gtk_show_uri (NULL, ((uri != NULL) ? uri : "help:eog"),
+		      gtk_get_current_event_time (), &error);
 
 	g_free (uri);
 
@@ -305,6 +305,7 @@ static void migrate_config_folder (const gchar* new_dir)
 	GFile *dir_file = NULL;
 	gsize i;
 	static const gchar *old_files[] = { "eog-print-settings.ini",
+					    "eog_toolbar.xml",
 					    NULL };
 
 	if(!g_file_test (old_dir, G_FILE_TEST_IS_DIR)) {
@@ -419,7 +420,7 @@ eog_util_file_is_persistent (GFile *file)
 }
 
 static void
-_eog_util_show_file_in_filemanager_fallback (GFile *file, GtkWindow *toplevel)
+_eog_util_show_file_in_filemanager_fallback (GFile *file, GdkScreen *screen)
 {
 	gchar *uri = NULL;
 	GError *error = NULL;
@@ -438,7 +439,7 @@ _eog_util_show_file_in_filemanager_fallback (GFile *file, GtkWindow *toplevel)
 		g_object_unref (parent_file);
 	}
 
-	if (uri && !gtk_show_uri_on_window (toplevel, uri, timestamp, &error)) {
+	if (uri && !gtk_show_uri (screen, uri, timestamp, &error)) {
 		g_warning ("Couldn't show containing folder \"%s\": %s", uri,
 			   error->message);
 		g_error_free (error);
@@ -448,7 +449,7 @@ _eog_util_show_file_in_filemanager_fallback (GFile *file, GtkWindow *toplevel)
 }
 
 void
-eog_util_show_file_in_filemanager (GFile *file, GtkWindow *toplevel)
+eog_util_show_file_in_filemanager (GFile *file, GdkScreen *screen)
 {
 	GDBusProxy *proxy;
 	gboolean done = FALSE;
@@ -501,5 +502,5 @@ eog_util_show_file_in_filemanager (GFile *file, GtkWindow *toplevel)
 
 	/* Fallback to gtk_show_uri() if launch over DBus is not possible */
 	if (!done)
-		_eog_util_show_file_in_filemanager_fallback (file, toplevel);
+		_eog_util_show_file_in_filemanager_fallback (file, screen);
 }

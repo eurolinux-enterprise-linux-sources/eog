@@ -14,9 +14,9 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
- * You should have received a copy of the GNU General Public License along
- * with this program; if not, write to the Free Software Foundation, Inc.,
- * 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
 #ifndef __EOG_IMAGE_H__
@@ -39,6 +39,10 @@
 
 #ifdef HAVE_LCMS
 #include <lcms2.h>
+#endif
+
+#ifdef HAVE_EXEMPI
+#include <exempi/xmp.h>
 #endif
 
 #ifdef HAVE_RSVG
@@ -118,7 +122,9 @@ GType	          eog_image_get_type	             (void) G_GNUC_CONST;
 
 GQuark            eog_image_error_quark              (void);
 
-EogImage         *eog_image_new_file                 (GFile *file, const gchar *caption);
+EogImage         *eog_image_new                      (const char *txt_uri);
+
+EogImage         *eog_image_new_file                 (GFile *file);
 
 gboolean          eog_image_load                     (EogImage   *img,
 					              EogImageData data2read,
@@ -216,8 +222,6 @@ void              eog_image_file_changed             (EogImage *img);
 gboolean          eog_image_is_file_changed          (EogImage *img);
 
 gboolean          eog_image_is_file_writable         (EogImage *img);
-
-gboolean          eog_image_is_multipaged            (EogImage *img);
 
 G_END_DECLS
 

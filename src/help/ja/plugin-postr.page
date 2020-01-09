@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="topic" style="task" id="plugin-postr" xml:lang="ja">
+
+  <info>
+   <link type="guide" xref="index#plugins"/>
+   <desc>オンラインの Flickr フォトアルバムに写真を送信できるようにするには、Flickr アップローダーをインストールする必要があります。</desc>
+
+   <revision pkgversion="3.2" version="0.1" date="2011-09-06" status="final"/>
+   <credit type="author">
+     <name>Tiffany Antopolski</name>
+     <email>tiffany.antopolski@gmail.com</email>
+   </credit>
+   <license>
+     <p>Creative Commons Share Alike 3.0</p>
+   </license>
+
+  </info>
+
+<title><app>Flickr</app> へ写真をアップロードする</title>
+
+<p><em>Flickr</em> は、人々とオンラインで写真を共有するフォトアルバムサービスです。画像ビューアーから直接、Flickr へ写真をアップロードできます。</p>
+
+<p><app>Flickr アップローダー</app>を利用できるようにするためには、お使いの Linux ディストリビューションの<app>パッケージマネージャー</app>を利用して <app>Postr</app> というアプリケーションをインストールする必要があります。インストールされていれば、Flickr へ写真をアップロードできます。</p>
+
+<steps>
+ <item>
+  <p>最初に写真をアップロードする時、<app>Flickr アップローダー</app>は Flickr にログインするか尋ねます。Flickr のウェブサイトでは、あなたのアカウントに接続する権限を <app>Postr</app> に与えて良いか尋ねられます。</p>
+ </item>
+ <item>
+  <p>画像ビューアーに戻り、<guiseq><gui>画像</gui><gui>次で開く</gui><gui>Flickr アップローダー</gui></guiseq>をクリックします。</p>
+ </item>
+ <item>
+  <p><gui>アップロード</gui>をクリックします。</p>
+ </item>
+</steps>
+
+<section id="tools-plugin">
+ <title><gui>ツール</gui>メニュー項目を追加する</title>
+ <p>Flickr へ写真をアップロードするためのショートカットボタンを追加できます。</p>
+ <p>これを行うには、<link xref="plugins">eog-plugins</link> をインストールする必要があります。それから、<guiseq><gui>編集</gui><gui>設定</gui></guiseq>をクリックして、<gui>プラグイン</gui>タブを開き、<gui>Flickr へアップロード</gui>にチェックをいれます。</p>
+ <p>これで、<guiseq><gui>ツール</gui><gui>Flickr へアップロード</gui></guiseq>という便利なメニュー項目が追加されます。</p>
+ <media type="image" src="figures/plugin-tools-flickr.png" style="floatend"/>
+</section>
+
+</page>

@@ -4,7 +4,6 @@
 
 #include <stdlib.h>
 #include <string.h>
-#include <glib/gi18n.h>
 #include <gtk/gtk.h>
 #include "eog-save-as-dialog-helper.h"
 #include "eog-pixbuf-util.h"
@@ -202,14 +201,21 @@ set_default_values (GtkWidget *dlg, GFile *base_file)
 GtkWidget*
 eog_save_as_dialog_new (GtkWindow *main, GList *images, GFile *base_file)
 {
+	char *filepath;
 	GtkBuilder  *xml;
 	GtkWidget *dlg;
 	SaveAsData *data;
 	GtkWidget *label;
 
+	filepath = g_build_filename (EOG_DATA_DIR,
+				     "eog-multiple-save-as-dialog.ui",
+				     NULL);
 
-	xml = gtk_builder_new_from_resource ("/org/gnome/eog/ui/eog-multiple-save-as-dialog.ui");
+	xml = gtk_builder_new ();
 	gtk_builder_set_translation_domain (xml, GETTEXT_PACKAGE);
+	g_assert (gtk_builder_add_from_file (xml, filepath, NULL));
+
+	g_free (filepath);
 
 	dlg = GTK_WIDGET (g_object_ref (gtk_builder_get_object (xml, "eog_multiple_save_as_dialog")));
 	gtk_window_set_transient_for (GTK_WINDOW (dlg), GTK_WINDOW (main));
@@ -235,7 +241,7 @@ eog_save_as_dialog_new (GtkWindow *main, GList *images, GFile *base_file)
 	data->n_images = g_list_length (images);
 	data->nth_image = (int) ((float) data->n_images * rand() / (float) (RAND_MAX+1.0));
 	g_assert (data->nth_image >= 0 && data->nth_image < data->n_images);
-	data->image = g_object_ref (EOG_IMAGE (g_list_nth_data (images, data->nth_image)));
+	data->image = g_object_ref (G_OBJECT (g_list_nth_data (images, data->nth_image)));
 	g_object_set_data_full (G_OBJECT (dlg), "data", data, destroy_data_cb);
 
 	g_signal_connect (G_OBJECT (data->format_combobox), "changed",

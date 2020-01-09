@@ -20,9 +20,9 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
- * You should have received a copy of the GNU General Public License along
- * with this program; if not, write to the Free Software Foundation, Inc.,
- * 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
 #ifndef __EOG_WINDOW_H__
@@ -30,10 +30,10 @@
 
 #include "eog-list-store.h"
 #include "eog-image.h"
+#include "eog-dialog.h"
 
 #include <glib.h>
 #include <glib-object.h>
-#include <gio/gmenu.h>
 #include <gtk/gtk.h>
 
 G_BEGIN_DECLS
@@ -104,8 +104,7 @@ EogWindowMode eog_window_get_mode       (EogWindow       *window);
 void          eog_window_set_mode       (EogWindow       *window,
 					 EogWindowMode    mode);
 
-GMenu        *eog_window_get_gear_menu_section (EogWindow   *window,
-						const gchar *id);
+GtkUIManager *eog_window_get_ui_manager (EogWindow       *window);
 
 EogListStore *eog_window_get_store      (EogWindow       *window);
 
@@ -128,7 +127,7 @@ gboolean      eog_window_is_empty 	(EogWindow       *window);
 gboolean      eog_window_is_not_initializing (const EogWindow *window);
 
 void          eog_window_reload_image (EogWindow *window);
-GtkWidget    *eog_window_get_properties_dialog (EogWindow *window);
+EogDialog    *eog_window_get_properties_dialog (EogWindow *window);
 
 void          eog_window_show_about_dialog (EogWindow    *window);
 void          eog_window_show_preferences_dialog (EogWindow *window);

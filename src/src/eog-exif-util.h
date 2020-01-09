@@ -19,9 +19,9 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
- * You should have received a copy of the GNU General Public License along
- * with this program; if not, write to the Free Software Foundation, Inc.,
- * 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
 #ifndef __EOG_EXIF_UTIL_H__
@@ -37,10 +37,6 @@ G_BEGIN_DECLS
 #define EOG_TYPE_EXIF_DATA eog_exif_data_get_type ()
 
 gchar       *eog_exif_util_format_date           (const gchar *date);
-void         eog_exif_util_format_datetime_label (GtkLabel *label,
-                                                  ExifData *exif_data,
-                                                  gint tag_id,
-                                                  const gchar *format);
 void         eog_exif_util_set_label_text        (GtkLabel *label,
                                                   ExifData *exif_data,
                                                   gint tag_id);

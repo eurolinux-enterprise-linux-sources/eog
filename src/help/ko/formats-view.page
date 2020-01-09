@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="topic" id="formats-view" xml:lang="ko">
+
+  <info>
+    <link type="guide" xref="index"/>
+    <link type="seealso" xref="formats-save"/>
+    <desc>The image viewer can display pictures in a wide range of image formats, including PNG, JPEG, and TIFF.</desc>
+
+    <revision pkgversion="3.2" version="0.1" date="2011-09-05" status="final"/>
+  <credit type="author">
+    <name>Tiffany Antopolski</name>
+    <email>tiffany.antopolski@gmail.com</email>
+  </credit>
+  <license>
+   <p>Creative Commons Share Alike 3.0</p>
+  </license>
+  </info>
+
+ <title>Supported image formats</title>
+
+  <p>The image viewer is able to open pictures in the following formats:</p>
+  <list>
+   <item><p>ANI - 애니메이션</p></item>
+   <item><p>BMP - 비트맵</p></item>
+   <item><p>GIF - 그래픽 교환 형식 (Graphics Interchange Format)</p></item>
+   <item><p>ICO - 윈도우즈 아이콘</p></item>
+   <item><p>JPEG/JPG - 사진 그래픽 전문가 연합 그룹 (Joint Photographic Experts Group)</p></item>
+   <item><p>PCX - PC 페인트브러쉬</p></item>
+   <item><p>PNG - 이동식 네트워크 그래픽 (Portable Network Graphics)</p></item>
+   <item><p>PNM - PPM 툴킷의 호환 형식 (Portable Anymap)</p></item>
+   <item><p>RAS - Sun 래스터</p></item>
+   <item><p>SVG - 크기 조정 가능한 벡터 그래픽 (Scalable Vector Graphics)</p></item>
+   <item><p>TGA - 타가 (Targa)</p></item>
+   <item><p>TIFF - 태그 이미지 파일 형식 (Tagged Image File Format)</p></item>
+   <item><p>WBMP - 무선 통신 비트맵 (Wireless Bitmap)</p></item>
+   <item><p>XBM - X 비트맵</p></item>
+   <item><p>XPM - X 픽스맵</p></item>
+  </list>
+  <p>
+   If you try to open a picture in an unsupported format, you will get a <gui>Could
+not load image 'image_name'.</gui> error.
+  </p>
+</page>

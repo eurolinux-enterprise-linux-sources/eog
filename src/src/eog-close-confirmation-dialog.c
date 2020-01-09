@@ -18,9 +18,10 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.	 See the
  * GNU General Public License for more details.
  *
- * You should have received a copy of the GNU General Public License along
- * with this program; if not, write to the Free Software Foundation, Inc.,
- * 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330,
+ * Boston, MA 02111-1307, USA.
  */
 
 #ifdef HAVE_CONFIG_H
@@ -75,13 +76,17 @@ struct _EogCloseConfirmationDialogPrivate
 };
 
 
+#define EOG_CLOSE_CONFIRMATION_DIALOG_GET_PRIVATE(o) (G_TYPE_INSTANCE_GET_PRIVATE ((o), \
+							EOG_TYPE_CLOSE_CONFIRMATION_DIALOG, \
+							EogCloseConfirmationDialogPrivate))
+
 #define GET_MODE(priv) (((priv->unsaved_images != NULL) && \
 			 (priv->unsaved_images->next == NULL)) ? \
 			  SINGLE_IMG_MODE : MULTIPLE_IMGS_MODE)
 
 #define IMAGE_COLUMN_HEIGHT 40
 
-G_DEFINE_TYPE_WITH_PRIVATE(EogCloseConfirmationDialog, eog_close_confirmation_dialog, GTK_TYPE_MESSAGE_DIALOG)
+G_DEFINE_TYPE(EogCloseConfirmationDialog, eog_close_confirmation_dialog, GTK_TYPE_DIALOG)
 
 static void	 set_unsaved_image		(EogCloseConfirmationDialog *dlg,
 						 const GList		      *list);
@@ -169,19 +174,19 @@ add_buttons (EogCloseConfirmationDialog	       *dlg,
 
 	if (buttons & EOG_CLOSE_CONFIRMATION_DIALOG_CANCEL_BUTTON) {
 		gtk_dialog_add_button (GTK_DIALOG (dlg),
-				       _("_Cancel"),
+				       GTK_STOCK_CANCEL,
 				       EOG_CLOSE_CONFIRMATION_DIALOG_RESPONSE_CANCEL);
 	}
 
 	if (buttons & EOG_CLOSE_CONFIRMATION_DIALOG_SAVE_BUTTON) {
 		gtk_dialog_add_button (GTK_DIALOG (dlg),
-				       _("_Save"),
+				       GTK_STOCK_SAVE,
 				       EOG_CLOSE_CONFIRMATION_DIALOG_RESPONSE_SAVE);
 	}
 
 	if (buttons & EOG_CLOSE_CONFIRMATION_DIALOG_SAVEAS_BUTTON) {
 		gtk_dialog_add_button (GTK_DIALOG (dlg),
-				       _("Save _As"),
+				       GTK_STOCK_SAVE_AS,
 				       EOG_CLOSE_CONFIRMATION_DIALOG_RESPONSE_SAVEAS);
 	}
 
@@ -193,14 +198,23 @@ add_buttons (EogCloseConfirmationDialog	       *dlg,
 static void
 eog_close_confirmation_dialog_init (EogCloseConfirmationDialog *dlg)
 {
-	dlg->priv = eog_close_confirmation_dialog_get_instance_private (dlg);
+	AtkObject *atk_obj;
 
+	dlg->priv = EOG_CLOSE_CONFIRMATION_DIALOG_GET_PRIVATE (dlg);
+
+	gtk_container_set_border_width (GTK_CONTAINER (dlg), 5);
+	gtk_box_set_spacing (GTK_BOX (gtk_dialog_get_content_area (GTK_DIALOG (dlg))), 14);
 	gtk_window_set_resizable (GTK_WINDOW (dlg), FALSE);
+	gtk_window_set_skip_taskbar_hint (GTK_WINDOW (dlg), TRUE);
 
 	gtk_window_set_title (GTK_WINDOW (dlg), "");
 
 	gtk_window_set_modal (GTK_WINDOW (dlg), TRUE);
 	gtk_window_set_destroy_with_parent (GTK_WINDOW (dlg), TRUE);
+
+	atk_obj = gtk_widget_get_accessible (GTK_WIDGET (dlg));
+	atk_object_set_role (atk_obj, ATK_ROLE_ALERT);
+	atk_object_set_name (atk_obj, _("Question"));
 
 	g_signal_connect (dlg,
 			  "response",
@@ -278,6 +292,8 @@ eog_close_confirmation_dialog_class_init (EogCloseConfirmationDialogClass *klass
 	gobject_class->get_property = eog_close_confirmation_dialog_get_property;
 	gobject_class->finalize = eog_close_confirmation_dialog_finalize;
 
+	g_type_class_add_private (klass, sizeof (EogCloseConfirmationDialogPrivate));
+
 	g_object_class_install_property (gobject_class,
 					 PROP_UNSAVED_IMAGES,
 					 g_param_spec_pointer ("unsaved_images",
@@ -336,7 +352,6 @@ eog_close_confirmation_dialog_new (GtkWindow *parent,
 
 	dlg = GTK_WIDGET (g_object_new (EOG_TYPE_CLOSE_CONFIRMATION_DIALOG,
 					"unsaved_images", unsaved_images,
-					"message-type", GTK_MESSAGE_QUESTION,
 					NULL));
 	g_return_val_if_fail (dlg != NULL, NULL);
 
@@ -380,7 +395,7 @@ get_text_secondary_label (EogImage *image)
 {
 	gchar *secondary_msg;
 
-	secondary_msg = g_strdup (_("If you don’t save, your changes will be lost."));
+	secondary_msg = g_strdup (_("If you don't save, your changes will be lost."));
 
 	return secondary_msg;
 }
@@ -388,6 +403,11 @@ get_text_secondary_label (EogImage *image)
 static void
 build_single_img_dialog (EogCloseConfirmationDialog *dlg)
 {
+	GtkWidget     *hbox;
+	GtkWidget     *vbox;
+	GtkWidget     *primary_label;
+	GtkWidget     *secondary_label;
+	GtkWidget     *image;
 	EogImage      *img;
 	const gchar   *image_name;
 	gchar	      *str;
@@ -398,24 +418,55 @@ build_single_img_dialog (EogCloseConfirmationDialog *dlg)
 	g_return_if_fail (dlg->priv->unsaved_images->data != NULL);
 	img = EOG_IMAGE (dlg->priv->unsaved_images->data);
 
+	/* Image */
+	image = gtk_image_new_from_stock (GTK_STOCK_DIALOG_WARNING,
+					  GTK_ICON_SIZE_DIALOG);
+	gtk_misc_set_alignment (GTK_MISC (image), 0.5, 0.0);
+
 	/* Primary label */
+	primary_label = gtk_label_new (NULL);
+	gtk_label_set_line_wrap (GTK_LABEL (primary_label), TRUE);
+	gtk_label_set_use_markup (GTK_LABEL (primary_label), TRUE);
+	gtk_misc_set_alignment (GTK_MISC (primary_label), 0.0, 0.5);
+	gtk_label_set_selectable (GTK_LABEL (primary_label), TRUE);
+
 	image_name = eog_image_get_caption (img);
 
-	str = g_markup_printf_escaped (_("Save changes to image “%s” before closing?"),
+	str = g_markup_printf_escaped (_("Save changes to image \"%s\" before closing?"),
 				       image_name);
 	markup_str = g_strconcat ("<span weight=\"bold\" size=\"larger\">", str, "</span>", NULL);
 	g_free (str);
 
-	gtk_message_dialog_set_markup (GTK_MESSAGE_DIALOG (dlg), markup_str);
+	gtk_label_set_markup (GTK_LABEL (primary_label), markup_str);
 	g_free (markup_str);
 
 	/* Secondary label */
 	str = get_text_secondary_label (img);
 
-	//secondary_label = gtk_label_new (str);
-	gtk_message_dialog_format_secondary_text (GTK_MESSAGE_DIALOG (dlg),
-						  "%s", str);
+	secondary_label = gtk_label_new (str);
 	g_free (str);
+	gtk_label_set_line_wrap (GTK_LABEL (secondary_label), TRUE);
+	gtk_misc_set_alignment (GTK_MISC (secondary_label), 0.0, 0.5);
+	gtk_label_set_selectable (GTK_LABEL (secondary_label), TRUE);
+
+	hbox = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 12);
+	gtk_container_set_border_width (GTK_CONTAINER (hbox), 5);
+
+	gtk_box_pack_start (GTK_BOX (hbox), image, FALSE, FALSE, 0);
+
+	vbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 12);
+
+	gtk_box_pack_start (GTK_BOX (hbox), vbox, FALSE, FALSE, 0);
+
+	gtk_box_pack_start (GTK_BOX (vbox), primary_label, FALSE, FALSE, 0);
+
+	gtk_box_pack_start (GTK_BOX (vbox), secondary_label, FALSE, FALSE, 0);
+
+	gtk_box_pack_start (GTK_BOX (gtk_dialog_get_content_area (GTK_DIALOG (dlg))),
+			    hbox,
+			    FALSE,
+			    FALSE,
+			    0);
 
 	if (eog_image_is_file_writable (img)) {
 		buttons = EOG_CLOSE_CONFIRMATION_DIALOG_CLOSE_BUTTON |
@@ -428,6 +479,9 @@ build_single_img_dialog (EogCloseConfirmationDialog *dlg)
 	}
 
 	add_buttons (dlg, buttons);
+
+
+	gtk_widget_show_all (hbox);
 }
 
 static void
@@ -547,7 +601,11 @@ static void
 build_multiple_imgs_dialog (EogCloseConfirmationDialog *dlg)
 {
 	EogCloseConfirmationDialogPrivate *priv;
+	GtkWidget *hbox;
+	GtkWidget *image;
 	GtkWidget *vbox;
+	GtkWidget *primary_label;
+	GtkWidget *vbox2;
 	GtkWidget *select_label;
 	GtkWidget *scrolledwindow;
 	GtkWidget *treeview;
@@ -559,7 +617,27 @@ build_multiple_imgs_dialog (EogCloseConfirmationDialog *dlg)
 
 	priv = dlg->priv;
 
+	hbox = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 12);
+	gtk_container_set_border_width (GTK_CONTAINER (hbox), 5);
+	gtk_box_pack_start (GTK_BOX (gtk_dialog_get_content_area (GTK_DIALOG (dlg))),
+			    hbox, TRUE, TRUE, 0);
+
+	/* Image */
+	image = gtk_image_new_from_stock (GTK_STOCK_DIALOG_WARNING,
+					  GTK_ICON_SIZE_DIALOG);
+	gtk_misc_set_alignment (GTK_MISC (image), 0.5, 0.0);
+	gtk_box_pack_start (GTK_BOX (hbox), image, FALSE, FALSE, 0);
+
+	vbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 12);
+	gtk_box_pack_start (GTK_BOX (hbox), vbox, TRUE, TRUE, 0);
+
 	/* Primary label */
+	primary_label = gtk_label_new (NULL);
+	gtk_label_set_line_wrap (GTK_LABEL (primary_label), TRUE);
+	gtk_label_set_use_markup (GTK_LABEL (primary_label), TRUE);
+	gtk_misc_set_alignment (GTK_MISC (primary_label), 0.0, 0.5);
+	gtk_label_set_selectable (GTK_LABEL (primary_label), TRUE);
+
 	str = g_strdup_printf (
 			ngettext ("There is %d image with unsaved changes. "
 				  "Save changes before closing?",
@@ -568,27 +646,24 @@ build_multiple_imgs_dialog (EogCloseConfirmationDialog *dlg)
 				  g_list_length (priv->unsaved_images)),
 			g_list_length (priv->unsaved_images));
 
-	markup_str = g_strconcat ("<span weight=\"bold\" size=\"larger\">",
-				  str, "</span>", NULL);
+	markup_str = g_strconcat ("<span weight=\"bold\" size=\"larger\">", str, "</span>", NULL);
 	g_free (str);
 
-	gtk_message_dialog_set_markup (GTK_MESSAGE_DIALOG (dlg), markup_str);
+	gtk_label_set_markup (GTK_LABEL (primary_label), markup_str);
 	g_free (markup_str);
+	gtk_box_pack_start (GTK_BOX (vbox), primary_label, FALSE, FALSE, 0);
 
-	vbox = gtk_box_new (GTK_ORIENTATION_VERTICAL, 8);
-	gtk_widget_set_margin_start (vbox, 18);
-	gtk_widget_set_margin_end (vbox, 18);
-	gtk_widget_set_margin_bottom (vbox, 12);
-	gtk_box_pack_start (GTK_BOX (gtk_dialog_get_content_area (GTK_DIALOG (dlg))),
-				     vbox, TRUE, TRUE, 0);
+	vbox2 = gtk_box_new (GTK_ORIENTATION_VERTICAL, 8);
+	gtk_box_pack_start (GTK_BOX (vbox), vbox2, FALSE, FALSE, 0);
+
 	select_label = gtk_label_new_with_mnemonic (_("S_elect the images you want to save:"));
 
-	gtk_box_pack_start (GTK_BOX (vbox), select_label, FALSE, FALSE, 0);
+	gtk_box_pack_start (GTK_BOX (vbox2), select_label, FALSE, FALSE, 0);
 	gtk_label_set_line_wrap (GTK_LABEL (select_label), TRUE);
-	gtk_widget_set_halign (select_label, GTK_ALIGN_START);
+	gtk_misc_set_alignment (GTK_MISC (select_label), 0.0, 0.5);
 
 	scrolledwindow = gtk_scrolled_window_new (NULL, NULL);
-	gtk_box_pack_start (GTK_BOX (vbox), scrolledwindow, TRUE, TRUE, 0);
+	gtk_box_pack_start (GTK_BOX (vbox2), scrolledwindow, TRUE, TRUE, 0);
 	gtk_scrolled_window_set_policy (GTK_SCROLLED_WINDOW (scrolledwindow),
 					GTK_POLICY_AUTOMATIC,
 					GTK_POLICY_AUTOMATIC);
@@ -600,14 +675,12 @@ build_multiple_imgs_dialog (EogCloseConfirmationDialog *dlg)
 	gtk_widget_set_size_request (scrolledwindow, 260, 120);
 
 	/* Secondary label */
-	secondary_label = gtk_label_new (_("If you don’t save, "
+	secondary_label = gtk_label_new (_("If you don't save, "
 					   "all your changes will be lost."));
 
-	gtk_box_pack_start (GTK_BOX (vbox), secondary_label, FALSE, FALSE, 0);
+	gtk_box_pack_start (GTK_BOX (vbox2), secondary_label, FALSE, FALSE, 0);
 	gtk_label_set_line_wrap (GTK_LABEL (secondary_label), TRUE);
-	gtk_label_set_max_width_chars (GTK_LABEL (secondary_label), 72);
-	gtk_widget_set_halign (secondary_label, GTK_ALIGN_START);
-	gtk_label_set_xalign (GTK_LABEL (select_label), 0.0);
+	gtk_misc_set_alignment (GTK_MISC (secondary_label), 0, 0.5);
 	gtk_label_set_selectable (GTK_LABEL (secondary_label), TRUE);
 
 	gtk_label_set_mnemonic_widget (GTK_LABEL (select_label), treeview);
@@ -618,7 +691,7 @@ build_multiple_imgs_dialog (EogCloseConfirmationDialog *dlg)
 
 	add_buttons (dlg, buttons);
 
-	gtk_widget_show_all (vbox);
+	gtk_widget_show_all (hbox);
 }
 
 static void
@@ -656,13 +729,12 @@ void
 eog_close_confirmation_dialog_set_sensitive (EogCloseConfirmationDialog *dlg,
 					     gboolean value)
 {
+	GtkWidget *action_area;
+
 	g_return_if_fail (EOG_IS_CLOSE_CONFIRMATION_DIALOG (dlg));
 
-	/* To keep in sync with add_buttons () */
-	gtk_dialog_set_response_sensitive (GTK_DIALOG (dlg), EOG_CLOSE_CONFIRMATION_DIALOG_RESPONSE_CLOSE, value);
-	gtk_dialog_set_response_sensitive (GTK_DIALOG (dlg), EOG_CLOSE_CONFIRMATION_DIALOG_RESPONSE_CANCEL, value);
-	gtk_dialog_set_response_sensitive (GTK_DIALOG (dlg), EOG_CLOSE_CONFIRMATION_DIALOG_RESPONSE_SAVE, value);
-	gtk_dialog_set_response_sensitive (GTK_DIALOG (dlg), EOG_CLOSE_CONFIRMATION_DIALOG_RESPONSE_SAVEAS, value);
+	action_area = gtk_dialog_get_action_area (GTK_DIALOG (dlg));
+	gtk_widget_set_sensitive (action_area, value);
 
 	if (dlg->priv->toggle_renderer)
 		gtk_cell_renderer_toggle_set_activatable (GTK_CELL_RENDERER_TOGGLE (dlg->priv->toggle_renderer), value);

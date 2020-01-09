@@ -19,9 +19,9 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
- * You should have received a copy of the GNU General Public License along
- * with this program; if not, write to the Free Software Foundation, Inc.,
- * 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
 #ifdef HAVE_CONFIG_H
@@ -55,7 +55,6 @@ typedef ExifData EogExifData;
 /* Define EogExifData type */
 G_DEFINE_BOXED_TYPE(EogExifData, eog_exif_data, eog_exif_data_copy, eog_exif_data_free)
 
-#ifdef HAVE_STRPTIME
 static gpointer
 _check_strptime_updates_wday (gpointer data)
 {
@@ -66,7 +65,6 @@ _check_strptime_updates_wday (gpointer data)
 	/* Check if tm.tm_wday is set to Wednesday (3) now */
 	return GBOOLEAN_TO_POINTER (tm.tm_wday == 3);
 }
-#endif
 
 /**
  * _calculate_wday_yday:
@@ -95,15 +93,9 @@ _calculate_wday_yday (struct tm *tm)
 	tm->tm_yday = tmp_tm.tm_yday;
 }
 
-/* Older GCCs don't support pragma diagnostic inside functions.
- * Put these here to avoid problems with the strftime format strings
- * without breaking the build for these older GCCs */
-#pragma GCC diagnostic push
-#pragma GCC diagnostic ignored "-Wformat-nonliteral"
-
 #ifdef HAVE_STRPTIME
 static gchar *
-eog_exif_util_format_date_with_strptime (const gchar *date, const gchar* format)
+eog_exif_util_format_date_with_strptime (const gchar *date)
 {
 	static GOnce strptime_updates_wday = G_ONCE_INIT;
 	gchar *new_date = NULL;
@@ -125,8 +117,7 @@ eog_exif_util_format_date_with_strptime (const gchar *date, const gchar* format)
 			_calculate_wday_yday (&tm);
 
 		/* A strftime-formatted string, to display the date the image was taken.  */
-		dlen = strftime (tmp_date, DATE_BUF_SIZE * sizeof(gchar), format, &tm);
-
+		dlen = strftime (tmp_date, DATE_BUF_SIZE * sizeof(gchar), _("%a, %d %B %Y  %X"), &tm);
 		new_date = g_strndup (tmp_date, dlen);
 	}
 
@@ -134,7 +125,7 @@ eog_exif_util_format_date_with_strptime (const gchar *date, const gchar* format)
 }
 #else
 static gchar *
-eog_exif_util_format_date_by_hand (const gchar *date, const gchar* format)
+eog_exif_util_format_date_by_hand (const gchar *date)
 {
 	int year, month, day, hour, minutes, seconds;
 	int result;
@@ -148,6 +139,7 @@ eog_exif_util_format_date_by_hand (const gchar *date, const gchar* format)
 	} else {
 		gchar tmp_date[DATE_BUF_SIZE];
 		gsize dlen;
+		time_t secs;
 		struct tm tm;
 
 		memset (&tm, '\0', sizeof (tm));
@@ -157,11 +149,16 @@ eog_exif_util_format_date_by_hand (const gchar *date, const gchar* format)
 		// Calculate tm.tm_wday
 		_calculate_wday_yday (&tm);
 
-		tm.tm_sec = result < 6 ? 0 : seconds;
-		tm.tm_min = result < 5 ? 0 : minutes;
-		tm.tm_hour = result < 4 ? 0 : hour;
-
-		dlen = strftime (tmp_date, DATE_BUF_SIZE * sizeof(gchar), format, &tm);
+		if (result < 5) {
+		  	/* A strftime-formatted string, to display the date the image was taken, for the case we don't have the time.  */
+			dlen = strftime (tmp_date, DATE_BUF_SIZE * sizeof(gchar), _("%a, %d %B %Y"), &tm);
+		} else {
+			tm.tm_sec = result < 6 ? 0 : seconds;
+			tm.tm_min = minutes;
+			tm.tm_hour = hour;
+			/* A strftime-formatted string, to display the date the image was taken.  */
+			dlen = strftime (tmp_date, DATE_BUF_SIZE * sizeof(gchar), _("%a, %d %B %Y  %X"), &tm);
+		}
 
 		if (dlen == 0)
 			return NULL;
@@ -171,8 +168,6 @@ eog_exif_util_format_date_by_hand (const gchar *date, const gchar* format)
 	return new_date;
 }
 #endif /* HAVE_STRPTIME */
-
-#pragma GCC diagnostic pop
 
 /**
  * eog_exif_util_format_date:
@@ -189,10 +184,9 @@ eog_exif_util_format_date (const gchar *date)
 {
 	gchar *new_date;
 #ifdef HAVE_STRPTIME
-	/* A strftime-formatted string, to display the date the image was taken.  */
-	new_date = eog_exif_util_format_date_with_strptime (date, _("%a, %d %B %Y  %X"));
+	new_date = eog_exif_util_format_date_with_strptime (date);
 #else
-	new_date = eog_exif_util_format_date_by_hand (date, _("%a, %d %B %Y  %X"));
+	new_date = eog_exif_util_format_date_by_hand (date);
 #endif /* HAVE_STRPTIME */
 	return new_date;
 }
@@ -216,33 +210,6 @@ eog_exif_util_set_label_text (GtkLabel *label,
 			label_text = eog_exif_util_format_date (buf_ptr);
 		else
 			label_text = eog_util_make_valid_utf8 (buf_ptr);
-	}
-
-	gtk_label_set_text (label, label_text);
-	g_free (label_text);
-}
-
-void
-eog_exif_util_format_datetime_label (GtkLabel *label, EogExifData *exif_data,
-				     gint tag_id, const gchar *format)
-{
-	gchar exif_buffer[512];
-	const gchar *buf_ptr;
-	gchar *label_text = NULL;
-
-	g_return_if_fail (GTK_IS_LABEL (label));
-	g_warn_if_fail (tag_id == EXIF_TAG_DATE_TIME_ORIGINAL);
-
-	if (exif_data) {
-		buf_ptr = eog_exif_data_get_value (exif_data, tag_id,
-						   exif_buffer, 512);
-
-		if (tag_id == EXIF_TAG_DATE_TIME_ORIGINAL && buf_ptr)
-#ifdef HAVE_STRPTIME
-			label_text = eog_exif_util_format_date_with_strptime (buf_ptr, format);
-#else
-			label_text = eog_exif_util_format_date_by_hand (buf_ptr, format);
-#endif /* HAVE_STRPTIME */
 	}
 
 	gtk_label_set_text (label, label_text);

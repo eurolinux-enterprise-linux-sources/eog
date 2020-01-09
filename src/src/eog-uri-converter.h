@@ -2,6 +2,7 @@
 #define _EOG_URI_CONVERTER_H_
 
 #include <glib-object.h>
+#include <glib/gi18n.h>
 #include "eog-image.h"
 
 G_BEGIN_DECLS
@@ -62,26 +63,33 @@ struct _EogURIConverterClass {
 	GObjectClass parent_klass;
 };
 
+G_GNUC_INTERNAL
 GType              eog_uri_converter_get_type      (void) G_GNUC_CONST;
 
+G_GNUC_INTERNAL
 GQuark             eog_uc_error_quark              (void);
 
+G_GNUC_INTERNAL
 EogURIConverter*   eog_uri_converter_new           (GFile *base_file,
                                                     GdkPixbufFormat *img_format,
 						    const char *format_string);
 
+G_GNUC_INTERNAL
 gboolean           eog_uri_converter_check         (EogURIConverter *converter,
                                                     GList *img_list,
                                                     GError **error);
 
+G_GNUC_INTERNAL
 gboolean           eog_uri_converter_requires_exif (EogURIConverter *converter);
 
+G_GNUC_INTERNAL
 gboolean           eog_uri_converter_do            (EogURIConverter *converter,
                                                     EogImage *image,
                                                     GFile **file,
                                                     GdkPixbufFormat **format,
                                                     GError **error);
 
+G_GNUC_INTERNAL
 char*              eog_uri_converter_preview       (const char *format_str,
                                                     EogImage *img,
                                                     GdkPixbufFormat *format,

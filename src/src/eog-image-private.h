@@ -14,22 +14,17 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
- * You should have received a copy of the GNU General Public License along
- * with this program; if not, write to the Free Software Foundation, Inc.,
- * 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
 #ifndef __EOG_IMAGE_PRIVATE_H__
 #define __EOG_IMAGE_PRIVATE_H__
 
 #include "eog-image.h"
-
 #ifdef HAVE_RSVG
 #include <librsvg/rsvg.h>
-#endif
-
-#ifdef HAVE_EXEMPI
-#include <exempi/xmp.h>
 #endif
 
 G_BEGIN_DECLS
@@ -39,12 +34,13 @@ struct _EogImagePrivate {
 
 	EogImageStatus    status;
 	EogImageStatus    prev_status;
-	EogImageMetadataStatus metadata_status;
+	gboolean          is_monitored;
+        EogImageMetadataStatus metadata_status;
 
-	gboolean          is_playing;
+	GdkPixbuf        *image;
 	GdkPixbufAnimation     *anim;
 	GdkPixbufAnimationIter *anim_iter;
-	GdkPixbuf        *image;
+	gboolean          is_playing;
 	GdkPixbuf        *thumbnail;
 #ifdef HAVE_RSVG
 	RsvgHandle       *svg;
@@ -55,16 +51,15 @@ struct _EogImagePrivate {
 
 	goffset           bytes;
 	gchar            *file_type;
+	gboolean          threadsafe_format;
 
 	/* Holds EXIF raw data */
 	guint             exif_chunk_len;
 	guchar           *exif_chunk;
 
-#if 0
 	/* Holds IPTC raw data */
 	guchar           *iptc_chunk;
 	guint             iptc_chunk_len;
-#endif
 
 	gboolean          modified;
 	gboolean          file_is_changed;

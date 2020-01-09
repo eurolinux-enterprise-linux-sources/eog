@@ -4,9 +4,9 @@
 
   <info>
     <link type="guide" xref="index#edit"/>
-    <desc>Click <gui style="menuitem">Open With</gui> to edit a picture using an external image editor.</desc>
+    <desc>Click <guiseq><gui>Image</gui><gui>Open with</gui></guiseq> to edit a picture using an external image editor.</desc>
 
-    <revision pkgversion="3.24" version="0.1" date="2011-09-06" status="final"/>
+    <revision pkgversion="3.2" version="0.1" date="2011-09-06" status="final"/>
     <credit type="author">
       <name>Tiffany Antopolski</name>
       <email>tiffany@antopolski.com</email>
@@ -28,7 +28,7 @@ For that, you must use a picture editing application, like the GIMP image
 editor. To open a picture for editing in a different application:</p>
 <steps>
  <item>
-  <p>Click <gui style="menuitem">Open With</gui>,
+  <p>Click <guiseq><gui>Image</gui><gui>Open with</gui></guiseq>,
 or right-click on the image.</p>
  </item>
  <item>
@@ -47,7 +47,8 @@ picture has been changed and will reload it.</p>
 
 <section id="delete">
 <title>Delete a picture</title>
-<p>To delete a picture that you don't want any more, 
+<p>To delete a picture that you don't want any more, click 
+<guiseq><gui>Edit</gui><gui>Move to Trash</gui></guiseq>, or 
 right-click the picture and select <gui>Move to Trash</gui>.</p>
 </section>
 

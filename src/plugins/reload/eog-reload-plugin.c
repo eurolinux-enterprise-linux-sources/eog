@@ -30,19 +30,12 @@
 
 #include <libpeas/peas.h>
 
-#include <eog-application.h>
 #include <eog-debug.h>
+#include <eog-scroll-view.h>
 #include <eog-thumb-view.h>
+#include <eog-image.h>
 #include <eog-window.h>
 #include <eog-window-activatable.h>
-
-enum {
-  PROP_0,
-  PROP_WINDOW
-};
-
-#define EOG_RELOAD_PLUGIN_MENU_ID "EogPluginRunReload"
-#define EOG_RELOAD_PLUGIN_ACTION "reload"
 
 static void eog_window_activatable_iface_init (EogWindowActivatableInterface *iface);
 
@@ -53,13 +46,36 @@ G_DEFINE_DYNAMIC_TYPE_EXTENDED (EogReloadPlugin,
                                 G_IMPLEMENT_INTERFACE_DYNAMIC (EOG_TYPE_WINDOW_ACTIVATABLE,
                                                                eog_window_activatable_iface_init))
 
+enum {
+  PROP_0,
+  PROP_WINDOW
+};
+
 static void
-reload_cb (GSimpleAction *simple,
-	   GVariant      *parameter,
-	   gpointer       user_data)
+reload_cb (GtkAction	*action, 
+	   EogWindow *window)
 {
-	eog_window_reload_image (EOG_WINDOW (user_data));
+        eog_window_reload_image (window);
 }
+
+static const gchar * const ui_definition =
+	"<ui><menubar name=\"MainMenu\">"
+	"<menu name=\"ToolsMenu\" action=\"Tools\"><separator/>"
+	"<menuitem name=\"EogPluginReload\" action=\"EogPluginRunReload\"/>"
+	"<separator/></menu></menubar>"
+	"<popup name=\"ViewPopup\"><separator/>"
+	"<menuitem action=\"EogPluginRunReload\"/><separator/>"
+	"</popup></ui>";
+
+static const GtkActionEntry action_entries[] =
+{
+	{ "EogPluginRunReload",
+	  GTK_STOCK_REFRESH,
+	  N_("Reload Image"),
+	  "R",
+	  N_("Reload current image"),
+	  G_CALLBACK (reload_cb) }
+};
 
 static void
 eog_reload_plugin_set_property (GObject      *object,
@@ -123,129 +139,50 @@ eog_reload_plugin_dispose (GObject *object)
 }
 
 static void
-eog_reload_plugin_update_action_state (EogReloadPlugin *plugin)
-{
-	GAction *action;
-	EogThumbView *thumbview;
-	gboolean enable = FALSE;
-
-	thumbview = EOG_THUMB_VIEW (eog_window_get_thumb_view (plugin->window));
-
-	if (G_LIKELY (thumbview))
-	{
-		enable = (eog_thumb_view_get_n_selected (thumbview) != 0);
-	}
-
-	action = g_action_map_lookup_action (G_ACTION_MAP (plugin->window),
-					     EOG_RELOAD_PLUGIN_ACTION);
-	g_simple_action_set_enabled (G_SIMPLE_ACTION (action), enable);
-}
-
-static void
-_selection_changed_cb (EogThumbView *thumbview, gpointer user_data)
-{
-	EogReloadPlugin *plugin = EOG_RELOAD_PLUGIN (user_data);
-
-	if (G_LIKELY (plugin))
-		eog_reload_plugin_update_action_state (plugin);
-}
-
-static void
 eog_reload_plugin_activate (EogWindowActivatable *activatable)
 {
-	const gchar * const accel_keys[] = { "R", NULL };
+	GtkUIManager *manager;
 	EogReloadPlugin *plugin = EOG_RELOAD_PLUGIN (activatable);
-	GMenu *model, *menu;
-	GMenuItem *item;
-	GSimpleAction *action;
 
 	eog_debug (DEBUG_PLUGINS);
 
-	model= eog_window_get_gear_menu_section (plugin->window,
-						 "plugins-section");
+	manager = eog_window_get_ui_manager (plugin->window);
 
-	g_return_if_fail (G_IS_MENU (model));
+	plugin->ui_action_group = gtk_action_group_new ("EogReloadPluginActions");
 
-	/* Setup and inject action */
-	action = g_simple_action_new (EOG_RELOAD_PLUGIN_ACTION, NULL);
-	g_signal_connect(action, "activate",
-			 G_CALLBACK (reload_cb), plugin->window);
-	g_action_map_add_action (G_ACTION_MAP (plugin->window),
-				 G_ACTION (action));
-	g_object_unref (action);
+	gtk_action_group_set_translation_domain (plugin->ui_action_group,
+						 GETTEXT_PACKAGE);
 
-	g_signal_connect (G_OBJECT (eog_window_get_thumb_view (plugin->window)),
-			  "selection-changed",
-			  G_CALLBACK (_selection_changed_cb),
-			  plugin);
-	eog_reload_plugin_update_action_state (plugin);
+	gtk_action_group_add_actions (plugin->ui_action_group,
+				      action_entries,
+				      G_N_ELEMENTS (action_entries),
+				      plugin->window);
 
-	/* Append entry to the window's gear menu */
-	menu = g_menu_new ();
-	g_menu_append (menu, _("Reload Image"),
-		       "win." EOG_RELOAD_PLUGIN_ACTION);
+	gtk_ui_manager_insert_action_group (manager,
+					    plugin->ui_action_group,
+					    -1);
 
-	item = g_menu_item_new_section (NULL, G_MENU_MODEL (menu));
-	g_menu_item_set_attribute (item, "id",
-				   "s", EOG_RELOAD_PLUGIN_MENU_ID);
-	g_menu_item_set_attribute (item, G_MENU_ATTRIBUTE_ICON,
-				   "s", "view-refresh-symbolic");
-	g_menu_append_item (model, item);
-	g_object_unref (item);
-
-	g_object_unref (menu);
-
-	/* Define accelerator keys */
-	gtk_application_set_accels_for_action (GTK_APPLICATION (EOG_APP),
-					       "win." EOG_RELOAD_PLUGIN_ACTION,
-					       accel_keys);
+	plugin->ui_id = gtk_ui_manager_add_ui_from_string (manager,
+							   ui_definition,
+							   -1, NULL);
+	g_warn_if_fail (plugin->ui_id != 0);
 }
 
 static void
 eog_reload_plugin_deactivate (EogWindowActivatable *activatable)
 {
-	const gchar * const empty_accels[1] = { NULL };
+	GtkUIManager *manager;
 	EogReloadPlugin *plugin = EOG_RELOAD_PLUGIN (activatable);
-	GMenu *menu;
-	GMenuModel *model;
-	gint i;
 
 	eog_debug (DEBUG_PLUGINS);
 
-	menu = eog_window_get_gear_menu_section (plugin->window,
-						 "plugins-section");
+	manager = eog_window_get_ui_manager (plugin->window);
 
-	g_return_if_fail (G_IS_MENU (menu));
+	gtk_ui_manager_remove_ui (manager,
+				  plugin->ui_id);
 
-	/* Remove menu entry */
-	model = G_MENU_MODEL (menu);
-	for (i = 0; i < g_menu_model_get_n_items (model); i++) {
-		gchar *id;
-		if (g_menu_model_get_item_attribute (model, i, "id", "s", &id)) {
-			const gboolean found =
-				(g_strcmp0 (id, EOG_RELOAD_PLUGIN_MENU_ID) == 0);
-			g_free (id);
-
-			if (found) {
-				g_menu_remove (menu, i);
-				break;
-			}
-		}
-	}
-
-	/* Unset accelerator */
-	gtk_application_set_accels_for_action(GTK_APPLICATION (EOG_APP),
-					      "win." EOG_RELOAD_PLUGIN_ACTION,
-					      empty_accels);
-
-	/* Disconnect selection-changed handler as the thumbview would
-	 * otherwise still cause callbacks during its own disposal */
-	g_signal_handlers_disconnect_by_func (eog_window_get_thumb_view (plugin->window),
-					      _selection_changed_cb, plugin);
-
-	/* Finally remove action */
-	g_action_map_remove_action (G_ACTION_MAP (plugin->window),
-				    EOG_RELOAD_PLUGIN_ACTION);
+	gtk_ui_manager_remove_action_group (manager,
+					    plugin->ui_action_group);
 }
 
 static void

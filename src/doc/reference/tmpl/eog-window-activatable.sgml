@@ -1,0 +1,58 @@
+<!-- ##### SECTION Title ##### -->
+EogWindowActivatable
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### SECTION Image ##### -->
+
+
+<!-- ##### STRUCT EogWindowActivatable ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### ARG EogWindowActivatable:window ##### -->
+<para>
+
+</para>
+
+<!-- ##### STRUCT EogWindowActivatableInterface ##### -->
+<para>
+
+</para>
+
+@g_iface: 
+@activate: 
+@deactivate: 
+
+<!-- ##### FUNCTION eog_window_activatable_activate ##### -->
+<para>
+
+</para>
+
+@activatable: 
+
+
+<!-- ##### FUNCTION eog_window_activatable_deactivate ##### -->
+<para>
+
+</para>
+
+@activatable: 
+
+

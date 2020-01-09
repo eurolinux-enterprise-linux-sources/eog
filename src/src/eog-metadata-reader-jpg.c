@@ -16,9 +16,9 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
- * You should have received a copy of the GNU General Public License along
- * with this program; if not, write to the Free Software Foundation, Inc.,
- * 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
 #ifdef HAVE_CONFIG_H
@@ -51,10 +51,6 @@ typedef enum {
 	EJA_OTHER
 } EogJpegApp1Type;
 
-/* This enables color profile generation from Exif valus. However it's
- * uncertain how well maintained that information is since applications like
- * GIMP ignore this data. */
-#define EOG_METADATA_READER_JPG_GEN_PROFILE_FROM_EXIF_VALUES 0
 
 #define EOG_JPEG_MARKER_START   0xFF
 #define EOG_JPEG_MARKER_SOI     0xD8
@@ -90,6 +86,9 @@ struct _EogMetadataReaderJpgPrivate {
 	int      bytes_read;
 };
 
+#define EOG_METADATA_READER_JPG_GET_PRIVATE(object) \
+	(G_TYPE_INSTANCE_GET_PRIVATE ((object), EOG_TYPE_METADATA_READER_JPG, EogMetadataReaderJpgPrivate))
+
 static void
 eog_metadata_reader_jpg_init_emr_iface (gpointer g_iface, gpointer iface_data);
 
@@ -97,8 +96,7 @@ eog_metadata_reader_jpg_init_emr_iface (gpointer g_iface, gpointer iface_data);
 G_DEFINE_TYPE_WITH_CODE (EogMetadataReaderJpg, eog_metadata_reader_jpg,
 			 G_TYPE_OBJECT,
 			 G_IMPLEMENT_INTERFACE (EOG_TYPE_METADATA_READER,
-					eog_metadata_reader_jpg_init_emr_iface) \
-			 G_ADD_PRIVATE (EogMetadataReaderJpg))
+			 		eog_metadata_reader_jpg_init_emr_iface))
 
 
 static void
@@ -130,11 +128,11 @@ eog_metadata_reader_jpg_dispose (GObject *object)
 }
 
 static void
-eog_metadata_reader_jpg_init (EogMetadataReaderJpg *emr)
+eog_metadata_reader_jpg_init (EogMetadataReaderJpg *obj)
 {
 	EogMetadataReaderJpgPrivate *priv;
 
-	priv = emr->priv =  eog_metadata_reader_jpg_get_instance_private (emr);
+	priv = obj->priv =  EOG_METADATA_READER_JPG_GET_PRIVATE (obj);
 	priv->exif_chunk = NULL;
 	priv->exif_len = 0;
 	priv->iptc_chunk = NULL;
@@ -149,6 +147,8 @@ eog_metadata_reader_jpg_class_init (EogMetadataReaderJpgClass *klass)
 	GObjectClass *object_class = (GObjectClass*) klass;
 
 	object_class->dispose = eog_metadata_reader_jpg_dispose;
+
+	g_type_class_add_private (klass, sizeof (EogMetadataReaderJpgPrivate));
 }
 
 static gboolean
@@ -545,11 +545,6 @@ eog_metadata_reader_jpg_get_icc_profile (EogMetadataReaderJpg *emr)
 		color_space = exif_get_short (entry->data, o);
 
 		switch (color_space) {
-#if EOG_METADATA_READER_JPG_GEN_PROFILE_FROM_EXIF_VALUES == 0
-		case 0xFFFF:
-			eog_debug_message (DEBUG_LCMS, "JPEG is uncalibrated. "
-						       "Fallback to sRGB.");
-#endif
 		case 1:
 			eog_debug_message (DEBUG_LCMS, "JPEG is sRGB");
 
@@ -563,7 +558,6 @@ eog_metadata_reader_jpg_get_icc_profile (EogMetadataReaderJpg *emr)
 			//profile = cmsCreate_Adobe1998Profile ();
 
 			break;
-#if EOG_METADATA_READER_JPG_GEN_PROFILE_FROM_EXIF_VALUES != 0
 		case 0xFFFF:
 		  	{
 			cmsCIExyY whitepoint;
@@ -635,7 +629,6 @@ eog_metadata_reader_jpg_get_icc_profile (EogMetadataReaderJpg *emr)
 
 			break;
 			}
-#endif
 		}
 
 		exif_data_unref (exif);

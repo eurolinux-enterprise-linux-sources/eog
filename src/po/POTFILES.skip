@@ -1,3 +1,4 @@
 # List of source files that should *not* be translated.
 # Please keep this file sorted alphabetically.
 data/eog.desktop.in
+data/org.gnome.eog.gschema.xml.in

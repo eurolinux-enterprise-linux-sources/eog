@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" type="topic" style="task" id="plugin-postr" xml:lang="ru">
+
+  <info>
+   <link type="guide" xref="index#plugins"/>
+   <desc>Чтобы отправлять фотографии в онлайн-фотоальбомы Flickr, нужно установить Flickr Uploader.</desc>
+
+   <revision pkgversion="3.2" version="0.1" date="2011-09-06" status="final"/>
+   <credit type="author">
+     <name>Tiffany Antopolski</name>
+     <email>tiffany.antopolski@gmail.com</email>
+   </credit>
+   <license>
+     <p>Creative Commons Share Alike 3.0</p>
+   </license>
+
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Василий Фаронов &lt;qvvx@yandex.ru&gt;, 2007Алексей Кабанов</mal:name>
+      <mal:email>ak099@mail.ru</mal:email>
+      <mal:years>2012</mal:years>
+    </mal:credit>
+  </info>
+
+<title>Загрузка фотографий на <app>Flickr</app></title>
+
+<p><em>Flickr</em> — это служба фотоальбомов, с помощью которой можно делиться изображениями с другими людьми в Интернете. С помощью программы просмотра изображений можно загружать изображения во Flickr.</p>
+
+<p>Чтобы использовать модуль <app>Загрузчик Flickr</app>, необходимо установить приложение <app>Postr</app>, используя <app>менеджер пакетов</app> вашего дистрибутива. После установки вы сможете загружать снимки во Flickr:</p>
+
+<steps>
+ <item>
+  <p>Когда вы загружаете снимок в первый раз, <app>Загрузчик Flickr</app> попросит вас войти во Flickr. Веб-сайт запросит разрешение на авторизацию <app>Postr</app> для доступа к вашей учётной записи.</p>
+ </item>
+ <item>
+  <p>Вернитесь к программе просмотра изображений, нажмите <guiseq><gui>Изображение</gui><gui>Открыть с помощью</gui><gui>Загрузчик Flickr</gui></guiseq>.</p>
+ </item>
+ <item>
+  <p>Нажмите <gui>Загрузить</gui>.</p>
+ </item>
+</steps>
+
+<section id="tools-plugin">
+ <title>Добавление в меню <gui>Инструменты</gui></title>
+ <p>Можно добавить кнопку для загрузки изображений во Flickr.</p>
+ <p>Сначала убедитесь, что установлен пакет <link xref="plugins">eog-plugins</link>. Затем нажмите <guiseq><gui>Правка</gui><gui>Параметры</gui></guiseq>, перейдите на вкладку <gui>Модули</gui> и выберите модуль <gui>Загрузчик Flickr</gui>.</p>
+ <p>После этого в меню появится пункт <guiseq><gui>Инструменты</gui><gui>Загрузить во Flickr</gui></guiseq>.</p>
+ <media type="image" src="figures/plugin-tools-flickr.png" style="floatend"/>
+</section>
+
+</page>

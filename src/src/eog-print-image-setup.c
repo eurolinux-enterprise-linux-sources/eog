@@ -14,9 +14,9 @@
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
  *
- * You should have received a copy of the GNU General Public License along
- * with this program; if not, write to the Free Software Foundation, Inc.,
- * 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
+ * You should have received a copy of the GNU General Public License
+ * along with this program; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
  */
 
 #ifdef HAVE_CONFIG_H
@@ -24,6 +24,7 @@
 #endif
 
 #include <gtk/gtk.h>
+#include <gtk/gtkunixprint.h>
 
 #include <glib/gi18n.h>
 #include <glib/gprintf.h>
@@ -46,6 +47,11 @@
  * EOG. Through it, you can set the position and scaling of a image
  * interactively.
  */
+
+#define EOG_PRINT_IMAGE_SETUP_GET_PRIVATE(object) \
+	(G_TYPE_INSTANCE_GET_PRIVATE ((object), EOG_TYPE_PRINT_IMAGE_SETUP, EogPrintImageSetupPrivate))
+
+G_DEFINE_TYPE (EogPrintImageSetup, eog_print_image_setup, GTK_TYPE_GRID);
 
 struct _EogPrintImageSetupPrivate {
 	GtkWidget *left;
@@ -108,7 +114,6 @@ static void on_bottom_value_changed (GtkSpinButton *spinbutton, gpointer user_da
 static void on_width_value_changed  (GtkSpinButton *spinbutton, gpointer user_data);
 static void on_height_value_changed (GtkSpinButton *spinbutton, gpointer user_data);
 
-G_DEFINE_TYPE_WITH_PRIVATE (EogPrintImageSetup, eog_print_image_setup, GTK_TYPE_GRID);
 
 static void
 block_handlers (EogPrintImageSetup *setup)
@@ -702,11 +707,11 @@ static GtkWidget *
 wrap_in_frame (const gchar *label,
                GtkWidget   *child)
 {
-	GtkWidget *frame, *label_widget;
+	GtkWidget *frame, *alignment, *label_widget;
 	gchar *bold_text;
 
 	label_widget = gtk_label_new ("");
-	gtk_widget_set_halign (label_widget, GTK_ALIGN_START);
+	gtk_misc_set_alignment (GTK_MISC (label_widget), 0.0, 0.5);
 	gtk_widget_show (label_widget);
 
 	bold_text = g_markup_printf_escaped ("<b>%s</b>", label);
@@ -715,11 +720,16 @@ wrap_in_frame (const gchar *label,
 
 	frame = gtk_box_new (GTK_ORIENTATION_VERTICAL, 6);
 	gtk_box_pack_start (GTK_BOX (frame), label_widget, FALSE, FALSE, 0);
-	gtk_box_pack_start (GTK_BOX (frame), child, FALSE, FALSE, 0);
 
-	gtk_widget_set_margin_start (child, 12);
+	alignment = gtk_alignment_new (0.0, 0.0, 1.0, 1.0);
+	gtk_alignment_set_padding (GTK_ALIGNMENT (alignment),
+				   0, 0, 12, 0);
+	gtk_box_pack_start (GTK_BOX (frame), alignment, FALSE, FALSE, 0);
+
+	gtk_container_add (GTK_CONTAINER (alignment), child);
 
 	gtk_widget_show (frame);
+	gtk_widget_show (alignment);
 
 	return frame;
 }
@@ -732,7 +742,7 @@ grid_attach_spin_button_with_label (GtkWidget *grid,
 	GtkWidget *label, *spin_button;
 
 	label = gtk_label_new_with_mnemonic (text_label);
-	gtk_widget_set_halign (label, GTK_ALIGN_START);
+	gtk_misc_set_alignment (GTK_MISC (label), 0.0, 0.5);
 	spin_button = gtk_spin_button_new_with_range (0, 100, 0.01);
 	gtk_spin_button_set_digits (GTK_SPIN_BUTTON (spin_button), 2);
 	gtk_entry_set_width_chars (GTK_ENTRY (spin_button), 6);
@@ -904,6 +914,8 @@ eog_print_image_setup_class_init (EogPrintImageSetupClass *class)
 							      _("The information for the page where the image will be printed"),
 							      GTK_TYPE_PAGE_SETUP,
 							      G_PARAM_READWRITE));
+
+	g_type_class_add_private (class, sizeof (EogPrintImageSetupPrivate));
 }
 
 static void
@@ -920,7 +932,7 @@ eog_print_image_setup_init (EogPrintImageSetup *setup)
 	gchar *locale_scale = NULL;
 #endif
 
-	priv = setup->priv = eog_print_image_setup_get_instance_private (setup);
+	priv = setup->priv = EOG_PRINT_IMAGE_SETUP_GET_PRIVATE (setup);
 
 	priv->image = NULL;
 
@@ -939,7 +951,7 @@ eog_print_image_setup_init (EogPrintImageSetup *setup)
 							   2, 1);
 
 	label = gtk_label_new_with_mnemonic (_("C_enter:"));
-	gtk_widget_set_halign (label, GTK_ALIGN_START);
+	gtk_misc_set_alignment (GTK_MISC (label), 0.0, 0.5);
 
 	combobox = gtk_combo_box_text_new ();
 	gtk_combo_box_text_insert_text (GTK_COMBO_BOX_TEXT (combobox),
@@ -985,7 +997,7 @@ eog_print_image_setup_init (EogPrintImageSetup *setup)
 	priv->scaling = hscale;
 
 	label = gtk_label_new_with_mnemonic (_("_Unit:"));
-	gtk_widget_set_halign (label, GTK_ALIGN_START);
+	gtk_misc_set_alignment (GTK_MISC (label), 0.0, 0.5);
 
 	combobox = gtk_combo_box_text_new ();
 	gtk_combo_box_text_insert_text (GTK_COMBO_BOX_TEXT (combobox), UNIT_MM,
