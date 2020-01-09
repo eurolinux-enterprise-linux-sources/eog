@@ -1,7 +1,397 @@
+Version 3.28.3
+--------------
+
+Bug fixes:
+
+ !1, Add OARS and update gitlab URLs (Nick Richards)
+ !2, Add icns to mime types (Harry Mallon)
+ #674284, EOG memory leak on viewing many jpeg images (Claudio Saavedra)
+ #795998, build: it's enable_xmp not enable_exempi (Rasmus Thomsen)
+
+New and updated translations:
+
+- Pieter Schalk Schoeman [af]
+
+Version 3.28.2
+--------------
+
+New and updated translations:
+
+- Marcos Lans [gl]
+
+Version 3.28.1
+--------------
+
+Bug fixes:
+
+ #794472, EOG is missing an icon in full screen mode
+          (eog-image-gallery-symbolic) (Felix Riemann)
+
+New and updated translations:
+
+- Daniel Șerbănescu [ro]
+
+New and updated manual translations
+
+- Alexandre Franke, Andre Klapper [fr]
+- Piotr Drąg [pl]
+- Anders Jonsson [sv]
+
+Version 3.28.0
+--------------
+
+New and updated translations:
+
+- Bruce Cowan [en_GB]
+- gogo [hr]
+- A S Alam [pa]
+
+New and updated manual translations
+
+- Marek Černocký [cs]
+- Charles Monzat, Alexandre Franke [fr]
+- Balázs Úr [hu]
+- Piotr Drąg [pl]
+- Anders Jonsson [sv]
+
+Version 3.27.91
+---------------
+
+ * Build system improvements (Iñigo Martínez, Piotr Drąg, Felix Riemann)
+
+Bug fixes:
+ #793719, Various meson related improvements (Iñigo Martínez)
+
+New and updated translations:
+
+- Mario Blättermann [de]
+- GunChleoc [gd]
+
+New and updated manual translations
+
+- Marek Černocký [cs]
+- Mario Blättermann [de]
+- Daniel Mustieles [es]
+- Balázs Úr [hu]
+
+Version 3.27.90
+---------------
+
+ * Swapped shortcuts for gallery and sidebar to match other GNOME apps
+ * Disabled color profile generation from Exif values
+ * Replaced several deprecated Glib/Gtk+ function calls
+
+Bug fixes:
+ #792682, F9 to toggle Side Pane (Felix Riemann)
+ #792770, JPEG image renders black on-screen (Felix Riemann)
+ #792923, Port from gtk_show_uri to gtk_show_uri_on_window (Timm Bäder)
+ #792924, Fix warnings from recent glib changes to g_object_(un)ref (Timm Bäder)
+ #792925, Remove gdk_window_process_updates call (Timm Bäder)
+
+New and updated manual translations
+
+- Piotr Drąg [pl]
+
+Version 3.27.3
+--------------
+
+ * Drop Autotools support in favour of Meson (Iñigo Martínez)
+ * Drop deprecated/unused files from help docs (Felix Riemann)
+
+Bug fixes:
+ #784354, Port to meson build system (Iñigo Martínez)
+
+Version 3.27.2
+--------------
+
+Bug fixes:
+ #787188, Close confirmation dialog looks outdated
+ #787750, EOG 3.26 does not store recently used files
+
+Version 3.27.1
+--------------
+
+ * Port to meson build system (Iñigo Martínez)
+
+Bug fixes:
+ #784354, Port to meson build system (Iñigo Martínez)
+ #790078, build: Install appstream metadata to non-deprecated location
+          (Jeremy Bicha)
+
+Version 3.26.2
+--------------
+
+Bug fixes:
+ #788582, Wrong line endings and broken tags in eog’s help
+          (Ryan Schmidt, Piotr Drąg)
+
+New and updated translations:
+
+- Xavi Ivars [ca@valencia]
+- Kjartan Maraas [nb]
+- Mingcong Bai [zh_CN]
+
+New and updated manual translations
+
+- Daniel Mustieles, Ryan Schmidt, Piotr Drąg [es]
+- Andre Klapper [lv]
+- Piotr Drąg [pl]
+
+Version 3.26.1
+--------------
+
+ * Fixed smaller translation bugs (Andre Klapper, Piotr Drąg)
+
+New and updated translations:
+
+- Yuras Shumovich [be]
+- Efstathios Iosifidis [el]
+- Arash Mousavi [fa]
+- Sveinn í Felli [is]
+- Justin van Steijn [nl]
+- Stas Solovey [ru]
+
+New and updated manual translations
+
+- Andre Klapper [cs]
+- Andre Klapper [de]
+- Anders Jonsson [sv]
+
+Version 3.26.0
+--------------
+
+New and updated translations:
+
+- Lyubomir Vasilev [bg]
+- Ask Hjorth Larsen [da]
+- Iñaki Larrañaga Murgoitio [eu]
+- Gianvito Cavasoli [it]
+- sujiniku, Jiro Matsuzawa [ja]
+- Nathan Follens [nl]
+
+New and updated manual translations
+
+- Jordi Mas, Aleix Badia i Bosch [ca]
+- Gabor Kelemen [hu]
+- Sebastian Rasmussen [sv]
+
+Version 3.25.92
+---------------
+
+* Updated help docs (Andre Klapper)
+
+Bug fixes:
+
+ #759434, 100% zoom keyboard shortcut documentation and button/menu entry
+
+New and updated translations:
+
+- Jordi Mas [ca]
+- Ask Hjorth Larsen [da]
+- Jiri Grönroos [fi]
+- Alexandre Franke, Charles Monzat [fr]
+- Fran Dieguez [gl]
+- gogo [hr]
+- Sveinn í Felli [is]
+- Jeeyong Um [ko]
+- Aurimas Černius [lt]
+- Rūdolfs Mazurs [lv]
+- Piotr Drąg [pl]
+- Rafael Fontenelle [pt_BR]
+- Мирослав Николић [sr]
+- Miroslav Nikolić [sr@latin]
+- Cheng-Chia Tseng [zh_TW]
+
+New and updated manual translations
+
+- Marek Černocký [cs]
+- Christian Kirbach, Mario Blättermann [de]
+- Daniel Mustieles [es]
+- Rūdolfs Mazurs [lv]
+
+Version 3.25.90
+---------------
+
+ * Miscellaneous fixes (Anders Jonsson, Andre Klapper, Bastien Nocera)
+
+Bug fixes:
+
+ #784942, thumbnail: Remove use of obsolete gnome-desktop-thumbnail helper
+
+New and updated translations:
+
+- Khaled Hosny [ar]
+- Marek Černocký [cs]
+- Meskó Balázs [hu]
+- Anish A [ml]
+- Dušan Kazik [sk]
+- Matej Urbančič [sl]
+- Anders Jonsson [sv]
+- Çağatay Yiğit Şahin [tr]
+- Trần Ngọc Quân [vi]
+
+New and updated manual translations
+
+- Mario Blättermann [de]
+- Daniel Mustieles [es]
+- Anders Jonsson [sv]
+
+Version 3.25.1
+--------------
+
+ * Drop intltool support in favour of plain gettext
+
+Bug fixes:
+
+ #555831, be able to mount a volume from recent files (Ondrej Holy)
+
+New and updated translations:
+
+- Felix Riemann [de]
+- Daniel Mustieles [es]
+- Fabio Tomat [fur]
+- Kukuh Syafaat [id]
+- Baurzhan Muftakhidinov [kk]
+- Stas Solovey [ru]
+- Emin Tufan Çetin [tr]
+
+Version 3.24.1
+--------------
+
+Bug fixes:
+
+ #780675, gcc pragma build failure
+
+New and updated translations:
+
+- Tom Tryfonidis [el]
+- Daniel Mustieles [es]
+- gogo [hr]
+- Kjartan Maraas [nb]
+
+New and updated manual translations
+
+- Rūdolfs Mazurs [lv]
+
+Version 3.24.0
+--------------
+
+New and updated translations:
+
+- gogo [hr]
+- Gianvito Cavasoli [it]
+- Changwoo Ryu [ko]
+- Rūdolfs Mazurs [lv]
+- Yuri Myasoedov [ru]
+- Daniel Korostil [uk]
+
+Version 3.23.92
+---------------
+
+New and updated translations:
+
+- Jordi Mas [ca]
+- Marek Černocký [cs]
+- Joe Hansen [da]
+- Mario Blättermann [de]
+- Iñaki Larrañaga Murgoitio [eu]
+- Jiri Grönroos [fi]
+- Charles Monzat [fr]
+- Fabio Tomat [fur]
+- Fran Dieguez [gl]
+- Gabor Kelemen [hu]
+- Kukuh Syafaat [id]
+- Baurzhan Muftakhidinov [kk]
+- Moo [lt]
+- A S Alam [pa]
+- Piotr Drąg [pl]
+- Rafael Fontenelle [pt_BR]
+- Dušan Kazik [sk]
+- Мирослав Николић [sr]
+- Miroslav Nikolić [sr@latin]
+- Anders Jonsson [sv]
+- Trần Ngọc Quân [vi]
+- Chao-Hsiung Liao [zh_TW]
+
+Version 3.23.91
+---------------
+
+ * Various fixes for the new zoom widget
+
+Bug fixes:
+
+ #778573, Make zoom menu wider
+
+New and updated translations:
+
+- Ask Hjorth Larsen [da]
+- Daniel Mustieles [es]
+- Iñaki Larrañaga Murgoitio [eu]
+- Jiri Grönroos [fi]
+- Charles Monzat [fr]
+- Fabio Tomat [fur]
+- Meskó Balázs [hu]
+- Kukuh Syafaat [id]
+- Baurzhan Muftakhidinov [kk]
+- Kjartan Maraas [nb]
+- Piotr Drąg [pl]
+- Rafael Fontenelle [pt_BR]
+- Dušan Kazik [sk]
+- Мирослав Николић [sr]
+- Miroslav Nikolić [sr@latin]
+- Daniel Korostil [uk]
+- Chao-Hsiung Liao [zh_TW]
+
+New and updated manual translations
+
+- Jordi Mas [ca]
+
+Version 3.23.90
+---------------
+
+ * Replace zoom scale with a text entry based on Evince's zoom widget
+ * Fix keyboard navigation in the headerbar and popup menu
+
+Bug fixes:
+
+ #754985, no way to open menu using keyboard
+
+New and updated translations:
+
+- Jordi Mas [ca]
+- Marek Černocký [cs]
+- Kukuh Syafaat [id]
+- Kjartan Maraas [nb]
+- Dušan Kazik [sk]
+
+Version 3.23.1
+--------------
+
+ * Several GTK deprecation fixes
+ * Smaller bug and memory leak fixes
+
+Bug fixes:
+
+ #774001, Take advantage of Unicode (Piotr Drąg)
+ #776984, eog displays jpeg image color incorrectly on wayland (Felix Riemann)
+
+New and updated translations:
+
+- Marek Černocký [cs]
+- Mario Blättermann [de]
+- Daniel Mustieles [es]
+- Jiri Grönroos [fi]
+- Fabio Tomat [fur]
+- Meskó Balázs [hu]
+- Baurzhan Muftakhidinov [kk]
+- Piotr Drąg [pl]
+- Rafael Fontenelle [pt_BR]
+- Dingzhong Chen [zh_CN]
+
 Version 3.20.5
 --------------
 
-* Some smaller code improvements
+ * Some smaller code improvements
 
 Bug fixes:
 

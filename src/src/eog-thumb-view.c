@@ -50,8 +50,6 @@ static void eog_thumb_view_init (EogThumbView *thumbview);
 static EogImage* eog_thumb_view_get_image_from_path (EogThumbView      *thumbview,
 						     GtkTreePath       *path);
 
-static void      eog_thumb_view_popup_menu          (EogThumbView      *widget,
-						     GdkEventButton    *event);
 static void      eog_thumb_view_update_columns      (EogThumbView *view);
 
 static gboolean
@@ -404,6 +402,7 @@ static gboolean
 thumbview_on_button_press_event_cb (GtkWidget *thumbview, GdkEventButton *event,
 				    gpointer user_data)
 {
+	EogThumbView *view = EOG_THUMB_VIEW (thumbview);
 	GtkTreePath *path;
 
 	/* Ignore double-clicks and triple-clicks */
@@ -421,7 +420,8 @@ thumbview_on_button_press_event_cb (GtkWidget *thumbview, GdkEventButton *event,
 			gtk_icon_view_select_path (GTK_ICON_VIEW (thumbview), path);
 			gtk_icon_view_set_cursor (GTK_ICON_VIEW (thumbview), path, NULL, FALSE);
 		}
-		eog_thumb_view_popup_menu (EOG_THUMB_VIEW (thumbview), event);
+		gtk_menu_popup_at_pointer (GTK_MENU (view->priv->menu),
+					   (const GdkEvent*) event);
 
 		gtk_tree_path_free (path);
 
@@ -1043,7 +1043,7 @@ eog_thumb_view_set_thumbnail_popup (EogThumbView *thumbview,
 	g_return_if_fail (EOG_IS_THUMB_VIEW (thumbview));
 	g_return_if_fail (thumbview->priv->menu == NULL);
 
-	thumbview->priv->menu = g_object_ref (menu);
+	thumbview->priv->menu = g_object_ref (GTK_WIDGET (menu));
 
 	gtk_menu_attach_to_widget (GTK_MENU (thumbview->priv->menu),
 				   GTK_WIDGET (thumbview),
@@ -1052,25 +1052,4 @@ eog_thumb_view_set_thumbnail_popup (EogThumbView *thumbview,
 	g_signal_connect (G_OBJECT (thumbview), "button_press_event",
 			  G_CALLBACK (thumbview_on_button_press_event_cb), NULL);
 
-}
-
-
-static void
-eog_thumb_view_popup_menu (EogThumbView *thumbview, GdkEventButton *event)
-{
-	GtkWidget *popup;
-	int button, event_time;
-
-	popup = thumbview->priv->menu;
-
-	if (event) {
-		button = event->button;
-		event_time = event->time;
-	} else {
-		button = 0;
-		event_time = gtk_get_current_event_time ();
-	}
-
-	gtk_menu_popup (GTK_MENU (popup), NULL, NULL, NULL, NULL,
-			button, event_time);
 }

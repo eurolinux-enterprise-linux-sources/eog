@@ -213,8 +213,8 @@ eog_application_init_accelerators (GtkApplication *application)
 		"win.set-wallpaper",	"<Ctrl>F8", NULL,
 		"win.manual",		"F1", NULL,
 
-		"win.go-previous",	"Left", "BackSpace", NULL,
-		"win.go-next",		"Right", NULL,
+		"win.go-previous",	"BackSpace", NULL,
+		/* "win.go-next",	NULL,*/
 		"win.go-first",		"<Alt>Home", "Home", NULL,
 		"win.go-last",		"<Alt>End", "End", NULL,
 		"win.go-random",	"<Ctrl>m", NULL,
@@ -230,12 +230,13 @@ eog_application_init_accelerators (GtkApplication *application)
 					"<Ctrl>KP_Subtract", NULL,
 		"win.zoom-normal",	"<Ctrl>0", NULL,
 
-		"win.view-gallery",	"F9", NULL,
-		"win.view-sidebar",	"<Ctrl>F9", NULL,
+		"win.view-gallery",	"<Ctrl>F9", NULL,
+		"win.view-sidebar",	"F9", NULL,
 		"win.view-fullscreen",	"F11", NULL,
 		"win.view-slideshow",	"F5", NULL,
 		"win.toggle-zoom-fit",	"F", NULL,
 		"win.toggle-gear-menu",	"F10", NULL,
+		"win.pause-slideshow",	"p", NULL,
 
 		NULL /* Terminating NULL */
 	};
@@ -301,6 +302,7 @@ eog_application_startup (GApplication *application)
 				GTK_STYLE_PROVIDER_PRIORITY_APPLICATION);
 	}
 	g_object_unref (provider);
+	g_object_unref (css_file);
 
 	/* Add application specific icons to search path */
 	gtk_icon_theme_append_search_path (gtk_icon_theme_get_default (),

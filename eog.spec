@@ -1,20 +1,22 @@
 %global _changelog_trimtime %(date +%s -d "1 year ago")
 
-%define gtk3_version 3.19.3
+%define gtk3_version 3.22.0
 %define glib2_version 2.42.0
 %define gnome_desktop_version 2.91.2
 %define libexif_version 0.6.14
 
 Name:    eog
-Version: 3.20.5
-Release: 2%{?dist}
+Version: 3.28.3
+Release: 1%{?dist}
 Summary: Eye of GNOME image viewer
 
 # The GFDL has an "or later version" clause embedded inside the license.
 # There is no need to add the + here.
 License: GPLv2+ and GFDL
 URL:     https://wiki.gnome.org/Apps/EyeOfGnome
-Source0: http://download.gnome.org/sources/%{name}/3.20/%{name}-%{version}.tar.xz
+Source0: http://download.gnome.org/sources/%{name}/3.28/%{name}-%{version}.tar.xz
+
+Patch1:  no-python3.patch
 
 BuildRequires: pkgconfig(exempi-2.0)
 BuildRequires: pkgconfig(gdk-pixbuf-2.0)
@@ -32,9 +34,10 @@ BuildRequires: pkgconfig(shared-mime-info)
 BuildRequires: pkgconfig(x11)
 BuildRequires: desktop-file-utils
 BuildRequires: gettext
-BuildRequires: intltool >= 0.50.1
+BuildRequires: gtk-doc
 BuildRequires: itstool
 BuildRequires: libjpeg-devel
+BuildRequires: meson
 BuildRequires: zlib-devel
 BuildRequires: /usr/bin/appstream-util
 
@@ -60,23 +63,20 @@ functionality to eog.
 
 %prep
 %setup -q
+%patch1 -p1 -b .no-py3
 
 %build
-%configure
-make %{?_smp_mflags}
+%meson -Dgtk_doc=true -Dinstalled_tests=false
+%meson_build
 
 %install
-%make_install
+%meson_install
 
 %find_lang %{name} --with-gnome
 
-rm -rf $RPM_BUILD_ROOT%{_libdir}/eog/plugins/*.la
-
-
 %check
-appstream-util validate-relax --nonet %{buildroot}/%{_datadir}/appdata/*.appdata.xml
+appstream-util validate-relax --nonet %{buildroot}/%{_datadir}/metainfo/*.appdata.xml
 desktop-file-validate %{buildroot}/%{_datadir}/applications/eog.desktop
-
 
 %post
 update-desktop-database >&/dev/null || :
@@ -103,9 +103,9 @@ glib-compile-schemas %{_datadir}/glib-2.0/schemas >&/dev/null || :
 %{_bindir}/*
 %{_libdir}/eog
 %{_datadir}/GConf/gsettings/eog.convert
-%{_datadir}/appdata/eog.appdata.xml
 %{_datadir}/glib-2.0/schemas/org.gnome.eog.enums.xml
 %{_datadir}/glib-2.0/schemas/org.gnome.eog.gschema.xml
+%{_datadir}/metainfo/eog.appdata.xml
 
 %files devel
 %{_includedir}/eog-3.0
@@ -113,6 +113,14 @@ glib-compile-schemas %{_datadir}/glib-2.0/schemas >&/dev/null || :
 %{_datadir}/gtk-doc/
 
 %changelog
+* Wed Jul 25 2018 Kalev Lember <klember@redhat.com> - 3.28.3-1
+- Update to 3.28.3
+- Resolves: #1567185
+
+* Wed Jun 06 2018 Richard Hughes <rhughes@redhat.com> - 3.28.2-1
+- Update to 3.28.2
+- Resolves: #1567185
+
 * Tue Apr 18 2017 Richard Hughes <rhughes@redhat.com> - 3.20.5-2
 - Do not build the tests subpackage, the required deps are not available.
 - Resolves: #1433402
