@@ -1,0 +1,47 @@
+<!-- ##### SECTION Title ##### -->
+EogJobScheduler
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### SECTION Image ##### -->
+
+
+<!-- ##### FUNCTION eog_job_scheduler_init ##### -->
+<para>
+
+</para>
+
+@void: 
+
+
+<!-- ##### FUNCTION eog_job_scheduler_add_job ##### -->
+<para>
+
+</para>
+
+@job: 
+
+
+<!-- ##### FUNCTION eog_job_scheduler_add_job_with_priority ##### -->
+<para>
+
+</para>
+
+@job: 
+@priority: 
+
+

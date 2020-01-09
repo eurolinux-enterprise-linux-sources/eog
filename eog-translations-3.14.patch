@@ -1,0 +1,1447 @@
+Index: new/help/de/de.po
+===================================================================
+--- new.orig/help/de/de.po
++++ new/help/de/de.po
+@@ -464,10 +464,6 @@ msgid "Make the current picture your des
+ msgstr "Das Bild als Arbeitsflächenhintergrund festlegen"
+ 
+ #: C/desktop-background.page:21(page/p)
+-#| msgid ""
+-#| "To set the picture that you are currently viewing as the background image "
+-#| "on your desktop, click <guiseq><gui>Image</gui><gui>Set as Desktop "
+-#| "Background</gui></guiseq>."
+ msgid ""
+ "To set the picture that you are currently viewing as the background image on "
+ "your desktop, click <guiseq><gui>Image</gui><gui>Set as Wallpaper</gui> </"
+@@ -724,10 +720,6 @@ msgstr "<keyseq><key>Strg</key><key>Umsc
+ #. update your localized copy. The msgstr is not used at all. Set it to
+ #. whatever you like once you have updated your copy of the file.
+ #: C/format-change.page:69(media)
+-#| msgctxt "_"
+-#| msgid ""
+-#| "external ref='figures/multiple-convert.png' "
+-#| "md5='3e49dfc9d20f880635734c3e3d93d3f5'"
+ msgctxt "_"
+ msgid ""
+ "external ref='figures/multiple-convert.png' "
+@@ -1175,10 +1167,6 @@ msgstr ""
+ #. update your localized copy. The msgstr is not used at all. Set it to
+ #. whatever you like once you have updated your copy of the file.
+ #: C/plugin-exif-digital.page:36(media)
+-#| msgctxt "_"
+-#| msgid ""
+-#| "external ref='figures/prefs-plugins-date.png' "
+-#| "md5='c2c528709ac0c22ba3878d311cb8b96a'"
+ msgctxt "_"
+ msgid ""
+ "external ref='figures/prefs-plugins-date.png' "
+@@ -1385,10 +1373,6 @@ msgstr ""
+ #. update your localized copy. The msgstr is not used at all. Set it to
+ #. whatever you like once you have updated your copy of the file.
+ #: C/plugin-fullscreen-double-click.page:23(media)
+-#| msgctxt "_"
+-#| msgid ""
+-#| "external ref='figures/prefs-plugins-fullscreen.png' "
+-#| "md5='46f7de031b85dc68cf14eff7a03573eb'"
+ msgctxt "_"
+ msgid ""
+ "external ref='figures/prefs-plugins-fullscreen.png' "
+@@ -1529,10 +1513,6 @@ msgstr ""
+ #. update your localized copy. The msgstr is not used at all. Set it to
+ #. whatever you like once you have updated your copy of the file.
+ #: C/plugin-send-by-mail.page:38(media)
+-#| msgctxt "_"
+-#| msgid ""
+-#| "external ref='figures/plugin-send-by-mail.png' "
+-#| "md5='f051056a7a72a65977de83619c0b10e3'"
+ msgctxt "_"
+ msgid ""
+ "external ref='figures/plugin-send-by-mail.png' "
+@@ -1782,10 +1762,6 @@ msgstr ""
+ #. update your localized copy. The msgstr is not used at all. Set it to
+ #. whatever you like once you have updated your copy of the file.
+ #: C/preferences.page:31(media)
+-#| msgctxt "_"
+-#| msgid ""
+-#| "external ref='figures/image-view-prefs.png' "
+-#| "md5='a406d64d560228529df3e547da9b7649'"
+ msgctxt "_"
+ msgid ""
+ "external ref='figures/image-view-prefs.png' "
+@@ -1797,10 +1773,6 @@ msgstr "ok"
+ #. update your localized copy. The msgstr is not used at all. Set it to
+ #. whatever you like once you have updated your copy of the file.
+ #: C/preferences.page:79(media)
+-#| msgctxt "_"
+-#| msgid ""
+-#| "external ref='figures/slideshow-prefs.png' "
+-#| "md5='157b156794ecd38fa517b2846d6cfffc'"
+ msgctxt "_"
+ msgid ""
+ "external ref='figures/slideshow-prefs.png' "
+@@ -1812,10 +1784,6 @@ msgstr "ok"
+ #. update your localized copy. The msgstr is not used at all. Set it to
+ #. whatever you like once you have updated your copy of the file.
+ #: C/preferences.page:104(media)
+-#| msgctxt "_"
+-#| msgid ""
+-#| "external ref='figures/plugins-all.png' "
+-#| "md5='537fad891de716f59ea9f5920b8f9523'"
+ msgctxt "_"
+ msgid ""
+ "external ref='figures/plugins-all.png' md5='c1c0ff8290f8addb823a0e15b4b52054'"
+@@ -1826,10 +1794,6 @@ msgstr "ok"
+ #. update your localized copy. The msgstr is not used at all. Set it to
+ #. whatever you like once you have updated your copy of the file.
+ #: C/preferences.page:105(media)
+-#| msgctxt "_"
+-#| msgid ""
+-#| "external ref='figures/prefs-plugins.png' "
+-#| "md5='c3cb0f28ada7868feb9d8386654edd6c'"
+ msgctxt "_"
+ msgid ""
+ "external ref='figures/prefs-plugins.png' "
+@@ -1869,10 +1833,6 @@ msgid "Image enhancements"
+ msgstr "Bildverbesserungen"
+ 
+ #: C/preferences.page:35(item/p)
+-#| msgid ""
+-#| "Select <gui>Smooth images when zoomed-out</gui> to enable <em>image "
+-#| "smoothing</em> when you zoom in and out. This makes low-resolution "
+-#| "(pixelated) pictures look better by smoothing out jagged edges."
+ msgid ""
+ "Select <gui>Smooth images when zoomed out</gui> to enable <em>image "
+ "smoothing</em> when you zoom in and out. This makes low-resolution "
+@@ -2100,10 +2060,6 @@ msgstr ""
+ #. update your localized copy. The msgstr is not used at all. Set it to
+ #. whatever you like once you have updated your copy of the file.
+ #: C/rename-multiple.page:59(media)
+-#| msgctxt "_"
+-#| msgid ""
+-#| "external ref='figures/multiple-rename-count.png' "
+-#| "md5='e2dc1975afb399b0606f8ca91aa2a86b'"
+ msgctxt "_"
+ msgid ""
+ "external ref='figures/multiple-rename-count.png' "
+@@ -2556,10 +2512,6 @@ msgstr ""
+ #. update your localized copy. The msgstr is not used at all. Set it to
+ #. whatever you like once you have updated your copy of the file.
+ #: C/toolbar.page:60(media)
+-#| msgctxt "_"
+-#| msgid ""
+-#| "external ref='figures/eog-toolbar-editor.png' "
+-#| "md5='8e636cb5025d00f15d5020eb5e44516a'"
+ msgctxt "_"
+ msgid ""
+ "external ref='figures/eog-toolbar-editor.png' "
+Index: new/po/it.po
+===================================================================
+--- new.orig/po/it.po
++++ new/po/it.po
+@@ -290,12 +290,10 @@ msgid "<b>%n:</b> counter"
+ msgstr "<b>%n:</b> contatore"
+ 
+ #: ../data/eog-multiple-save-as-dialog.ui.h:6
+-#| msgid "Filename format:"
+ msgid "_Filename format:"
+ msgstr "Formato del nome _file:"
+ 
+ #: ../data/eog-multiple-save-as-dialog.ui.h:7
+-#| msgid "Destination folder:"
+ msgid "_Destination folder:"
+ msgstr "Cartella di _destinazione:"
+ 
+@@ -308,13 +306,11 @@ msgid "File Path Specifications"
+ msgstr "Specifiche percorso file"
+ 
+ #: ../data/eog-multiple-save-as-dialog.ui.h:10
+-#| msgid "Start counter at:"
+ msgid "_Start counter at:"
+ msgstr "Far _partire il contatore da:"
+ 
+ # (ndt) opzione
+ #: ../data/eog-multiple-save-as-dialog.ui.h:11
+-#| msgid "Replace spaces with underscores"
+ msgid "_Replace spaces with underscores"
+ msgstr "_Sostituire spazi con sottolineature"
+ 
+@@ -733,7 +729,6 @@ msgid "_Save"
+ msgstr "_Salva"
+ 
+ #: ../src/eog-close-confirmation-dialog.c:184
+-#| msgid "Save As"
+ msgid "Save _As"
+ msgstr "Salva _come"
+ 
+@@ -930,7 +925,6 @@ msgstr[0] "pixel"
+ msgstr[1] "pixel"
+ 
+ #: ../src/eog-file-chooser.c:457 ../src/eog-file-chooser.c:473
+-#| msgid "_Open…"
+ msgid "_Open"
+ msgstr "_Apri"
+ 
+@@ -1192,7 +1186,6 @@ msgid "Opening image \"%s\""
+ msgstr "Apertura dell'immagine «%s»"
+ 
+ #: ../src/eog-window.c:1898
+-#| msgid "_Fullscreen"
+ msgid "_Leave Fullscreen"
+ msgstr "_Finestra normale"
+ 
+Index: new/po/kn.po
+===================================================================
+--- new.orig/po/kn.po
++++ new/po/kn.po
+@@ -89,7 +89,6 @@ msgid "_Help"
+ msgstr "ಸಹಾಯ (_H)"
+ 
+ #: ../data/eog-app-menu.xml.h:8
+-#| msgid "Image Viewer"
+ msgid "_About Image Viewer"
+ msgstr "ಚಿತ್ರ ವೀಕ್ಷಕದ ಕುರಿತು (_A)"
+ 
+@@ -148,7 +147,6 @@ msgstr "ಬೈಟ್‍ಗಳು:"
+ 
+ #: ../data/eog-image-properties-dialog.ui.h:9
+ #: ../src/eog-metadata-sidebar.c:508
+-#| msgid "Open Folder"
+ msgid "Folder:"
+ msgstr "ಕಡತಕೋಶ:"
+ 
+@@ -287,7 +285,6 @@ msgid "File Name Preview"
+ msgstr "ಕಡತ ಹೆಸರಿನ ಮುನ್ನೋಟ"
+ 
+ #: ../data/eog-preferences-dialog.ui.h:1
+-#| msgid "Prefere_nces"
+ msgid "Preferences"
+ msgstr "ಆದ್ಯತೆಗಳು"
+ 
+@@ -427,8 +424,7 @@ msgid ""
+ "CHECK_PATTERN, COLOR and NONE. If COLOR is chosen, then the trans-color key "
+ "determines the color value used."
+ msgstr ""
+-"ಪಾರದರ್ಶಕತೆಯನ್ನು ಹೇಗೆ ತೋರಿಸಬೇಕು ಎಂದು ಸೂಚಿಸುತ್ತದೆ. ಮಾನ್ಯವಾದ "
+-"ಮೌಲ್ಯಗಳುCHECK_PATTERN, "
++"ಪಾರದರ್ಶಕತೆಯನ್ನು ಹೇಗೆ ತೋರಿಸಬೇಕು ಎಂದು ಸೂಚಿಸುತ್ತದೆ. ಮಾನ್ಯವಾದ ಮೌಲ್ಯಗಳುCHECK_PATTERN, "
+ "COLOR ಹಾಗು NONE ಆಗಿರುತ್ತವೆ. COLOR ಅನ್ನು ಆರಿಸಲಾಗಿದ್ದರೆ, trans-color ಕೀಲಿಯು "
+ "ಬಳಸಲಾದ ಬಣ್ಣದ ಮೌಲ್ಯವನ್ನು ಸೂಚಿಸುತ್ತದೆ."
+ 
+@@ -452,12 +448,9 @@ msgid ""
+ "0.05 results in a 5% zoom increment for each scroll event and 1.00 result in "
+ "a 100% zoom increment."
+ msgstr ""
+-"ಹಿಗ್ಗಿಸಲು ಮೌಸಿನ ಚಲನಾ ಚಕ್ರವನ್ನು ಬಳಸುವಾಗ ಅನ್ವಯಿಸಬೇಕಿರುವ ಗುಣಕ. ಪ್ರತಿಯೊಂದು ಬಾರಿಯ "
+-"ಚಲನೆಯ "
+-"ಸಮಯದಲ್ಲಿ ಹಿಗ್ಗಿಸುವ ಹಂತವನ್ನು ಈ ಮೌಲ್ಯವು ಸೂಚಿಸುತ್ತದೆ. ಉದಾಹರಣೆಗೆ, ಪ್ರತಿ ಬಾರಿಯೂ "
+-"0.05 "
+-"ರಷ್ಟು ಬದಲಾಯಿಸಿದಾಗ ಚಲನಾ ಸನ್ನಿವೇಶದಲ್ಲಿನ 5% ಹಿಗ್ಗಿಸುವಿಕೆಗೆ ಕಾರಣವಾಗುತ್ತದೆ ಹಾಗು "
+-"1.00 "
++"ಹಿಗ್ಗಿಸಲು ಮೌಸಿನ ಚಲನಾ ಚಕ್ರವನ್ನು ಬಳಸುವಾಗ ಅನ್ವಯಿಸಬೇಕಿರುವ ಗುಣಕ. ಪ್ರತಿಯೊಂದು ಬಾರಿಯ ಚಲನೆಯ "
++"ಸಮಯದಲ್ಲಿ ಹಿಗ್ಗಿಸುವ ಹಂತವನ್ನು ಈ ಮೌಲ್ಯವು ಸೂಚಿಸುತ್ತದೆ. ಉದಾಹರಣೆಗೆ, ಪ್ರತಿ ಬಾರಿಯೂ 0.05 "
++"ರಷ್ಟು ಬದಲಾಯಿಸಿದಾಗ ಚಲನಾ ಸನ್ನಿವೇಶದಲ್ಲಿನ 5% ಹಿಗ್ಗಿಸುವಿಕೆಗೆ ಕಾರಣವಾಗುತ್ತದೆ ಹಾಗು 1.00 "
+ "ರಷ್ಟು ಬದಲಾಯಿಸಿದಾಗ ಚಲನಾ ಸನ್ನಿವೇಶದಲ್ಲಿನ 100% ಹಿಗ್ಗಿಸುವಿಕೆಗೆ ಕಾರಣವಾಗುತ್ತದೆ."
+ 
+ #: ../data/org.gnome.eog.gschema.xml.in.in.h:16
+@@ -469,8 +462,7 @@ msgid ""
+ "If the transparency key has the value COLOR, then this key determines the "
+ "color which is used for indicating transparency."
+ msgstr ""
+-"ಪಾರದರ್ಶಕತೆ ಕೀಲಿಯು COLOR ಮೌಲ್ಯವನ್ನು ಹೊಂದಿದ್ದರೆ, ಪಾರದರ್ಶಕತೆಯನ್ನು ಸೂಚಿಸಲು "
+-"ಬಳಸಲಾಗುವ "
++"ಪಾರದರ್ಶಕತೆ ಕೀಲಿಯು COLOR ಮೌಲ್ಯವನ್ನು ಹೊಂದಿದ್ದರೆ, ಪಾರದರ್ಶಕತೆಯನ್ನು ಸೂಚಿಸಲು ಬಳಸಲಾಗುವ "
+ "ಬಣ್ಣವನ್ನು ಕೀಲಿಯು ನಿರ್ಧರಿಸುತ್ತದೆ."
+ 
+ #: ../data/org.gnome.eog.gschema.xml.in.in.h:18
+@@ -483,10 +475,8 @@ msgid ""
+ "fill the area behind the image. If it is not set, the current GTK+ theme "
+ "will determine the fill color."
+ msgstr ""
+-"ಇದು ಸಕ್ರಿಯವಾಗಿದ್ದಲ್ಲಿ, ಹಿನ್ನಲೆ ಬಣ್ಣದ ಕೀಲಿಯಿಂದ ಸೂಚಿಸಲಾದ ಬಣ್ಣವನ್ನು ಚಿತ್ರದ "
+-"ಹಿಂಬದಿಯ "
+-"ಜಾಗಕ್ಕೆ ತುಂಬಿಸಲಾಗುತ್ತದೆ. ಇದನ್ನು ಹೊಂದಿಸದೆ ಹೋದಲ್ಲಿ, ಪ್ರಸಕ್ತ GTK+ ಥೀಮ್  "
+-"ತುಂಬಿಸಬೇಕಿರುವ "
++"ಇದು ಸಕ್ರಿಯವಾಗಿದ್ದಲ್ಲಿ, ಹಿನ್ನಲೆ ಬಣ್ಣದ ಕೀಲಿಯಿಂದ ಸೂಚಿಸಲಾದ ಬಣ್ಣವನ್ನು ಚಿತ್ರದ ಹಿಂಬದಿಯ "
++"ಜಾಗಕ್ಕೆ ತುಂಬಿಸಲಾಗುತ್ತದೆ. ಇದನ್ನು ಹೊಂದಿಸದೆ ಹೋದಲ್ಲಿ, ಪ್ರಸಕ್ತ GTK+ ಥೀಮ್  ತುಂಬಿಸಬೇಕಿರುವ "
+ "ಬಣ್ಣವನ್ನು ನಿರ್ಧರಿಸುತ್ತದೆ."
+ 
+ #: ../data/org.gnome.eog.gschema.xml.in.in.h:20
+@@ -507,8 +497,7 @@ msgid ""
+ "If this is set to FALSE small images will not be stretched to fit into the "
+ "screen initially."
+ msgstr ""
+-"ಇದನ್ನು FALSE ಗೆ ಬದಲಾಯಿಸಿದಲ್ಲಿ, ಚಿಕ್ಕ ಚಿತ್ರಗಳನ್ನು ಆರಂಭದಲ್ಲಿ ತೆರೆಗೆ "
+-"ಹೊಂದಿಕೊಳ್ಳುವಂತೆ "
++"ಇದನ್ನು FALSE ಗೆ ಬದಲಾಯಿಸಿದಲ್ಲಿ, ಚಿಕ್ಕ ಚಿತ್ರಗಳನ್ನು ಆರಂಭದಲ್ಲಿ ತೆರೆಗೆ ಹೊಂದಿಕೊಳ್ಳುವಂತೆ "
+ "ಎಳೆದು ಹಿಗ್ಗಿಸಲಾಗುತ್ತದೆ."
+ 
+ #: ../data/org.gnome.eog.gschema.xml.in.in.h:25
+@@ -520,10 +509,8 @@ msgid ""
+ "A value greater than 0 determines the seconds an image stays on screen until "
+ "the next one is shown automatically. Zero disables the automatic browsing."
+ msgstr ""
+-"0 ಗಿಂತ ಹೆಚ್ಚಿನ ಒಂದು ಮೌಲ್ಯವಿದ್ದಲ್ಲಿ ಒಂದು ಚಿತ್ರವು ಮುಂದಿನ ಚಿತ್ರವನ್ನು "
+-"ಸ್ವಯಂಚಾಲಿತವಾಗಿ "
+-"ತೋರಿಸುವ ಮೊದಲು ಅಷ್ಟು ಸೆಕೆಂಡುಗಳ ಕಾಲ ತೆರೆಯ ಮೇಲೆ ಇರುತ್ತದೆ. ಸೊನ್ನೆ ಇದ್ದಲ್ಲಿ "
+-"ಸ್ವಯಂಚಾಲಿತ "
++"0 ಗಿಂತ ಹೆಚ್ಚಿನ ಒಂದು ಮೌಲ್ಯವಿದ್ದಲ್ಲಿ ಒಂದು ಚಿತ್ರವು ಮುಂದಿನ ಚಿತ್ರವನ್ನು ಸ್ವಯಂಚಾಲಿತವಾಗಿ "
++"ತೋರಿಸುವ ಮೊದಲು ಅಷ್ಟು ಸೆಕೆಂಡುಗಳ ಕಾಲ ತೆರೆಯ ಮೇಲೆ ಇರುತ್ತದೆ. ಸೊನ್ನೆ ಇದ್ದಲ್ಲಿ ಸ್ವಯಂಚಾಲಿತ "
+ "ವೀಕ್ಷಣೆಯನ್ನು ಅಶಕ್ತಗೊಳಿಸುತ್ತದೆ."
+ 
+ #: ../data/org.gnome.eog.gschema.xml.in.in.h:27
+@@ -581,8 +568,7 @@ msgid ""
+ "Whether the file chooser should show the user's pictures folder if no images "
+ "are loaded."
+ msgstr ""
+-"ಯಾವುದೆ ಚಿತ್ರಗಳನ್ನು ಲೋಡ್ ಮಾಡದೆ ಇದ್ದಲ್ಲಿ ಕಡತ ಆಯ್ಕೆಗಾರವು ಬಳಕೆದಾರರ ಚಿತ್ರಗಳ "
+-"ಕಡತಕೋಶವನ್ನು "
++"ಯಾವುದೆ ಚಿತ್ರಗಳನ್ನು ಲೋಡ್ ಮಾಡದೆ ಇದ್ದಲ್ಲಿ ಕಡತ ಆಯ್ಕೆಗಾರವು ಬಳಕೆದಾರರ ಚಿತ್ರಗಳ ಕಡತಕೋಶವನ್ನು "
+ "ತೋರಿಸಬೇಕೆ."
+ 
+ #: ../data/org.gnome.eog.gschema.xml.in.in.h:38
+@@ -592,12 +578,9 @@ msgid ""
+ "directories. If deactivated or the pictures folder has not been set up, it "
+ "will show the current working directory."
+ msgstr ""
+-"ಸಕ್ರಿಯಗೊಳಿಸಿದಲ್ಲಿ ಹಾಗು ಯಾವುದೆ ಚಿತ್ರವು ವಿಂಡೊದಲ್ಲಿ ಲೋಡ್ ಆಗದೆ ಇದ್ದಲ್ಲಿ, ಕಡತ "
+-"ಆಯ್ಕೆಗಾರವು "
+-"XDG ವಿಶೇಷ ಬಳಕೆದಾರ ಕೋಶಗಳನ್ನು ಬಳಸಿಕೊಂಡು ಬಳಕೆದಾರರ ಚಿತ್ರಗಳ ಕಡತಕೋಶವನ್ನು "
+-"ತೋರಿಸುತ್ತದೆ. "
+-"ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಿದಲ್ಲಿ ಅಥವ ಚಿತ್ರಗಳ ಕಡತಕೋಶವನ್ನು ಸಿದ್ಧಗೊಳಿಸಿರದ ಪಕ್ಷದಲ್ಲಿ ಅದು "
+-"ಪ್ರಸಕ್ತ ಕೆಲಸ "
++"ಸಕ್ರಿಯಗೊಳಿಸಿದಲ್ಲಿ ಹಾಗು ಯಾವುದೆ ಚಿತ್ರವು ವಿಂಡೊದಲ್ಲಿ ಲೋಡ್ ಆಗದೆ ಇದ್ದಲ್ಲಿ, ಕಡತ ಆಯ್ಕೆಗಾರವು "
++"XDG ವಿಶೇಷ ಬಳಕೆದಾರ ಕೋಶಗಳನ್ನು ಬಳಸಿಕೊಂಡು ಬಳಕೆದಾರರ ಚಿತ್ರಗಳ ಕಡತಕೋಶವನ್ನು ತೋರಿಸುತ್ತದೆ. "
++"ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಿದಲ್ಲಿ ಅಥವ ಚಿತ್ರಗಳ ಕಡತಕೋಶವನ್ನು ಸಿದ್ಧಗೊಳಿಸಿರದ ಪಕ್ಷದಲ್ಲಿ ಅದು ಪ್ರಸಕ್ತ ಕೆಲಸ "
+ "ಮಾಡುವ ಕೋಶವನ್ನು ತೋರಿಸುತ್ತದೆ."
+ 
+ #: ../data/org.gnome.eog.gschema.xml.in.in.h:39
+@@ -612,12 +595,9 @@ msgid ""
+ "on smaller screens, e.g. as used by netbooks. If disabled, the widget will "
+ "be embedded on the \"Metadata\" page."
+ msgstr ""
+-"ಸಕ್ರಿಯಗೊಳಿಸಿದಲ್ಲಿ ಗುಣಲಕ್ಷಣಗಳ ಸಂವಾದಲ್ಲಿನ ವಿವರವಾದ ಮೆಟಾಡೇಟ ಪಟ್ಟಿಯನ್ನು "
+-"ಸಂವಾದದಲ್ಲಿನ "
+-"ಅದರದ್ದೇ ಆದಂತಹ ಪುಟಕ್ಕೆ ಸ್ಥಳಾಂತರಿಸಲಾಗುತ್ತದೆ.. ಇದರಿಂದಾಗಿ ಸಣ್ಣ ತೆರೆಗಳಲ್ಲಿ "
+-"ಸಂವಾದವನ್ನು "
+-"ಬಳಸುವುದು ಸುಲಭವಾಗುತ್ತದೆ, ಉದಾ. ನೆಟ್‌ಬುಕ್‌ಗಳಲ್ಲಿ ಬಳಸುವಂತೆ. ಅಶಕ್ತಗೊಳಿಸಲಾಗಿದ್ದರೆ "
+-"ವಿಜೆಟ್‌ "
++"ಸಕ್ರಿಯಗೊಳಿಸಿದಲ್ಲಿ ಗುಣಲಕ್ಷಣಗಳ ಸಂವಾದಲ್ಲಿನ ವಿವರವಾದ ಮೆಟಾಡೇಟ ಪಟ್ಟಿಯನ್ನು ಸಂವಾದದಲ್ಲಿನ "
++"ಅದರದ್ದೇ ಆದಂತಹ ಪುಟಕ್ಕೆ ಸ್ಥಳಾಂತರಿಸಲಾಗುತ್ತದೆ.. ಇದರಿಂದಾಗಿ ಸಣ್ಣ ತೆರೆಗಳಲ್ಲಿ ಸಂವಾದವನ್ನು "
++"ಬಳಸುವುದು ಸುಲಭವಾಗುತ್ತದೆ, ಉದಾ. ನೆಟ್‌ಬುಕ್‌ಗಳಲ್ಲಿ ಬಳಸುವಂತೆ. ಅಶಕ್ತಗೊಳಿಸಲಾಗಿದ್ದರೆ ವಿಜೆಟ್‌ "
+ "ಅನ್ನು \"ಮೆಟಾಡೇಟ\" ಪುಟದಲ್ಲಿ ಅಡಕಗೊಳಿಸಲಾಗುತ್ತದೆ."
+ 
+ #: ../data/org.gnome.eog.gschema.xml.in.in.h:41
+@@ -630,10 +610,8 @@ msgid ""
+ "for editing images (when the \"Edit Image\" toolbar button is clicked). Set "
+ "to the empty string to disable this feature."
+ msgstr ""
+-"ಚಿತ್ರಗಳನ್ನು ಸಂಪಾದಿಸಲು (\"ಚಿತ್ರವನ್ನು ಸಂಪಾದಿಸು\" ಉಪಕರಣ ಗುಂಡಿಯನ್ನು "
+-"ಕ್ಲಿಕ್ಕಿಸಿದಾಗ) "
+-"ಬಳಸಬೇಕಿರುವ ಅನ್ವಯದ ಗಣಕತೆರೆ ಕಡತದ ಹೆಸರು (\".desktop\" ಅನ್ನು ಹೊಂದಿರುವ). ಈ "
+-"ಸವಲತ್ತನ್ನು "
++"ಚಿತ್ರಗಳನ್ನು ಸಂಪಾದಿಸಲು (\"ಚಿತ್ರವನ್ನು ಸಂಪಾದಿಸು\" ಉಪಕರಣ ಗುಂಡಿಯನ್ನು ಕ್ಲಿಕ್ಕಿಸಿದಾಗ) "
++"ಬಳಸಬೇಕಿರುವ ಅನ್ವಯದ ಗಣಕತೆರೆ ಕಡತದ ಹೆಸರು (\".desktop\" ಅನ್ನು ಹೊಂದಿರುವ). ಈ ಸವಲತ್ತನ್ನು "
+ "ಅಶಕ್ತಗೊಳಿಸಲು ಖಾಲಿ ವಾಕ್ಯಕ್ಕೆ ಬದಲಾಯಿಸಿ."
+ 
+ #: ../data/org.gnome.eog.gschema.xml.in.in.h:43
+@@ -646,8 +624,7 @@ msgid ""
+ "plugins. See the .eog-plugin file for obtaining the \"Location\" of a given "
+ "plugin."
+ msgstr ""
+-"ಸಕ್ರಿಯ ಪ್ಲಗ್‌ಇನ್‌ಗಳನ್ನು ಪಟ್ಟಿ. ಇದು ಸಕ್ರಿಯ ಪ್ಲಗ್‌ಇನ್‌ಗಳು ಇರುವ \"ಸ್ಥಳ\"ವನ್ನು "
+-"ಹೊಂದಿಲ್ಲ. ನೀಡಲಾದ "
++"ಸಕ್ರಿಯ ಪ್ಲಗ್‌ಇನ್‌ಗಳನ್ನು ಪಟ್ಟಿ. ಇದು ಸಕ್ರಿಯ ಪ್ಲಗ್‌ಇನ್‌ಗಳು ಇರುವ \"ಸ್ಥಳ\"ವನ್ನು ಹೊಂದಿಲ್ಲ. ನೀಡಲಾದ "
+ "ಪ್ಲಗ್‌ಇನ್‌ ಇರುವ \"ಸ್ಥಳ\"ವನ್ನು ನೋಡಲು .eog-plugin ಕಡತವನ್ನು ನೋಡಿ."
+ 
+ #: ../plugins/fullscreen/fullscreen.plugin.desktop.in.h:1
+@@ -699,11 +676,9 @@ msgid "There is %d image with unsaved ch
+ msgid_plural ""
+ "There are %d images with unsaved changes. Save changes before closing?"
+ msgstr[0] ""
+-"%d ಚಿತ್ರದಲ್ಲಿ ಉಳಿಸದೆ ಇರುವ ಬದಲಾವಣೆಗಳಿವೆ. ಮುಚ್ಚುವ ಮೊದಲು ಆ ಬದಲಾವಣೆಗಳನ್ನು "
+-"ಉಳಿಸಬೇಕೆ?"
++"%d ಚಿತ್ರದಲ್ಲಿ ಉಳಿಸದೆ ಇರುವ ಬದಲಾವಣೆಗಳಿವೆ. ಮುಚ್ಚುವ ಮೊದಲು ಆ ಬದಲಾವಣೆಗಳನ್ನು ಉಳಿಸಬೇಕೆ?"
+ msgstr[1] ""
+-"%d ಚಿತ್ರಗಳಲ್ಲಿ ಉಳಿಸದೆ ಇರುವ ಬದಲಾವಣೆಗಳಿವೆ. ಮುಚ್ಚುವ ಮೊದಲು ಆ ಬದಲಾವಣೆಗಳನ್ನು "
+-"ಉಳಿಸಬೇಕೆ?"
++"%d ಚಿತ್ರಗಳಲ್ಲಿ ಉಳಿಸದೆ ಇರುವ ಬದಲಾವಣೆಗಳಿವೆ. ಮುಚ್ಚುವ ಮೊದಲು ಆ ಬದಲಾವಣೆಗಳನ್ನು ಉಳಿಸಬೇಕೆ?"
+ 
+ #: ../src/eog-close-confirmation-dialog.c:659
+ msgid "S_elect the images you want to save:"
+@@ -733,7 +708,6 @@ msgstr "'%s' ಚಿತ್ರವನ್ನ
+ 
+ #: ../src/eog-error-message-area.c:213
+ #, c-format
+-#| msgid "Could not load image '%s'."
+ msgid "Could not save image '%s'."
+ msgstr "'%s' ಚಿತ್ರವನ್ನು ಉಳಿಸಲಾಗಿಲ್ಲ."
+ 
+@@ -840,9 +814,6 @@ msgid "File format is unknown or unsuppo
+ msgstr "ಕಡತ ವಿನ್ಯಾಸವು ತಿಳಿದಿಲ್ಲ ಅಥವ ಬೆಂಬಲಿತವಾಗಿಲ್ಲ"
+ 
+ #: ../src/eog-file-chooser.c:131
+-#| msgid ""
+-#| "Eye of GNOME could not determine a supported writable file format based "
+-#| "on the filename."
+ msgid ""
+ "Image Viewer could not determine a supported writable file format based on "
+ "the filename."
+@@ -949,7 +920,6 @@ msgstr "ಈ ಕಡತವನ್ನು ಹ
+ 
+ #: ../src/eog-preferences-dialog.c:114
+ #, c-format
+-#| msgid "seconds"
+ msgid "%lu second"
+ msgid_plural "%lu seconds"
+ msgstr[0] "%lu ಸೆಕೆಂಡು"
+@@ -1076,7 +1046,6 @@ msgid "At least two file names are equal
+ msgstr "ಕನಿಷ್ಟ ಎರಡು ಕಡತದ ಹೆಸರುಗಳು ಒಂದೇ ರೀತಿ ಇವೆ."
+ 
+ #: ../src/eog-util.c:68
+-#| msgid "Could not display help for Eye of GNOME"
+ msgid "Could not display help for Image Viewer"
+ msgstr "ಚಿತ್ರ ವೀಕ್ಷಕಕ್ಕಾಗಿ ನೆರವನ್ನು ತೋರಿಸಲು ಸಾಧ್ಯವಾಗಿಲ್ಲ"
+ 
+@@ -1134,7 +1103,6 @@ msgid "Opening image \"%s\""
+ msgstr "\"%s\" ಚಿತ್ರವನ್ನು ತೆರೆಯಲಾಗುತ್ತಿದೆ"
+ 
+ #: ../src/eog-window.c:2037
+-#| msgid "Open in slideshow mode"
+ msgid "Viewing a slideshow"
+ msgstr "ಜಾರುಫಲಕ ಪ್ರದರ್ಶನವನ್ನು ನೋಡುವಿಕೆ"
+ 
+@@ -1206,8 +1174,7 @@ msgid ""
+ msgid_plural ""
+ "Are you sure you want to move\n"
+ "the %d selected images to the trash?"
+-msgstr[0] ""
+-"ಆರಿಸಲಾದ ಚಿತ್ರವನ್ನು ನೀವು ಖಚಿತವಾಗಿಯೂ ಕಸದಬುಟ್ಟಿಗೆ ವರ್ಗಾಯಿಸಲು ಬಯಸುತ್ತೀರೆ?"
++msgstr[0] "ಆರಿಸಲಾದ ಚಿತ್ರವನ್ನು ನೀವು ಖಚಿತವಾಗಿಯೂ ಕಸದಬುಟ್ಟಿಗೆ ವರ್ಗಾಯಿಸಲು ಬಯಸುತ್ತೀರೆ?"
+ msgstr[1] ""
+ "ನೀವು ಖಚಿತವಾಗಿಯೂ ಆರಿಸಲಾದ \n"
+ " %d ಚಿತ್ರಗಳನ್ನು ಕಸದಬುಟ್ಟಿಗೆ ವರ್ಗಾಯಿಸಲು ಬಯಸುತ್ತೀರೆ?"
+@@ -1217,8 +1184,7 @@ msgid ""
+ "Some of the selected images can't be moved to the trash and will be removed "
+ "permanently. Are you sure you want to proceed?"
+ msgstr ""
+-"ಆಯ್ಕೆ ಮಾಡಲಾದ ಕೆಲವು ಚಿತ್ರಗಳನ್ನು ಕಸದಬುಟ್ಟಿಗೆ ವರ್ಗಾಯಿಸಲು ಸಾಧ್ಯವಿಲ್ಲ ಹಾಗು "
+-"ಶಾಶ್ವತವಾಗಿ "
++"ಆಯ್ಕೆ ಮಾಡಲಾದ ಕೆಲವು ಚಿತ್ರಗಳನ್ನು ಕಸದಬುಟ್ಟಿಗೆ ವರ್ಗಾಯಿಸಲು ಸಾಧ್ಯವಿಲ್ಲ ಹಾಗು ಶಾಶ್ವತವಾಗಿ "
+ "ತೆಗೆದು ಹಾಕಲ್ಪಡುತ್ತವೆ. ನೀವು ಖಚಿತವಾಗಿಯೂ ಮುಂದುವರೆಯಲು ಬಯಸುತ್ತೀರೆ?"
+ 
+ #: ../src/eog-window.c:3369 ../src/eog-window.c:3860 ../src/eog-window.c:3884
+@@ -1285,7 +1251,6 @@ msgid "Edit the application toolbar"
+ msgstr "ಅನ್ವಯ ಉಪಕರಣವನ್ನು ಸಂಪಾದಿಸು"
+ 
+ #: ../src/eog-window.c:3798
+-#| msgid "Preferences for Eye of GNOME"
+ msgid "Preferences for Image Viewer"
+ msgstr "ಚಿತ್ರ ವೀಕ್ಷಕದ ಆದ್ಯತೆಗಳು"
+ 
+@@ -1406,7 +1371,6 @@ msgid "Set as Wa_llpaper"
+ msgstr "ವಾಲ್‌ಪೇಪರ್ ಆಗಿ ಹೊಂದಿಸು (_l)"
+ 
+ #: ../src/eog-window.c:3858
+-#| msgid "Set the selected image as the desktop background"
+ msgid "Set the selected image as the wallpaper"
+ msgstr "ಆರಿಸಲಾದ ಚಿತ್ರವನ್ನು ವಾಲ್‌ಪೇಪರ್ ಆಗಿ ಹೊಂದಿಸು"
+ 
+@@ -1463,7 +1427,6 @@ msgid "Pause or resume the slideshow"
+ msgstr "ಜಾರುಫಲಕ ಪ್ರದರ್ಶನವನ್ನು ತಡೆಹಿಡಿ ಅಥವ ಮರಳಿ ಆರಂಭಿಸಿ"
+ 
+ #: ../src/eog-window.c:3896
+-#| msgid "Best _Fit"
+ msgid "_Best Fit"
+ msgstr "ಉತ್ತಮ ಹೊಂದಿಕೆ (_F)"
+ 
+@@ -1512,7 +1475,6 @@ msgid "Go to a random image of the galle
+ msgstr "ಸಂಗ್ರಹದಲ್ಲಿನ ಯಾವುದಾದರೂ ಒಂದು ಚಿತ್ರಕ್ಕೆ ತೆರಳಿ"
+ 
+ #: ../src/eog-window.c:3929
+-#| msgid "Slideshow"
+ msgid "S_lideshow"
+ msgstr "ಜಾರುಫಲಕ ಪ್ರದರ್ಶನ (_l)"
+ 
+@@ -1537,7 +1499,6 @@ msgid "Left"
+ msgstr "ಎಡ"
+ 
+ #: ../src/eog-window.c:4012
+-#| msgid "Open Folder"
+ msgid "Show Folder"
+ msgstr "ಕಡತಕೋಶವನ್ನು ತೋರಿಸು"
+ 
+@@ -1586,7 +1547,6 @@ msgstr ""
+ "com>"
+ 
+ #: ../src/main.c:71
+-#| msgid "Eye of GNOME Image Viewer"
+ msgid "GNOME Image Viewer"
+ msgstr "GNOME ಚಿತ್ರ ವೀಕ್ಷಕ"
+ 
+@@ -1610,8 +1570,7 @@ msgstr "ಈಗಿರುವ ಒಂದು
+ msgid ""
+ "Open in a single window, if multiple windows are open the first one is used"
+ msgstr ""
+-"ಒಂದು ಕಿಟಕಿಯಲ್ಲಿ ತೆರೆ, ಅನೇಕ ಕಿಟಕಿಗಳನ್ನು ತೆರೆಯಲಾಗಿದ್ದರೆ, ಮೊದಲನೆಯದನ್ನು "
+-"ಬಳಸಲಾಗುತ್ತದೆ"
++"ಒಂದು ಕಿಟಕಿಯಲ್ಲಿ ತೆರೆ, ಅನೇಕ ಕಿಟಕಿಗಳನ್ನು ತೆರೆಯಲಾಗಿದ್ದರೆ, ಮೊದಲನೆಯದನ್ನು ಬಳಸಲಾಗುತ್ತದೆ"
+ 
+ #: ../src/main.c:84
+ msgid "Show the application's version"
+@@ -1625,8 +1584,7 @@ msgstr "[FILE…]"
+ #: ../src/main.c:129
+ #, c-format
+ msgid "Run '%s --help' to see a full list of available command line options."
+-msgstr ""
+-"ಲಭ್ಯವಿರುವ ಎಲ್ಲಾ ಆಜ್ಞಾ ಸಾಲಿನ ಆಯ್ಕೆಗಳನ್ನು ನೋಡಲು '%s --help' ಅನ್ನು ಚಲಾಯಿಸಿ."
++msgstr "ಲಭ್ಯವಿರುವ ಎಲ್ಲಾ ಆಜ್ಞಾ ಸಾಲಿನ ಆಯ್ಕೆಗಳನ್ನು ನೋಡಲು '%s --help' ಅನ್ನು ಚಲಾಯಿಸಿ."
+ 
+ #~ msgid "Eye of GNOME Preferences"
+ #~ msgstr "ಐ ಆಫ್ GNOME ನ ಆದ್ಯತೆಗಳು"
+Index: new/po/mr.po
+===================================================================
+--- new.orig/po/mr.po
++++ new/po/mr.po
+@@ -73,7 +73,6 @@ msgid "_Statusbar"
+ msgstr "स्थितीपट्टी(_S)"
+ 
+ #: ../data/eog-app-menu.xml.h:4 ../src/eog-window.c:4068
+-#| msgid "_Image Collection"
+ msgid "_Image Gallery"
+ msgstr "प्रतिमा संकलन (_I)"
+ 
+@@ -104,9 +103,9 @@ msgid ""
+ "integrates with the GTK+ look and feel of GNOME, and supports many image "
+ "formats for viewing single images or images in a collection."
+ msgstr ""
+-"The Eye of GNOME GNOME डेस्कटॉपकरिता अधिकृत प्रतिमा दर्शक आहे. ते "
+-"GTK+ च्या दृष्यसह आणि GNOME च्या रूपसह एकाग्र होते, आणि एक प्रतिमा किंवा "
+-"प्रतिमा संग्रहच्या अवलोकनकरिता अनेक प्रतिमा रूपकरिता समर्थन पुरवते."
++"The Eye of GNOME GNOME डेस्कटॉपकरिता अधिकृत प्रतिमा दर्शक आहे. ते GTK+ च्या दृष्यसह "
++"आणि GNOME च्या रूपसह एकाग्र होते, आणि एक प्रतिमा किंवा प्रतिमा संग्रहच्या अवलोकनकरिता "
++"अनेक प्रतिमा रूपकरिता समर्थन पुरवते."
+ 
+ #: ../data/eog.appdata.xml.in.h:2
+ msgid ""
+@@ -115,9 +114,9 @@ msgid ""
+ "automatically rotate your images in the correct portrait or landscape "
+ "orientation."
+ msgstr ""
+-"The Eye of GNOME प्रतिमांना पडदाभर स्लाईडशो मोडमध्ये पहण्यास किंवा प्रतिमेला "
+-"डेस्कटॉप वॉलपेपर म्हणून सेट करण्यासाठी परवानगी देते. योग्य उभे किंवा आडव्या "
+-"दिशामध्ये प्रतिमांना स्व फिरवण्याकरिता, ते कॅमेरा टॅग्ज देखील वाचते."
++"The Eye of GNOME प्रतिमांना पडदाभर स्लाईडशो मोडमध्ये पहण्यास किंवा प्रतिमेला डेस्कटॉप "
++"वॉलपेपर म्हणून सेट करण्यासाठी परवानगी देते. योग्य उभे किंवा आडव्या दिशामध्ये प्रतिमांना स्व "
++"फिरवण्याकरिता, ते कॅमेरा टॅग्ज देखील वाचते."
+ 
+ #: ../data/eog.desktop.in.in.h:1 ../src/eog-application.c:269
+ #: ../src/eog-window.c:6161
+@@ -152,13 +151,11 @@ msgstr "नाव:"
+ 
+ #: ../data/eog-image-properties-dialog.ui.h:5
+ #: ../src/eog-metadata-sidebar.c:497
+-#| msgid "_Width:"
+ msgid "Width:"
+ msgstr "रूंदी:"
+ 
+ #: ../data/eog-image-properties-dialog.ui.h:6
+ #: ../src/eog-metadata-sidebar.c:499
+-#| msgid "_Height:"
+ msgid "Height:"
+ msgstr "ऊंची:"
+ 
+@@ -168,13 +165,11 @@ msgid "Type:"
+ msgstr "प्रकार:"
+ 
+ #: ../data/eog-image-properties-dialog.ui.h:8
+-#| msgid "<b>Bytes:</b>"
+ msgid "Bytes:"
+ msgstr "बाइट्स:"
+ 
+ #: ../data/eog-image-properties-dialog.ui.h:9
+ #: ../src/eog-metadata-sidebar.c:505
+-#| msgid "Open Folder"
+ msgid "Folder:"
+ msgstr "फोल्डर:"
+ 
+@@ -185,79 +180,66 @@ msgstr "सर्वसाधारण"
+ 
+ #: ../data/eog-image-properties-dialog.ui.h:11
+ #: ../src/eog-metadata-sidebar.c:530
+-#| msgid "<b>Aperture Value:</b>"
+ msgid "Aperture Value:"
+ msgstr "अपेर्चेर मूल्य:"
+ 
+ #: ../data/eog-image-properties-dialog.ui.h:12
+ #: ../src/eog-metadata-sidebar.c:533
+-#| msgid "<b>Exposure Time:</b>"
+ msgid "Exposure Time:"
+ msgstr "एक्सपोजर वेळ:"
+ 
+ #: ../data/eog-image-properties-dialog.ui.h:13
+ #: ../src/eog-metadata-sidebar.c:536
+-#| msgid "<b>Focal Length:</b>"
+ msgid "Focal Length:"
+ msgstr "फोकल लांबी:"
+ 
+ #: ../data/eog-image-properties-dialog.ui.h:14
+ #: ../src/eog-metadata-sidebar.c:538
+-#| msgid "<b>Flash:</b>"
+ msgid "Flash:"
+ msgstr "फ्लॅश:"
+ 
+ #: ../data/eog-image-properties-dialog.ui.h:15
+ #: ../src/eog-metadata-sidebar.c:542
+-#| msgid "<b>ISO Speed Rating:</b>"
+ msgid "ISO Speed Rating:"
+ msgstr "ISO गति गुणवत्ताश्रेणी:"
+ 
+ #: ../data/eog-image-properties-dialog.ui.h:16
+ #: ../src/eog-metadata-sidebar.c:545
+-#| msgid "<b>Metering Mode:</b>"
+ msgid "Metering Mode:"
+ msgstr "मिटरिंग मोड:"
+ 
+ #: ../data/eog-image-properties-dialog.ui.h:17
+ #: ../src/eog-metadata-sidebar.c:548
+-#| msgid "<b>Camera Model:</b>"
+ msgid "Camera Model:"
+ msgstr "कॅमेरा प्रारूप:"
+ 
+ #: ../data/eog-image-properties-dialog.ui.h:18
+ #: ../src/eog-metadata-sidebar.c:550
+-#| msgid "<b>Date/Time:</b>"
+ msgid "Date/Time:"
+ msgstr "दिनांक/वेळ:"
+ 
+ #: ../data/eog-image-properties-dialog.ui.h:19
+ #: ../src/eog-metadata-sidebar.c:555
+-#| msgid "<b>Description:</b>"
+ msgid "Description:"
+ msgstr "वर्णन:"
+ 
+ #: ../data/eog-image-properties-dialog.ui.h:20
+ #: ../src/eog-metadata-sidebar.c:558
+-#| msgid "<b>Location:</b>"
+ msgid "Location:"
+ msgstr "ठिकाण:"
+ 
+ #: ../data/eog-image-properties-dialog.ui.h:21
+ #: ../src/eog-metadata-sidebar.c:561
+-#| msgid "<b>Keywords:</b>"
+ msgid "Keywords:"
+ msgstr "मुख्यशब्द:"
+ 
+ #: ../data/eog-image-properties-dialog.ui.h:22
+ #: ../src/eog-metadata-sidebar.c:563
+-#| msgid "<b>Author:</b>"
+ msgid "Author:"
+ msgstr "लेखक:"
+ 
+ #: ../data/eog-image-properties-dialog.ui.h:23
+ #: ../src/eog-metadata-sidebar.c:566
+-#| msgid "<b>Copyright:</b>"
+ msgid "Copyright:"
+ msgstr "सर्वहक्काधिकार:"
+ 
+@@ -277,23 +259,19 @@ msgstr "असे संग्रहा"
+ 
+ #: ../data/eog-multiple-save-as-dialog.ui.h:3
+ #, no-c-format
+-#| msgid "<small><i><b>%f:</b> original filename</i></small>"
+ msgid "<b>%f:</b> original filename"
+ msgstr "<b>%f:</b> मुळ फाइलनाव"
+ 
+ #: ../data/eog-multiple-save-as-dialog.ui.h:5
+ #, no-c-format
+-#| msgid "<small><i><b>%n:</b> counter</i></small>"
+ msgid "<b>%n:</b> counter"
+ msgstr "<b>%n:</b> काउंटर"
+ 
+ #: ../data/eog-multiple-save-as-dialog.ui.h:6
+-#| msgid "Filename format:"
+ msgid "_Filename format:"
+ msgstr "फाइलनाव स्वरूप (_F):"
+ 
+ #: ../data/eog-multiple-save-as-dialog.ui.h:7
+-#| msgid "Destination folder:"
+ msgid "_Destination folder:"
+ msgstr "लक्ष्य फोल्डर (_D):"
+ 
+@@ -302,22 +280,18 @@ msgid "Choose a folder"
+ msgstr "संचयीका निवडा"
+ 
+ #: ../data/eog-multiple-save-as-dialog.ui.h:9
+-#| msgid "<b>File Path Specifications</b>"
+ msgid "File Path Specifications"
+ msgstr "फाइलची दिशा संयोजना"
+ 
+ #: ../data/eog-multiple-save-as-dialog.ui.h:10
+-#| msgid "Start counter at:"
+ msgid "_Start counter at:"
+ msgstr "या ठिकाणी काउंटर सुरू करा (_S):"
+ 
+ #: ../data/eog-multiple-save-as-dialog.ui.h:11
+-#| msgid "Replace spaces with underscores"
+ msgid "_Replace spaces with underscores"
+ msgstr "जागा अंडरस्कोर सहीत बदलवून घ्या (_R)"
+ 
+ #: ../data/eog-multiple-save-as-dialog.ui.h:12
+-#| msgid "<b>Options</b>"
+ msgid "Options"
+ msgstr "पर्याय"
+ 
+@@ -330,27 +304,22 @@ msgid "To:"
+ msgstr "प्रती:"
+ 
+ #: ../data/eog-multiple-save-as-dialog.ui.h:15
+-#| msgid "<b>File Name Preview</b>"
+ msgid "File Name Preview"
+ msgstr "फाइल नाव पुनरावलोकन"
+ 
+ #: ../data/eog-preferences-dialog.ui.h:1
+-#| msgid "Prefere_nces"
+ msgid "Preferences"
+ msgstr "पसंती"
+ 
+ #: ../data/eog-preferences-dialog.ui.h:2
+-#| msgid "<b>Image Enhancements</b>"
+ msgid "Image Enhancements"
+ msgstr "प्रतिमा सुधारणा"
+ 
+ #: ../data/eog-preferences-dialog.ui.h:3
+-#| msgid "Smooth images when zoomed-_out"
+ msgid "Smooth images when zoomed _out"
+ msgstr "प्रतिमा लहान केल्यावर गुळगुळीत करा (_o)"
+ 
+ #: ../data/eog-preferences-dialog.ui.h:4
+-#| msgid "Smooth images when zoomed-_in"
+ msgid "Smooth images when zoomed _in"
+ msgstr "प्रतिमा मोठी केल्यावर गुळगुळीत करा (_i)"
+ 
+@@ -359,23 +328,19 @@ msgid "_Automatic orientation"
+ msgstr "स्वंयचलित निर्देशन (_A)"
+ 
+ #: ../data/eog-preferences-dialog.ui.h:6
+-#| msgid "As _background"
+ msgid "Background"
+ msgstr "पार्श्वभूमी"
+ 
+ #: ../data/eog-preferences-dialog.ui.h:7
+-#| msgid "As custom c_olor:"
+ msgid "As custom color:"
+ msgstr "पसंतीच्या रंग नुरूप:"
+ 
+ #: ../data/eog-preferences-dialog.ui.h:8
+ #: ../data/org.gnome.eog.gschema.xml.in.h:3
+-#| msgid "As _background"
+ msgid "Background Color"
+ msgstr "पार्श्वभूमी रंग"
+ 
+ #: ../data/eog-preferences-dialog.ui.h:9
+-#| msgid "<b>Transparent Parts</b>"
+ msgid "Transparent Parts"
+ msgstr "पारदर्शी भाग"
+ 
+@@ -400,7 +365,6 @@ msgid "Image View"
+ msgstr "प्रतिमा दृश्य"
+ 
+ #: ../data/eog-preferences-dialog.ui.h:15
+-#| msgid "<b>Image Zoom</b>"
+ msgid "Image Zoom"
+ msgstr "प्रतिमा वाढवा किंवा कमी करा"
+ 
+@@ -409,7 +373,6 @@ msgid "E_xpand images to fit screen"
+ msgstr "पडद्यात घट्ट बसविण्याकरीता प्रतिमा ओढा (_x)"
+ 
+ #: ../data/eog-preferences-dialog.ui.h:17
+-#| msgid "<b>Sequence</b>"
+ msgid "Sequence"
+ msgstr "क्रमवारी"
+ 
+@@ -445,23 +408,19 @@ msgid ""
+ "background-color key is not set, the color is determined by the active GTK+ "
+ "theme instead."
+ msgstr ""
+-"प्रतिमाच्या मागील क्षेत्र भरण्याकरिता वापरलेले रंग. use-background-color कि "
+-"सेट न केल्यास, रंग त्याऐवजी सक्रीय GTK+ संयोजनाद्वारे ओळखले जाते."
++"प्रतिमाच्या मागील क्षेत्र भरण्याकरिता वापरलेले रंग. use-background-color कि सेट न "
++"केल्यास, रंग त्याऐवजी सक्रीय GTK+ संयोजनाद्वारे ओळखले जाते."
+ 
+ #: ../data/org.gnome.eog.gschema.xml.in.h:5
+ msgid "Interpolate Image"
+ msgstr "प्रतिमा एकमेकावर ग्या"
+ 
+ #: ../data/org.gnome.eog.gschema.xml.in.h:6
+-#| msgid ""
+-#| "Whether the image should be interpolated on zoom-out or not. This leads "
+-#| "to better quality but is somewhat slower than non interpolated images."
+ msgid ""
+ "Whether the image should be interpolated on zoom-out. This leads to better "
+ "quality but is somewhat slower than non-interpolated images."
+ msgstr ""
+-"प्रतिमा लहान झाल्यावर इंटरपोलेट कारायचे की नाही. यामुळे प्रतिमेचा दर्जा उत्तम "
+-"होतो परंतु "
++"प्रतिमा लहान झाल्यावर इंटरपोलेट कारायचे की नाही. यामुळे प्रतिमेचा दर्जा उत्तम होतो परंतु "
+ "विना एक्स्ट्रापोलेट प्रतिमापेक्षा हळु होते."
+ 
+ #: ../data/org.gnome.eog.gschema.xml.in.h:7
+@@ -469,15 +428,11 @@ msgid "Extrapolate Image"
+ msgstr "प्रतिमा एक्सट्रापोलेट करा"
+ 
+ #: ../data/org.gnome.eog.gschema.xml.in.h:8
+-#| msgid ""
+-#| "Whether the image should be extrapolated on zoom-in or not. This leads to "
+-#| "blurry quality and is somewhat slower than non extrapolated images."
+ msgid ""
+ "Whether the image should be extrapolated on zoom-in. This leads to blurry "
+ "quality and is somewhat slower than non-extrapolated images."
+ msgstr ""
+-"प्रतिमा मोठे केल्यावर एक्स्ट्रापोलेट करायचे की नाही. यामुळे प्रतिमेचा दर्जा "
+-"फुसट होतो व "
++"प्रतिमा मोठे केल्यावर एक्स्ट्रापोलेट करायचे की नाही. यामुळे प्रतिमेचा दर्जा फुसट होतो व "
+ "विना एक्स्ट्रापोलेट प्रतिमापेक्षा हळु होते."
+ 
+ #: ../data/org.gnome.eog.gschema.xml.in.h:9
+@@ -485,26 +440,19 @@ msgid "Transparency indicator"
+ msgstr "पारदर्शिकीय सूचक"
+ 
+ #: ../data/org.gnome.eog.gschema.xml.in.h:10
+-#| msgid ""
+-#| "Determines how transparency should be indicated. Valid values are "
+-#| "CHECK_PATTERN, COLOR and NONE. If COLOR is choosen, then the trans_color "
+-#| "key determines the used color value."
+ msgid ""
+ "Determines how transparency should be indicated. Valid values are "
+ "CHECK_PATTERN, COLOR and NONE. If COLOR is chosen, then the trans-color key "
+ "determines the color value used."
+ msgstr ""
+-"पारदर्शिकता कशी घ्यावी ते सांगणारी कृती. योग्य मूल्य तपासा CHECK_PATTERN, "
+-"COLOR व "
+-"NONE अशी आहेत. जर COLOR हे मूल्य निवडले असेल तर trans-color हे बटण वापरलेला "
+-"रंग ठरविते."
++"पारदर्शिकता कशी घ्यावी ते सांगणारी कृती. योग्य मूल्य तपासा CHECK_PATTERN, COLOR व "
++"NONE अशी आहेत. जर COLOR हे मूल्य निवडले असेल तर trans-color हे बटण वापरलेला रंग ठरविते."
+ 
+ #: ../data/org.gnome.eog.gschema.xml.in.h:11
+ msgid "Scroll wheel zoom"
+ msgstr "स्क्रोल चाक विशालीकरण"
+ 
+ #: ../data/org.gnome.eog.gschema.xml.in.h:12
+-#| msgid "Whether the scroll wheel should be used for zooming or not."
+ msgid "Whether the scroll wheel should be used for zooming."
+ msgstr "स्क्रोल चाक विशालीकरण करीता वापरले जावे किंवा नाही."
+ 
+@@ -520,10 +468,8 @@ msgid ""
+ "0.05 results in a 5% zoom increment for each scroll event and 1.00 result in "
+ "a 100% zoom increment."
+ msgstr ""
+-"विशालीकरण करीता माउस चाक वापरतेवेळी वापराचे तो मल्टीप्लायर. हे मुल्य प्रत्येक "
+-"स्क्रोल घटक "
+-"करीता विशालीकरण टप्पाचे वर्णन करते. उदाहरणार्थ, प्रत्येक स्क्रोल घटना करीता "
+-"0.05 म्हणजे "
++"विशालीकरण करीता माउस चाक वापरतेवेळी वापराचे तो मल्टीप्लायर. हे मुल्य प्रत्येक स्क्रोल घटक "
++"करीता विशालीकरण टप्पाचे वर्णन करते. उदाहरणार्थ, प्रत्येक स्क्रोल घटना करीता 0.05 म्हणजे "
+ "5% झूम वाढ व 1 म्हणजे 100% झूम वाढ दर्शवितो."
+ 
+ #: ../data/org.gnome.eog.gschema.xml.in.h:16
+@@ -535,12 +481,10 @@ msgid ""
+ "If the transparency key has the value COLOR, then this key determines the "
+ "color which is used for indicating transparency."
+ msgstr ""
+-"जर पारदर्शी बटणाला COLOR हे मूल्य असेल तर ते बटण पारदर्शिकतेसाठी कोणता रंग "
+-"निवडावा ते "
++"जर पारदर्शी बटणाला COLOR हे मूल्य असेल तर ते बटण पारदर्शिकतेसाठी कोणता रंग निवडावा ते "
+ "ठरविते."
+ 
+ #: ../data/org.gnome.eog.gschema.xml.in.h:18
+-#| msgid "Set as _Desktop Background"
+ msgid "Use a custom background color"
+ msgstr "डेस्कटॉप पार्श्वभूमी नुरूप निश्चित करा"
+ 
+@@ -550,17 +494,14 @@ msgid ""
+ "fill the area behind the image. If it is not set, the current GTK+ theme "
+ "will determine the fill color."
+ msgstr ""
+-"हे सक्रीय असल्यास, background-color कितर्फे सेट केलेल्या रंगाचा वापर प्रतिमा "
+-"मागील क्षेत्र रंगवण्याकरिता वापरले जाईल. सेट केले नसल्यास, सध्याचे GTK+ "
+-"रंग-रूप भरण्योजोगी रंग ठरवेल."
++"हे सक्रीय असल्यास, background-color कितर्फे सेट केलेल्या रंगाचा वापर प्रतिमा मागील क्षेत्र "
++"रंगवण्याकरिता वापरले जाईल. सेट केले नसल्यास, सध्याचे GTK+ रंग-रूप भरण्योजोगी रंग ठरवेल."
+ 
+ #: ../data/org.gnome.eog.gschema.xml.in.h:20
+ msgid "Loop through the image sequence"
+ msgstr "प्रतिमा श्रृंखला मधून वारंवार कार्यरत रहा"
+ 
+ #: ../data/org.gnome.eog.gschema.xml.in.h:21
+-#| msgid ""
+-#| "Whether or not the sequence of images should be shown in an endless loop."
+ msgid "Whether the sequence of images should be shown in an endless loop."
+ msgstr "अखंड साखळीच्या रूपात प्रतिमाची क्रमवारी दाखवायची आहे की नाही."
+ 
+@@ -574,8 +515,7 @@ msgid ""
+ "If this is set to FALSE small images will not be stretched to fit into the "
+ "screen initially."
+ msgstr ""
+-"ही कृती जर चूक दाखवत असेल तर आरंभीला लघुप्रतिमा पडद्यावर घेण्यासाठी ओढता "
+-"ताणता येणार "
++"ही कृती जर चूक दाखवत असेल तर आरंभीला लघुप्रतिमा पडद्यावर घेण्यासाठी ओढता ताणता येणार "
+ "नाहीत."
+ 
+ #: ../data/org.gnome.eog.gschema.xml.in.h:25
+@@ -587,49 +527,37 @@ msgid ""
+ "A value greater than 0 determines the seconds an image stays on screen until "
+ "the next one is shown automatically. Zero disables the automatic browsing."
+ msgstr ""
+-"पडद्यावर उमटणारी प्रतिमा किती सेकंदात येत राहील ते 0 पेक्षा अधिक मूल्य असणारी "
+-"ठरविते व "
+-"त्यानंतरच अन्य प्रतिमा आपोआप उमटताना दिसेल. शून्य आपोआप संचार अकार्यान्वीत "
+-"करतो."
++"पडद्यावर उमटणारी प्रतिमा किती सेकंदात येत राहील ते 0 पेक्षा अधिक मूल्य असणारी ठरविते व "
++"त्यानंतरच अन्य प्रतिमा आपोआप उमटताना दिसेल. शून्य आपोआप संचार अकार्यान्वीत करतो."
+ 
+ #: ../data/org.gnome.eog.gschema.xml.in.h:27
+-#| msgid "Show/hide the window toolbar."
+ msgid "Show/Hide the window toolbar."
+ msgstr "चौकटीतील साधनपट्टी दाखवा/लपवा."
+ 
+ #: ../data/org.gnome.eog.gschema.xml.in.h:28
+-#| msgid "Show/hide the window statusbar."
+ msgid "Show/Hide the window statusbar."
+ msgstr "चौकटीतील स्थितीपट्टी दाखवा/लपवा."
+ 
+ #: ../data/org.gnome.eog.gschema.xml.in.h:29
+-#| msgid "Show/hide the image collection pane."
+ msgid "Show/Hide the image gallery pane."
+ msgstr "प्रतिमा संग्रह पट्टल स्क्रोल बटण दाखवा/लपवा."
+ 
+ #: ../data/org.gnome.eog.gschema.xml.in.h:30
+-#| msgid ""
+-#| "Image collection pane position. Set to 0 for bottom; 1 for left; 2 for "
+-#| "top; 3 for right."
+ msgid ""
+ "Image gallery pane position. Set to 0 for bottom; 1 for left; 2 for top; 3 "
+ "for right."
+ msgstr ""
+-"प्रतिमा संग्रह पटल स्थिती. तळ करीता 0; डावा करीता 1; शिर्ष करीता 2; उजवा "
+-"करीता 3."
++"प्रतिमा संग्रह पटल स्थिती. तळ करीता 0; डावा करीता 1; शिर्ष करीता 2; उजवा करीता 3."
+ 
+ #: ../data/org.gnome.eog.gschema.xml.in.h:31
+-#| msgid "Whether the image collection pane should be resizable or not."
+ msgid "Whether the image gallery pane should be resizable."
+ msgstr "प्रतिमा संग्रह पटल पुन्हआकार देण्याजोगी असावी किंवा नाही."
+ 
+ #: ../data/org.gnome.eog.gschema.xml.in.h:32
+-#| msgid "Show/hide the window side pane."
+ msgid "Show/Hide the window side pane."
+ msgstr "चौकटीतील बाजूचे पटल दाखवा/लपवा."
+ 
+ #: ../data/org.gnome.eog.gschema.xml.in.h:33
+-#| msgid "Show/hide the image collection pane scroll buttons."
+ msgid "Show/Hide the image gallery pane scroll buttons."
+ msgstr "प्रतिमा संग्रह पट्टल स्क्रोल बटण दाखवा/लपवा."
+ 
+@@ -642,45 +570,29 @@ msgid "Trash images without asking"
+ msgstr "न विचारता प्रतिमा कचरापेटीत टाका"
+ 
+ #: ../data/org.gnome.eog.gschema.xml.in.h:36
+-#| msgid ""
+-#| "If activated Eye of GNOME wont ask for confirmation when moving images to "
+-#| "the trash. It will still ask if any of the files cannot be moved to the "
+-#| "trash and would be deleted instead."
+ msgid ""
+ "If activated, Eye of GNOME won't ask for confirmation when moving images to "
+ "the trash. It will still ask if any of the files cannot be moved to the "
+ "trash and would be deleted instead."
+ msgstr ""
+-"Eye of GNOME सक्रीय केल्यास, प्रतिमा कचरापेटी हलवतेवेळी खात्रीकरीता विचारू "
+-"नका. तरी, "
++"Eye of GNOME सक्रीय केल्यास, प्रतिमा कचरापेटी हलवतेवेळी खात्रीकरीता विचारू नका. तरी, "
+ "कुठलिही फाइल्स् हलवण्याजोगी नाही याची तपासणी करतो व नंतरच नष्ट करतो."
+ 
+ #: ../data/org.gnome.eog.gschema.xml.in.h:37
+-#| msgid ""
+-#| "Whether the filechooser should show the user's pictures folder if no "
+-#| "images are loaded."
+ msgid ""
+ "Whether the file chooser should show the user's pictures folder if no images "
+ "are loaded."
+-msgstr ""
+-"प्रतिमा लोड न झाल्यास filechooser ने वापरकर्त्याचे चित्र फोल्डर दाखवायचे."
++msgstr "प्रतिमा लोड न झाल्यास filechooser ने वापरकर्त्याचे चित्र फोल्डर दाखवायचे."
+ 
+ #: ../data/org.gnome.eog.gschema.xml.in.h:38
+-#| msgid ""
+-#| "If activated and no image is loaded in the active window, the filechooser "
+-#| "will display the user's pictures folder using the XDG special user "
+-#| "directories. If deactivated or the pictures folder has not been set up it "
+-#| "will show the current working directory."
+ msgid ""
+ "If activated and no image is loaded in the active window, the file chooser "
+ "will display the user's pictures folder using the XDG special user "
+ "directories. If deactivated or the pictures folder has not been set up, it "
+ "will show the current working directory."
+ msgstr ""
+-"सक्रीय पटलात प्रतिमा लोड केली नसल्यास, XDG विशेष वापरकर्ता डिरेक्ट्रीज्चा "
+-"वापर करून "
+-"filechooser वापरकर्त्याचे चित्र फोल्डर दाखवतो. निष्क्रीय केल्यास किंवा चित्र "
+-"फोल्डर सेट न "
++"सक्रीय पटलात प्रतिमा लोड केली नसल्यास, XDG विशेष वापरकर्ता डिरेक्ट्रीज्चा वापर करून "
++"filechooser वापरकर्त्याचे चित्र फोल्डर दाखवतो. निष्क्रीय केल्यास किंवा चित्र फोल्डर सेट न "
+ "केल्यास, सध्याची कार्यरत डिरेक्ट्री दाखवली जाते."
+ 
+ #: ../data/org.gnome.eog.gschema.xml.in.h:39
+@@ -689,25 +601,17 @@ msgid ""
+ msgstr "गुणधर्म संवाद मधील मेटाडाटा सूचीचे स्वतःचे पान असायला हवे."
+ 
+ #: ../data/org.gnome.eog.gschema.xml.in.h:40
+-#| msgid ""
+-#| "If activated the detailed metadata list in the properties dialog will be "
+-#| "moved to its own page in the dialog. This should make the dialog more "
+-#| "usable on smaller screens, e.g. as used by netbooks. If disabled the "
+-#| "widget will be embedded on the \"Metadata\" page."
+ msgid ""
+ "If activated, the detailed metadata list in the properties dialog will be "
+ "moved to its own page in the dialog. This should make the dialog more usable "
+ "on smaller screens, e.g. as used by netbooks. If disabled, the widget will "
+ "be embedded on the \"Metadata\" page."
+ msgstr ""
+-"सक्रीय केल्यास गुणधर्म संवादातील तपशील मेटाडाटा सूची स्वतःच्या पानावर हलवले "
+-"जाईल. यामुळे "
+-"लहान पडद्यावरील संवाद आणखी वापरण्याजोगी होतील, उ.दा. netbooks च्या "
+-"वापरणीप्रमाणे. "
++"सक्रीय केल्यास गुणधर्म संवादातील तपशील मेटाडाटा सूची स्वतःच्या पानावर हलवले जाईल. यामुळे "
++"लहान पडद्यावरील संवाद आणखी वापरण्याजोगी होतील, उ.दा. netbooks च्या वापरणीप्रमाणे. "
+ "अकार्यक्षम केल्यास विजेट \"Metadata\" पानात अंतर्भूत केले जाईल."
+ 
+ #: ../data/org.gnome.eog.gschema.xml.in.h:41
+-#| msgid "Error on deleting image %s"
+ msgid "External program to use for editing images"
+ msgstr "प्रतिमा संपादित करण्यासाठी वापरण्याजोगी बाहेरील प्रोग्राम"
+ 
+@@ -717,9 +621,9 @@ msgid ""
+ "for editing images (when the \"Edit Image\" toolbar button is clicked). Set "
+ "to the empty string to disable this feature."
+ msgstr ""
+-"प्रतिमा (\"प्रतिमा संपादित करा\" साधनपट्टी बटन क्लिक केल्यावर) संपादित "
+-"करण्यासाठी वापरण्याजोगी ॲप्लिकेशनचे डेस्कटॉप फाइल नाव (\".desktop\" "
+-"समाविष्टीत). हे गुणधर्म बंद करण्यासाठी रिकाम्या स्ट्रिंगकरिता सेट करा."
++"प्रतिमा (\"प्रतिमा संपादित करा\" साधनपट्टी बटन क्लिक केल्यावर) संपादित करण्यासाठी "
++"वापरण्याजोगी ॲप्लिकेशनचे डेस्कटॉप फाइल नाव (\".desktop\" समाविष्टीत). हे गुणधर्म बंद "
++"करण्यासाठी रिकाम्या स्ट्रिंगकरिता सेट करा."
+ 
+ #: ../data/org.gnome.eog.gschema.xml.in.h:43
+ msgid "Active plugins"
+@@ -731,8 +635,7 @@ msgid ""
+ "plugins. See the .eog-plugin file for obtaining the \"Location\" of a given "
+ "plugin."
+ msgstr ""
+-"सक्रीय प्लगईनची यादी. त्यात सक्रीय प्लगईनची \"स्थान\" समाविष्टीत नाही. "
+-"प्रविष्ट केलेल्या "
++"सक्रीय प्लगईनची यादी. त्यात सक्रीय प्लगईनची \"स्थान\" समाविष्टीत नाही. प्रविष्ट केलेल्या "
+ "प्लगइनचे \"स्थान\" प्राप्त करण्याकरीता .eog-plugin फाइल पहा."
+ 
+ #: ../plugins/fullscreen/fullscreen.plugin.desktop.in.h:1
+@@ -762,7 +665,6 @@ msgid "Shows the image date in the windo
+ msgstr "चौकट स्थितीपट्टीत प्रतिमा दिनांक दर्शवितो"
+ 
+ #: ../src/eog-close-confirmation-dialog.c:166
+-#| msgid "Trash images without asking"
+ msgid "Close _without Saving"
+ msgstr "न साठवता बंद करा (_w)"
+ 
+@@ -779,12 +681,10 @@ msgid "_Save"
+ msgstr "संचयीता करा(_S)"
+ 
+ #: ../src/eog-close-confirmation-dialog.c:184
+-#| msgid "Save As"
+ msgid "Save _As"
+ msgstr "असे साठवा (_A)"
+ 
+ #: ../src/eog-close-confirmation-dialog.c:212
+-#| msgid "Position"
+ msgid "Question"
+ msgstr "प्रश्णचिन्ह"
+ 
+@@ -815,12 +715,10 @@ msgid "If you don't save, all your chang
+ msgstr "न साठवल्यास, तुम्ही सर्व बदल गमवाल."
+ 
+ #: ../src/eog-error-message-area.c:124 ../src/eog-window.c:847
+-#| msgid "Reload Image"
+ msgid "_Reload"
+ msgstr "पुन्हा लोड करा (_R)"
+ 
+ #: ../src/eog-error-message-area.c:129 ../src/eog-window.c:4083
+-#| msgid "Save As"
+ msgid "Save _As…"
+ msgstr "असे साठवा (_A)…"
+ 
+@@ -831,7 +729,6 @@ msgstr "प्रतिमा '%s' द�
+ 
+ #: ../src/eog-error-message-area.c:213
+ #, c-format
+-#| msgid "Could not load image '%s'."
+ msgid "Could not save image '%s'."
+ msgstr "प्रतिमा '%s' साठवणे अशक्य."
+ 
+@@ -938,15 +835,10 @@ msgid "File format is unknown or unsuppo
+ msgstr "फाइल अपरिचीत किंवा असमर्थीत आहे"
+ 
+ #: ../src/eog-file-chooser.c:124
+-#| msgid ""
+-#| "Eye of GNOME could not determine a supported writable file format based "
+-#| "on the filename."
+ msgid ""
+ "Image Viewer could not determine a supported writable file format based on "
+ "the filename."
+-msgstr ""
+-"फाइलनावावर आधारीत इमेज व्युअर समर्थीत लेखनजोगी फाइल रूपण निश्चित करू शकले "
+-"नाही."
++msgstr "फाइलनावावर आधारीत इमेज व्युअर समर्थीत लेखनजोगी फाइल रूपण निश्चित करू शकले नाही."
+ 
+ #: ../src/eog-file-chooser.c:125
+ msgid "Please try a different file extension like .png or .jpg."
+@@ -959,7 +851,6 @@ msgid "%s (*.%s)"
+ msgstr "%s (*.%s)"
+ 
+ #: ../src/eog-file-chooser.c:212
+-#| msgid "All Files"
+ msgid "All files"
+ msgstr "सर्व फाइल्स"
+ 
+@@ -977,12 +868,10 @@ msgstr[0] "बिंदू"
+ msgstr[1] "बिंदू"
+ 
+ #: ../src/eog-file-chooser.c:457 ../src/eog-file-chooser.c:473
+-#| msgid "_Open..."
+ msgid "_Open"
+ msgstr "उघडा (_O)"
+ 
+ #: ../src/eog-file-chooser.c:459
+-#| msgid "Save Image"
+ msgid "Open Image"
+ msgstr "प्रतिमा उघडा"
+ 
+@@ -1054,7 +943,6 @@ msgstr "फाइल व्यवस्�
+ 
+ #: ../src/eog-preferences-dialog.c:109
+ #, c-format
+-#| msgid "seconds"
+ msgid "%lu second"
+ msgid_plural "%lu seconds"
+ msgstr[0] "%lu सेकंद"
+@@ -1069,7 +957,6 @@ msgid "Image"
+ msgstr "प्रतिमा"
+ 
+ #: ../src/eog-print-image-setup.c:903
+-#| msgid "The image whose printing properties will be setup"
+ msgid "The image whose printing properties will be set up"
+ msgstr "छपाई गुणधर्म स्थापीत केले जाईल ती प्रतिमा"
+ 
+@@ -1182,7 +1069,6 @@ msgid "At least two file names are equal
+ msgstr "किमान दोन फाइल नाव समान आहेत."
+ 
+ #: ../src/eog-util.c:68
+-#| msgid "Could not display help for Eye of GNOME"
+ msgid "Could not display help for Image Viewer"
+ msgstr "इमेज व्युअर करीता मदत दृश्यीत करू शकत नाही"
+ 
+@@ -1198,8 +1084,6 @@ msgstr " (अवैध युनिक�
+ #. * - zoom in percent
+ #: ../src/eog-window.c:541
+ #, c-format
+-#| msgid "%i x %i pixel  %s    %i%%"
+-#| msgid_plural "%i x %i pixels  %s    %i%%"
+ msgid "%i × %i pixel  %s    %i%%"
+ msgid_plural "%i × %i pixels  %s    %i%%"
+ msgstr[0] "%i x %i पिक्सेल  %s    %i%%"
+@@ -1238,18 +1122,15 @@ msgstr "प्रतिमा \"%s\" (%u
+ 
+ #: ../src/eog-window.c:1574
+ #, c-format
+-#| msgid "Loading image \"%s\""
+ msgid "Opening image \"%s\""
+ msgstr "प्रतिमा \"%s\" उघडत आहे"
+ 
+ #: ../src/eog-window.c:1898
+-#| msgid "_Full Screen"
+ msgid "_Leave Fullscreen"
+ msgstr "पडदाभर सोडा (_L)"
+ 
+ #. L10N: This the reason why the screensaver is inhibited.
+ #: ../src/eog-window.c:2030
+-#| msgid "Open in slide show mode"
+ msgid "Viewing a slideshow"
+ msgstr "स्लाईडशो दाखवत आहे"
+ 
+@@ -1296,15 +1177,11 @@ msgstr ""
+ "त्याचे रूप संपादित करायला आवडेल?"
+ 
+ #: ../src/eog-window.c:3263
+-#| msgid "Saving image locally..."
+ msgid "Saving image locally…"
+ msgstr "प्रतिमा स्थानीयरित्या साठवत आहे..."
+ 
+ #: ../src/eog-window.c:3341
+ #, c-format
+-#| msgid ""
+-#| "Are you sure you want to move\n"
+-#| "\"%s\" to the trash?"
+ msgid ""
+ "Are you sure you want to remove\n"
+ "\"%s\" permanently?"
+@@ -1314,12 +1191,6 @@ msgstr ""
+ 
+ #: ../src/eog-window.c:3344
+ #, c-format
+-#| msgid ""
+-#| "Are you sure you want to move\n"
+-#| "the selected image to the trash?"
+-#| msgid_plural ""
+-#| "Are you sure you want to move\n"
+-#| "the %d selected images to the trash?"
+ msgid ""
+ "Are you sure you want to remove\n"
+ "the selected image permanently?"
+@@ -1334,7 +1205,6 @@ msgstr[1] ""
+ "नेहमीकरिता काढून टाकायचे?"
+ 
+ #: ../src/eog-window.c:3366 ../src/eog-window.c:3630
+-#| msgid "_Delete Toolbar"
+ msgid "_Delete"
+ msgstr "नष्ट करा (_D)"
+ 
+@@ -1344,19 +1214,16 @@ msgstr "होय (_Y)"
+ 
+ #. add 'dont ask again' button
+ #: ../src/eog-window.c:3373 ../src/eog-window.c:3624
+-#| msgid "_Do not ask again during this session"
+ msgid "Do _not ask again during this session"
+ msgstr "या सत्रवेळी पुनः विचारू नका (_n)"
+ 
+ #: ../src/eog-window.c:3417
+ #, c-format
+-#| msgid "Couldn't delete file"
+ msgid "Couldn't retrieve image file"
+ msgstr "प्रतिमा फाइल प्राप्त करणे अशक्य"
+ 
+ #: ../src/eog-window.c:3433
+ #, c-format
+-#| msgid "Couldn't create temporary file for saving: %s"
+ msgid "Couldn't retrieve image file information"
+ msgstr "प्रतिमा फाइल माहिती प्राप्त करणे अशक्य"
+ 
+@@ -1384,8 +1251,7 @@ msgid ""
+ "A trash for \"%s\" couldn't be found. Do you want to remove this image "
+ "permanently?"
+ msgstr ""
+-"\"%s\" करीता कचरापेटी आढळली नाही. तुम्हाला ही प्रतिमा नेहमीकरीता काढूण "
+-"टाकायची?"
++"\"%s\" करीता कचरापेटी आढळली नाही. तुम्हाला ही प्रतिमा नेहमीकरीता काढूण टाकायची?"
+ 
+ #: ../src/eog-window.c:3600
+ #, c-format
+@@ -1407,8 +1273,7 @@ msgid ""
+ "Some of the selected images can't be moved to the trash and will be removed "
+ "permanently. Are you sure you want to proceed?"
+ msgstr ""
+-"काहिक निवडलेली प्रतिमा कचरापेटीत स्थानांतरीत केले जाऊ शकत नाही व नेहमीकरीता "
+-"काढूण "
++"काहिक निवडलेली प्रतिमा कचरापेटीत स्थानांतरीत केले जाऊ शकत नाही व नेहमीकरीता काढूण "
+ "टाकले जातिल. तुम्हाला नक्की पुढे जायचे?"
+ 
+ #: ../src/eog-window.c:3622 ../src/eog-window.c:4113 ../src/eog-window.c:4140
+@@ -1437,7 +1302,6 @@ msgid "_Tools"
+ msgstr "उपकरणे (_T)"
+ 
+ #: ../src/eog-window.c:4041
+-#| msgid "_Open..."
+ msgid "_Open…"
+ msgstr "उघडा (_O)..."
+ 
+@@ -1458,7 +1322,6 @@ msgid "Edit the application toolbar"
+ msgstr "अनुप्रयोग साधनपट्टी संपादीत करा"
+ 
+ #: ../src/eog-window.c:4051
+-#| msgid "Preferences for Eye of GNOME"
+ msgid "Preferences for Image Viewer"
+ msgstr "इमेज व्युअर करीता प्राधान्यता"
+ 
+@@ -1483,8 +1346,6 @@ msgid "Changes the visibility of the sta
+ msgstr "सद्याच्या चौकटीमध्ये स्थितीदर्शीकेचे दृश्य बदलवितो"
+ 
+ #: ../src/eog-window.c:4069
+-#| msgid ""
+-#| "Changes the visibility of the image collection pane in the current window"
+ msgid "Changes the visibility of the image gallery pane in the current window"
+ msgstr "सद्याच्या चौकटमध्ये प्रतिमा संग्रह पटलाचे दृश्य बदलवितो"
+ 
+@@ -1513,7 +1374,6 @@ msgid "Show Containing _Folder"
+ msgstr "समाविष्टीत फोल्डर दाखवा (_F)"
+ 
+ #: ../src/eog-window.c:4089
+-#| msgid "_Print..."
+ msgid "_Print…"
+ msgstr "छपाई करा (_P)..."
+ 
+@@ -1574,7 +1434,6 @@ msgid "Set as Wa_llpaper"
+ msgstr "वॉलपेपर म्हणून ठरवा (_l)"
+ 
+ #: ../src/eog-window.c:4111
+-#| msgid "Set the selected image as the desktop background"
+ msgid "Set the selected image as the wallpaper"
+ msgstr "निवडलेली प्रतिमा यांस डेस्कटॉप पार्श्वभूमी नुरूप निश्चित करा"
+ 
+@@ -1583,12 +1442,10 @@ msgid "Move the selected image to the tr
+ msgstr "निवडलेली प्रतिमा कचरापेटी संचयीका मध्ये हलवा"
+ 
+ #: ../src/eog-window.c:4116
+-#| msgid "_Next Image"
+ msgid "_Delete Image"
+ msgstr "प्रतिमा नष्ट करा (_D)"
+ 
+ #: ../src/eog-window.c:4117
+-#| msgid "Print the selected image"
+ msgid "Delete the selected image"
+ msgstr "निवडलेली प्रतिमा नष्ट करा"
+ 
+@@ -1597,7 +1454,6 @@ msgid "_Copy"
+ msgstr "प्रत बनवा (_C)"
+ 
+ #: ../src/eog-window.c:4120
+-#| msgid "Move the selected item on the toolbar"
+ msgid "Copy the selected image to the clipboard"
+ msgstr "निवडलेले घटक साधनपट्टीवर हलवा"
+ 
+@@ -1626,7 +1482,6 @@ msgid "Show the image at its normal size
+ msgstr "प्रतिमा सामान्य आकारात दाखवा"
+ 
+ #: ../src/eog-window.c:4146
+-#| msgid "_Full Screen"
+ msgid "_Fullscreen"
+ msgstr "पडदाभर (_F)"
+ 
+@@ -1635,7 +1490,6 @@ msgid "Show the current image in fullscr
+ msgstr "सद्याची प्रतिमा पूर्णतया पध्दतीत दाखवा"
+ 
+ #: ../src/eog-window.c:4149
+-#| msgid "Slideshow"
+ msgid "Pause Slideshow"
+ msgstr "स्लाईडप्रदर्शन थांबवा"
+ 
+@@ -1644,7 +1498,6 @@ msgid "Pause or resume the slideshow"
+ msgstr "स्लाईडशो थांबवा किंवा पुन्हा सुरू करा"
+ 
+ #: ../src/eog-window.c:4152
+-#| msgid "Best _Fit"
+ msgid "_Best Fit"
+ msgstr "सर्वोत्म आकार (_B)"
+ 
+@@ -1657,7 +1510,6 @@ msgid "_Previous Image"
+ msgstr "पूर्वीची प्रतिमा (_P)"
+ 
+ #: ../src/eog-window.c:4159
+-#| msgid "Go to the previous image of the collection"
+ msgid "Go to the previous image of the gallery"
+ msgstr "संग्रहातील पूर्वीच्या प्रतिमाकडे जा"
+ 
+@@ -1666,7 +1518,6 @@ msgid "_Next Image"
+ msgstr "पुढची प्रतिमा (_N)"
+ 
+ #: ../src/eog-window.c:4162
+-#| msgid "Go to the next image of the collection"
+ msgid "Go to the next image of the gallery"
+ msgstr "संग्रहातील पुढील प्रतिमाकडे जा"
+ 
+@@ -1675,7 +1526,6 @@ msgid "_First Image"
+ msgstr "पहिली प्रतिमा (_F)"
+ 
+ #: ../src/eog-window.c:4165
+-#| msgid "Go to the first image of the collection"
+ msgid "Go to the first image of the gallery"
+ msgstr "संग्रहातील पहिल्या प्रतिमाकडे जा"
+ 
+@@ -1684,22 +1534,18 @@ msgid "_Last Image"
+ msgstr "शेवटची प्रतिमा (_L)"
+ 
+ #: ../src/eog-window.c:4168
+-#| msgid "Go to the last image of the collection"
+ msgid "Go to the last image of the gallery"
+ msgstr "संग्रहातील शेवटच्या प्रतिमाकडे जा"
+ 
+ #: ../src/eog-window.c:4170
+-#| msgid "Reload Image"
+ msgid "_Random Image"
+ msgstr "विनाक्रम प्रतिमा (_R)"
+ 
+ #: ../src/eog-window.c:4171
+-#| msgid "Go to the next image of the collection"
+ msgid "Go to a random image of the gallery"
+ msgstr "संग्रहातील पुढच्या प्रतिमाकडे जा"
+ 
+ #: ../src/eog-window.c:4329
+-#| msgid "Slideshow"
+ msgid "S_lideshow"
+ msgstr "स्लाईडप्रदर्शन (_l)"
+ 
+@@ -1724,7 +1570,6 @@ msgid "Left"
+ msgstr "डावीकडे"
+ 
+ #: ../src/eog-window.c:4420
+-#| msgid "Open Folder"
+ msgid "Show Folder"
+ msgstr "फोल्डर दाखवा"
+ 
+@@ -1755,12 +1600,10 @@ msgstr "कचरापेटी"
+ 
+ #: ../src/eog-window.c:4818
+ #, c-format
+-#| msgid "Show the current image in fullscreen mode"
+ msgid "Edit the current image using %s"
+ msgstr "%s चा वापर करून सध्याची प्रतिमा संपादित करा"
+ 
+ #: ../src/eog-window.c:4820
+-#| msgid "_First Image"
+ msgid "Edit Image"
+ msgstr "प्रतिमा संपादित करा"
+ 
+@@ -1775,7 +1618,6 @@ msgstr ""
+ "<sshedmak@redhat.com> 2009, 2010."
+ 
+ #: ../src/main.c:56
+-#| msgid "Eye of GNOME Image Viewer"
+ msgid "GNOME Image Viewer"
+ msgstr "GNOME इमेज व्युअर"
+ 
+@@ -1784,12 +1626,10 @@ msgid "Open in fullscreen mode"
+ msgstr "पूर्णपडदा पध्दती मध्ये उघडा"
+ 
+ #: ../src/main.c:64
+-#| msgid "Disable image collection"
+ msgid "Disable image gallery"
+ msgstr "प्रतिमा संग्रह बंद करा"
+ 
+ #: ../src/main.c:65
+-#| msgid "Open in slide show mode"
+ msgid "Open in slideshow mode"
+ msgstr "स्लाईडशो मोडमध्ये उघडा"
+ 
+@@ -1800,16 +1640,13 @@ msgstr "वर्तमान घटन�
+ #: ../src/main.c:67
+ msgid ""
+ "Open in a single window, if multiple windows are open the first one is used"
+-msgstr ""
+-"एका पटलात उघडा, एकापेक्षाजास्त पटल खुले असल्यास पहिल्याचा वापर केला जातो"
++msgstr "एका पटलात उघडा, एकापेक्षाजास्त पटल खुले असल्यास पहिल्याचा वापर केला जातो"
+ 
+ #: ../src/main.c:69
+-#| msgid "Edit the application toolbar"
+ msgid "Show the application's version"
+ msgstr "ॲप्लिकेशनची आवृत्ती दाखवू नका"
+ 
+ #: ../src/main.c:99
+-#| msgid "[FILE...]"
+ msgid "[FILE…]"
+ msgstr "[FILE…]"
+ 

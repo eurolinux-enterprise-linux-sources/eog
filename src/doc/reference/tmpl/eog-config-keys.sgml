@@ -1,0 +1,239 @@
+<!-- ##### SECTION Title ##### -->
+eog-config-keys
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### SECTION Image ##### -->
+
+
+<!-- ##### MACRO EOG_CONF_DESKTOP_WALLPAPER ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO EOG_CONF_DESKTOP_CAN_SAVE ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO EOG_CONF_DESKTOP_CAN_PRINT ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO EOG_CONF_DESKTOP_CAN_SETUP_PAGE ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO EOG_CONF_VIEW ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO EOG_CONF_VIEW_INTERPOLATE ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO EOG_CONF_VIEW_SCROLL_WHEEL_ZOOM ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO EOG_CONF_VIEW_ZOOM_MULTIPLIER ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO EOG_CONF_VIEW_AUTOROTATE ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO EOG_CONF_VIEW_TRANSPARENCY ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO EOG_CONF_VIEW_TRANS_COLOR ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO EOG_CONF_VIEW_BACKGROUND_COLOR ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO EOG_CONF_VIEW_EXTRAPOLATE ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO EOG_CONF_VIEW_USE_BG_COLOR ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO EOG_CONF_FULLSCREEN_LOOP ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO EOG_CONF_FULLSCREEN_UPSCALE ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO EOG_CONF_FULLSCREEN_SECONDS ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO EOG_CONF_UI_TOOLBAR ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO EOG_CONF_UI_STATUSBAR ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO EOG_CONF_UI_SIDEBAR ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO EOG_CONF_UI_SCROLL_BUTTONS ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO EOG_CONF_UI_DISABLE_CLOSE_CONFIRMATION ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO EOG_CONF_UI_DISABLE_TRASH_CONFIRMATION ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO EOG_CONF_UI_EXTERNAL_EDITOR ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO EOG_CONF_UI_FILECHOOSER_XDG_FALLBACK ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO EOG_CONF_UI_IMAGE_GALLERY ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO EOG_CONF_UI_IMAGE_GALLERY_POSITION ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO EOG_CONF_UI_IMAGE_GALLERY_RESIZABLE ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO EOG_CONF_UI_PROPSDIALOG_NETBOOK_MODE ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO EOG_CONF_UI ##### -->
+<para>
+
+</para>
+
+
+
+<!-- ##### MACRO EOG_CONF_PLUGINS_ACTIVE_PLUGINS ##### -->
+<para>
+
+</para>
+
+
+
