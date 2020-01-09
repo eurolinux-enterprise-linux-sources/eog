@@ -10,10 +10,14 @@
 Summary: Eye of GNOME image viewer
 Name:    eog
 Version: 3.8.2
-Release: 2%{?dist}
+Release: 5%{?dist}
 URL: http://projects.gnome.org/eog/
 #VCS: git:git://git.gnome.org/eog
 Source: http://download.gnome.org/sources/eog/3.8/%{name}-%{version}.tar.xz
+
+# updated translations from the upstream 3.8 branch
+# from 3.8.2 to 9cd753f7c73f36
+Patch0: update-translations.patch
 
 # The GFDL has an "or later version" clause embedded inside the license.
 # There is no need to add the + here.
@@ -66,6 +70,7 @@ functionality to eog.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 %configure
@@ -114,6 +119,16 @@ glib-compile-schemas %{_datadir}/glib-2.0/schemas >&/dev/null || :
 %{_datadir}/gtk-doc/
 
 %changelog
+* Tue Feb 25 2014 Matthias Clasen <mclasen@redhat.com> - 3.8.2-5
+- Update translations
+Resolves: #1047841
+
+* Fri Jan 24 2014 Daniel Mach <dmach@redhat.com> - 3.8.2-4
+- Mass rebuild 2014-01-24
+
+* Fri Dec 27 2013 Daniel Mach <dmach@redhat.com> - 3.8.2-3
+- Mass rebuild 2013-12-27
+
 * Sat Jun 22 2013 Matthias Clasen <mclasen@redhat.com> - 3.8.2-2
 - Trim %%changelog
 
