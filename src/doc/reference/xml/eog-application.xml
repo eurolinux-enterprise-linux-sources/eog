@@ -1,0 +1,332 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN"
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="EogApplication">
+<refmeta>
+<refentrytitle role="top_of_page" id="EogApplication.top_of_page">EogApplication</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>EOG Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>EogApplication</refname>
+<refpurpose></refpurpose>
+</refnamediv>
+
+<refsynopsisdiv id="EogApplication.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+#define             <link linkend="EOG-APP--CAPS">EOG_APP</link>
+                    <link linkend="EogApplication-struct">EogApplication</link>;
+<link linkend="EogApplication">EogApplication</link> *    <link linkend="eog-application-get-instance">eog_application_get_instance</link>        (void);
+<link linkend="gboolean">gboolean</link>            <link linkend="eog-application-register-service">eog_application_register_service</link>    (<link linkend="EogApplication">EogApplication</link> *application);
+<link linkend="void">void</link>                <link linkend="eog-application-shutdown">eog_application_shutdown</link>            (<link linkend="EogApplication">EogApplication</link> *application);
+<link linkend="gboolean">gboolean</link>            <link linkend="eog-application-open-window">eog_application_open_window</link>         (<link linkend="EogApplication">EogApplication</link> *application,
+                                                         <link linkend="guint">guint</link> timestamp,
+                                                         <link linkend="EogStartupFlags">EogStartupFlags</link> flags,
+                                                         <link linkend="GError">GError</link> **error);
+<link linkend="gboolean">gboolean</link>            <link linkend="eog-application-open-uri-list">eog_application_open_uri_list</link>       (<link linkend="EogApplication">EogApplication</link> *application,
+                                                         <link linkend="GSList">GSList</link> *uri_list,
+                                                         <link linkend="guint">guint</link> timestamp,
+                                                         <link linkend="EogStartupFlags">EogStartupFlags</link> flags,
+                                                         <link linkend="GError">GError</link> **error);
+<link linkend="gboolean">gboolean</link>            <link linkend="eog-application-open-file-list">eog_application_open_file_list</link>      (<link linkend="EogApplication">EogApplication</link> *application,
+                                                         <link linkend="GSList">GSList</link> *file_list,
+                                                         <link linkend="guint">guint</link> timestamp,
+                                                         <link linkend="EogStartupFlags">EogStartupFlags</link> flags,
+                                                         <link linkend="GError">GError</link> **error);
+<link linkend="gboolean">gboolean</link>            <link linkend="eog-application-open-uris">eog_application_open_uris</link>           (<link linkend="EogApplication">EogApplication</link> *application,
+                                                         <link linkend="gchar">gchar</link> **uris,
+                                                         <link linkend="guint">guint</link> timestamp,
+                                                         <link linkend="EogStartupFlags">EogStartupFlags</link> flags,
+                                                         <link linkend="GError">GError</link> **error);
+<link linkend="GList">GList</link> *             <link linkend="eog-application-get-windows">eog_application_get_windows</link>         (<link linkend="EogApplication">EogApplication</link> *application);
+<link linkend="EggToolbarsModel">EggToolbarsModel</link> *  <link linkend="eog-application-get-toolbars-model">eog_application_get_toolbars_model</link>  (<link linkend="EogApplication">EogApplication</link> *application);
+<link linkend="void">void</link>                <link linkend="eog-application-save-toolbars-model">eog_application_save_toolbars_model</link> (<link linkend="EogApplication">EogApplication</link> *application);
+<link linkend="void">void</link>                <link linkend="eog-application-reset-toolbars-model">eog_application_reset_toolbars_model</link>
+                                                        (<link linkend="EogApplication">EogApplication</link> *app);
+<link linkend="void">void</link>                <link linkend="eog-application-screensaver-enable">eog_application_screensaver_enable</link>  (<link linkend="EogApplication">EogApplication</link> *application);
+<link linkend="void">void</link>                <link linkend="eog-application-screensaver-disable">eog_application_screensaver_disable</link> (<link linkend="EogApplication">EogApplication</link> *application);
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 id="EogApplication.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<synopsis>
+  <link linkend="GObject">GObject</link>
+   +----EogApplication
+</synopsis>
+</refsect1>
+
+
+
+
+
+
+
+
+<refsect1 id="EogApplication.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+</para>
+</refsect1>
+
+<refsect1 id="EogApplication.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="EOG-APP--CAPS" role="macro">
+<title>EOG_APP</title>
+<indexterm zone="EOG-APP--CAPS"><primary sortas="EOG_APP">EOG_APP</primary></indexterm><programlisting>#define EOG_APP				(eog_application_get_instance ())
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="EogApplication-struct" role="struct">
+<title>EogApplication</title>
+<indexterm zone="EogApplication-struct"><primary sortas="EogApplication">EogApplication</primary></indexterm><programlisting>typedef struct _EogApplication EogApplication;</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="eog-application-get-instance" role="function">
+<title>eog_application_get_instance ()</title>
+<indexterm zone="eog-application-get-instance"><primary sortas="eog_application_get_instance">eog_application_get_instance</primary></indexterm><programlisting><link linkend="EogApplication">EogApplication</link> *    eog_application_get_instance        (void);</programlisting>
+<para>
+Returns a singleton instance of <link linkend="EogApplication"><type>EogApplication</type></link> currently running.
+If not running yet, it will create one.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> a running <link linkend="EogApplication"><type>EogApplication</type></link>.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-application-register-service" role="function">
+<title>eog_application_register_service ()</title>
+<indexterm zone="eog-application-register-service"><primary sortas="eog_application_register_service">eog_application_register_service</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            eog_application_register_service    (<link linkend="EogApplication">EogApplication</link> *application);</programlisting>
+<para>
+Registers <link linkend="EogApplication"><type>EogApplication</type></link><!-- -->'s DBus service, to allow
+remote calls. If the DBus service is already registered,
+or there is any other connection error, returns <link linkend="FALSE--CAPS"><literal>FALSE</literal></link>.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>application</parameter>&#160;:</term>
+<listitem><simpara> An <link linkend="EogApplication"><type>EogApplication</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> <link linkend="TRUE--CAPS"><literal>TRUE</literal></link> if the service was registered succesfully. <link linkend="FALSE--CAPS"><literal>FALSE</literal></link>
+otherwise.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-application-shutdown" role="function">
+<title>eog_application_shutdown ()</title>
+<indexterm zone="eog-application-shutdown"><primary sortas="eog_application_shutdown">eog_application_shutdown</primary></indexterm><programlisting><link linkend="void">void</link>                eog_application_shutdown            (<link linkend="EogApplication">EogApplication</link> *application);</programlisting>
+<para>
+Takes care of shutting down the Eye of GNOME, and quits.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>application</parameter>&#160;:</term>
+<listitem><simpara> An <link linkend="EogApplication"><type>EogApplication</type></link>.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-application-open-window" role="function">
+<title>eog_application_open_window ()</title>
+<indexterm zone="eog-application-open-window"><primary sortas="eog_application_open_window">eog_application_open_window</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            eog_application_open_window         (<link linkend="EogApplication">EogApplication</link> *application,
+                                                         <link linkend="guint">guint</link> timestamp,
+                                                         <link linkend="EogStartupFlags">EogStartupFlags</link> flags,
+                                                         <link linkend="GError">GError</link> **error);</programlisting>
+<para>
+Opens and presents an empty <link linkend="EogWindow"><type>EogWindow</type></link> to the user. If there is
+an empty window already open, this will be used. Otherwise, a
+new one will be instantiated.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>application</parameter>&#160;:</term>
+<listitem><simpara> An <link linkend="EogApplication"><type>EogApplication</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>timestamp</parameter>&#160;:</term>
+<listitem><simpara> The timestamp of the user interaction which triggered this call
+(see <link linkend="gtk-window-present-with-time"><function>gtk_window_present_with_time()</function></link>).
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>flags</parameter>&#160;:</term>
+<listitem><simpara> A set of <link linkend="EogStartupFlags"><type>EogStartupFlags</type></link> influencing a new windows' state.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>error</parameter>&#160;:</term>
+<listitem><simpara> Return location for a <link linkend="GError"><type>GError</type></link>, or NULL to ignore errors.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> <link linkend="FALSE--CAPS"><literal>FALSE</literal></link> if <parameter>application</parameter> is invalid, <link linkend="TRUE--CAPS"><literal>TRUE</literal></link> otherwise
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-application-open-uri-list" role="function">
+<title>eog_application_open_uri_list ()</title>
+<indexterm zone="eog-application-open-uri-list"><primary sortas="eog_application_open_uri_list">eog_application_open_uri_list</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            eog_application_open_uri_list       (<link linkend="EogApplication">EogApplication</link> *application,
+                                                         <link linkend="GSList">GSList</link> *uri_list,
+                                                         <link linkend="guint">guint</link> timestamp,
+                                                         <link linkend="EogStartupFlags">EogStartupFlags</link> flags,
+                                                         <link linkend="GError">GError</link> **error);</programlisting>
+<para>
+Opens a list of images, from a list of URIs. See
+<link linkend="eog-application-open-file-list"><function>eog_application_open_file_list()</function></link> for details.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>application</parameter>&#160;:</term>
+<listitem><simpara> An <link linkend="EogApplication"><type>EogApplication</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>uri_list</parameter>&#160;:</term>
+<listitem><simpara> A list of URIs.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>timestamp</parameter>&#160;:</term>
+<listitem><simpara> The timestamp of the user interaction which triggered this call
+(see <link linkend="gtk-window-present-with-time"><function>gtk_window_present_with_time()</function></link>).
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>flags</parameter>&#160;:</term>
+<listitem><simpara> A set of <link linkend="EogStartupFlags"><type>EogStartupFlags</type></link> influencing a new windows' state.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>error</parameter>&#160;:</term>
+<listitem><simpara> Return location for a <link linkend="GError"><type>GError</type></link>, or NULL to ignore errors.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> Currently always <link linkend="TRUE--CAPS"><literal>TRUE</literal></link>.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-application-open-file-list" role="function">
+<title>eog_application_open_file_list ()</title>
+<indexterm zone="eog-application-open-file-list"><primary sortas="eog_application_open_file_list">eog_application_open_file_list</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            eog_application_open_file_list      (<link linkend="EogApplication">EogApplication</link> *application,
+                                                         <link linkend="GSList">GSList</link> *file_list,
+                                                         <link linkend="guint">guint</link> timestamp,
+                                                         <link linkend="EogStartupFlags">EogStartupFlags</link> flags,
+                                                         <link linkend="GError">GError</link> **error);</programlisting>
+<para>
+Opens a list of files in a <link linkend="EogWindow"><type>EogWindow</type></link>. If an <link linkend="EogWindow"><type>EogWindow</type></link> displaying the first
+image in the list is already open, this will be used. Otherwise, an empty
+<link linkend="EogWindow"><type>EogWindow</type></link> is used, either already existing or newly created.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>application</parameter>&#160;:</term>
+<listitem><simpara> An <link linkend="EogApplication"><type>EogApplication</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>file_list</parameter>&#160;:</term>
+<listitem><simpara> A list of <link linkend="GFile"><type>GFile</type></link><!-- -->s.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>timestamp</parameter>&#160;:</term>
+<listitem><simpara> The timestamp of the user interaction which triggered this call
+(see <link linkend="gtk-window-present-with-time"><function>gtk_window_present_with_time()</function></link>).
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>flags</parameter>&#160;:</term>
+<listitem><simpara> A set of <link linkend="EogStartupFlags"><type>EogStartupFlags</type></link> influencing a new windows' state.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>error</parameter>&#160;:</term>
+<listitem><simpara> Return location for a <link linkend="GError"><type>GError</type></link>, or NULL to ignore errors.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> Currently always <link linkend="TRUE--CAPS"><literal>TRUE</literal></link>.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-application-open-uris" role="function">
+<title>eog_application_open_uris ()</title>
+<indexterm zone="eog-application-open-uris"><primary sortas="eog_application_open_uris">eog_application_open_uris</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            eog_application_open_uris           (<link linkend="EogApplication">EogApplication</link> *application,
+                                                         <link linkend="gchar">gchar</link> **uris,
+                                                         <link linkend="guint">guint</link> timestamp,
+                                                         <link linkend="EogStartupFlags">EogStartupFlags</link> flags,
+                                                         <link linkend="GError">GError</link> **error);</programlisting>
+<para>
+Opens a list of images, from a list of URI strings. See
+<link linkend="eog-application-open-file-list"><function>eog_application_open_file_list()</function></link> for details.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>application</parameter>&#160;:</term>
+<listitem><simpara> an <link linkend="EogApplication"><type>EogApplication</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>uris</parameter>&#160;:</term>
+<listitem><simpara>  A <link linkend="GList"><type>GList</type></link> of URI strings.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>timestamp</parameter>&#160;:</term>
+<listitem><simpara> The timestamp of the user interaction which triggered this call
+(see <link linkend="gtk-window-present-with-time"><function>gtk_window_present_with_time()</function></link>).
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>flags</parameter>&#160;:</term>
+<listitem><simpara> A set of <link linkend="EogStartupFlags"><type>EogStartupFlags</type></link> influencing a new windows' state.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>error</parameter>&#160;:</term>
+<listitem><simpara> Return location for a <link linkend="GError"><type>GError</type></link>, or NULL to ignore errors.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> Currently always <link linkend="TRUE--CAPS"><literal>TRUE</literal></link>.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-application-get-windows" role="function">
+<title>eog_application_get_windows ()</title>
+<indexterm zone="eog-application-get-windows"><primary sortas="eog_application_get_windows">eog_application_get_windows</primary></indexterm><programlisting><link linkend="GList">GList</link> *             eog_application_get_windows         (<link linkend="EogApplication">EogApplication</link> *application);</programlisting>
+<para>
+Gets the list of existing <link linkend="EogApplication"><type>EogApplication</type></link><!-- -->s. The windows
+in this list are not individually referenced, you need to keep
+your own references if you want to perform actions that may destroy
+them.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>application</parameter>&#160;:</term>
+<listitem><simpara> An <link linkend="EogApplication"><type>EogApplication</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> A new list of <link linkend="EogWindow"><type>EogWindow</type></link><!-- -->s.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-application-get-toolbars-model" role="function">
+<title>eog_application_get_toolbars_model ()</title>
+<indexterm zone="eog-application-get-toolbars-model"><primary sortas="eog_application_get_toolbars_model">eog_application_get_toolbars_model</primary></indexterm><programlisting><link linkend="EggToolbarsModel">EggToolbarsModel</link> *  eog_application_get_toolbars_model  (<link linkend="EogApplication">EogApplication</link> *application);</programlisting>
+<para>
+Retrieves the <link linkend="EogTolbarsModel"><type>EogTolbarsModel</type></link> for the toolbar in <link linkend="EogApplication"><type>EogApplication</type></link>.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>application</parameter>&#160;:</term>
+<listitem><simpara> An <link linkend="EogApplication"><type>EogApplication</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> An <link linkend="EogToolbarsModel"><type>EogToolbarsModel</type></link>.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-application-save-toolbars-model" role="function">
+<title>eog_application_save_toolbars_model ()</title>
+<indexterm zone="eog-application-save-toolbars-model"><primary sortas="eog_application_save_toolbars_model">eog_application_save_toolbars_model</primary></indexterm><programlisting><link linkend="void">void</link>                eog_application_save_toolbars_model (<link linkend="EogApplication">EogApplication</link> *application);</programlisting>
+<para>
+Causes the saving of the model of the toolbar in <link linkend="EogApplication"><type>EogApplication</type></link> to a file.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>application</parameter>&#160;:</term>
+<listitem><simpara> An <link linkend="EogApplication"><type>EogApplication</type></link>.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-application-reset-toolbars-model" role="function">
+<title>eog_application_reset_toolbars_model ()</title>
+<indexterm zone="eog-application-reset-toolbars-model"><primary sortas="eog_application_reset_toolbars_model">eog_application_reset_toolbars_model</primary></indexterm><programlisting><link linkend="void">void</link>                eog_application_reset_toolbars_model
+                                                        (<link linkend="EogApplication">EogApplication</link> *app);</programlisting>
+<para>
+Restores the toolbars model to the defaults.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>app</parameter>&#160;:</term>
+<listitem><simpara> an <link linkend="EogApplication"><type>EogApplication</type></link>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-application-screensaver-enable" role="function">
+<title>eog_application_screensaver_enable ()</title>
+<indexterm zone="eog-application-screensaver-enable"><primary sortas="eog_application_screensaver_enable">eog_application_screensaver_enable</primary></indexterm><programlisting><link linkend="void">void</link>                eog_application_screensaver_enable  (<link linkend="EogApplication">EogApplication</link> *application);</programlisting>
+<para>
+Enables the screensaver. Usually necessary after a call to
+<link linkend="eog-application-screensaver-disable"><function>eog_application_screensaver_disable()</function></link>.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>application</parameter>&#160;:</term>
+<listitem><simpara> an <link linkend="EogApplication"><type>EogApplication</type></link>.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-application-screensaver-disable" role="function">
+<title>eog_application_screensaver_disable ()</title>
+<indexterm zone="eog-application-screensaver-disable"><primary sortas="eog_application_screensaver_disable">eog_application_screensaver_disable</primary></indexterm><programlisting><link linkend="void">void</link>                eog_application_screensaver_disable (<link linkend="EogApplication">EogApplication</link> *application);</programlisting>
+<para>
+Disables the screensaver. Useful when the application is in fullscreen or
+similar mode.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>application</parameter>&#160;:</term>
+<listitem><simpara> an <link linkend="EogApplication"><type>EogApplication</type></link>.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

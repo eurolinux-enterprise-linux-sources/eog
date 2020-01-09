@@ -1,0 +1,167 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN"
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="eog-eog-util">
+<refmeta>
+<refentrytitle role="top_of_page" id="eog-eog-util.top_of_page">eog-util</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>EOG Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>eog-util</refname>
+<refpurpose></refpurpose>
+</refnamediv>
+
+<refsynopsisdiv id="eog-eog-util.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+<link linkend="void">void</link>                <link linkend="eog-util-show-help">eog_util_show_help</link>                  (const <link linkend="gchar">gchar</link> *section,
+                                                         <link linkend="GtkWindow">GtkWindow</link> *parent);
+<link linkend="gchar">gchar</link> *             <link linkend="eog-util-make-valid-utf8">eog_util_make_valid_utf8</link>            (const <link linkend="gchar">gchar</link> *name);
+<link linkend="GSList">GSList</link> *            <link linkend="eog-util-parse-uri-string-list-to-file-list">eog_util_parse_uri_string_list_to_file_list</link>
+                                                        (const <link linkend="gchar">gchar</link> *uri_list);
+<link linkend="GSList">GSList</link> *            <link linkend="eog-util-string-list-to-file-list">eog_util_string_list_to_file_list</link>   (<link linkend="GSList">GSList</link> *string_list);
+<link linkend="GSList">GSList</link> *            <link linkend="eog-util-strings-to-file-list">eog_util_strings_to_file_list</link>       (<link linkend="gchar">gchar</link> **strings);
+<link linkend="GSList">GSList</link> *            <link linkend="eog-util-string-array-to-list">eog_util_string_array_to_list</link>       (const <link linkend="gchar">gchar</link> **files,
+                                                         <link linkend="gboolean">gboolean</link> create_uri);
+<link linkend="gchar">gchar</link> **            <link linkend="eog-util-string-array-make-absolute">eog_util_string_array_make_absolute</link> (<link linkend="gchar">gchar</link> **files);
+<link linkend="gboolean">gboolean</link>            <link linkend="eog-util-launch-desktop-file">eog_util_launch_desktop_file</link>        (const <link linkend="gchar">gchar</link> *filename,
+                                                         <link linkend="guint32">guint32</link> user_time);
+const    <link linkend="gchar">gchar</link> *    <link linkend="eog-util-dot-dir">eog_util_dot_dir</link>                    (void);
+</synopsis>
+</refsynopsisdiv>
+
+
+
+
+
+
+
+
+
+<refsect1 id="eog-eog-util.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+</para>
+</refsect1>
+
+<refsect1 id="eog-eog-util.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="eog-util-show-help" role="function">
+<title>eog_util_show_help ()</title>
+<indexterm zone="eog-util-show-help"><primary sortas="eog_util_show_help">eog_util_show_help</primary></indexterm><programlisting><link linkend="void">void</link>                eog_util_show_help                  (const <link linkend="gchar">gchar</link> *section,
+                                                         <link linkend="GtkWindow">GtkWindow</link> *parent);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>section</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>parent</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-util-make-valid-utf8" role="function">
+<title>eog_util_make_valid_utf8 ()</title>
+<indexterm zone="eog-util-make-valid-utf8"><primary sortas="eog_util_make_valid_utf8">eog_util_make_valid_utf8</primary></indexterm><programlisting><link linkend="gchar">gchar</link> *             eog_util_make_valid_utf8            (const <link linkend="gchar">gchar</link> *name);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>name</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-util-parse-uri-string-list-to-file-list" role="function">
+<title>eog_util_parse_uri_string_list_to_file_list ()</title>
+<indexterm zone="eog-util-parse-uri-string-list-to-file-list"><primary sortas="eog_util_parse_uri_string_list_to_file_list">eog_util_parse_uri_string_list_to_file_list</primary></indexterm><programlisting><link linkend="GSList">GSList</link> *            eog_util_parse_uri_string_list_to_file_list
+                                                        (const <link linkend="gchar">gchar</link> *uri_list);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>uri_list</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-util-string-list-to-file-list" role="function">
+<title>eog_util_string_list_to_file_list ()</title>
+<indexterm zone="eog-util-string-list-to-file-list"><primary sortas="eog_util_string_list_to_file_list">eog_util_string_list_to_file_list</primary></indexterm><programlisting><link linkend="GSList">GSList</link> *            eog_util_string_list_to_file_list   (<link linkend="GSList">GSList</link> *string_list);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>string_list</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-util-strings-to-file-list" role="function">
+<title>eog_util_strings_to_file_list ()</title>
+<indexterm zone="eog-util-strings-to-file-list"><primary sortas="eog_util_strings_to_file_list">eog_util_strings_to_file_list</primary></indexterm><programlisting><link linkend="GSList">GSList</link> *            eog_util_strings_to_file_list       (<link linkend="gchar">gchar</link> **strings);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>strings</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-util-string-array-to-list" role="function">
+<title>eog_util_string_array_to_list ()</title>
+<indexterm zone="eog-util-string-array-to-list"><primary sortas="eog_util_string_array_to_list">eog_util_string_array_to_list</primary></indexterm><programlisting><link linkend="GSList">GSList</link> *            eog_util_string_array_to_list       (const <link linkend="gchar">gchar</link> **files,
+                                                         <link linkend="gboolean">gboolean</link> create_uri);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>files</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>create_uri</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-util-string-array-make-absolute" role="function">
+<title>eog_util_string_array_make_absolute ()</title>
+<indexterm zone="eog-util-string-array-make-absolute"><primary sortas="eog_util_string_array_make_absolute">eog_util_string_array_make_absolute</primary></indexterm><programlisting><link linkend="gchar">gchar</link> **            eog_util_string_array_make_absolute (<link linkend="gchar">gchar</link> **files);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>files</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-util-launch-desktop-file" role="function">
+<title>eog_util_launch_desktop_file ()</title>
+<indexterm zone="eog-util-launch-desktop-file"><primary sortas="eog_util_launch_desktop_file">eog_util_launch_desktop_file</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            eog_util_launch_desktop_file        (const <link linkend="gchar">gchar</link> *filename,
+                                                         <link linkend="guint32">guint32</link> user_time);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>filename</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_time</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-util-dot-dir" role="function">
+<title>eog_util_dot_dir ()</title>
+<indexterm zone="eog-util-dot-dir"><primary sortas="eog_util_dot_dir">eog_util_dot_dir</primary></indexterm><programlisting>const    <link linkend="gchar">gchar</link> *    eog_util_dot_dir                    (void);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

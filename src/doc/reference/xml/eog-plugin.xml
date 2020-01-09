@@ -1,0 +1,204 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN"
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="EogPlugin">
+<refmeta>
+<refentrytitle role="top_of_page" id="EogPlugin.top_of_page">EogPlugin</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>EOG Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>EogPlugin</refname>
+<refpurpose></refpurpose>
+</refnamediv>
+
+<refsynopsisdiv id="EogPlugin.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+#define             <link linkend="EOG-PLUGIN-CONST--CAPS">EOG_PLUGIN_CONST</link>                    (obj)
+                    <link linkend="EogPlugin-struct">EogPlugin</link>;
+<link linkend="void">void</link>                <link linkend="eog-plugin-activate">eog_plugin_activate</link>                 (<link linkend="EogPlugin">EogPlugin</link> *plugin,
+                                                         <link linkend="EogWindow">EogWindow</link> *window);
+<link linkend="void">void</link>                <link linkend="eog-plugin-deactivate">eog_plugin_deactivate</link>               (<link linkend="EogPlugin">EogPlugin</link> *plugin,
+                                                         <link linkend="EogWindow">EogWindow</link> *window);
+<link linkend="void">void</link>                <link linkend="eog-plugin-update-ui">eog_plugin_update_ui</link>                (<link linkend="EogPlugin">EogPlugin</link> *plugin,
+                                                         <link linkend="EogWindow">EogWindow</link> *window);
+<link linkend="gboolean">gboolean</link>            <link linkend="eog-plugin-is-configurable">eog_plugin_is_configurable</link>          (<link linkend="EogPlugin">EogPlugin</link> *plugin);
+<link linkend="GtkWidget">GtkWidget</link> *         <link linkend="eog-plugin-create-configure-dialog">eog_plugin_create_configure_dialog</link>  (<link linkend="EogPlugin">EogPlugin</link> *plugin);
+#define             <link linkend="EOG-PLUGIN-REGISTER-TYPE-WITH-CODE--CAPS">EOG_PLUGIN_REGISTER_TYPE_WITH_CODE</link>  (PluginName, plugin_name, CODE)
+#define             <link linkend="EOG-PLUGIN-REGISTER-TYPE--CAPS">EOG_PLUGIN_REGISTER_TYPE</link>            (PluginName, plugin_name)
+#define             <link linkend="EOG-PLUGIN-DEFINE-TYPE-WITH-CODE--CAPS">EOG_PLUGIN_DEFINE_TYPE_WITH_CODE</link>    (ObjectName, object_name, PARENT_TYPE, CODE)
+#define             <link linkend="EOG-PLUGIN-DEFINE-TYPE--CAPS">EOG_PLUGIN_DEFINE_TYPE</link>              (ObjectName, object_name, PARENT_TYPE)
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 id="EogPlugin.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<synopsis>
+  <link linkend="GObject">GObject</link>
+   +----EogPlugin
+</synopsis>
+</refsect1>
+
+
+
+
+
+
+
+
+<refsect1 id="EogPlugin.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+</para>
+</refsect1>
+
+<refsect1 id="EogPlugin.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="EOG-PLUGIN-CONST--CAPS" role="macro">
+<title>EOG_PLUGIN_CONST()</title>
+<indexterm zone="EOG-PLUGIN-CONST--CAPS"><primary sortas="EOG_PLUGIN_CONST">EOG_PLUGIN_CONST</primary></indexterm><programlisting>#define EOG_PLUGIN_CONST(obj)      (G_TYPE_CHECK_INSTANCE_CAST((obj), EOG_TYPE_PLUGIN, EogPlugin const))
+</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>obj</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="EogPlugin-struct" role="struct">
+<title>EogPlugin</title>
+<indexterm zone="EogPlugin-struct"><primary sortas="EogPlugin">EogPlugin</primary></indexterm><programlisting>typedef struct _EogPlugin EogPlugin;</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="eog-plugin-activate" role="function">
+<title>eog_plugin_activate ()</title>
+<indexterm zone="eog-plugin-activate"><primary sortas="eog_plugin_activate">eog_plugin_activate</primary></indexterm><programlisting><link linkend="void">void</link>                eog_plugin_activate                 (<link linkend="EogPlugin">EogPlugin</link> *plugin,
+                                                         <link linkend="EogWindow">EogWindow</link> *window);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>plugin</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>window</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-plugin-deactivate" role="function">
+<title>eog_plugin_deactivate ()</title>
+<indexterm zone="eog-plugin-deactivate"><primary sortas="eog_plugin_deactivate">eog_plugin_deactivate</primary></indexterm><programlisting><link linkend="void">void</link>                eog_plugin_deactivate               (<link linkend="EogPlugin">EogPlugin</link> *plugin,
+                                                         <link linkend="EogWindow">EogWindow</link> *window);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>plugin</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>window</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-plugin-update-ui" role="function">
+<title>eog_plugin_update_ui ()</title>
+<indexterm zone="eog-plugin-update-ui"><primary sortas="eog_plugin_update_ui">eog_plugin_update_ui</primary></indexterm><programlisting><link linkend="void">void</link>                eog_plugin_update_ui                (<link linkend="EogPlugin">EogPlugin</link> *plugin,
+                                                         <link linkend="EogWindow">EogWindow</link> *window);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>plugin</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>window</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-plugin-is-configurable" role="function">
+<title>eog_plugin_is_configurable ()</title>
+<indexterm zone="eog-plugin-is-configurable"><primary sortas="eog_plugin_is_configurable">eog_plugin_is_configurable</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            eog_plugin_is_configurable          (<link linkend="EogPlugin">EogPlugin</link> *plugin);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>plugin</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-plugin-create-configure-dialog" role="function">
+<title>eog_plugin_create_configure_dialog ()</title>
+<indexterm zone="eog-plugin-create-configure-dialog"><primary sortas="eog_plugin_create_configure_dialog">eog_plugin_create_configure_dialog</primary></indexterm><programlisting><link linkend="GtkWidget">GtkWidget</link> *         eog_plugin_create_configure_dialog  (<link linkend="EogPlugin">EogPlugin</link> *plugin);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>plugin</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="EOG-PLUGIN-REGISTER-TYPE-WITH-CODE--CAPS" role="macro">
+<title>EOG_PLUGIN_REGISTER_TYPE_WITH_CODE()</title>
+<indexterm zone="EOG-PLUGIN-REGISTER-TYPE-WITH-CODE--CAPS"><primary sortas="EOG_PLUGIN_REGISTER_TYPE_WITH_CODE">EOG_PLUGIN_REGISTER_TYPE_WITH_CODE</primary></indexterm><programlisting>#define             EOG_PLUGIN_REGISTER_TYPE_WITH_CODE(PluginName, plugin_name, CODE)</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>PluginName</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>plugin_name</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>CODE</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="EOG-PLUGIN-REGISTER-TYPE--CAPS" role="macro">
+<title>EOG_PLUGIN_REGISTER_TYPE()</title>
+<indexterm zone="EOG-PLUGIN-REGISTER-TYPE--CAPS"><primary sortas="EOG_PLUGIN_REGISTER_TYPE">EOG_PLUGIN_REGISTER_TYPE</primary></indexterm><programlisting>#define             EOG_PLUGIN_REGISTER_TYPE(PluginName, plugin_name)</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>PluginName</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>plugin_name</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="EOG-PLUGIN-DEFINE-TYPE-WITH-CODE--CAPS" role="macro">
+<title>EOG_PLUGIN_DEFINE_TYPE_WITH_CODE()</title>
+<indexterm zone="EOG-PLUGIN-DEFINE-TYPE-WITH-CODE--CAPS"><primary sortas="EOG_PLUGIN_DEFINE_TYPE_WITH_CODE">EOG_PLUGIN_DEFINE_TYPE_WITH_CODE</primary></indexterm><programlisting>#define             EOG_PLUGIN_DEFINE_TYPE_WITH_CODE(ObjectName, object_name, PARENT_TYPE, CODE)</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>ObjectName</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>object_name</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>PARENT_TYPE</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>CODE</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="EOG-PLUGIN-DEFINE-TYPE--CAPS" role="macro">
+<title>EOG_PLUGIN_DEFINE_TYPE()</title>
+<indexterm zone="EOG-PLUGIN-DEFINE-TYPE--CAPS"><primary sortas="EOG_PLUGIN_DEFINE_TYPE">EOG_PLUGIN_DEFINE_TYPE</primary></indexterm><programlisting>#define             EOG_PLUGIN_DEFINE_TYPE(ObjectName, object_name, PARENT_TYPE)</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>ObjectName</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>object_name</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>PARENT_TYPE</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

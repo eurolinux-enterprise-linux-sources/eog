@@ -1,0 +1,201 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN"
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="eog-eog-config-keys">
+<refmeta>
+<refentrytitle role="top_of_page" id="eog-eog-config-keys.top_of_page">eog-config-keys</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>EOG Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>eog-config-keys</refname>
+<refpurpose></refpurpose>
+</refnamediv>
+
+<refsynopsisdiv id="eog-eog-config-keys.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+#define             <link linkend="EOG-CONF-DIR--CAPS">EOG_CONF_DIR</link>
+#define             <link linkend="EOG-CONF-DESKTOP-WALLPAPER--CAPS">EOG_CONF_DESKTOP_WALLPAPER</link>
+#define             <link linkend="EOG-CONF-DESKTOP-CAN-SAVE--CAPS">EOG_CONF_DESKTOP_CAN_SAVE</link>
+#define             <link linkend="EOG-CONF-DESKTOP-CAN-PRINT--CAPS">EOG_CONF_DESKTOP_CAN_PRINT</link>
+#define             <link linkend="EOG-CONF-DESKTOP-CAN-SETUP-PAGE--CAPS">EOG_CONF_DESKTOP_CAN_SETUP_PAGE</link>
+#define             <link linkend="EOG-CONF-VIEW-INTERPOLATE--CAPS">EOG_CONF_VIEW_INTERPOLATE</link>
+#define             <link linkend="EOG-CONF-VIEW-SCROLL-WHEEL-ZOOM--CAPS">EOG_CONF_VIEW_SCROLL_WHEEL_ZOOM</link>
+#define             <link linkend="EOG-CONF-VIEW-ZOOM-MULTIPLIER--CAPS">EOG_CONF_VIEW_ZOOM_MULTIPLIER</link>
+#define             <link linkend="EOG-CONF-VIEW-AUTOROTATE--CAPS">EOG_CONF_VIEW_AUTOROTATE</link>
+#define             <link linkend="EOG-CONF-VIEW-TRANSPARENCY--CAPS">EOG_CONF_VIEW_TRANSPARENCY</link>
+#define             <link linkend="EOG-CONF-VIEW-TRANS-COLOR--CAPS">EOG_CONF_VIEW_TRANS_COLOR</link>
+#define             <link linkend="EOG-CONF-FULLSCREEN-LOOP--CAPS">EOG_CONF_FULLSCREEN_LOOP</link>
+#define             <link linkend="EOG-CONF-FULLSCREEN-UPSCALE--CAPS">EOG_CONF_FULLSCREEN_UPSCALE</link>
+#define             <link linkend="EOG-CONF-FULLSCREEN-SECONDS--CAPS">EOG_CONF_FULLSCREEN_SECONDS</link>
+#define             <link linkend="EOG-CONF-UI-TOOLBAR--CAPS">EOG_CONF_UI_TOOLBAR</link>
+#define             <link linkend="EOG-CONF-UI-STATUSBAR--CAPS">EOG_CONF_UI_STATUSBAR</link>
+#define             <link linkend="EOG-CONF-UI-IMAGE-COLLECTION--CAPS">EOG_CONF_UI_IMAGE_COLLECTION</link>
+#define             <link linkend="EOG-CONF-UI-IMAGE-COLLECTION-POSITION--CAPS">EOG_CONF_UI_IMAGE_COLLECTION_POSITION</link>
+#define             <link linkend="EOG-CONF-UI-IMAGE-COLLECTION-RESIZABLE--CAPS">EOG_CONF_UI_IMAGE_COLLECTION_RESIZABLE</link>
+#define             <link linkend="EOG-CONF-UI-SIDEBAR--CAPS">EOG_CONF_UI_SIDEBAR</link>
+#define             <link linkend="EOG-CONF-UI-SCROLL-BUTTONS--CAPS">EOG_CONF_UI_SCROLL_BUTTONS</link>
+#define             <link linkend="EOG-CONF-PLUGINS-ACTIVE-PLUGINS--CAPS">EOG_CONF_PLUGINS_ACTIVE_PLUGINS</link>
+</synopsis>
+</refsynopsisdiv>
+
+
+
+
+
+
+
+
+
+<refsect1 id="eog-eog-config-keys.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+</para>
+</refsect1>
+
+<refsect1 id="eog-eog-config-keys.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="EOG-CONF-DIR--CAPS" role="macro">
+<title>EOG_CONF_DIR</title>
+<indexterm zone="EOG-CONF-DIR--CAPS"><primary sortas="EOG_CONF_DIR">EOG_CONF_DIR</primary></indexterm><programlisting>#define EOG_CONF_DIR				"/apps/eog"
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="EOG-CONF-DESKTOP-WALLPAPER--CAPS" role="macro">
+<title>EOG_CONF_DESKTOP_WALLPAPER</title>
+<indexterm zone="EOG-CONF-DESKTOP-WALLPAPER--CAPS"><primary sortas="EOG_CONF_DESKTOP_WALLPAPER">EOG_CONF_DESKTOP_WALLPAPER</primary></indexterm><programlisting>#define EOG_CONF_DESKTOP_WALLPAPER		"/desktop/gnome/background/picture_filename"
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="EOG-CONF-DESKTOP-CAN-SAVE--CAPS" role="macro">
+<title>EOG_CONF_DESKTOP_CAN_SAVE</title>
+<indexterm zone="EOG-CONF-DESKTOP-CAN-SAVE--CAPS"><primary sortas="EOG_CONF_DESKTOP_CAN_SAVE">EOG_CONF_DESKTOP_CAN_SAVE</primary></indexterm><programlisting>#define EOG_CONF_DESKTOP_CAN_SAVE		"/desktop/gnome/lockdown/disable_save_to_disk"
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="EOG-CONF-DESKTOP-CAN-PRINT--CAPS" role="macro">
+<title>EOG_CONF_DESKTOP_CAN_PRINT</title>
+<indexterm zone="EOG-CONF-DESKTOP-CAN-PRINT--CAPS"><primary sortas="EOG_CONF_DESKTOP_CAN_PRINT">EOG_CONF_DESKTOP_CAN_PRINT</primary></indexterm><programlisting>#define EOG_CONF_DESKTOP_CAN_PRINT      	"/desktop/gnome/lockdown/disable_printing"
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="EOG-CONF-DESKTOP-CAN-SETUP-PAGE--CAPS" role="macro">
+<title>EOG_CONF_DESKTOP_CAN_SETUP_PAGE</title>
+<indexterm zone="EOG-CONF-DESKTOP-CAN-SETUP-PAGE--CAPS"><primary sortas="EOG_CONF_DESKTOP_CAN_SETUP_PAGE">EOG_CONF_DESKTOP_CAN_SETUP_PAGE</primary></indexterm><programlisting>#define EOG_CONF_DESKTOP_CAN_SETUP_PAGE 	"/desktop/gnome/lockdown/disable_print_setup"
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="EOG-CONF-VIEW-INTERPOLATE--CAPS" role="macro">
+<title>EOG_CONF_VIEW_INTERPOLATE</title>
+<indexterm zone="EOG-CONF-VIEW-INTERPOLATE--CAPS"><primary sortas="EOG_CONF_VIEW_INTERPOLATE">EOG_CONF_VIEW_INTERPOLATE</primary></indexterm><programlisting>#define EOG_CONF_VIEW_INTERPOLATE		"/apps/eog/view/interpolate"
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="EOG-CONF-VIEW-SCROLL-WHEEL-ZOOM--CAPS" role="macro">
+<title>EOG_CONF_VIEW_SCROLL_WHEEL_ZOOM</title>
+<indexterm zone="EOG-CONF-VIEW-SCROLL-WHEEL-ZOOM--CAPS"><primary sortas="EOG_CONF_VIEW_SCROLL_WHEEL_ZOOM">EOG_CONF_VIEW_SCROLL_WHEEL_ZOOM</primary></indexterm><programlisting>#define EOG_CONF_VIEW_SCROLL_WHEEL_ZOOM		"/apps/eog/view/scroll_wheel_zoom"
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="EOG-CONF-VIEW-ZOOM-MULTIPLIER--CAPS" role="macro">
+<title>EOG_CONF_VIEW_ZOOM_MULTIPLIER</title>
+<indexterm zone="EOG-CONF-VIEW-ZOOM-MULTIPLIER--CAPS"><primary sortas="EOG_CONF_VIEW_ZOOM_MULTIPLIER">EOG_CONF_VIEW_ZOOM_MULTIPLIER</primary></indexterm><programlisting>#define EOG_CONF_VIEW_ZOOM_MULTIPLIER		"/apps/eog/view/zoom_multiplier"
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="EOG-CONF-VIEW-AUTOROTATE--CAPS" role="macro">
+<title>EOG_CONF_VIEW_AUTOROTATE</title>
+<indexterm zone="EOG-CONF-VIEW-AUTOROTATE--CAPS"><primary sortas="EOG_CONF_VIEW_AUTOROTATE">EOG_CONF_VIEW_AUTOROTATE</primary></indexterm><programlisting>#define EOG_CONF_VIEW_AUTOROTATE                "/apps/eog/view/autorotate"
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="EOG-CONF-VIEW-TRANSPARENCY--CAPS" role="macro">
+<title>EOG_CONF_VIEW_TRANSPARENCY</title>
+<indexterm zone="EOG-CONF-VIEW-TRANSPARENCY--CAPS"><primary sortas="EOG_CONF_VIEW_TRANSPARENCY">EOG_CONF_VIEW_TRANSPARENCY</primary></indexterm><programlisting>#define EOG_CONF_VIEW_TRANSPARENCY		"/apps/eog/view/transparency"
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="EOG-CONF-VIEW-TRANS-COLOR--CAPS" role="macro">
+<title>EOG_CONF_VIEW_TRANS_COLOR</title>
+<indexterm zone="EOG-CONF-VIEW-TRANS-COLOR--CAPS"><primary sortas="EOG_CONF_VIEW_TRANS_COLOR">EOG_CONF_VIEW_TRANS_COLOR</primary></indexterm><programlisting>#define EOG_CONF_VIEW_TRANS_COLOR		"/apps/eog/view/trans_color"
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="EOG-CONF-FULLSCREEN-LOOP--CAPS" role="macro">
+<title>EOG_CONF_FULLSCREEN_LOOP</title>
+<indexterm zone="EOG-CONF-FULLSCREEN-LOOP--CAPS"><primary sortas="EOG_CONF_FULLSCREEN_LOOP">EOG_CONF_FULLSCREEN_LOOP</primary></indexterm><programlisting>#define EOG_CONF_FULLSCREEN_LOOP		"/apps/eog/full_screen/loop"
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="EOG-CONF-FULLSCREEN-UPSCALE--CAPS" role="macro">
+<title>EOG_CONF_FULLSCREEN_UPSCALE</title>
+<indexterm zone="EOG-CONF-FULLSCREEN-UPSCALE--CAPS"><primary sortas="EOG_CONF_FULLSCREEN_UPSCALE">EOG_CONF_FULLSCREEN_UPSCALE</primary></indexterm><programlisting>#define EOG_CONF_FULLSCREEN_UPSCALE		"/apps/eog/full_screen/upscale"
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="EOG-CONF-FULLSCREEN-SECONDS--CAPS" role="macro">
+<title>EOG_CONF_FULLSCREEN_SECONDS</title>
+<indexterm zone="EOG-CONF-FULLSCREEN-SECONDS--CAPS"><primary sortas="EOG_CONF_FULLSCREEN_SECONDS">EOG_CONF_FULLSCREEN_SECONDS</primary></indexterm><programlisting>#define EOG_CONF_FULLSCREEN_SECONDS		"/apps/eog/full_screen/seconds"
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="EOG-CONF-UI-TOOLBAR--CAPS" role="macro">
+<title>EOG_CONF_UI_TOOLBAR</title>
+<indexterm zone="EOG-CONF-UI-TOOLBAR--CAPS"><primary sortas="EOG_CONF_UI_TOOLBAR">EOG_CONF_UI_TOOLBAR</primary></indexterm><programlisting>#define EOG_CONF_UI_TOOLBAR			"/apps/eog/ui/toolbar"
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="EOG-CONF-UI-STATUSBAR--CAPS" role="macro">
+<title>EOG_CONF_UI_STATUSBAR</title>
+<indexterm zone="EOG-CONF-UI-STATUSBAR--CAPS"><primary sortas="EOG_CONF_UI_STATUSBAR">EOG_CONF_UI_STATUSBAR</primary></indexterm><programlisting>#define EOG_CONF_UI_STATUSBAR			"/apps/eog/ui/statusbar"
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="EOG-CONF-UI-IMAGE-COLLECTION--CAPS" role="macro">
+<title>EOG_CONF_UI_IMAGE_COLLECTION</title>
+<indexterm zone="EOG-CONF-UI-IMAGE-COLLECTION--CAPS"><primary sortas="EOG_CONF_UI_IMAGE_COLLECTION">EOG_CONF_UI_IMAGE_COLLECTION</primary></indexterm><programlisting>#define EOG_CONF_UI_IMAGE_COLLECTION		"/apps/eog/ui/image_collection"
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="EOG-CONF-UI-IMAGE-COLLECTION-POSITION--CAPS" role="macro">
+<title>EOG_CONF_UI_IMAGE_COLLECTION_POSITION</title>
+<indexterm zone="EOG-CONF-UI-IMAGE-COLLECTION-POSITION--CAPS"><primary sortas="EOG_CONF_UI_IMAGE_COLLECTION_POSITION">EOG_CONF_UI_IMAGE_COLLECTION_POSITION</primary></indexterm><programlisting>#define EOG_CONF_UI_IMAGE_COLLECTION_POSITION	"/apps/eog/ui/image_collection_position"
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="EOG-CONF-UI-IMAGE-COLLECTION-RESIZABLE--CAPS" role="macro">
+<title>EOG_CONF_UI_IMAGE_COLLECTION_RESIZABLE</title>
+<indexterm zone="EOG-CONF-UI-IMAGE-COLLECTION-RESIZABLE--CAPS"><primary sortas="EOG_CONF_UI_IMAGE_COLLECTION_RESIZABLE">EOG_CONF_UI_IMAGE_COLLECTION_RESIZABLE</primary></indexterm><programlisting>#define EOG_CONF_UI_IMAGE_COLLECTION_RESIZABLE	"/apps/eog/ui/image_collection_resizable"
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="EOG-CONF-UI-SIDEBAR--CAPS" role="macro">
+<title>EOG_CONF_UI_SIDEBAR</title>
+<indexterm zone="EOG-CONF-UI-SIDEBAR--CAPS"><primary sortas="EOG_CONF_UI_SIDEBAR">EOG_CONF_UI_SIDEBAR</primary></indexterm><programlisting>#define EOG_CONF_UI_SIDEBAR			"/apps/eog/ui/sidebar"
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="EOG-CONF-UI-SCROLL-BUTTONS--CAPS" role="macro">
+<title>EOG_CONF_UI_SCROLL_BUTTONS</title>
+<indexterm zone="EOG-CONF-UI-SCROLL-BUTTONS--CAPS"><primary sortas="EOG_CONF_UI_SCROLL_BUTTONS">EOG_CONF_UI_SCROLL_BUTTONS</primary></indexterm><programlisting>#define EOG_CONF_UI_SCROLL_BUTTONS		"/apps/eog/ui/scroll_buttons"
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="EOG-CONF-PLUGINS-ACTIVE-PLUGINS--CAPS" role="macro">
+<title>EOG_CONF_PLUGINS_ACTIVE_PLUGINS</title>
+<indexterm zone="EOG-CONF-PLUGINS-ACTIVE-PLUGINS--CAPS"><primary sortas="EOG_CONF_PLUGINS_ACTIVE_PLUGINS">EOG_CONF_PLUGINS_ACTIVE_PLUGINS</primary></indexterm><programlisting>#define EOG_CONF_PLUGINS_ACTIVE_PLUGINS         "/apps/eog/plugins/active_plugins"
+</programlisting>
+<para>
+</para></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

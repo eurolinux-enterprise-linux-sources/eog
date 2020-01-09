@@ -1,0 +1,242 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN"
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="EogThumbView">
+<refmeta>
+<refentrytitle role="top_of_page" id="EogThumbView.top_of_page">EogThumbView</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>EOG Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>EogThumbView</refname>
+<refpurpose></refpurpose>
+</refnamediv>
+
+<refsynopsisdiv id="EogThumbView.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+enum                <link linkend="EogThumbViewSelectionChange">EogThumbViewSelectionChange</link>;
+                    <link linkend="EogThumbView-struct">EogThumbView</link>;
+<link linkend="GtkWidget">GtkWidget</link> *         <link linkend="eog-thumb-view-new">eog_thumb_view_new</link>                  (void);
+<link linkend="void">void</link>                <link linkend="eog-thumb-view-set-model">eog_thumb_view_set_model</link>            (<link linkend="EogThumbView">EogThumbView</link> *thumbview,
+                                                         <link linkend="EogListStore">EogListStore</link> *store);
+<link linkend="void">void</link>                <link linkend="eog-thumb-view-set-item-height">eog_thumb_view_set_item_height</link>      (<link linkend="EogThumbView">EogThumbView</link> *thumbview,
+                                                         <link linkend="gint">gint</link> height);
+<link linkend="guint">guint</link>               <link linkend="eog-thumb-view-get-n-selected">eog_thumb_view_get_n_selected</link>       (<link linkend="EogThumbView">EogThumbView</link> *thumbview);
+<link linkend="EogImage">EogImage</link> *          <link linkend="eog-thumb-view-get-first-selected-image">eog_thumb_view_get_first_selected_image</link>
+                                                        (<link linkend="EogThumbView">EogThumbView</link> *thumbview);
+<link linkend="GList">GList</link> *             <link linkend="eog-thumb-view-get-selected-images">eog_thumb_view_get_selected_images</link>  (<link linkend="EogThumbView">EogThumbView</link> *thumbview);
+<link linkend="void">void</link>                <link linkend="eog-thumb-view-select-single">eog_thumb_view_select_single</link>        (<link linkend="EogThumbView">EogThumbView</link> *thumbview,
+                                                         <link linkend="EogThumbViewSelectionChange">EogThumbViewSelectionChange</link> change);
+<link linkend="void">void</link>                <link linkend="eog-thumb-view-set-current-image">eog_thumb_view_set_current_image</link>    (<link linkend="EogThumbView">EogThumbView</link> *thumbview,
+                                                         <link linkend="EogImage">EogImage</link> *image,
+                                                         <link linkend="gboolean">gboolean</link> deselect_other);
+<link linkend="void">void</link>                <link linkend="eog-thumb-view-set-thumbnail-popup">eog_thumb_view_set_thumbnail_popup</link>  (<link linkend="EogThumbView">EogThumbView</link> *thumbview,
+                                                         <link linkend="GtkMenu">GtkMenu</link> *menu);
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 id="EogThumbView.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<synopsis>
+  <link linkend="GObject">GObject</link>
+   +----<link linkend="GInitiallyUnowned">GInitiallyUnowned</link>
+         +----<link linkend="GtkObject">GtkObject</link>
+               +----<link linkend="GtkWidget">GtkWidget</link>
+                     +----<link linkend="GtkContainer">GtkContainer</link>
+                           +----<link linkend="GtkIconView">GtkIconView</link>
+                                 +----EogThumbView
+</synopsis>
+</refsect1>
+
+
+
+<refsect1 id="EogThumbView.implemented-interfaces" role="impl_interfaces">
+<title role="impl_interfaces.title">Implemented Interfaces</title>
+<para>
+EogThumbView implements
+ <link linkend="AtkImplementorIface">AtkImplementorIface</link>,  <link linkend="GtkBuildable">GtkBuildable</link> and  <link linkend="GtkCellLayout">GtkCellLayout</link>.</para>
+</refsect1>
+
+
+
+
+
+<refsect1 id="EogThumbView.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+</para>
+</refsect1>
+
+<refsect1 id="EogThumbView.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="EogThumbViewSelectionChange" role="enum">
+<title>enum EogThumbViewSelectionChange</title>
+<indexterm zone="EogThumbViewSelectionChange"><primary sortas="EogThumbViewSelectionChange">EogThumbViewSelectionChange</primary></indexterm><programlisting>typedef enum {
+	EOG_THUMB_VIEW_SELECT_CURRENT = 0,
+	EOG_THUMB_VIEW_SELECT_LEFT,
+	EOG_THUMB_VIEW_SELECT_RIGHT,
+	EOG_THUMB_VIEW_SELECT_FIRST,
+	EOG_THUMB_VIEW_SELECT_LAST
+} EogThumbViewSelectionChange;
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="EogThumbView-struct" role="struct">
+<title>EogThumbView</title>
+<indexterm zone="EogThumbView-struct"><primary sortas="EogThumbView">EogThumbView</primary></indexterm><programlisting>typedef struct _EogThumbView EogThumbView;</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="eog-thumb-view-new" role="function">
+<title>eog_thumb_view_new ()</title>
+<indexterm zone="eog-thumb-view-new"><primary sortas="eog_thumb_view_new">eog_thumb_view_new</primary></indexterm><programlisting><link linkend="GtkWidget">GtkWidget</link> *         eog_thumb_view_new                  (void);</programlisting>
+<para>
+Creates a new <link linkend="EogThumbView"><type>EogThumbView</type></link> object.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> a newly created <link linkend="EogThumbView"><type>EogThumbView</type></link>.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-thumb-view-set-model" role="function">
+<title>eog_thumb_view_set_model ()</title>
+<indexterm zone="eog-thumb-view-set-model"><primary sortas="eog_thumb_view_set_model">eog_thumb_view_set_model</primary></indexterm><programlisting><link linkend="void">void</link>                eog_thumb_view_set_model            (<link linkend="EogThumbView">EogThumbView</link> *thumbview,
+                                                         <link linkend="EogListStore">EogListStore</link> *store);</programlisting>
+<para>
+Sets the <link linkend="EogListStore"><type>EogListStore</type></link> to be used with <parameter>thumbview</parameter>. If an initial image
+was set during <parameter>store</parameter> creation, its thumbnail will be selected and visible.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>thumbview</parameter>&#160;:</term>
+<listitem><simpara> A <link linkend="EogThumbView"><type>EogThumbView</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>store</parameter>&#160;:</term>
+<listitem><simpara> A <link linkend="EogListStore"><type>EogListStore</type></link>.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-thumb-view-set-item-height" role="function">
+<title>eog_thumb_view_set_item_height ()</title>
+<indexterm zone="eog-thumb-view-set-item-height"><primary sortas="eog_thumb_view_set_item_height">eog_thumb_view_set_item_height</primary></indexterm><programlisting><link linkend="void">void</link>                eog_thumb_view_set_item_height      (<link linkend="EogThumbView">EogThumbView</link> *thumbview,
+                                                         <link linkend="gint">gint</link> height);</programlisting>
+<para>
+Sets the height of each thumbnail in <parameter>thumbview</parameter>.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>thumbview</parameter>&#160;:</term>
+<listitem><simpara> A <link linkend="EogThumbView"><type>EogThumbView</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>height</parameter>&#160;:</term>
+<listitem><simpara> The desired height.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-thumb-view-get-n-selected" role="function">
+<title>eog_thumb_view_get_n_selected ()</title>
+<indexterm zone="eog-thumb-view-get-n-selected"><primary sortas="eog_thumb_view_get_n_selected">eog_thumb_view_get_n_selected</primary></indexterm><programlisting><link linkend="guint">guint</link>               eog_thumb_view_get_n_selected       (<link linkend="EogThumbView">EogThumbView</link> *thumbview);</programlisting>
+<para>
+Gets the number of images that are currently selected in <parameter>thumbview</parameter>.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>thumbview</parameter>&#160;:</term>
+<listitem><simpara> An <link linkend="EogThumbView"><type>EogThumbView</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> the number of selected images in <parameter>thumbview</parameter>.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-thumb-view-get-first-selected-image" role="function">
+<title>eog_thumb_view_get_first_selected_image ()</title>
+<indexterm zone="eog-thumb-view-get-first-selected-image"><primary sortas="eog_thumb_view_get_first_selected_image">eog_thumb_view_get_first_selected_image</primary></indexterm><programlisting><link linkend="EogImage">EogImage</link> *          eog_thumb_view_get_first_selected_image
+                                                        (<link linkend="EogThumbView">EogThumbView</link> *thumbview);</programlisting>
+<para>
+Returns the first selected image. Note that the returned <link linkend="EogImage"><type>EogImage</type></link>
+is not ensured to be really the first selected image in <parameter>thumbview</parameter>, but
+generally, it will be.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>thumbview</parameter>&#160;:</term>
+<listitem><simpara> A <link linkend="EogThumbView"><type>EogThumbView</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> A <link linkend="EogImage"><type>EogImage</type></link>.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-thumb-view-get-selected-images" role="function">
+<title>eog_thumb_view_get_selected_images ()</title>
+<indexterm zone="eog-thumb-view-get-selected-images"><primary sortas="eog_thumb_view_get_selected_images">eog_thumb_view_get_selected_images</primary></indexterm><programlisting><link linkend="GList">GList</link> *             eog_thumb_view_get_selected_images  (<link linkend="EogThumbView">EogThumbView</link> *thumbview);</programlisting>
+<para>
+Gets a list with the currently selected images. Note that a new reference is
+hold for each image and the list must be freed with <link linkend="g-list-free"><function>g_list_free()</function></link>.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>thumbview</parameter>&#160;:</term>
+<listitem><simpara> A <link linkend="EogThumbView"><type>EogThumbView</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> A newly allocated list of <link linkend="EogImage"><type>EogImage</type></link>'s.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-thumb-view-select-single" role="function">
+<title>eog_thumb_view_select_single ()</title>
+<indexterm zone="eog-thumb-view-select-single"><primary sortas="eog_thumb_view_select_single">eog_thumb_view_select_single</primary></indexterm><programlisting><link linkend="void">void</link>                eog_thumb_view_select_single        (<link linkend="EogThumbView">EogThumbView</link> *thumbview,
+                                                         <link linkend="EogThumbViewSelectionChange">EogThumbViewSelectionChange</link> change);</programlisting>
+<para>
+Changes the current selection according to a single movement
+described by <link linkend="EogThumbViewSelectionChange"><type>EogThumbViewSelectionChange</type></link>. If there are no
+thumbnails currently selected, one is selected according to the
+natural selection according to the <link linkend="EogThumbViewSelectionChange"><type>EogThumbViewSelectionChange</type></link>
+used, p.g., when <link linkend="EOG-THUMB-VIEW-SELECT-RIGHT--CAPS"><literal>EOG_THUMB_VIEW_SELECT_RIGHT</literal></link> is the selected change,
+the first thumbnail will be selected.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>thumbview</parameter>&#160;:</term>
+<listitem><simpara> A <link linkend="EogThumbView"><type>EogThumbView</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>change</parameter>&#160;:</term>
+<listitem><simpara> A <link linkend="EogThumbViewSelectionChange"><type>EogThumbViewSelectionChange</type></link>, describing the
+desired selection change.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-thumb-view-set-current-image" role="function">
+<title>eog_thumb_view_set_current_image ()</title>
+<indexterm zone="eog-thumb-view-set-current-image"><primary sortas="eog_thumb_view_set_current_image">eog_thumb_view_set_current_image</primary></indexterm><programlisting><link linkend="void">void</link>                eog_thumb_view_set_current_image    (<link linkend="EogThumbView">EogThumbView</link> *thumbview,
+                                                         <link linkend="EogImage">EogImage</link> *image,
+                                                         <link linkend="gboolean">gboolean</link> deselect_other);</programlisting>
+<para>
+Changes the status of a image, marking it as currently selected.
+If <parameter>deselect_other</parameter> is <link linkend="TRUE--CAPS"><literal>TRUE</literal></link>, all other selected images will be
+deselected.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>thumbview</parameter>&#160;:</term>
+<listitem><simpara> A <link linkend="EogThumbView"><type>EogThumbView</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>image</parameter>&#160;:</term>
+<listitem><simpara> The image to be selected.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>deselect_other</parameter>&#160;:</term>
+<listitem><simpara> Whether to deselect currently selected images.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-thumb-view-set-thumbnail-popup" role="function">
+<title>eog_thumb_view_set_thumbnail_popup ()</title>
+<indexterm zone="eog-thumb-view-set-thumbnail-popup"><primary sortas="eog_thumb_view_set_thumbnail_popup">eog_thumb_view_set_thumbnail_popup</primary></indexterm><programlisting><link linkend="void">void</link>                eog_thumb_view_set_thumbnail_popup  (<link linkend="EogThumbView">EogThumbView</link> *thumbview,
+                                                         <link linkend="GtkMenu">GtkMenu</link> *menu);</programlisting>
+<para>
+Set the contextual menu to be used with the thumbnails in the
+widget. This can be done only once.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>thumbview</parameter>&#160;:</term>
+<listitem><simpara> A <link linkend="GtkThumbView"><type>GtkThumbView</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>menu</parameter>&#160;:</term>
+<listitem><simpara> A <link linkend="GtkMenu"><type>GtkMenu</type></link>.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

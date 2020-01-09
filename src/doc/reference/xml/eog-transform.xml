@@ -1,0 +1,213 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN"
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="EogTransform">
+<refmeta>
+<refentrytitle role="top_of_page" id="EogTransform.top_of_page">EogTransform</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>EOG Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>EogTransform</refname>
+<refpurpose></refpurpose>
+</refnamediv>
+
+<refsynopsisdiv id="EogTransform.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+enum                <link linkend="EogTransformType">EogTransformType</link>;
+                    <link linkend="EogTransform-struct">EogTransform</link>;
+<link linkend="GdkPixbuf">GdkPixbuf</link>*          <link linkend="eog-transform-apply">eog_transform_apply</link>                 (<link linkend="EogTransform">EogTransform</link> *trans,
+                                                         <link linkend="GdkPixbuf">GdkPixbuf</link> *pixbuf,
+                                                         <link linkend="EogJob">EogJob</link> *job);
+<link linkend="EogTransform">EogTransform</link>*       <link linkend="eog-transform-reverse">eog_transform_reverse</link>               (<link linkend="EogTransform">EogTransform</link> *trans);
+<link linkend="EogTransform">EogTransform</link>*       <link linkend="eog-transform-compose">eog_transform_compose</link>               (<link linkend="EogTransform">EogTransform</link> *trans,
+                                                         <link linkend="EogTransform">EogTransform</link> *compose);
+<link linkend="gboolean">gboolean</link>            <link linkend="eog-transform-is-identity">eog_transform_is_identity</link>           (<link linkend="EogTransform">EogTransform</link> *trans);
+<link linkend="EogTransform">EogTransform</link>*       <link linkend="eog-transform-identity-new">eog_transform_identity_new</link>          (void);
+<link linkend="EogTransform">EogTransform</link>*       <link linkend="eog-transform-rotate-new">eog_transform_rotate_new</link>            (<link linkend="int">int</link> degree);
+<link linkend="EogTransform">EogTransform</link>*       <link linkend="eog-transform-flip-new">eog_transform_flip_new</link>              (<link linkend="EogTransformType">EogTransformType</link> type);
+<link linkend="EogTransform">EogTransform</link>*       <link linkend="eog-transform-scale-new">eog_transform_scale_new</link>             (<link linkend="double">double</link> sx,
+                                                         <link linkend="double">double</link> sy);
+<link linkend="EogTransform">EogTransform</link>*       <link linkend="eog-transform-new">eog_transform_new</link>                   (<link linkend="EogTransformType">EogTransformType</link> trans);
+<link linkend="EogTransformType">EogTransformType</link>    <link linkend="eog-transform-get-transform-type">eog_transform_get_transform_type</link>    (<link linkend="EogTransform">EogTransform</link> *trans);
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 id="EogTransform.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<synopsis>
+  <link linkend="GObject">GObject</link>
+   +----EogTransform
+</synopsis>
+</refsect1>
+
+
+
+
+
+
+
+
+<refsect1 id="EogTransform.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+</para>
+</refsect1>
+
+<refsect1 id="EogTransform.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="EogTransformType" role="enum">
+<title>enum EogTransformType</title>
+<indexterm zone="EogTransformType"><primary sortas="EogTransformType">EogTransformType</primary></indexterm><programlisting>typedef enum {
+	EOG_TRANSFORM_NONE,
+	EOG_TRANSFORM_ROT_90,
+	EOG_TRANSFORM_ROT_180,
+	EOG_TRANSFORM_ROT_270,
+	EOG_TRANSFORM_FLIP_HORIZONTAL,
+	EOG_TRANSFORM_FLIP_VERTICAL,
+	EOG_TRANSFORM_TRANSPOSE,
+	EOG_TRANSFORM_TRANSVERSE
+} EogTransformType;
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="EogTransform-struct" role="struct">
+<title>EogTransform</title>
+<indexterm zone="EogTransform-struct"><primary sortas="EogTransform">EogTransform</primary></indexterm><programlisting>typedef struct _EogTransform EogTransform;</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="eog-transform-apply" role="function">
+<title>eog_transform_apply ()</title>
+<indexterm zone="eog-transform-apply"><primary sortas="eog_transform_apply">eog_transform_apply</primary></indexterm><programlisting><link linkend="GdkPixbuf">GdkPixbuf</link>*          eog_transform_apply                 (<link linkend="EogTransform">EogTransform</link> *trans,
+                                                         <link linkend="GdkPixbuf">GdkPixbuf</link> *pixbuf,
+                                                         <link linkend="EogJob">EogJob</link> *job);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>trans</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>pixbuf</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>job</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-transform-reverse" role="function">
+<title>eog_transform_reverse ()</title>
+<indexterm zone="eog-transform-reverse"><primary sortas="eog_transform_reverse">eog_transform_reverse</primary></indexterm><programlisting><link linkend="EogTransform">EogTransform</link>*       eog_transform_reverse               (<link linkend="EogTransform">EogTransform</link> *trans);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>trans</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-transform-compose" role="function">
+<title>eog_transform_compose ()</title>
+<indexterm zone="eog-transform-compose"><primary sortas="eog_transform_compose">eog_transform_compose</primary></indexterm><programlisting><link linkend="EogTransform">EogTransform</link>*       eog_transform_compose               (<link linkend="EogTransform">EogTransform</link> *trans,
+                                                         <link linkend="EogTransform">EogTransform</link> *compose);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>trans</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>compose</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-transform-is-identity" role="function">
+<title>eog_transform_is_identity ()</title>
+<indexterm zone="eog-transform-is-identity"><primary sortas="eog_transform_is_identity">eog_transform_is_identity</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            eog_transform_is_identity           (<link linkend="EogTransform">EogTransform</link> *trans);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>trans</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-transform-identity-new" role="function">
+<title>eog_transform_identity_new ()</title>
+<indexterm zone="eog-transform-identity-new"><primary sortas="eog_transform_identity_new">eog_transform_identity_new</primary></indexterm><programlisting><link linkend="EogTransform">EogTransform</link>*       eog_transform_identity_new          (void);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-transform-rotate-new" role="function">
+<title>eog_transform_rotate_new ()</title>
+<indexterm zone="eog-transform-rotate-new"><primary sortas="eog_transform_rotate_new">eog_transform_rotate_new</primary></indexterm><programlisting><link linkend="EogTransform">EogTransform</link>*       eog_transform_rotate_new            (<link linkend="int">int</link> degree);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>degree</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-transform-flip-new" role="function">
+<title>eog_transform_flip_new ()</title>
+<indexterm zone="eog-transform-flip-new"><primary sortas="eog_transform_flip_new">eog_transform_flip_new</primary></indexterm><programlisting><link linkend="EogTransform">EogTransform</link>*       eog_transform_flip_new              (<link linkend="EogTransformType">EogTransformType</link> type);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>type</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-transform-scale-new" role="function">
+<title>eog_transform_scale_new ()</title>
+<indexterm zone="eog-transform-scale-new"><primary sortas="eog_transform_scale_new">eog_transform_scale_new</primary></indexterm><programlisting><link linkend="EogTransform">EogTransform</link>*       eog_transform_scale_new             (<link linkend="double">double</link> sx,
+                                                         <link linkend="double">double</link> sy);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>sx</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>sy</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-transform-new" role="function">
+<title>eog_transform_new ()</title>
+<indexterm zone="eog-transform-new"><primary sortas="eog_transform_new">eog_transform_new</primary></indexterm><programlisting><link linkend="EogTransform">EogTransform</link>*       eog_transform_new                   (<link linkend="EogTransformType">EogTransformType</link> trans);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>trans</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-transform-get-transform-type" role="function">
+<title>eog_transform_get_transform_type ()</title>
+<indexterm zone="eog-transform-get-transform-type"><primary sortas="eog_transform_get_transform_type">eog_transform_get_transform_type</primary></indexterm><programlisting><link linkend="EogTransformType">EogTransformType</link>    eog_transform_get_transform_type    (<link linkend="EogTransform">EogTransform</link> *trans);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>trans</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

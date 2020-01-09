@@ -1,0 +1,95 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN"
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="eog-eog-exif-util">
+<refmeta>
+<refentrytitle role="top_of_page" id="eog-eog-exif-util.top_of_page">eog-exif-util</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>EOG Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>eog-exif-util</refname>
+<refpurpose></refpurpose>
+</refnamediv>
+
+<refsynopsisdiv id="eog-eog-exif-util.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+<link linkend="gchar">gchar</link>*              <link linkend="eog-exif-util-format-date">eog_exif_util_format_date</link>           (const <link linkend="gchar">gchar</link> *date);
+const <link linkend="gchar">gchar</link> *       <link linkend="eog-exif-util-get-value">eog_exif_util_get_value</link>             (<link linkend="ExifData">ExifData</link> *exif_data,
+                                                         <link linkend="gint">gint</link> tag_id,
+                                                         <link linkend="gchar">gchar</link> *buffer,
+                                                         <link linkend="guint">guint</link> buf_size);
+</synopsis>
+</refsynopsisdiv>
+
+
+
+
+
+
+
+
+
+<refsect1 id="eog-eog-exif-util.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+</para>
+</refsect1>
+
+<refsect1 id="eog-eog-exif-util.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="eog-exif-util-format-date" role="function">
+<title>eog_exif_util_format_date ()</title>
+<indexterm zone="eog-exif-util-format-date"><primary sortas="eog_exif_util_format_date">eog_exif_util_format_date</primary></indexterm><programlisting><link linkend="gchar">gchar</link>*              eog_exif_util_format_date           (const <link linkend="gchar">gchar</link> *date);</programlisting>
+<para>
+Takes a date string formatted after Exif specifications and generates a
+more readable, possibly localized, string out of it.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>date</parameter>&#160;:</term>
+<listitem><simpara> a date string following Exif specifications
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> a newly allocated date string formatted according to the
+current locale.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-exif-util-get-value" role="function">
+<title>eog_exif_util_get_value ()</title>
+<indexterm zone="eog-exif-util-get-value"><primary sortas="eog_exif_util_get_value">eog_exif_util_get_value</primary></indexterm><programlisting>const <link linkend="gchar">gchar</link> *       eog_exif_util_get_value             (<link linkend="ExifData">ExifData</link> *exif_data,
+                                                         <link linkend="gint">gint</link> tag_id,
+                                                         <link linkend="gchar">gchar</link> *buffer,
+                                                         <link linkend="guint">guint</link> buf_size);</programlisting>
+<para>
+Convenience function to extract a string representation of an Exif tag
+directly from an <structname>ExifData</structname> struct. The string is
+written into <parameter>buffer</parameter> as far as <parameter>buf_size</parameter> permits.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>exif_data</parameter>&#160;:</term>
+<listitem><simpara> pointer to an <structname>ExifData</structname> struct
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>tag_id</parameter>&#160;:</term>
+<listitem><simpara> the requested tag's id. See <filename>exif-tag.h</filename>
+from the libexif package for possible values (e.g. <link linkend="EXIF-TAG-EXPOSURE-MODE--CAPS"><literal>EXIF_TAG_EXPOSURE_MODE</literal></link>).
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>buffer</parameter>&#160;:</term>
+<listitem><simpara> a pre-allocated output buffer
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>buf_size</parameter>&#160;:</term>
+<listitem><simpara> size of <parameter>buffer</parameter>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> a pointer to <parameter>buffer</parameter>.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

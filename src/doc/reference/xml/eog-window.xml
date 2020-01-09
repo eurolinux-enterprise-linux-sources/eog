@@ -1,0 +1,352 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN"
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="EogWindow">
+<refmeta>
+<refentrytitle role="top_of_page" id="EogWindow.top_of_page">EogWindow</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>EOG Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>EogWindow</refname>
+<refpurpose></refpurpose>
+</refnamediv>
+
+<refsynopsisdiv id="EogWindow.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+#define             <link linkend="EOG-WINDOW-ERROR--CAPS">EOG_WINDOW_ERROR</link>
+enum                <link linkend="EogWindowMode">EogWindowMode</link>;
+enum                <link linkend="EogWindowError">EogWindowError</link>;
+enum                <link linkend="EogStartupFlags">EogStartupFlags</link>;
+                    <link linkend="EogWindow-struct">EogWindow</link>;
+<link linkend="GtkWidget">GtkWidget</link> *         <link linkend="eog-window-new">eog_window_new</link>                      (<link linkend="EogStartupFlags">EogStartupFlags</link> flags);
+<link linkend="EogWindowMode">EogWindowMode</link>       <link linkend="eog-window-get-mode">eog_window_get_mode</link>                 (<link linkend="EogWindow">EogWindow</link> *window);
+<link linkend="void">void</link>                <link linkend="eog-window-set-mode">eog_window_set_mode</link>                 (<link linkend="EogWindow">EogWindow</link> *window,
+                                                         <link linkend="EogWindowMode">EogWindowMode</link> mode);
+<link linkend="GtkUIManager">GtkUIManager</link> *      <link linkend="eog-window-get-ui-manager">eog_window_get_ui_manager</link>           (<link linkend="EogWindow">EogWindow</link> *window);
+<link linkend="EogListStore">EogListStore</link> *      <link linkend="eog-window-get-store">eog_window_get_store</link>                (<link linkend="EogWindow">EogWindow</link> *window);
+<link linkend="GtkWidget">GtkWidget</link> *         <link linkend="eog-window-get-view">eog_window_get_view</link>                 (<link linkend="EogWindow">EogWindow</link> *window);
+<link linkend="GtkWidget">GtkWidget</link> *         <link linkend="eog-window-get-sidebar">eog_window_get_sidebar</link>              (<link linkend="EogWindow">EogWindow</link> *window);
+<link linkend="GtkWidget">GtkWidget</link> *         <link linkend="eog-window-get-thumb-view">eog_window_get_thumb_view</link>           (<link linkend="EogWindow">EogWindow</link> *window);
+<link linkend="GtkWidget">GtkWidget</link> *         <link linkend="eog-window-get-thumb-nav">eog_window_get_thumb_nav</link>            (<link linkend="EogWindow">EogWindow</link> *window);
+<link linkend="GtkWidget">GtkWidget</link> *         <link linkend="eog-window-get-statusbar">eog_window_get_statusbar</link>            (<link linkend="EogWindow">EogWindow</link> *window);
+<link linkend="EogImage">EogImage</link> *          <link linkend="eog-window-get-image">eog_window_get_image</link>                (<link linkend="EogWindow">EogWindow</link> *window);
+<link linkend="void">void</link>                <link linkend="eog-window-open-file-list">eog_window_open_file_list</link>           (<link linkend="EogWindow">EogWindow</link> *window,
+                                                         <link linkend="GSList">GSList</link> *file_list);
+<link linkend="gboolean">gboolean</link>            <link linkend="eog-window-is-empty">eog_window_is_empty</link>                 (<link linkend="EogWindow">EogWindow</link> *window);
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 id="EogWindow.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<synopsis>
+  <link linkend="GObject">GObject</link>
+   +----<link linkend="GInitiallyUnowned">GInitiallyUnowned</link>
+         +----<link linkend="GtkObject">GtkObject</link>
+               +----<link linkend="GtkWidget">GtkWidget</link>
+                     +----<link linkend="GtkContainer">GtkContainer</link>
+                           +----<link linkend="GtkBin">GtkBin</link>
+                                 +----<link linkend="GtkWindow">GtkWindow</link>
+                                       +----EogWindow
+</synopsis>
+</refsect1>
+
+
+
+<refsect1 id="EogWindow.implemented-interfaces" role="impl_interfaces">
+<title role="impl_interfaces.title">Implemented Interfaces</title>
+<para>
+EogWindow implements
+ <link linkend="AtkImplementorIface">AtkImplementorIface</link> and  <link linkend="GtkBuildable">GtkBuildable</link>.</para>
+</refsect1>
+
+
+<refsect1 id="EogWindow.properties" role="properties">
+<title role="properties.title">Properties</title>
+<synopsis>
+  &quot;<link linkend="EogWindow--startup-flags">startup-flags</link>&quot;            <link linkend="guchar">guchar</link>                : Read / Write / Construct Only
+</synopsis>
+</refsect1>
+
+<refsect1 id="EogWindow.signals" role="signal_proto">
+<title role="signal_proto.title">Signals</title>
+<synopsis>
+  &quot;<link linkend="EogWindow-prepared">prepared</link>&quot;                                       : Run Last
+</synopsis>
+</refsect1>
+
+
+<refsect1 id="EogWindow.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+</para>
+</refsect1>
+
+<refsect1 id="EogWindow.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="EOG-WINDOW-ERROR--CAPS" role="macro">
+<title>EOG_WINDOW_ERROR</title>
+<indexterm zone="EOG-WINDOW-ERROR--CAPS"><primary sortas="EOG_WINDOW_ERROR">EOG_WINDOW_ERROR</primary></indexterm><programlisting>#define EOG_WINDOW_ERROR           (eog_window_error_quark ())
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="EogWindowMode" role="enum">
+<title>enum EogWindowMode</title>
+<indexterm zone="EogWindowMode"><primary sortas="EogWindowMode">EogWindowMode</primary></indexterm><programlisting>typedef enum {
+	EOG_WINDOW_MODE_UNKNOWN,
+	EOG_WINDOW_MODE_NORMAL,
+	EOG_WINDOW_MODE_FULLSCREEN,
+	EOG_WINDOW_MODE_SLIDESHOW
+} EogWindowMode;
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="EogWindowError" role="enum">
+<title>enum EogWindowError</title>
+<indexterm zone="EogWindowError"><primary sortas="EogWindowError">EogWindowError</primary></indexterm><programlisting>typedef enum {
+	EOG_WINDOW_ERROR_CONTROL_NOT_FOUND,
+	EOG_WINDOW_ERROR_UI_NOT_FOUND,
+	EOG_WINDOW_ERROR_NO_PERSIST_FILE_INTERFACE,
+	EOG_WINDOW_ERROR_IO,
+	EOG_WINDOW_ERROR_TRASH_NOT_FOUND,
+	EOG_WINDOW_ERROR_GENERIC,
+	EOG_WINDOW_ERROR_UNKNOWN
+} EogWindowError;
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="EogStartupFlags" role="enum">
+<title>enum EogStartupFlags</title>
+<indexterm zone="EogStartupFlags"><primary sortas="EogStartupFlags">EogStartupFlags</primary></indexterm><programlisting>typedef enum {
+	EOG_STARTUP_FULLSCREEN         = 1 &lt;&lt; 0,
+	EOG_STARTUP_SLIDE_SHOW         = 1 &lt;&lt; 1,
+	EOG_STARTUP_DISABLE_COLLECTION = 1 &lt;&lt; 2
+} EogStartupFlags;
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="EogWindow-struct" role="struct">
+<title>EogWindow</title>
+<indexterm zone="EogWindow-struct"><primary sortas="EogWindow">EogWindow</primary></indexterm><programlisting>typedef struct _EogWindow EogWindow;</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="eog-window-new" role="function">
+<title>eog_window_new ()</title>
+<indexterm zone="eog-window-new"><primary sortas="eog_window_new">eog_window_new</primary></indexterm><programlisting><link linkend="GtkWidget">GtkWidget</link> *         eog_window_new                      (<link linkend="EogStartupFlags">EogStartupFlags</link> flags);</programlisting>
+<para>
+Creates a new and empty <link linkend="EogWindow"><type>EogWindow</type></link>. Use <parameter>flags</parameter> to indicate
+if the window should be initialized fullscreen, in slideshow mode,
+and/or without the thumbnails collection visible. See <link linkend="EogStartupFlags"><type>EogStartupFlags</type></link>.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>flags</parameter>&#160;:</term>
+<listitem><simpara> the initialization parameters for the new window.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> a newly created <link linkend="EogWindow"><type>EogWindow</type></link>.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-window-get-mode" role="function">
+<title>eog_window_get_mode ()</title>
+<indexterm zone="eog-window-get-mode"><primary sortas="eog_window_get_mode">eog_window_get_mode</primary></indexterm><programlisting><link linkend="EogWindowMode">EogWindowMode</link>       eog_window_get_mode                 (<link linkend="EogWindow">EogWindow</link> *window);</programlisting>
+<para>
+Gets the mode of <parameter>window</parameter>. See <link linkend="EogWindowMode"><type>EogWindowMode</type></link> for details.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>window</parameter>&#160;:</term>
+<listitem><simpara> An <link linkend="EogWindow"><type>EogWindow</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> An <link linkend="EogWindowMode"><type>EogWindowMode</type></link>.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-window-set-mode" role="function">
+<title>eog_window_set_mode ()</title>
+<indexterm zone="eog-window-set-mode"><primary sortas="eog_window_set_mode">eog_window_set_mode</primary></indexterm><programlisting><link linkend="void">void</link>                eog_window_set_mode                 (<link linkend="EogWindow">EogWindow</link> *window,
+                                                         <link linkend="EogWindowMode">EogWindowMode</link> mode);</programlisting>
+<para>
+Changes the mode of <parameter>window</parameter> to normal, fullscreen, or slideshow.
+See <link linkend="EogWindowMode"><type>EogWindowMode</type></link> for details.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>window</parameter>&#160;:</term>
+<listitem><simpara> an <link linkend="EogWindow"><type>EogWindow</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>mode</parameter>&#160;:</term>
+<listitem><simpara> an <link linkend="EogWindowMode"><type>EogWindowMode</type></link> value.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-window-get-ui-manager" role="function">
+<title>eog_window_get_ui_manager ()</title>
+<indexterm zone="eog-window-get-ui-manager"><primary sortas="eog_window_get_ui_manager">eog_window_get_ui_manager</primary></indexterm><programlisting><link linkend="GtkUIManager">GtkUIManager</link> *      eog_window_get_ui_manager           (<link linkend="EogWindow">EogWindow</link> *window);</programlisting>
+<para>
+Gets the <link linkend="GtkUIManager"><type>GtkUIManager</type></link> that describes the UI of <parameter>window</parameter>.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>window</parameter>&#160;:</term>
+<listitem><simpara> An <link linkend="EogWindow"><type>EogWindow</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> A <link linkend="GtkUIManager"><type>GtkUIManager</type></link>.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-window-get-store" role="function">
+<title>eog_window_get_store ()</title>
+<indexterm zone="eog-window-get-store"><primary sortas="eog_window_get_store">eog_window_get_store</primary></indexterm><programlisting><link linkend="EogListStore">EogListStore</link> *      eog_window_get_store                (<link linkend="EogWindow">EogWindow</link> *window);</programlisting>
+<para>
+Gets the <link linkend="EogListStore"><type>EogListStore</type></link> that contains the images in the collection
+of <parameter>window</parameter>.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>window</parameter>&#160;:</term>
+<listitem><simpara> An <link linkend="EogWindow"><type>EogWindow</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> an <link linkend="EogListStore"><type>EogListStore</type></link>.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-window-get-view" role="function">
+<title>eog_window_get_view ()</title>
+<indexterm zone="eog-window-get-view"><primary sortas="eog_window_get_view">eog_window_get_view</primary></indexterm><programlisting><link linkend="GtkWidget">GtkWidget</link> *         eog_window_get_view                 (<link linkend="EogWindow">EogWindow</link> *window);</programlisting>
+<para>
+Gets the <link linkend="EogScrollView"><type>EogScrollView</type></link> in the window.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>window</parameter>&#160;:</term>
+<listitem><simpara> An <link linkend="EogWindow"><type>EogWindow</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> the <link linkend="EogScrollView"><type>EogScrollView</type></link>.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-window-get-sidebar" role="function">
+<title>eog_window_get_sidebar ()</title>
+<indexterm zone="eog-window-get-sidebar"><primary sortas="eog_window_get_sidebar">eog_window_get_sidebar</primary></indexterm><programlisting><link linkend="GtkWidget">GtkWidget</link> *         eog_window_get_sidebar              (<link linkend="EogWindow">EogWindow</link> *window);</programlisting>
+<para>
+Gets the sidebar widget of <parameter>window</parameter>.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>window</parameter>&#160;:</term>
+<listitem><simpara> An <link linkend="EogWindow"><type>EogWindow</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> the <link linkend="EogSidebar"><type>EogSidebar</type></link>.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-window-get-thumb-view" role="function">
+<title>eog_window_get_thumb_view ()</title>
+<indexterm zone="eog-window-get-thumb-view"><primary sortas="eog_window_get_thumb_view">eog_window_get_thumb_view</primary></indexterm><programlisting><link linkend="GtkWidget">GtkWidget</link> *         eog_window_get_thumb_view           (<link linkend="EogWindow">EogWindow</link> *window);</programlisting>
+<para>
+Gets the thumbnails view in <parameter>window</parameter>.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>window</parameter>&#160;:</term>
+<listitem><simpara> an <link linkend="EogWindow"><type>EogWindow</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> an <link linkend="EogThumbView"><type>EogThumbView</type></link>.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-window-get-thumb-nav" role="function">
+<title>eog_window_get_thumb_nav ()</title>
+<indexterm zone="eog-window-get-thumb-nav"><primary sortas="eog_window_get_thumb_nav">eog_window_get_thumb_nav</primary></indexterm><programlisting><link linkend="GtkWidget">GtkWidget</link> *         eog_window_get_thumb_nav            (<link linkend="EogWindow">EogWindow</link> *window);</programlisting>
+<para>
+Gets the thumbnails navigation pane in <parameter>window</parameter>.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>window</parameter>&#160;:</term>
+<listitem><simpara> an <link linkend="EogWindow"><type>EogWindow</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> an <link linkend="EogThumbNav"><type>EogThumbNav</type></link>.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-window-get-statusbar" role="function">
+<title>eog_window_get_statusbar ()</title>
+<indexterm zone="eog-window-get-statusbar"><primary sortas="eog_window_get_statusbar">eog_window_get_statusbar</primary></indexterm><programlisting><link linkend="GtkWidget">GtkWidget</link> *         eog_window_get_statusbar            (<link linkend="EogWindow">EogWindow</link> *window);</programlisting>
+<para>
+Gets the statusbar in <parameter>window</parameter>.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>window</parameter>&#160;:</term>
+<listitem><simpara> an <link linkend="EogWindow"><type>EogWindow</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> a <link linkend="EogStatusBar"><type>EogStatusBar</type></link>.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-window-get-image" role="function">
+<title>eog_window_get_image ()</title>
+<indexterm zone="eog-window-get-image"><primary sortas="eog_window_get_image">eog_window_get_image</primary></indexterm><programlisting><link linkend="EogImage">EogImage</link> *          eog_window_get_image                (<link linkend="EogWindow">EogWindow</link> *window);</programlisting>
+<para>
+Gets the image currently displayed in <parameter>window</parameter> or <link linkend="NULL--CAPS"><literal>NULL</literal></link> if
+no image is being displayed.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>window</parameter>&#160;:</term>
+<listitem><simpara> an <link linkend="EogWindow"><type>EogWindow</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> an <link linkend="EogImage"><type>EogImage</type></link>.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-window-open-file-list" role="function">
+<title>eog_window_open_file_list ()</title>
+<indexterm zone="eog-window-open-file-list"><primary sortas="eog_window_open_file_list">eog_window_open_file_list</primary></indexterm><programlisting><link linkend="void">void</link>                eog_window_open_file_list           (<link linkend="EogWindow">EogWindow</link> *window,
+                                                         <link linkend="GSList">GSList</link> *file_list);</programlisting>
+<para>
+Opens a list of files, adding them to the collection in <parameter>window</parameter>.
+Files will be checked to be readable and later filtered according
+with <link linkend="eog-list-store-add-files"><function>eog_list_store_add_files()</function></link>.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>window</parameter>&#160;:</term>
+<listitem><simpara> An <link linkend="EogWindow"><type>EogWindow</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>file_list</parameter>&#160;:</term>
+<listitem><simpara> A <link linkend="NULL--CAPS"><literal>NULL</literal></link>-terminated list of <link linkend="GFile"><type>GFile</type></link>'s.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-window-is-empty" role="function">
+<title>eog_window_is_empty ()</title>
+<indexterm zone="eog-window-is-empty"><primary sortas="eog_window_is_empty">eog_window_is_empty</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            eog_window_is_empty                 (<link linkend="EogWindow">EogWindow</link> *window);</programlisting>
+<para>
+Tells whether <parameter>window</parameter> is currently empty or not.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>window</parameter>&#160;:</term>
+<listitem><simpara> an <link linkend="EogWindow"><type>EogWindow</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> <link linkend="TRUE--CAPS"><literal>TRUE</literal></link> if <parameter>window</parameter> has no images, <link linkend="FALSE--CAPS"><literal>FALSE</literal></link> otherwise.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+<refsect1 id="EogWindow.property-details" role="property_details">
+<title role="property_details.title">Property Details</title>
+<refsect2 id="EogWindow--startup-flags" role="property"><title>The <literal>&quot;startup-flags&quot;</literal> property</title>
+<indexterm zone="EogWindow--startup-flags"><primary sortas="EogWindow:startup-flags">EogWindow:startup-flags</primary></indexterm><programlisting>  &quot;startup-flags&quot;            <link linkend="guchar">guchar</link>                : Read / Write / Construct Only</programlisting>
+<para>
+A bitwise OR of <link linkend="EogStartupFlags"><type>EogStartupFlags</type></link> elements, indicating how the window
+should behave upon creation.</para>
+<para>
+</para><para>Default value: 0</para>
+</refsect2>
+</refsect1>
+
+<refsect1 id="EogWindow.signal-details" role="signals">
+<title role="signals.title">Signal Details</title>
+<refsect2 id="EogWindow-prepared" role="signal"><title>The <literal>&quot;prepared&quot;</literal> signal</title>
+<indexterm zone="EogWindow-prepared"><primary sortas="EogWindow::prepared">EogWindow::prepared</primary></indexterm><programlisting><link linkend="void">void</link>                user_function                      (<link linkend="EogWindow">EogWindow</link> *window,
+                                                        <link linkend="gpointer">gpointer</link>   user_data)      : Run Last</programlisting>
+<para>
+The <link linkend="EogWindow-prepared"><type>"prepared"</type></link> signal is emitted when the <parameter>window</parameter> is ready
+to be shown.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>window</parameter>&#160;:</term>
+<listitem><simpara> the object which received the signal.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&#160;:</term>
+<listitem><simpara>user data set when the signal handler was connected.</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+</refsect1>
+
+
+
+</refentry>

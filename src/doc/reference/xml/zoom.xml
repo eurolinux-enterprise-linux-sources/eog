@@ -1,0 +1,127 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN"
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="eog-zoom">
+<refmeta>
+<refentrytitle role="top_of_page" id="eog-zoom.top_of_page">zoom</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>EOG Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>zoom</refname>
+<refpurpose></refpurpose>
+</refnamediv>
+
+<refsynopsisdiv id="eog-zoom.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+<link linkend="void">void</link>                <link linkend="zoom-fit-size">zoom_fit_size</link>                       (<link linkend="guint">guint</link> dest_width,
+                                                         <link linkend="guint">guint</link> dest_height,
+                                                         <link linkend="guint">guint</link> src_width,
+                                                         <link linkend="guint">guint</link> src_height,
+                                                         <link linkend="gboolean">gboolean</link> upscale_smaller,
+                                                         <link linkend="guint">guint</link> *width,
+                                                         <link linkend="guint">guint</link> *height);
+<link linkend="double">double</link>              <link linkend="zoom-fit-scale">zoom_fit_scale</link>                      (<link linkend="guint">guint</link> dest_width,
+                                                         <link linkend="guint">guint</link> dest_height,
+                                                         <link linkend="guint">guint</link> src_width,
+                                                         <link linkend="guint">guint</link> src_height,
+                                                         <link linkend="gboolean">gboolean</link> upscale_smaller);
+</synopsis>
+</refsynopsisdiv>
+
+
+
+
+
+
+
+
+
+<refsect1 id="eog-zoom.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+</para>
+</refsect1>
+
+<refsect1 id="eog-zoom.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="zoom-fit-size" role="function">
+<title>zoom_fit_size ()</title>
+<indexterm zone="zoom-fit-size"><primary sortas="zoom_fit_size">zoom_fit_size</primary></indexterm><programlisting><link linkend="void">void</link>                zoom_fit_size                       (<link linkend="guint">guint</link> dest_width,
+                                                         <link linkend="guint">guint</link> dest_height,
+                                                         <link linkend="guint">guint</link> src_width,
+                                                         <link linkend="guint">guint</link> src_height,
+                                                         <link linkend="gboolean">gboolean</link> upscale_smaller,
+                                                         <link linkend="guint">guint</link> *width,
+                                                         <link linkend="guint">guint</link> *height);</programlisting>
+<para>
+Computes the final dimensions of an image that is to be scaled to fit to a
+certain size.  If <parameter>upscale_smaller</parameter> is TRUE, then images smaller than the
+destination size will be scaled up; otherwise, they will be left at their
+original size.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>dest_width</parameter>&#160;:</term>
+<listitem><simpara> Width of destination area.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>dest_height</parameter>&#160;:</term>
+<listitem><simpara> Height of destination area.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>src_width</parameter>&#160;:</term>
+<listitem><simpara> Width of source image.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>src_height</parameter>&#160;:</term>
+<listitem><simpara> Height of source image.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>upscale_smaller</parameter>&#160;:</term>
+<listitem><simpara> Whether to scale up images smaller than the destination size.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>width</parameter>&#160;:</term>
+<listitem><simpara> Return value for image width.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>height</parameter>&#160;:</term>
+<listitem><simpara> Return value for image height.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="zoom-fit-scale" role="function">
+<title>zoom_fit_scale ()</title>
+<indexterm zone="zoom-fit-scale"><primary sortas="zoom_fit_scale">zoom_fit_scale</primary></indexterm><programlisting><link linkend="double">double</link>              zoom_fit_scale                      (<link linkend="guint">guint</link> dest_width,
+                                                         <link linkend="guint">guint</link> dest_height,
+                                                         <link linkend="guint">guint</link> src_width,
+                                                         <link linkend="guint">guint</link> src_height,
+                                                         <link linkend="gboolean">gboolean</link> upscale_smaller);</programlisting>
+<para>
+Similar to <link linkend="zoom-fit-size"><function>zoom_fit_size()</function></link>, but returns the zoom factor of the final image
+with respect to the original image's size.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>dest_width</parameter>&#160;:</term>
+<listitem><simpara> Width of destination area.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>dest_height</parameter>&#160;:</term>
+<listitem><simpara> Height of destination area.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>src_width</parameter>&#160;:</term>
+<listitem><simpara> Width of source image.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>src_height</parameter>&#160;:</term>
+<listitem><simpara> Height of source image.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>upscale_smaller</parameter>&#160;:</term>
+<listitem><simpara> Whether to scale up images smaller than the destination size.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> Zoom factor with respect to the original size.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

@@ -1,0 +1,90 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN"
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="EogPreferencesDialog">
+<refmeta>
+<refentrytitle role="top_of_page" id="EogPreferencesDialog.top_of_page">EogPreferencesDialog</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>EOG Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>EogPreferencesDialog</refname>
+<refpurpose></refpurpose>
+</refnamediv>
+
+<refsynopsisdiv id="EogPreferencesDialog.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+                    <link linkend="EogPreferencesDialog-struct">EogPreferencesDialog</link>;
+<link linkend="GObject">GObject</link> *           <link linkend="eog-preferences-dialog-get-instance">eog_preferences_dialog_get_instance</link> (<link linkend="GtkWindow">GtkWindow</link> *parent,
+                                                         <link linkend="GConfClient">GConfClient</link> *client);
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 id="EogPreferencesDialog.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<synopsis>
+  <link linkend="GObject">GObject</link>
+   +----<link linkend="EogDialog">EogDialog</link>
+         +----EogPreferencesDialog
+</synopsis>
+</refsect1>
+
+
+
+
+
+<refsect1 id="EogPreferencesDialog.properties" role="properties">
+<title role="properties.title">Properties</title>
+<synopsis>
+  &quot;<link linkend="EogPreferencesDialog--gconf-client">gconf-client</link>&quot;             <link linkend="GConfClient">GConfClient</link>*          : Read / Write / Construct Only
+</synopsis>
+</refsect1>
+
+
+
+<refsect1 id="EogPreferencesDialog.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+</para>
+</refsect1>
+
+<refsect1 id="EogPreferencesDialog.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="EogPreferencesDialog-struct" role="struct">
+<title>EogPreferencesDialog</title>
+<indexterm zone="EogPreferencesDialog-struct"><primary sortas="EogPreferencesDialog">EogPreferencesDialog</primary></indexterm><programlisting>typedef struct _EogPreferencesDialog EogPreferencesDialog;</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="eog-preferences-dialog-get-instance" role="function">
+<title>eog_preferences_dialog_get_instance ()</title>
+<indexterm zone="eog-preferences-dialog-get-instance"><primary sortas="eog_preferences_dialog_get_instance">eog_preferences_dialog_get_instance</primary></indexterm><programlisting><link linkend="GObject">GObject</link> *           eog_preferences_dialog_get_instance (<link linkend="GtkWindow">GtkWindow</link> *parent,
+                                                         <link linkend="GConfClient">GConfClient</link> *client);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>parent</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>client</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+<refsect1 id="EogPreferencesDialog.property-details" role="property_details">
+<title role="property_details.title">Property Details</title>
+<refsect2 id="EogPreferencesDialog--gconf-client" role="property"><title>The <literal>&quot;gconf-client&quot;</literal> property</title>
+<indexterm zone="EogPreferencesDialog--gconf-client"><primary sortas="EogPreferencesDialog:gconf-client">EogPreferencesDialog:gconf-client</primary></indexterm><programlisting>  &quot;gconf-client&quot;             <link linkend="GConfClient">GConfClient</link>*          : Read / Write / Construct Only</programlisting>
+<para>GConf Client.</para></refsect2>
+</refsect1>
+
+
+
+
+</refentry>

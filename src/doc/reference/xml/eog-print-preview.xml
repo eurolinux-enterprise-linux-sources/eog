@@ -1,0 +1,343 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN"
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="EogPrintPreview">
+<refmeta>
+<refentrytitle role="top_of_page" id="EogPrintPreview.top_of_page">EogPrintPreview</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>EOG Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>EogPrintPreview</refname>
+<refpurpose></refpurpose>
+</refnamediv>
+
+<refsynopsisdiv id="EogPrintPreview.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+                    <link linkend="EogPrintPreview-struct">EogPrintPreview</link>;
+<link linkend="GtkWidget">GtkWidget</link> *         <link linkend="eog-print-preview-new">eog_print_preview_new</link>               (void);
+<link linkend="GtkWidget">GtkWidget</link> *         <link linkend="eog-print-preview-new-with-pixbuf">eog_print_preview_new_with_pixbuf</link>   (<link linkend="GdkPixbuf">GdkPixbuf</link> *pixbuf);
+<link linkend="void">void</link>                <link linkend="eog-print-preview-set-page-margins">eog_print_preview_set_page_margins</link>  (<link linkend="EogPrintPreview">EogPrintPreview</link> *preview,
+                                                         <link linkend="gfloat">gfloat</link> l_margin,
+                                                         <link linkend="gfloat">gfloat</link> r_margin,
+                                                         <link linkend="gfloat">gfloat</link> t_margin,
+                                                         <link linkend="gfloat">gfloat</link> b_margin);
+<link linkend="void">void</link>                <link linkend="eog-print-preview-set-from-page-setup">eog_print_preview_set_from_page_setup</link>
+                                                        (<link linkend="EogPrintPreview">EogPrintPreview</link> *preview,
+                                                         <link linkend="GtkPageSetup">GtkPageSetup</link> *setup);
+<link linkend="void">void</link>                <link linkend="eog-print-preview-get-image-position">eog_print_preview_get_image_position</link>
+                                                        (<link linkend="EogPrintPreview">EogPrintPreview</link> *preview,
+                                                         <link linkend="gdouble">gdouble</link> *x,
+                                                         <link linkend="gdouble">gdouble</link> *y);
+<link linkend="void">void</link>                <link linkend="eog-print-preview-set-image-position">eog_print_preview_set_image_position</link>
+                                                        (<link linkend="EogPrintPreview">EogPrintPreview</link> *preview,
+                                                         <link linkend="gdouble">gdouble</link> x,
+                                                         <link linkend="gdouble">gdouble</link> y);
+<link linkend="void">void</link>                <link linkend="eog-print-preview-set-scale">eog_print_preview_set_scale</link>         (<link linkend="EogPrintPreview">EogPrintPreview</link> *preview,
+                                                         <link linkend="gfloat">gfloat</link> scale);
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 id="EogPrintPreview.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<synopsis>
+  <link linkend="GObject">GObject</link>
+   +----<link linkend="GInitiallyUnowned">GInitiallyUnowned</link>
+         +----<link linkend="GtkObject">GtkObject</link>
+               +----<link linkend="GtkWidget">GtkWidget</link>
+                     +----<link linkend="GtkContainer">GtkContainer</link>
+                           +----<link linkend="GtkBin">GtkBin</link>
+                                 +----<link linkend="GtkFrame">GtkFrame</link>
+                                       +----<link linkend="GtkAspectFrame">GtkAspectFrame</link>
+                                             +----EogPrintPreview
+</synopsis>
+</refsect1>
+
+
+
+<refsect1 id="EogPrintPreview.implemented-interfaces" role="impl_interfaces">
+<title role="impl_interfaces.title">Implemented Interfaces</title>
+<para>
+EogPrintPreview implements
+ <link linkend="AtkImplementorIface">AtkImplementorIface</link> and  <link linkend="GtkBuildable">GtkBuildable</link>.</para>
+</refsect1>
+
+
+<refsect1 id="EogPrintPreview.properties" role="properties">
+<title role="properties.title">Properties</title>
+<synopsis>
+  &quot;<link linkend="EogPrintPreview--image">image</link>&quot;                    <link linkend="GObject">GObject</link>*              : Read / Write
+  &quot;<link linkend="EogPrintPreview--image-scale">image-scale</link>&quot;              <link linkend="gfloat">gfloat</link>                : Read / Write
+  &quot;<link linkend="EogPrintPreview--image-x-align">image-x-align</link>&quot;            <link linkend="gfloat">gfloat</link>                : Read / Write
+  &quot;<link linkend="EogPrintPreview--image-y-align">image-y-align</link>&quot;            <link linkend="gfloat">gfloat</link>                : Read / Write
+  &quot;<link linkend="EogPrintPreview--page-bottom-margin">page-bottom-margin</link>&quot;       <link linkend="gfloat">gfloat</link>                : Read / Write
+  &quot;<link linkend="EogPrintPreview--page-left-margin">page-left-margin</link>&quot;         <link linkend="gfloat">gfloat</link>                : Read / Write
+  &quot;<link linkend="EogPrintPreview--page-right-margin">page-right-margin</link>&quot;        <link linkend="gfloat">gfloat</link>                : Read / Write
+  &quot;<link linkend="EogPrintPreview--page-top-margin">page-top-margin</link>&quot;          <link linkend="gfloat">gfloat</link>                : Read / Write
+  &quot;<link linkend="EogPrintPreview--paper-height">paper-height</link>&quot;             <link linkend="gfloat">gfloat</link>                : Read / Write
+  &quot;<link linkend="EogPrintPreview--paper-width">paper-width</link>&quot;              <link linkend="gfloat">gfloat</link>                : Read / Write
+</synopsis>
+</refsect1>
+
+<refsect1 id="EogPrintPreview.signals" role="signal_proto">
+<title role="signal_proto.title">Signals</title>
+<synopsis>
+  &quot;<link linkend="EogPrintPreview-image-moved">image-moved</link>&quot;                                    : Run First
+</synopsis>
+</refsect1>
+
+
+<refsect1 id="EogPrintPreview.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+</para>
+</refsect1>
+
+<refsect1 id="EogPrintPreview.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="EogPrintPreview-struct" role="struct">
+<title>EogPrintPreview</title>
+<indexterm zone="EogPrintPreview-struct"><primary sortas="EogPrintPreview">EogPrintPreview</primary></indexterm><programlisting>typedef struct _EogPrintPreview EogPrintPreview;</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="eog-print-preview-new" role="function">
+<title>eog_print_preview_new ()</title>
+<indexterm zone="eog-print-preview-new"><primary sortas="eog_print_preview_new">eog_print_preview_new</primary></indexterm><programlisting><link linkend="GtkWidget">GtkWidget</link> *         eog_print_preview_new               (void);</programlisting>
+<para>
+Creates a new <link linkend="EogPrintPreview"><type>EogPrintPreview</type></link> widget, setting it to the default values,
+and leaving the page empty. You still need to set the <link linkend="EogPrintPreview--image"><type>"image"</type></link>
+property to make it useful.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> A new and empty <link linkend="EogPrintPreview"><type>EogPrintPreview</type></link> widget.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-print-preview-new-with-pixbuf" role="function">
+<title>eog_print_preview_new_with_pixbuf ()</title>
+<indexterm zone="eog-print-preview-new-with-pixbuf"><primary sortas="eog_print_preview_new_with_pixbuf">eog_print_preview_new_with_pixbuf</primary></indexterm><programlisting><link linkend="GtkWidget">GtkWidget</link> *         eog_print_preview_new_with_pixbuf   (<link linkend="GdkPixbuf">GdkPixbuf</link> *pixbuf);</programlisting>
+<para>
+Creates a new <link linkend="EogPrintPreview"><type>EogPrintPreview</type></link> widget, and sets the <link linkend="GdkPixbuf"><type>GdkPixbuf</type></link> to preview
+on it.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>pixbuf</parameter>&#160;:</term>
+<listitem><simpara> a <link linkend="GdkPixbuf"><type>GdkPixbuf</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> A new <link linkend="EogPrintPreview"><type>EogPrintPreview</type></link> widget.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-print-preview-set-page-margins" role="function">
+<title>eog_print_preview_set_page_margins ()</title>
+<indexterm zone="eog-print-preview-set-page-margins"><primary sortas="eog_print_preview_set_page_margins">eog_print_preview_set_page_margins</primary></indexterm><programlisting><link linkend="void">void</link>                eog_print_preview_set_page_margins  (<link linkend="EogPrintPreview">EogPrintPreview</link> *preview,
+                                                         <link linkend="gfloat">gfloat</link> l_margin,
+                                                         <link linkend="gfloat">gfloat</link> r_margin,
+                                                         <link linkend="gfloat">gfloat</link> t_margin,
+                                                         <link linkend="gfloat">gfloat</link> b_margin);</programlisting>
+<para>
+Manually set the margins, in inches.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>preview</parameter>&#160;:</term>
+<listitem><simpara> a <link linkend="EogPrintPreview"><type>EogPrintPreview</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>l_margin</parameter>&#160;:</term>
+<listitem><simpara> Left margin.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>r_margin</parameter>&#160;:</term>
+<listitem><simpara> Right margin.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>t_margin</parameter>&#160;:</term>
+<listitem><simpara> Top margin.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>b_margin</parameter>&#160;:</term>
+<listitem><simpara> Bottom margin.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-print-preview-set-from-page-setup" role="function">
+<title>eog_print_preview_set_from_page_setup ()</title>
+<indexterm zone="eog-print-preview-set-from-page-setup"><primary sortas="eog_print_preview_set_from_page_setup">eog_print_preview_set_from_page_setup</primary></indexterm><programlisting><link linkend="void">void</link>                eog_print_preview_set_from_page_setup
+                                                        (<link linkend="EogPrintPreview">EogPrintPreview</link> *preview,
+                                                         <link linkend="GtkPageSetup">GtkPageSetup</link> *setup);</programlisting>
+<para>
+Sets up the page properties from a <link linkend="GtkPageSetup"><type>GtkPageSetup</type></link>. Useful when using the
+widget with the GtkPrint API.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>preview</parameter>&#160;:</term>
+<listitem><simpara> a <link linkend="EogPrintPreview"><type>EogPrintPreview</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>setup</parameter>&#160;:</term>
+<listitem><simpara> a <link linkend="GtkPageSetup"><type>GtkPageSetup</type></link> to set the properties from
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-print-preview-get-image-position" role="function">
+<title>eog_print_preview_get_image_position ()</title>
+<indexterm zone="eog-print-preview-get-image-position"><primary sortas="eog_print_preview_get_image_position">eog_print_preview_get_image_position</primary></indexterm><programlisting><link linkend="void">void</link>                eog_print_preview_get_image_position
+                                                        (<link linkend="EogPrintPreview">EogPrintPreview</link> *preview,
+                                                         <link linkend="gdouble">gdouble</link> *x,
+                                                         <link linkend="gdouble">gdouble</link> *y);</programlisting>
+<para>
+Gets current image position in inches, relative to the margins. A
+(0, 0) position is the intersection between the left and top margins.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>preview</parameter>&#160;:</term>
+<listitem><simpara> a <link linkend="EogPrintPreview"><type>EogPrintPreview</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>x</parameter>&#160;:</term>
+<listitem><simpara> a pointer to a <link linkend="gdouble"><type>gdouble</type></link>, or <link linkend="NULL--CAPS"><literal>NULL</literal></link> to ignore it
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>y</parameter>&#160;:</term>
+<listitem><simpara> a pointer to a <link linkend="gdouble"><type>gdouble</type></link>, or <link linkend="NULL--CAPS"><literal>NULL</literal></link> to ignore it
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-print-preview-set-image-position" role="function">
+<title>eog_print_preview_set_image_position ()</title>
+<indexterm zone="eog-print-preview-set-image-position"><primary sortas="eog_print_preview_set_image_position">eog_print_preview_set_image_position</primary></indexterm><programlisting><link linkend="void">void</link>                eog_print_preview_set_image_position
+                                                        (<link linkend="EogPrintPreview">EogPrintPreview</link> *preview,
+                                                         <link linkend="gdouble">gdouble</link> x,
+                                                         <link linkend="gdouble">gdouble</link> y);</programlisting>
+<para>
+Sets the image position. You can pass -1 to one of the coordinates if you
+only want to set the other.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>preview</parameter>&#160;:</term>
+<listitem><simpara> a <link linkend="EogPrintPreview"><type>EogPrintPreview</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>x</parameter>&#160;:</term>
+<listitem><simpara> The X coordinate, in inches, or -1 to ignore it.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>y</parameter>&#160;:</term>
+<listitem><simpara> The Y coordinate, in inches, or -1 to ignore it.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-print-preview-set-scale" role="function">
+<title>eog_print_preview_set_scale ()</title>
+<indexterm zone="eog-print-preview-set-scale"><primary sortas="eog_print_preview_set_scale">eog_print_preview_set_scale</primary></indexterm><programlisting><link linkend="void">void</link>                eog_print_preview_set_scale         (<link linkend="EogPrintPreview">EogPrintPreview</link> *preview,
+                                                         <link linkend="gfloat">gfloat</link> scale);</programlisting>
+<para>
+Sets the scale for the image.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>preview</parameter>&#160;:</term>
+<listitem><simpara> a <link linkend="EogPrintPreview"><type>EogPrintPreview</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>scale</parameter>&#160;:</term>
+<listitem><simpara> a scale value, between 0 and 1.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+<refsect1 id="EogPrintPreview.property-details" role="property_details">
+<title role="property_details.title">Property Details</title>
+<refsect2 id="EogPrintPreview--image" role="property"><title>The <literal>&quot;image&quot;</literal> property</title>
+<indexterm zone="EogPrintPreview--image"><primary sortas="EogPrintPreview:image">EogPrintPreview:image</primary></indexterm><programlisting>  &quot;image&quot;                    <link linkend="GObject">GObject</link>*              : Read / Write</programlisting>
+<para>
+The "image" property defines the image that is previewed
+in the widget.</para>
+<para>
+</para></refsect2>
+<refsect2 id="EogPrintPreview--image-scale" role="property"><title>The <literal>&quot;image-scale&quot;</literal> property</title>
+<indexterm zone="EogPrintPreview--image-scale"><primary sortas="EogPrintPreview:image-scale">EogPrintPreview:image-scale</primary></indexterm><programlisting>  &quot;image-scale&quot;              <link linkend="gfloat">gfloat</link>                : Read / Write</programlisting>
+<para>
+The "image-scale" property defines the scaling of the image
+that the user wants for the printing.</para>
+<para>
+</para><para>Allowed values: [0,1]</para>
+<para>Default value: 1</para>
+</refsect2>
+<refsect2 id="EogPrintPreview--image-x-align" role="property"><title>The <literal>&quot;image-x-align&quot;</literal> property</title>
+<indexterm zone="EogPrintPreview--image-x-align"><primary sortas="EogPrintPreview:image-x-align">EogPrintPreview:image-x-align</primary></indexterm><programlisting>  &quot;image-x-align&quot;            <link linkend="gfloat">gfloat</link>                : Read / Write</programlisting>
+<para>
+The "image-x-align" property defines the horizontal alignment
+of the image in the widget.</para>
+<para>
+</para><para>Allowed values: [0,1]</para>
+<para>Default value: 0.5</para>
+</refsect2>
+<refsect2 id="EogPrintPreview--image-y-align" role="property"><title>The <literal>&quot;image-y-align&quot;</literal> property</title>
+<indexterm zone="EogPrintPreview--image-y-align"><primary sortas="EogPrintPreview:image-y-align">EogPrintPreview:image-y-align</primary></indexterm><programlisting>  &quot;image-y-align&quot;            <link linkend="gfloat">gfloat</link>                : Read / Write</programlisting>
+<para>
+The "image-y-align" property defines the horizontal alignment
+of the image in the widget.</para>
+<para>
+</para><para>Allowed values: [0,1]</para>
+<para>Default value: 0.5</para>
+</refsect2>
+<refsect2 id="EogPrintPreview--page-bottom-margin" role="property"><title>The <literal>&quot;page-bottom-margin&quot;</literal> property</title>
+<indexterm zone="EogPrintPreview--page-bottom-margin"><primary sortas="EogPrintPreview:page-bottom-margin">EogPrintPreview:page-bottom-margin</primary></indexterm><programlisting>  &quot;page-bottom-margin&quot;       <link linkend="gfloat">gfloat</link>                : Read / Write</programlisting>
+<para>
+The size of the page's bottom margin, in inches.</para>
+<para>
+</para><para>Allowed values: [0,200]</para>
+<para>Default value: 0.56</para>
+</refsect2>
+<refsect2 id="EogPrintPreview--page-left-margin" role="property"><title>The <literal>&quot;page-left-margin&quot;</literal> property</title>
+<indexterm zone="EogPrintPreview--page-left-margin"><primary sortas="EogPrintPreview:page-left-margin">EogPrintPreview:page-left-margin</primary></indexterm><programlisting>  &quot;page-left-margin&quot;         <link linkend="gfloat">gfloat</link>                : Read / Write</programlisting>
+<para>
+The size of the page's left margin, in inches.</para>
+<para>
+</para><para>Allowed values: [0,100]</para>
+<para>Default value: 0.25</para>
+</refsect2>
+<refsect2 id="EogPrintPreview--page-right-margin" role="property"><title>The <literal>&quot;page-right-margin&quot;</literal> property</title>
+<indexterm zone="EogPrintPreview--page-right-margin"><primary sortas="EogPrintPreview:page-right-margin">EogPrintPreview:page-right-margin</primary></indexterm><programlisting>  &quot;page-right-margin&quot;        <link linkend="gfloat">gfloat</link>                : Read / Write</programlisting>
+<para>
+The size of the page's right margin, in inches.</para>
+<para>
+</para><para>Allowed values: [0,200]</para>
+<para>Default value: 0.25</para>
+</refsect2>
+<refsect2 id="EogPrintPreview--page-top-margin" role="property"><title>The <literal>&quot;page-top-margin&quot;</literal> property</title>
+<indexterm zone="EogPrintPreview--page-top-margin"><primary sortas="EogPrintPreview:page-top-margin">EogPrintPreview:page-top-margin</primary></indexterm><programlisting>  &quot;page-top-margin&quot;          <link linkend="gfloat">gfloat</link>                : Read / Write</programlisting>
+<para>
+The size of the page's top margin, in inches.</para>
+<para>
+</para><para>Allowed values: [0,100]</para>
+<para>Default value: 0.25</para>
+</refsect2>
+<refsect2 id="EogPrintPreview--paper-height" role="property"><title>The <literal>&quot;paper-height&quot;</literal> property</title>
+<indexterm zone="EogPrintPreview--paper-height"><primary sortas="EogPrintPreview:paper-height">EogPrintPreview:paper-height</primary></indexterm><programlisting>  &quot;paper-height&quot;             <link linkend="gfloat">gfloat</link>                : Read / Write</programlisting>
+<para>
+The height of the previewed paper, in inches.</para>
+<para>
+</para><para>Allowed values: [0,200]</para>
+<para>Default value: 11</para>
+</refsect2>
+<refsect2 id="EogPrintPreview--paper-width" role="property"><title>The <literal>&quot;paper-width&quot;</literal> property</title>
+<indexterm zone="EogPrintPreview--paper-width"><primary sortas="EogPrintPreview:paper-width">EogPrintPreview:paper-width</primary></indexterm><programlisting>  &quot;paper-width&quot;              <link linkend="gfloat">gfloat</link>                : Read / Write</programlisting>
+<para>
+The width of the previewed paper, in inches.</para>
+<para>
+</para><para>Allowed values: [0,100]</para>
+<para>Default value: 8.5</para>
+</refsect2>
+</refsect1>
+
+<refsect1 id="EogPrintPreview.signal-details" role="signals">
+<title role="signals.title">Signal Details</title>
+<refsect2 id="EogPrintPreview-image-moved" role="signal"><title>The <literal>&quot;image-moved&quot;</literal> signal</title>
+<indexterm zone="EogPrintPreview-image-moved"><primary sortas="EogPrintPreview::image-moved">EogPrintPreview::image-moved</primary></indexterm><programlisting><link linkend="void">void</link>                user_function                      (<link linkend="EogPrintPreview">EogPrintPreview</link> *preview,
+                                                        <link linkend="gpointer">gpointer</link>         user_data)      : Run First</programlisting>
+<para>
+The <link linkend="EogPrintPreview-image-moved"><type>"image-moved"</type></link> signal is emitted when the position
+of the image is changed.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>preview</parameter>&#160;:</term>
+<listitem><simpara> the object which received the signal
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&#160;:</term>
+<listitem><simpara>user data set when the signal handler was connected.</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+</refsect1>
+
+
+
+</refentry>

@@ -1,0 +1,356 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>eog-util</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<link rel="home" href="index.html" title="Eye of GNOME Reference Manual">
+<link rel="up" href="ch06.html" title="Utilities">
+<link rel="prev" href="EogURIConverter.html" title="EogURIConverter">
+<link rel="next" href="eog-eog-exif-util.html" title="eog-exif-util">
+<meta name="generator" content="GTK-Doc V1.11 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="chapter" href="ch01.html" title="User Interface">
+<link rel="chapter" href="ch02.html" title="Image data and manipulation">
+<link rel="chapter" href="ch03.html" title="Printing">
+<link rel="chapter" href="ch04.html" title="Application and configuration">
+<link rel="chapter" href="ch05.html" title="Plugins">
+<link rel="chapter" href="ch06.html" title="Utilities">
+<link rel="chapter" href="ch07.html" title="Asynchronous jobs">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="EogURIConverter.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch06.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Eye of GNOME Reference Manual</th>
+<td><a accesskey="n" href="eog-eog-exif-util.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#eog-eog-util.synopsis" class="shortcut">Top</a>
+                 | 
+                <a href="#eog-eog-util.description" class="shortcut">Description</a>
+</td></tr>
+</table>
+<div class="refentry" title="eog-util">
+<a name="eog-eog-util"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="eog-eog-util.top_of_page"></a>eog-util</span></h2>
+<p>eog-util</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv" title="Synopsis">
+<a name="eog-eog-util.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+void                <a class="link" href="eog-eog-util.html#eog-util-show-help" title="eog_util_show_help ()">eog_util_show_help</a>                  (const <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> *section,
+                                                         <a
+href="http://library.gnome.org/devel/gtk/unstable/GtkWindow.html"
+>GtkWindow</a> *parent);
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> *             <a class="link" href="eog-eog-util.html#eog-util-make-valid-utf8" title="eog_util_make_valid_utf8 ()">eog_util_make_valid_utf8</a>            (const <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> *name);
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Singly-Linked-Lists.html#GSList"
+>GSList</a> *            <a class="link" href="eog-eog-util.html#eog-util-parse-uri-string-list-to-file-list" title="eog_util_parse_uri_string_list_to_file_list ()">eog_util_parse_uri_string_list_to_file_list</a>
+                                                        (const <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> *uri_list);
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Singly-Linked-Lists.html#GSList"
+>GSList</a> *            <a class="link" href="eog-eog-util.html#eog-util-string-list-to-file-list" title="eog_util_string_list_to_file_list ()">eog_util_string_list_to_file_list</a>   (<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Singly-Linked-Lists.html#GSList"
+>GSList</a> *string_list);
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Singly-Linked-Lists.html#GSList"
+>GSList</a> *            <a class="link" href="eog-eog-util.html#eog-util-strings-to-file-list" title="eog_util_strings_to_file_list ()">eog_util_strings_to_file_list</a>       (<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> **strings);
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Singly-Linked-Lists.html#GSList"
+>GSList</a> *            <a class="link" href="eog-eog-util.html#eog-util-string-array-to-list" title="eog_util_string_array_to_list ()">eog_util_string_array_to_list</a>       (const <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> **files,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a> create_uri);
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> **            <a class="link" href="eog-eog-util.html#eog-util-string-array-make-absolute" title="eog_util_string_array_make_absolute ()">eog_util_string_array_make_absolute</a> (<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> **files);
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="eog-eog-util.html#eog-util-launch-desktop-file" title="eog_util_launch_desktop_file ()">eog_util_launch_desktop_file</a>        (const <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> *filename,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint32"
+>guint32</a> user_time);
+const    <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> *    <a class="link" href="eog-eog-util.html#eog-util-dot-dir" title="eog_util_dot_dir ()">eog_util_dot_dir</a>                    (void);
+</pre>
+</div>
+<div class="refsect1" title="Description">
+<a name="eog-eog-util.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1" title="Details">
+<a name="eog-eog-util.details"></a><h2>Details</h2>
+<div class="refsect2" title="eog_util_show_help ()">
+<a name="eog-util-show-help"></a><h3>eog_util_show_help ()</h3>
+<pre class="programlisting">void                eog_util_show_help                  (const <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> *section,
+                                                         <a
+href="http://library.gnome.org/devel/gtk/unstable/GtkWindow.html"
+>GtkWindow</a> *parent);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>section</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>parent</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="eog_util_make_valid_utf8 ()">
+<a name="eog-util-make-valid-utf8"></a><h3>eog_util_make_valid_utf8 ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> *             eog_util_make_valid_utf8            (const <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> *name);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>name</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="eog_util_parse_uri_string_list_to_file_list ()">
+<a name="eog-util-parse-uri-string-list-to-file-list"></a><h3>eog_util_parse_uri_string_list_to_file_list ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Singly-Linked-Lists.html#GSList"
+>GSList</a> *            eog_util_parse_uri_string_list_to_file_list
+                                                        (const <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> *uri_list);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>uri_list</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="eog_util_string_list_to_file_list ()">
+<a name="eog-util-string-list-to-file-list"></a><h3>eog_util_string_list_to_file_list ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Singly-Linked-Lists.html#GSList"
+>GSList</a> *            eog_util_string_list_to_file_list   (<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Singly-Linked-Lists.html#GSList"
+>GSList</a> *string_list);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>string_list</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="eog_util_strings_to_file_list ()">
+<a name="eog-util-strings-to-file-list"></a><h3>eog_util_strings_to_file_list ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Singly-Linked-Lists.html#GSList"
+>GSList</a> *            eog_util_strings_to_file_list       (<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> **strings);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>strings</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="eog_util_string_array_to_list ()">
+<a name="eog-util-string-array-to-list"></a><h3>eog_util_string_array_to_list ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Singly-Linked-Lists.html#GSList"
+>GSList</a> *            eog_util_string_array_to_list       (const <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> **files,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a> create_uri);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>files</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>create_uri</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="eog_util_string_array_make_absolute ()">
+<a name="eog-util-string-array-make-absolute"></a><h3>eog_util_string_array_make_absolute ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> **            eog_util_string_array_make_absolute (<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> **files);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>files</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="eog_util_launch_desktop_file ()">
+<a name="eog-util-launch-desktop-file"></a><h3>eog_util_launch_desktop_file ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            eog_util_launch_desktop_file        (const <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> *filename,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint32"
+>guint32</a> user_time);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>filename</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_time</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="eog_util_dot_dir ()">
+<a name="eog-util-dot-dir"></a><h3>eog_util_dot_dir ()</h3>
+<pre class="programlisting">const    <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> *    eog_util_dot_dir                    (void);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.11</div>
+</body>
+</html>

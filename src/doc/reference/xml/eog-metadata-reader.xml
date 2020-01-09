@@ -1,0 +1,236 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN"
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="eog-eog-metadata-reader">
+<refmeta>
+<refentrytitle role="top_of_page" id="eog-eog-metadata-reader.top_of_page">eog-metadata-reader</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>EOG Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>eog-metadata-reader</refname>
+<refpurpose></refpurpose>
+</refnamediv>
+
+<refsynopsisdiv id="eog-eog-metadata-reader.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+<anchor id="EogMetadataReader"/>
+<synopsis>
+#define             <link linkend="EOG-METADATA-READER-GET-INTERFACE--CAPS">EOG_METADATA_READER_GET_INTERFACE</link>   (o)
+                    <link linkend="EogMetadataReader-struct">EogMetadataReader</link>;
+                    <link linkend="EogMetadataReaderInterface">EogMetadataReaderInterface</link>;
+enum                <link linkend="EogMetadataFileType">EogMetadataFileType</link>;
+<link linkend="EogMetadataReader">EogMetadataReader</link>*  <link linkend="eog-metadata-reader-new">eog_metadata_reader_new</link>             (<link linkend="EogMetadataFileType">EogMetadataFileType</link> type);
+<link linkend="void">void</link>                <link linkend="eog-metadata-reader-consume">eog_metadata_reader_consume</link>         (<link linkend="EogMetadataReader">EogMetadataReader</link> *emr,
+                                                         const <link linkend="guchar">guchar</link> *buf,
+                                                         <link linkend="guint">guint</link> len);
+<link linkend="gboolean">gboolean</link>            <link linkend="eog-metadata-reader-finished">eog_metadata_reader_finished</link>        (<link linkend="EogMetadataReader">EogMetadataReader</link> *emr);
+<link linkend="void">void</link>                <link linkend="eog-metadata-reader-get-exif-chunk">eog_metadata_reader_get_exif_chunk</link>  (<link linkend="EogMetadataReader">EogMetadataReader</link> *emr,
+                                                         <link linkend="guchar">guchar</link> **data,
+                                                         <link linkend="guint">guint</link> *len);
+<link linkend="ExifData">ExifData</link>*           <link linkend="eog-metadata-reader-get-exif-data">eog_metadata_reader_get_exif_data</link>   (<link linkend="EogMetadataReader">EogMetadataReader</link> *emr);
+<link linkend="XmpPtr">XmpPtr</link>              <link linkend="eog-metadata-reader-get-xmp-data">eog_metadata_reader_get_xmp_data</link>    (<link linkend="EogMetadataReader">EogMetadataReader</link> *emr);
+<link linkend="gpointer">gpointer</link>            <link linkend="eog-metadata-reader-get-iptc-chunk">eog_metadata_reader_get_iptc_chunk</link>  (<link linkend="EogMetadataReader">EogMetadataReader</link> *emr);
+<link linkend="IptcData">IptcData</link>*           <link linkend="eog-metadata-reader-get-iptc-data">eog_metadata_reader_get_iptc_data</link>   (<link linkend="EogMetadataReader">EogMetadataReader</link> *emr);
+<link linkend="cmsHPROFILE">cmsHPROFILE</link>         <link linkend="eog-metadata-reader-get-icc-profile">eog_metadata_reader_get_icc_profile</link> (<link linkend="EogMetadataReader">EogMetadataReader</link> *emr);
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 id="eog-eog-metadata-reader.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<synopsis>
+  <link linkend="GInterface">GInterface</link>
+   +----EogMetadataReader
+</synopsis>
+</refsect1>
+
+
+
+
+<refsect1 id="eog-eog-metadata-reader.implementations" role="implementations">
+<title role="implementations.title">Known Implementations</title>
+<para>
+EogMetadataReader is implemented by
+ <link linkend="EogMetadataReaderJpg">EogMetadataReaderJpg</link> and  <link linkend="EogMetadataReaderPng">EogMetadataReaderPng</link>.</para>
+</refsect1>
+
+
+
+
+<refsect1 id="eog-eog-metadata-reader.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+</para>
+</refsect1>
+
+<refsect1 id="eog-eog-metadata-reader.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="EOG-METADATA-READER-GET-INTERFACE--CAPS" role="macro">
+<title>EOG_METADATA_READER_GET_INTERFACE()</title>
+<indexterm zone="EOG-METADATA-READER-GET-INTERFACE--CAPS"><primary sortas="EOG_METADATA_READER_GET_INTERFACE">EOG_METADATA_READER_GET_INTERFACE</primary></indexterm><programlisting>#define EOG_METADATA_READER_GET_INTERFACE(o)  (G_TYPE_INSTANCE_GET_INTERFACE ((o), EOG_TYPE_METADATA_READER, EogMetadataReaderInterface))
+</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>o</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="EogMetadataReader-struct" role="struct">
+<title>EogMetadataReader</title>
+<indexterm zone="EogMetadataReader-struct"><primary sortas="EogMetadataReader">EogMetadataReader</primary></indexterm><programlisting>typedef struct _EogMetadataReader EogMetadataReader;</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="EogMetadataReaderInterface" role="struct">
+<title>EogMetadataReaderInterface</title>
+<indexterm zone="EogMetadataReaderInterface"><primary sortas="EogMetadataReaderInterface">EogMetadataReaderInterface</primary></indexterm><programlisting>typedef struct {
+	GTypeInterface parent;
+
+	void		(*consume)		(EogMetadataReader *self,
+						 const guchar *buf,
+						 guint len);
+
+	gboolean	(*finished)		(EogMetadataReader *self);
+
+	void		(*get_raw_exif)		(EogMetadataReader *self,
+						 guchar **data,
+						 guint *len);
+
+	gpointer	(*get_exif_data)	(EogMetadataReader *self);
+
+	gpointer	(*get_icc_profile)	(EogMetadataReader *self);
+
+	gpointer	(*get_xmp_ptr)		(EogMetadataReader *self);
+} EogMetadataReaderInterface;
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="EogMetadataFileType" role="enum">
+<title>enum EogMetadataFileType</title>
+<indexterm zone="EogMetadataFileType"><primary sortas="EogMetadataFileType">EogMetadataFileType</primary></indexterm><programlisting>typedef enum {
+	EOG_METADATA_JPEG,
+	EOG_METADATA_PNG
+} EogMetadataFileType;
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="eog-metadata-reader-new" role="function">
+<title>eog_metadata_reader_new ()</title>
+<indexterm zone="eog-metadata-reader-new"><primary sortas="eog_metadata_reader_new">eog_metadata_reader_new</primary></indexterm><programlisting><link linkend="EogMetadataReader">EogMetadataReader</link>*  eog_metadata_reader_new             (<link linkend="EogMetadataFileType">EogMetadataFileType</link> type);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>type</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-metadata-reader-consume" role="function">
+<title>eog_metadata_reader_consume ()</title>
+<indexterm zone="eog-metadata-reader-consume"><primary sortas="eog_metadata_reader_consume">eog_metadata_reader_consume</primary></indexterm><programlisting><link linkend="void">void</link>                eog_metadata_reader_consume         (<link linkend="EogMetadataReader">EogMetadataReader</link> *emr,
+                                                         const <link linkend="guchar">guchar</link> *buf,
+                                                         <link linkend="guint">guint</link> len);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>emr</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>buf</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>len</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-metadata-reader-finished" role="function">
+<title>eog_metadata_reader_finished ()</title>
+<indexterm zone="eog-metadata-reader-finished"><primary sortas="eog_metadata_reader_finished">eog_metadata_reader_finished</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            eog_metadata_reader_finished        (<link linkend="EogMetadataReader">EogMetadataReader</link> *emr);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>emr</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-metadata-reader-get-exif-chunk" role="function">
+<title>eog_metadata_reader_get_exif_chunk ()</title>
+<indexterm zone="eog-metadata-reader-get-exif-chunk"><primary sortas="eog_metadata_reader_get_exif_chunk">eog_metadata_reader_get_exif_chunk</primary></indexterm><programlisting><link linkend="void">void</link>                eog_metadata_reader_get_exif_chunk  (<link linkend="EogMetadataReader">EogMetadataReader</link> *emr,
+                                                         <link linkend="guchar">guchar</link> **data,
+                                                         <link linkend="guint">guint</link> *len);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>emr</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>data</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>len</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-metadata-reader-get-exif-data" role="function">
+<title>eog_metadata_reader_get_exif_data ()</title>
+<indexterm zone="eog-metadata-reader-get-exif-data"><primary sortas="eog_metadata_reader_get_exif_data">eog_metadata_reader_get_exif_data</primary></indexterm><programlisting><link linkend="ExifData">ExifData</link>*           eog_metadata_reader_get_exif_data   (<link linkend="EogMetadataReader">EogMetadataReader</link> *emr);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>emr</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-metadata-reader-get-xmp-data" role="function">
+<title>eog_metadata_reader_get_xmp_data ()</title>
+<indexterm zone="eog-metadata-reader-get-xmp-data"><primary sortas="eog_metadata_reader_get_xmp_data">eog_metadata_reader_get_xmp_data</primary></indexterm><programlisting><link linkend="XmpPtr">XmpPtr</link>              eog_metadata_reader_get_xmp_data    (<link linkend="EogMetadataReader">EogMetadataReader</link> *emr);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>emr</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-metadata-reader-get-iptc-chunk" role="function">
+<title>eog_metadata_reader_get_iptc_chunk ()</title>
+<indexterm zone="eog-metadata-reader-get-iptc-chunk"><primary sortas="eog_metadata_reader_get_iptc_chunk">eog_metadata_reader_get_iptc_chunk</primary></indexterm><programlisting><link linkend="gpointer">gpointer</link>            eog_metadata_reader_get_iptc_chunk  (<link linkend="EogMetadataReader">EogMetadataReader</link> *emr);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>emr</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-metadata-reader-get-iptc-data" role="function">
+<title>eog_metadata_reader_get_iptc_data ()</title>
+<indexterm zone="eog-metadata-reader-get-iptc-data"><primary sortas="eog_metadata_reader_get_iptc_data">eog_metadata_reader_get_iptc_data</primary></indexterm><programlisting><link linkend="IptcData">IptcData</link>*           eog_metadata_reader_get_iptc_data   (<link linkend="EogMetadataReader">EogMetadataReader</link> *emr);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>emr</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-metadata-reader-get-icc-profile" role="function">
+<title>eog_metadata_reader_get_icc_profile ()</title>
+<indexterm zone="eog-metadata-reader-get-icc-profile"><primary sortas="eog_metadata_reader_get_icc_profile">eog_metadata_reader_get_icc_profile</primary></indexterm><programlisting><link linkend="cmsHPROFILE">cmsHPROFILE</link>         eog_metadata_reader_get_icc_profile (<link linkend="EogMetadataReader">EogMetadataReader</link> *emr);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>emr</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

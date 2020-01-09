@@ -1,0 +1,40 @@
+<!-- ##### SECTION Title ##### -->
+EogPreferencesDialog
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### STRUCT EogPreferencesDialog ##### -->
+<para>
+
+</para>
+
+
+<!-- ##### ARG EogPreferencesDialog:gconf-client ##### -->
+<para>
+
+</para>
+
+<!-- ##### FUNCTION eog_preferences_dialog_get_instance ##### -->
+<para>
+
+</para>
+
+@parent: 
+@client: 
+@Returns: 
+
+

@@ -1,0 +1,107 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN"
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="eog-eog-print">
+<refmeta>
+<refentrytitle role="top_of_page" id="eog-eog-print.top_of_page">eog-print</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>EOG Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>eog-print</refname>
+<refpurpose></refpurpose>
+</refnamediv>
+
+<refsynopsisdiv id="eog-eog-print.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+<link linkend="GtkPrintOperation">GtkPrintOperation</link>*  <link linkend="eog-print-operation-new">eog_print_operation_new</link>             (<link linkend="EogImage">EogImage</link> *image,
+                                                         <link linkend="GtkPrintSettings">GtkPrintSettings</link> *print_settings,
+                                                         <link linkend="GtkPageSetup">GtkPageSetup</link> *page_setup);
+<link linkend="GtkPageSetup">GtkPageSetup</link>*       <link linkend="eog-print-get-page-setup">eog_print_get_page_setup</link>            (void);
+<link linkend="void">void</link>                <link linkend="eog-print-set-page-setup">eog_print_set_page_setup</link>            (<link linkend="GtkPageSetup">GtkPageSetup</link> *page_setup);
+<link linkend="GtkPrintSettings">GtkPrintSettings</link> *  <link linkend="eog-print-get-print-settings">eog_print_get_print_settings</link>        (void);
+<link linkend="void">void</link>                <link linkend="eog-print-set-print-settings">eog_print_set_print_settings</link>        (<link linkend="GtkPrintSettings">GtkPrintSettings</link> *print_settings);
+</synopsis>
+</refsynopsisdiv>
+
+
+
+
+
+
+
+
+
+<refsect1 id="eog-eog-print.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+</para>
+</refsect1>
+
+<refsect1 id="eog-eog-print.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="eog-print-operation-new" role="function">
+<title>eog_print_operation_new ()</title>
+<indexterm zone="eog-print-operation-new"><primary sortas="eog_print_operation_new">eog_print_operation_new</primary></indexterm><programlisting><link linkend="GtkPrintOperation">GtkPrintOperation</link>*  eog_print_operation_new             (<link linkend="EogImage">EogImage</link> *image,
+                                                         <link linkend="GtkPrintSettings">GtkPrintSettings</link> *print_settings,
+                                                         <link linkend="GtkPageSetup">GtkPageSetup</link> *page_setup);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>image</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>print_settings</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>page_setup</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-print-get-page-setup" role="function">
+<title>eog_print_get_page_setup ()</title>
+<indexterm zone="eog-print-get-page-setup"><primary sortas="eog_print_get_page_setup">eog_print_get_page_setup</primary></indexterm><programlisting><link linkend="GtkPageSetup">GtkPageSetup</link>*       eog_print_get_page_setup            (void);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-print-set-page-setup" role="function">
+<title>eog_print_set_page_setup ()</title>
+<indexterm zone="eog-print-set-page-setup"><primary sortas="eog_print_set_page_setup">eog_print_set_page_setup</primary></indexterm><programlisting><link linkend="void">void</link>                eog_print_set_page_setup            (<link linkend="GtkPageSetup">GtkPageSetup</link> *page_setup);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>page_setup</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-print-get-print-settings" role="function">
+<title>eog_print_get_print_settings ()</title>
+<indexterm zone="eog-print-get-print-settings"><primary sortas="eog_print_get_print_settings">eog_print_get_print_settings</primary></indexterm><programlisting><link linkend="GtkPrintSettings">GtkPrintSettings</link> *  eog_print_get_print_settings        (void);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-print-set-print-settings" role="function">
+<title>eog_print_set_print_settings ()</title>
+<indexterm zone="eog-print-set-print-settings"><primary sortas="eog_print_set_print_settings">eog_print_set_print_settings</primary></indexterm><programlisting><link linkend="void">void</link>                eog_print_set_print_settings        (<link linkend="GtkPrintSettings">GtkPrintSettings</link> *print_settings);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>print_settings</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

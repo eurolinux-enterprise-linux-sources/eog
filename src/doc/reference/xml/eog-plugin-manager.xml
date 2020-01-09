@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN"
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="EogPluginManager">
+<refmeta>
+<refentrytitle role="top_of_page" id="EogPluginManager.top_of_page">EogPluginManager</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>EOG Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>EogPluginManager</refname>
+<refpurpose></refpurpose>
+</refnamediv>
+
+<refsynopsisdiv id="EogPluginManager.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+                    <link linkend="EogPluginManager-struct">EogPluginManager</link>;
+<link linkend="GtkWidget">GtkWidget</link> *         <link linkend="eog-plugin-manager-new">eog_plugin_manager_new</link>              (void);
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 id="EogPluginManager.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<synopsis>
+  <link linkend="GObject">GObject</link>
+   +----<link linkend="GInitiallyUnowned">GInitiallyUnowned</link>
+         +----<link linkend="GtkObject">GtkObject</link>
+               +----<link linkend="GtkWidget">GtkWidget</link>
+                     +----<link linkend="GtkContainer">GtkContainer</link>
+                           +----<link linkend="GtkBox">GtkBox</link>
+                                 +----<link linkend="GtkVBox">GtkVBox</link>
+                                       +----EogPluginManager
+</synopsis>
+</refsect1>
+
+
+
+<refsect1 id="EogPluginManager.implemented-interfaces" role="impl_interfaces">
+<title role="impl_interfaces.title">Implemented Interfaces</title>
+<para>
+EogPluginManager implements
+ <link linkend="AtkImplementorIface">AtkImplementorIface</link>,  <link linkend="GtkBuildable">GtkBuildable</link> and  <link linkend="GtkOrientable">GtkOrientable</link>.</para>
+</refsect1>
+
+
+
+
+
+<refsect1 id="EogPluginManager.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+</para>
+</refsect1>
+
+<refsect1 id="EogPluginManager.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="EogPluginManager-struct" role="struct">
+<title>EogPluginManager</title>
+<indexterm zone="EogPluginManager-struct"><primary sortas="EogPluginManager">EogPluginManager</primary></indexterm><programlisting>typedef struct _EogPluginManager EogPluginManager;</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="eog-plugin-manager-new" role="function">
+<title>eog_plugin_manager_new ()</title>
+<indexterm zone="eog-plugin-manager-new"><primary sortas="eog_plugin_manager_new">eog_plugin_manager_new</primary></indexterm><programlisting><link linkend="GtkWidget">GtkWidget</link> *         eog_plugin_manager_new              (void);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

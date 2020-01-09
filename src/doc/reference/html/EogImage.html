@@ -1,0 +1,1151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>EogImage</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<link rel="home" href="index.html" title="Eye of GNOME Reference Manual">
+<link rel="up" href="ch02.html" title="Image data and manipulation">
+<link rel="prev" href="ch02.html" title="Image data and manipulation">
+<link rel="next" href="EogImageSaveInfo.html" title="EogImageSaveInfo">
+<meta name="generator" content="GTK-Doc V1.11 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="chapter" href="ch01.html" title="User Interface">
+<link rel="chapter" href="ch02.html" title="Image data and manipulation">
+<link rel="chapter" href="ch03.html" title="Printing">
+<link rel="chapter" href="ch04.html" title="Application and configuration">
+<link rel="chapter" href="ch05.html" title="Plugins">
+<link rel="chapter" href="ch06.html" title="Utilities">
+<link rel="chapter" href="ch07.html" title="Asynchronous jobs">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="ch02.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch02.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Eye of GNOME Reference Manual</th>
+<td><a accesskey="n" href="EogImageSaveInfo.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#EogImage.synopsis" class="shortcut">Top</a>
+                 | 
+                <a href="#EogImage.description" class="shortcut">Description</a>
+                 | 
+                <a href="#EogImage.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                 | 
+                <a href="#EogImage.signals" class="shortcut">Signals</a>
+</td></tr>
+</table>
+<div class="refentry" title="EogImage">
+<a name="EogImage"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="EogImage.top_of_page"></a>EogImage</span></h2>
+<p>EogImage</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv" title="Synopsis">
+<a name="EogImage.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+enum                <a class="link" href="EogImage.html#EogImageData" title="enum EogImageData">EogImageData</a>;
+#define             <a class="link" href="EogImage.html#EOG-IMAGE-DATA-ALL--CAPS" title="EOG_IMAGE_DATA_ALL">EOG_IMAGE_DATA_ALL</a>
+enum                <a class="link" href="EogImage.html#EogImageError" title="enum EogImageError">EogImageError</a>;
+#define             <a class="link" href="EogImage.html#EOG-IMAGE-ERROR--CAPS" title="EOG_IMAGE_ERROR">EOG_IMAGE_ERROR</a>
+enum                <a class="link" href="EogImage.html#EogImageStatus" title="enum EogImageStatus">EogImageStatus</a>;
+                    <a class="link" href="EogImage.html#EogImage-struct" title="EogImage">EogImage</a>;
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Quarks.html#GQuark"
+>GQuark</a>              <a class="link" href="EogImage.html#eog-image-error-quark" title="eog_image_error_quark ()">eog_image_error_quark</a>               (void);
+<a class="link" href="EogImage.html" title="EogImage">EogImage</a> *          <a class="link" href="EogImage.html#eog-image-new" title="eog_image_new ()">eog_image_new</a>                       (const char *txt_uri);
+<a class="link" href="EogImage.html" title="EogImage">EogImage</a> *          <a class="link" href="EogImage.html#eog-image-new-file" title="eog_image_new_file ()">eog_image_new_file</a>                  (<a
+href="http://library.gnome.org/devel/gio/unstable/GFile.html"
+>GFile</a> *file);
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="EogImage.html#eog-image-load" title="eog_image_load ()">eog_image_load</a>                      (<a class="link" href="EogImage.html" title="EogImage">EogImage</a> *img,
+                                                         <a class="link" href="EogImage.html#EogImageData" title="enum EogImageData">EogImageData</a> data2read,
+                                                         <a class="link" href="EogJobCopy.html#EogJob">EogJob</a> *job,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"
+>GError</a> **error);
+void                <a class="link" href="EogImage.html#eog-image-cancel-load" title="eog_image_cancel_load ()">eog_image_cancel_load</a>               (<a class="link" href="EogImage.html" title="EogImage">EogImage</a> *img);
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="EogImage.html#eog-image-has-data" title="eog_image_has_data ()">eog_image_has_data</a>                  (<a class="link" href="EogImage.html" title="EogImage">EogImage</a> *img,
+                                                         <a class="link" href="EogImage.html#EogImageData" title="enum EogImageData">EogImageData</a> data);
+void                <a class="link" href="EogImage.html#eog-image-data-ref" title="eog_image_data_ref ()">eog_image_data_ref</a>                  (<a class="link" href="EogImage.html" title="EogImage">EogImage</a> *img);
+void                <a class="link" href="EogImage.html#eog-image-data-unref" title="eog_image_data_unref ()">eog_image_data_unref</a>                (<a class="link" href="EogImage.html" title="EogImage">EogImage</a> *img);
+void                <a class="link" href="EogImage.html#eog-image-set-thumbnail" title="eog_image_set_thumbnail ()">eog_image_set_thumbnail</a>             (<a class="link" href="EogImage.html" title="EogImage">EogImage</a> *img,
+                                                         <a
+href="http://library.gnome.org/devel/gdk-pixbuf/unstable/gdk-pixbuf-gdk-pixbuf.html#GdkPixbuf"
+>GdkPixbuf</a> *pixbuf);
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="EogImage.html#eog-image-save-as-by-info" title="eog_image_save_as_by_info ()">eog_image_save_as_by_info</a>           (<a class="link" href="EogImage.html" title="EogImage">EogImage</a> *img,
+                                                         <a class="link" href="EogImageSaveInfo.html" title="EogImageSaveInfo">EogImageSaveInfo</a> *source,
+                                                         <a class="link" href="EogImageSaveInfo.html" title="EogImageSaveInfo">EogImageSaveInfo</a> *target,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"
+>GError</a> **error);
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="EogImage.html#eog-image-save-by-info" title="eog_image_save_by_info ()">eog_image_save_by_info</a>              (<a class="link" href="EogImage.html" title="EogImage">EogImage</a> *img,
+                                                         <a class="link" href="EogImageSaveInfo.html" title="EogImageSaveInfo">EogImageSaveInfo</a> *source,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"
+>GError</a> **error);
+<a
+href="http://library.gnome.org/devel/gdk-pixbuf/unstable/gdk-pixbuf-gdk-pixbuf.html#GdkPixbuf"
+>GdkPixbuf</a>*          <a class="link" href="EogImage.html#eog-image-get-pixbuf" title="eog_image_get_pixbuf ()">eog_image_get_pixbuf</a>                (<a class="link" href="EogImage.html" title="EogImage">EogImage</a> *img);
+<a
+href="http://library.gnome.org/devel/gdk-pixbuf/unstable/gdk-pixbuf-gdk-pixbuf.html#GdkPixbuf"
+>GdkPixbuf</a>*          <a class="link" href="EogImage.html#eog-image-get-thumbnail" title="eog_image_get_thumbnail ()">eog_image_get_thumbnail</a>             (<a class="link" href="EogImage.html" title="EogImage">EogImage</a> *img);
+void                <a class="link" href="EogImage.html#eog-image-get-size" title="eog_image_get_size ()">eog_image_get_size</a>                  (<a class="link" href="EogImage.html" title="EogImage">EogImage</a> *img,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a> *width,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a> *height);
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#goffset"
+>goffset</a>             <a class="link" href="EogImage.html#eog-image-get-bytes" title="eog_image_get_bytes ()">eog_image_get_bytes</a>                 (<a class="link" href="EogImage.html" title="EogImage">EogImage</a> *img);
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="EogImage.html#eog-image-is-modified" title="eog_image_is_modified ()">eog_image_is_modified</a>               (<a class="link" href="EogImage.html" title="EogImage">EogImage</a> *img);
+void                <a class="link" href="EogImage.html#eog-image-modified" title="eog_image_modified ()">eog_image_modified</a>                  (<a class="link" href="EogImage.html" title="EogImage">EogImage</a> *img);
+const <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a>*        <a class="link" href="EogImage.html#eog-image-get-caption" title="eog_image_get_caption ()">eog_image_get_caption</a>               (<a class="link" href="EogImage.html" title="EogImage">EogImage</a> *img);
+const <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> *       <a class="link" href="EogImage.html#eog-image-get-collate-key" title="eog_image_get_collate_key ()">eog_image_get_collate_key</a>           (<a class="link" href="EogImage.html" title="EogImage">EogImage</a> *img);
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"
+>gpointer</a>            <a class="link" href="EogImage.html#eog-image-get-exif-info" title="eog_image_get_exif_info ()">eog_image_get_exif_info</a>             (<a class="link" href="EogImage.html" title="EogImage">EogImage</a> *img);
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"
+>gpointer</a>            <a class="link" href="EogImage.html#eog-image-get-xmp-info" title="eog_image_get_xmp_info ()">eog_image_get_xmp_info</a>              (<a class="link" href="EogImage.html" title="EogImage">EogImage</a> *img);
+<a
+href="http://library.gnome.org/devel/gio/unstable/GFile.html"
+>GFile</a>*              <a class="link" href="EogImage.html#eog-image-get-file" title="eog_image_get_file ()">eog_image_get_file</a>                  (<a class="link" href="EogImage.html" title="EogImage">EogImage</a> *img);
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a>*              <a class="link" href="EogImage.html#eog-image-get-uri-for-display" title="eog_image_get_uri_for_display ()">eog_image_get_uri_for_display</a>       (<a class="link" href="EogImage.html" title="EogImage">EogImage</a> *img);
+<a class="link" href="EogImage.html#EogImageStatus" title="enum EogImageStatus">EogImageStatus</a>      <a class="link" href="EogImage.html#eog-image-get-status" title="eog_image_get_status ()">eog_image_get_status</a>                (<a class="link" href="EogImage.html" title="EogImage">EogImage</a> *img);
+void                <a class="link" href="EogImage.html#eog-image-transform" title="eog_image_transform ()">eog_image_transform</a>                 (<a class="link" href="EogImage.html" title="EogImage">EogImage</a> *img,
+                                                         <a class="link" href="EogTransform.html" title="EogTransform">EogTransform</a> *trans,
+                                                         <a class="link" href="EogJobCopy.html#EogJob">EogJob</a> *job);
+void                <a class="link" href="EogImage.html#eog-image-autorotate" title="eog_image_autorotate ()">eog_image_autorotate</a>                (<a class="link" href="EogImage.html" title="EogImage">EogImage</a> *img);
+cmsHPROFILE         <a class="link" href="EogImage.html#eog-image-get-profile" title="eog_image_get_profile ()">eog_image_get_profile</a>               (<a class="link" href="EogImage.html" title="EogImage">EogImage</a> *img);
+void                <a class="link" href="EogImage.html#eog-image-apply-display-profile" title="eog_image_apply_display_profile ()">eog_image_apply_display_profile</a>     (<a class="link" href="EogImage.html" title="EogImage">EogImage</a> *img,
+                                                         cmsHPROFILE display_profile);
+void                <a class="link" href="EogImage.html#eog-image-undo" title="eog_image_undo ()">eog_image_undo</a>                      (<a class="link" href="EogImage.html" title="EogImage">EogImage</a> *img);
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#GList"
+>GList</a> *             <a class="link" href="EogImage.html#eog-image-get-supported-mime-types" title="eog_image_get_supported_mime_types ()">eog_image_get_supported_mime_types</a>  (void);
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="EogImage.html#eog-image-is-supported-mime-type" title="eog_image_is_supported_mime_type ()">eog_image_is_supported_mime_type</a>    (const char *mime_type);
+</pre>
+</div>
+<div class="refsect1" title="Object Hierarchy">
+<a name="EogImage.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  <a
+href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject"
+>GObject</a>
+   +----EogImage
+</pre>
+</div>
+<div class="refsect1" title="Signals">
+<a name="EogImage.signals"></a><h2>Signals</h2>
+<pre class="synopsis">
+  "<a class="link" href="EogImage.html#EogImage-changed" title='The "changed" signal'>changed</a>"                                        : Run Last
+  "<a class="link" href="EogImage.html#EogImage-next-frame" title='The "next-frame" signal'>next-frame</a>"                                     : Run Last
+  "<a class="link" href="EogImage.html#EogImage-save-progress" title='The "save-progress" signal'>save-progress</a>"                                  : Run Last
+  "<a class="link" href="EogImage.html#EogImage-size-prepared" title='The "size-prepared" signal'>size-prepared</a>"                                  : Run Last
+  "<a class="link" href="EogImage.html#EogImage-thumbnail-changed" title='The "thumbnail-changed" signal'>thumbnail-changed</a>"                              : Run Last
+</pre>
+</div>
+<div class="refsect1" title="Description">
+<a name="EogImage.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1" title="Details">
+<a name="EogImage.details"></a><h2>Details</h2>
+<div class="refsect2" title="enum EogImageData">
+<a name="EogImageData"></a><h3>enum EogImageData</h3>
+<pre class="programlisting">typedef enum {
+	EOG_IMAGE_DATA_IMAGE     = 1 &lt;&lt; 0,
+	EOG_IMAGE_DATA_DIMENSION = 1 &lt;&lt; 1,
+	EOG_IMAGE_DATA_EXIF      = 1 &lt;&lt; 2,
+	EOG_IMAGE_DATA_XMP       = 1 &lt;&lt; 3
+} EogImageData;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="EOG_IMAGE_DATA_ALL">
+<a name="EOG-IMAGE-DATA-ALL--CAPS"></a><h3>EOG_IMAGE_DATA_ALL</h3>
+<pre class="programlisting">#define             EOG_IMAGE_DATA_ALL</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="enum EogImageError">
+<a name="EogImageError"></a><h3>enum EogImageError</h3>
+<pre class="programlisting">typedef enum {
+	EOG_IMAGE_ERROR_SAVE_NOT_LOCAL,
+	EOG_IMAGE_ERROR_NOT_LOADED,
+	EOG_IMAGE_ERROR_VFS,
+	EOG_IMAGE_ERROR_FILE_EXISTS,
+	EOG_IMAGE_ERROR_TMP_FILE_FAILED,
+	EOG_IMAGE_ERROR_GENERIC,
+	EOG_IMAGE_ERROR_UNKNOWN
+} EogImageError;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="EOG_IMAGE_ERROR">
+<a name="EOG-IMAGE-ERROR--CAPS"></a><h3>EOG_IMAGE_ERROR</h3>
+<pre class="programlisting">#define EOG_IMAGE_ERROR eog_image_error_quark ()
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="enum EogImageStatus">
+<a name="EogImageStatus"></a><h3>enum EogImageStatus</h3>
+<pre class="programlisting">typedef enum {
+	EOG_IMAGE_STATUS_UNKNOWN,
+	EOG_IMAGE_STATUS_LOADING,
+	EOG_IMAGE_STATUS_LOADED,
+	EOG_IMAGE_STATUS_SAVING,
+	EOG_IMAGE_STATUS_FAILED
+} EogImageStatus;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="EogImage">
+<a name="EogImage-struct"></a><h3>EogImage</h3>
+<pre class="programlisting">typedef struct _EogImage EogImage;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="eog_image_error_quark ()">
+<a name="eog-image-error-quark"></a><h3>eog_image_error_quark ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Quarks.html#GQuark"
+>GQuark</a>              eog_image_error_quark               (void);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="eog_image_new ()">
+<a name="eog-image-new"></a><h3>eog_image_new ()</h3>
+<pre class="programlisting"><a class="link" href="EogImage.html" title="EogImage">EogImage</a> *          eog_image_new                       (const char *txt_uri);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>txt_uri</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="eog_image_new_file ()">
+<a name="eog-image-new-file"></a><h3>eog_image_new_file ()</h3>
+<pre class="programlisting"><a class="link" href="EogImage.html" title="EogImage">EogImage</a> *          eog_image_new_file                  (<a
+href="http://library.gnome.org/devel/gio/unstable/GFile.html"
+>GFile</a> *file);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>file</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="eog_image_load ()">
+<a name="eog-image-load"></a><h3>eog_image_load ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            eog_image_load                      (<a class="link" href="EogImage.html" title="EogImage">EogImage</a> *img,
+                                                         <a class="link" href="EogImage.html#EogImageData" title="enum EogImageData">EogImageData</a> data2read,
+                                                         <a class="link" href="EogJobCopy.html#EogJob">EogJob</a> *job,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"
+>GError</a> **error);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>img</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data2read</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>job</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="eog_image_cancel_load ()">
+<a name="eog-image-cancel-load"></a><h3>eog_image_cancel_load ()</h3>
+<pre class="programlisting">void                eog_image_cancel_load               (<a class="link" href="EogImage.html" title="EogImage">EogImage</a> *img);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>img</code></em> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="eog_image_has_data ()">
+<a name="eog-image-has-data"></a><h3>eog_image_has_data ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            eog_image_has_data                  (<a class="link" href="EogImage.html" title="EogImage">EogImage</a> *img,
+                                                         <a class="link" href="EogImage.html#EogImageData" title="enum EogImageData">EogImageData</a> data);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>img</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="eog_image_data_ref ()">
+<a name="eog-image-data-ref"></a><h3>eog_image_data_ref ()</h3>
+<pre class="programlisting">void                eog_image_data_ref                  (<a class="link" href="EogImage.html" title="EogImage">EogImage</a> *img);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>img</code></em> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="eog_image_data_unref ()">
+<a name="eog-image-data-unref"></a><h3>eog_image_data_unref ()</h3>
+<pre class="programlisting">void                eog_image_data_unref                (<a class="link" href="EogImage.html" title="EogImage">EogImage</a> *img);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>img</code></em> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="eog_image_set_thumbnail ()">
+<a name="eog-image-set-thumbnail"></a><h3>eog_image_set_thumbnail ()</h3>
+<pre class="programlisting">void                eog_image_set_thumbnail             (<a class="link" href="EogImage.html" title="EogImage">EogImage</a> *img,
+                                                         <a
+href="http://library.gnome.org/devel/gdk-pixbuf/unstable/gdk-pixbuf-gdk-pixbuf.html#GdkPixbuf"
+>GdkPixbuf</a> *pixbuf);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>img</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pixbuf</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="eog_image_save_as_by_info ()">
+<a name="eog-image-save-as-by-info"></a><h3>eog_image_save_as_by_info ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            eog_image_save_as_by_info           (<a class="link" href="EogImage.html" title="EogImage">EogImage</a> *img,
+                                                         <a class="link" href="EogImageSaveInfo.html" title="EogImageSaveInfo">EogImageSaveInfo</a> *source,
+                                                         <a class="link" href="EogImageSaveInfo.html" title="EogImageSaveInfo">EogImageSaveInfo</a> *target,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"
+>GError</a> **error);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>img</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>source</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>target</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="eog_image_save_by_info ()">
+<a name="eog-image-save-by-info"></a><h3>eog_image_save_by_info ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            eog_image_save_by_info              (<a class="link" href="EogImage.html" title="EogImage">EogImage</a> *img,
+                                                         <a class="link" href="EogImageSaveInfo.html" title="EogImageSaveInfo">EogImageSaveInfo</a> *source,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"
+>GError</a> **error);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>img</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>source</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="eog_image_get_pixbuf ()">
+<a name="eog-image-get-pixbuf"></a><h3>eog_image_get_pixbuf ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/gdk-pixbuf/unstable/gdk-pixbuf-gdk-pixbuf.html#GdkPixbuf"
+>GdkPixbuf</a>*          eog_image_get_pixbuf                (<a class="link" href="EogImage.html" title="EogImage">EogImage</a> *img);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>img</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="eog_image_get_thumbnail ()">
+<a name="eog-image-get-thumbnail"></a><h3>eog_image_get_thumbnail ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/gdk-pixbuf/unstable/gdk-pixbuf-gdk-pixbuf.html#GdkPixbuf"
+>GdkPixbuf</a>*          eog_image_get_thumbnail             (<a class="link" href="EogImage.html" title="EogImage">EogImage</a> *img);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>img</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="eog_image_get_size ()">
+<a name="eog-image-get-size"></a><h3>eog_image_get_size ()</h3>
+<pre class="programlisting">void                eog_image_get_size                  (<a class="link" href="EogImage.html" title="EogImage">EogImage</a> *img,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a> *width,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a> *height);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>img</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>width</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>height</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="eog_image_get_bytes ()">
+<a name="eog-image-get-bytes"></a><h3>eog_image_get_bytes ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#goffset"
+>goffset</a>             eog_image_get_bytes                 (<a class="link" href="EogImage.html" title="EogImage">EogImage</a> *img);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>img</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="eog_image_is_modified ()">
+<a name="eog-image-is-modified"></a><h3>eog_image_is_modified ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            eog_image_is_modified               (<a class="link" href="EogImage.html" title="EogImage">EogImage</a> *img);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>img</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="eog_image_modified ()">
+<a name="eog-image-modified"></a><h3>eog_image_modified ()</h3>
+<pre class="programlisting">void                eog_image_modified                  (<a class="link" href="EogImage.html" title="EogImage">EogImage</a> *img);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>img</code></em> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="eog_image_get_caption ()">
+<a name="eog-image-get-caption"></a><h3>eog_image_get_caption ()</h3>
+<pre class="programlisting">const <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a>*        eog_image_get_caption               (<a class="link" href="EogImage.html" title="EogImage">EogImage</a> *img);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>img</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="eog_image_get_collate_key ()">
+<a name="eog-image-get-collate-key"></a><h3>eog_image_get_collate_key ()</h3>
+<pre class="programlisting">const <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a> *       eog_image_get_collate_key           (<a class="link" href="EogImage.html" title="EogImage">EogImage</a> *img);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>img</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="eog_image_get_exif_info ()">
+<a name="eog-image-get-exif-info"></a><h3>eog_image_get_exif_info ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"
+>gpointer</a>            eog_image_get_exif_info             (<a class="link" href="EogImage.html" title="EogImage">EogImage</a> *img);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>img</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="eog_image_get_xmp_info ()">
+<a name="eog-image-get-xmp-info"></a><h3>eog_image_get_xmp_info ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"
+>gpointer</a>            eog_image_get_xmp_info              (<a class="link" href="EogImage.html" title="EogImage">EogImage</a> *img);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>img</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="eog_image_get_file ()">
+<a name="eog-image-get-file"></a><h3>eog_image_get_file ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/gio/unstable/GFile.html"
+>GFile</a>*              eog_image_get_file                  (<a class="link" href="EogImage.html" title="EogImage">EogImage</a> *img);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>img</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="eog_image_get_uri_for_display ()">
+<a name="eog-image-get-uri-for-display"></a><h3>eog_image_get_uri_for_display ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a>*              eog_image_get_uri_for_display       (<a class="link" href="EogImage.html" title="EogImage">EogImage</a> *img);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>img</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="eog_image_get_status ()">
+<a name="eog-image-get-status"></a><h3>eog_image_get_status ()</h3>
+<pre class="programlisting"><a class="link" href="EogImage.html#EogImageStatus" title="enum EogImageStatus">EogImageStatus</a>      eog_image_get_status                (<a class="link" href="EogImage.html" title="EogImage">EogImage</a> *img);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>img</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="eog_image_transform ()">
+<a name="eog-image-transform"></a><h3>eog_image_transform ()</h3>
+<pre class="programlisting">void                eog_image_transform                 (<a class="link" href="EogImage.html" title="EogImage">EogImage</a> *img,
+                                                         <a class="link" href="EogTransform.html" title="EogTransform">EogTransform</a> *trans,
+                                                         <a class="link" href="EogJobCopy.html#EogJob">EogJob</a> *job);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>img</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>trans</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>job</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="eog_image_autorotate ()">
+<a name="eog-image-autorotate"></a><h3>eog_image_autorotate ()</h3>
+<pre class="programlisting">void                eog_image_autorotate                (<a class="link" href="EogImage.html" title="EogImage">EogImage</a> *img);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>img</code></em> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="eog_image_get_profile ()">
+<a name="eog-image-get-profile"></a><h3>eog_image_get_profile ()</h3>
+<pre class="programlisting">cmsHPROFILE         eog_image_get_profile               (<a class="link" href="EogImage.html" title="EogImage">EogImage</a> *img);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>img</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="eog_image_apply_display_profile ()">
+<a name="eog-image-apply-display-profile"></a><h3>eog_image_apply_display_profile ()</h3>
+<pre class="programlisting">void                eog_image_apply_display_profile     (<a class="link" href="EogImage.html" title="EogImage">EogImage</a> *img,
+                                                         cmsHPROFILE display_profile);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>img</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>display_profile</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="eog_image_undo ()">
+<a name="eog-image-undo"></a><h3>eog_image_undo ()</h3>
+<pre class="programlisting">void                eog_image_undo                      (<a class="link" href="EogImage.html" title="EogImage">EogImage</a> *img);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>img</code></em> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="eog_image_get_supported_mime_types ()">
+<a name="eog-image-get-supported-mime-types"></a><h3>eog_image_get_supported_mime_types ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#GList"
+>GList</a> *             eog_image_get_supported_mime_types  (void);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="eog_image_is_supported_mime_type ()">
+<a name="eog-image-is-supported-mime-type"></a><h3>eog_image_is_supported_mime_type ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            eog_image_is_supported_mime_type    (const char *mime_type);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>mime_type</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+<div class="refsect1" title="Signal Details">
+<a name="EogImage.signal-details"></a><h2>Signal Details</h2>
+<div class="refsect2" title='The "changed" signal'>
+<a name="EogImage-changed"></a><h3>The <code class="literal">"changed"</code> signal</h3>
+<pre class="programlisting">void                user_function                      (<a class="link" href="EogImage.html" title="EogImage">EogImage</a> *eogimage,
+                                                        <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"
+>gpointer</a>  user_data)      : Run Last</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>eogimage</code></em> :</span></p></td>
+<td>the object which received the signal.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title='The "next-frame" signal'>
+<a name="EogImage-next-frame"></a><h3>The <code class="literal">"next-frame"</code> signal</h3>
+<pre class="programlisting">void                user_function                      (<a class="link" href="EogImage.html" title="EogImage">EogImage</a> *img,
+                                                        <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a>      delay,
+                                                        <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"
+>gpointer</a>  user_data)      : Run Last</pre>
+<p>
+The ::next-frame signal will be emitted each time an animated image
+advances to the next frame.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>img</code></em> :</span></p></td>
+<td> the object which received the signal.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>delay</code></em> :</span></p></td>
+<td> number of milliseconds the current frame will be displayed.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title='The "save-progress" signal'>
+<a name="EogImage-save-progress"></a><h3>The <code class="literal">"save-progress"</code> signal</h3>
+<pre class="programlisting">void                user_function                      (<a class="link" href="EogImage.html" title="EogImage">EogImage</a> *eogimage,
+                                                        <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gfloat"
+>gfloat</a>    arg1,
+                                                        <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"
+>gpointer</a>  user_data)      : Run Last</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>eogimage</code></em> :</span></p></td>
+<td>the object which received the signal.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>arg1</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title='The "size-prepared" signal'>
+<a name="EogImage-size-prepared"></a><h3>The <code class="literal">"size-prepared"</code> signal</h3>
+<pre class="programlisting">void                user_function                      (<a class="link" href="EogImage.html" title="EogImage">EogImage</a> *eogimage,
+                                                        <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a>      arg1,
+                                                        <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a>      arg2,
+                                                        <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"
+>gpointer</a>  user_data)      : Run Last</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>eogimage</code></em> :</span></p></td>
+<td>the object which received the signal.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>arg1</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>arg2</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title='The "thumbnail-changed" signal'>
+<a name="EogImage-thumbnail-changed"></a><h3>The <code class="literal">"thumbnail-changed"</code> signal</h3>
+<pre class="programlisting">void                user_function                      (<a class="link" href="EogImage.html" title="EogImage">EogImage</a> *eogimage,
+                                                        <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"
+>gpointer</a>  user_data)      : Run Last</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>eogimage</code></em> :</span></p></td>
+<td>the object which received the signal.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>user_data</code></em> :</span></p></td>
+<td>user data set when the signal handler was connected.</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.11</div>
+</body>
+</html>

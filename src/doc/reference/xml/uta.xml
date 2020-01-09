@@ -1,0 +1,233 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN"
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="eog-uta">
+<refmeta>
+<refentrytitle role="top_of_page" id="eog-uta.top_of_page">uta</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>EOG Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>uta</refname>
+<refpurpose></refpurpose>
+</refnamediv>
+
+<refsynopsisdiv id="eog-uta.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+<link linkend="EogUta">EogUta</link> *            <link linkend="uta-ensure-size">uta_ensure_size</link>                     (<link linkend="EogUta">EogUta</link> *uta,
+                                                         <link linkend="int">int</link> x1,
+                                                         <link linkend="int">int</link> y1,
+                                                         <link linkend="int">int</link> x2,
+                                                         <link linkend="int">int</link> y2);
+<link linkend="EogUta">EogUta</link> *            <link linkend="uta-add-rect">uta_add_rect</link>                        (<link linkend="EogUta">EogUta</link> *uta,
+                                                         <link linkend="int">int</link> x1,
+                                                         <link linkend="int">int</link> y1,
+                                                         <link linkend="int">int</link> x2,
+                                                         <link linkend="int">int</link> y2);
+<link linkend="void">void</link>                <link linkend="uta-remove-rect">uta_remove_rect</link>                     (<link linkend="EogUta">EogUta</link> *uta,
+                                                         <link linkend="int">int</link> x1,
+                                                         <link linkend="int">int</link> y1,
+                                                         <link linkend="int">int</link> x2,
+                                                         <link linkend="int">int</link> y2);
+<link linkend="void">void</link>                <link linkend="uta-find-first-glom-rect">uta_find_first_glom_rect</link>            (<link linkend="EogUta">EogUta</link> *uta,
+                                                         <link linkend="EogIRect">EogIRect</link> *rect,
+                                                         <link linkend="int">int</link> max_width,
+                                                         <link linkend="int">int</link> max_height);
+<link linkend="void">void</link>                <link linkend="uta-copy-area">uta_copy_area</link>                       (<link linkend="EogUta">EogUta</link> *uta,
+                                                         <link linkend="int">int</link> src_x,
+                                                         <link linkend="int">int</link> src_y,
+                                                         <link linkend="int">int</link> dest_x,
+                                                         <link linkend="int">int</link> dest_y,
+                                                         <link linkend="int">int</link> width,
+                                                         <link linkend="int">int</link> height);
+</synopsis>
+</refsynopsisdiv>
+
+
+
+
+
+
+
+
+
+<refsect1 id="eog-uta.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+</para>
+</refsect1>
+
+<refsect1 id="eog-uta.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="uta-ensure-size" role="function">
+<title>uta_ensure_size ()</title>
+<indexterm zone="uta-ensure-size"><primary sortas="uta_ensure_size">uta_ensure_size</primary></indexterm><programlisting><link linkend="EogUta">EogUta</link> *            uta_ensure_size                     (<link linkend="EogUta">EogUta</link> *uta,
+                                                         <link linkend="int">int</link> x1,
+                                                         <link linkend="int">int</link> y1,
+                                                         <link linkend="int">int</link> x2,
+                                                         <link linkend="int">int</link> y2);</programlisting>
+<para>
+Ensures that the size of a microtile array is big enough to fit the specified
+microtile coordinates.  If it is not big enough, the specified <parameter>uta</parameter> will be
+freed and a new one will be returned.  Otherwise, the original <parameter>uta</parameter> will be
+returned.  If a new microtile array needs to be created, this function will
+copy the <parameter>uta</parameter>'s contents to the new array.
+</para>
+<para>
+Note that the specified coordinates must have already been scaled down by the
+ART_UTILE_SHIFT factor.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>uta</parameter>&#160;:</term>
+<listitem><simpara> A microtile array.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>x1</parameter>&#160;:</term>
+<listitem><simpara> Left microtile coordinate that must fit in new array.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>y1</parameter>&#160;:</term>
+<listitem><simpara> Top microtile coordinate that must fit in new array.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>x2</parameter>&#160;:</term>
+<listitem><simpara> Right microtile coordinate that must fit in new array.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>y2</parameter>&#160;:</term>
+<listitem><simpara> Bottom microtile coordinate that must fit in new array.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> The same value as <parameter>uta</parameter> if the original microtile array was
+big enough to fit the specified microtile coordinates, or a new array if
+it needed to be grown.  In the second case, the original <parameter>uta</parameter> will be
+freed automatically.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="uta-add-rect" role="function">
+<title>uta_add_rect ()</title>
+<indexterm zone="uta-add-rect"><primary sortas="uta_add_rect">uta_add_rect</primary></indexterm><programlisting><link linkend="EogUta">EogUta</link> *            uta_add_rect                        (<link linkend="EogUta">EogUta</link> *uta,
+                                                         <link linkend="int">int</link> x1,
+                                                         <link linkend="int">int</link> y1,
+                                                         <link linkend="int">int</link> x2,
+                                                         <link linkend="int">int</link> y2);</programlisting>
+<para>
+Adds the specified rectangle to a microtile array.  The array is
+grown to fit the rectangle if necessary.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>uta</parameter>&#160;:</term>
+<listitem><simpara> A microtile array, or NULL if a new array should be created.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>x1</parameter>&#160;:</term>
+<listitem><simpara> Left coordinate of rectangle.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>y1</parameter>&#160;:</term>
+<listitem><simpara> Top coordinate of rectangle.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>x2</parameter>&#160;:</term>
+<listitem><simpara> Right coordinate of rectangle.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>y2</parameter>&#160;:</term>
+<listitem><simpara> Bottom coordinate of rectangle.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> The original <parameter>uta</parameter>, or a new microtile array if the original one
+needed to be grown to fit the specified rectangle.  In the second case, the
+original <parameter>uta</parameter> will be freed automatically.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="uta-remove-rect" role="function">
+<title>uta_remove_rect ()</title>
+<indexterm zone="uta-remove-rect"><primary sortas="uta_remove_rect">uta_remove_rect</primary></indexterm><programlisting><link linkend="void">void</link>                uta_remove_rect                     (<link linkend="EogUta">EogUta</link> *uta,
+                                                         <link linkend="int">int</link> x1,
+                                                         <link linkend="int">int</link> y1,
+                                                         <link linkend="int">int</link> x2,
+                                                         <link linkend="int">int</link> y2);</programlisting>
+<para>
+Removes a rectangular region from the specified microtile array.  Due to the
+way microtile arrays represent regions, the tiles at the edge of the
+rectangle may not be clipped exactly.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>uta</parameter>&#160;:</term>
+<listitem><simpara> A microtile array.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>x1</parameter>&#160;:</term>
+<listitem><simpara> Left coordinate of rectangle.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>y1</parameter>&#160;:</term>
+<listitem><simpara> Top coordinate of rectangle.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>x2</parameter>&#160;:</term>
+<listitem><simpara> Right coordinate of rectangle.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>y2</parameter>&#160;:</term>
+<listitem><simpara> Bottom coordinate of rectangle.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="uta-find-first-glom-rect" role="function">
+<title>uta_find_first_glom_rect ()</title>
+<indexterm zone="uta-find-first-glom-rect"><primary sortas="uta_find_first_glom_rect">uta_find_first_glom_rect</primary></indexterm><programlisting><link linkend="void">void</link>                uta_find_first_glom_rect            (<link linkend="EogUta">EogUta</link> *uta,
+                                                         <link linkend="EogIRect">EogIRect</link> *rect,
+                                                         <link linkend="int">int</link> max_width,
+                                                         <link linkend="int">int</link> max_height);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>uta</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>rect</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>max_width</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>max_height</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="uta-copy-area" role="function">
+<title>uta_copy_area ()</title>
+<indexterm zone="uta-copy-area"><primary sortas="uta_copy_area">uta_copy_area</primary></indexterm><programlisting><link linkend="void">void</link>                uta_copy_area                       (<link linkend="EogUta">EogUta</link> *uta,
+                                                         <link linkend="int">int</link> src_x,
+                                                         <link linkend="int">int</link> src_y,
+                                                         <link linkend="int">int</link> dest_x,
+                                                         <link linkend="int">int</link> dest_y,
+                                                         <link linkend="int">int</link> width,
+                                                         <link linkend="int">int</link> height);</programlisting>
+<para>
+Copies a rectangular region within a microtile array.  The array will not be
+expanded if the destination area does not fit within it; rather only the area
+that fits will be copied.  The source rectangle must be completely contained
+within the microtile array.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>uta</parameter>&#160;:</term>
+<listitem><simpara> A microtile array.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>src_x</parameter>&#160;:</term>
+<listitem><simpara> Left coordinate of source rectangle.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>src_y</parameter>&#160;:</term>
+<listitem><simpara> Top coordinate of source rectangle.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>dest_x</parameter>&#160;:</term>
+<listitem><simpara> Left coordinate of destination.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>dest_y</parameter>&#160;:</term>
+<listitem><simpara> Top coordinate of destination.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>width</parameter>&#160;:</term>
+<listitem><simpara> Width of region to copy.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>height</parameter>&#160;:</term>
+<listitem><simpara> Height of region to copy.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

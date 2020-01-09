@@ -1,0 +1,92 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN"
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="eog-eog-pixbuf-util">
+<refmeta>
+<refentrytitle role="top_of_page" id="eog-eog-pixbuf-util.top_of_page">eog-pixbuf-util</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>EOG Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>eog-pixbuf-util</refname>
+<refpurpose></refpurpose>
+</refnamediv>
+
+<refsynopsisdiv id="eog-eog-pixbuf-util.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+<link linkend="GSList">GSList</link>*             <link linkend="eog-pixbuf-get-savable-formats">eog_pixbuf_get_savable_formats</link>      (void);
+<link linkend="GdkPixbufFormat">GdkPixbufFormat</link>*    <link linkend="eog-pixbuf-get-format-by-suffix">eog_pixbuf_get_format_by_suffix</link>     (const <link linkend="char">char</link> *suffix);
+<link linkend="GdkPixbufFormat">GdkPixbufFormat</link>*    <link linkend="eog-pixbuf-get-format">eog_pixbuf_get_format</link>               (<link linkend="GFile">GFile</link> *file);
+<link linkend="char">char</link>*               <link linkend="eog-pixbuf-get-common-suffix">eog_pixbuf_get_common_suffix</link>        (<link linkend="GdkPixbufFormat">GdkPixbufFormat</link> *format);
+</synopsis>
+</refsynopsisdiv>
+
+
+
+
+
+
+
+
+
+<refsect1 id="eog-eog-pixbuf-util.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+</para>
+</refsect1>
+
+<refsect1 id="eog-eog-pixbuf-util.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="eog-pixbuf-get-savable-formats" role="function">
+<title>eog_pixbuf_get_savable_formats ()</title>
+<indexterm zone="eog-pixbuf-get-savable-formats"><primary sortas="eog_pixbuf_get_savable_formats">eog_pixbuf_get_savable_formats</primary></indexterm><programlisting><link linkend="GSList">GSList</link>*             eog_pixbuf_get_savable_formats      (void);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-pixbuf-get-format-by-suffix" role="function">
+<title>eog_pixbuf_get_format_by_suffix ()</title>
+<indexterm zone="eog-pixbuf-get-format-by-suffix"><primary sortas="eog_pixbuf_get_format_by_suffix">eog_pixbuf_get_format_by_suffix</primary></indexterm><programlisting><link linkend="GdkPixbufFormat">GdkPixbufFormat</link>*    eog_pixbuf_get_format_by_suffix     (const <link linkend="char">char</link> *suffix);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>suffix</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-pixbuf-get-format" role="function">
+<title>eog_pixbuf_get_format ()</title>
+<indexterm zone="eog-pixbuf-get-format"><primary sortas="eog_pixbuf_get_format">eog_pixbuf_get_format</primary></indexterm><programlisting><link linkend="GdkPixbufFormat">GdkPixbufFormat</link>*    eog_pixbuf_get_format               (<link linkend="GFile">GFile</link> *file);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>file</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-pixbuf-get-common-suffix" role="function">
+<title>eog_pixbuf_get_common_suffix ()</title>
+<indexterm zone="eog-pixbuf-get-common-suffix"><primary sortas="eog_pixbuf_get_common_suffix">eog_pixbuf_get_common_suffix</primary></indexterm><programlisting><link linkend="char">char</link>*               eog_pixbuf_get_common_suffix        (<link linkend="GdkPixbufFormat">GdkPixbufFormat</link> *format);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>format</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

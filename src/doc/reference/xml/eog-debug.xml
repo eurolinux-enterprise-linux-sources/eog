@@ -1,0 +1,218 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN"
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="eog-eog-debug">
+<refmeta>
+<refentrytitle role="top_of_page" id="eog-eog-debug.top_of_page">eog-debug</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>EOG Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>eog-debug</refname>
+<refpurpose></refpurpose>
+</refnamediv>
+
+<refsynopsisdiv id="eog-eog-debug.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+enum                <link linkend="EogDebugSection">EogDebugSection</link>;
+#define             <link linkend="DEBUG-WINDOW--CAPS">DEBUG_WINDOW</link>
+#define             <link linkend="DEBUG-VIEW--CAPS">DEBUG_VIEW</link>
+#define             <link linkend="DEBUG-JOBS--CAPS">DEBUG_JOBS</link>
+#define             <link linkend="DEBUG-THUMBNAIL--CAPS">DEBUG_THUMBNAIL</link>
+#define             <link linkend="DEBUG-IMAGE-DATA--CAPS">DEBUG_IMAGE_DATA</link>
+#define             <link linkend="DEBUG-IMAGE-LOAD--CAPS">DEBUG_IMAGE_LOAD</link>
+#define             <link linkend="DEBUG-IMAGE-SAVE--CAPS">DEBUG_IMAGE_SAVE</link>
+#define             <link linkend="DEBUG-LIST-STORE--CAPS">DEBUG_LIST_STORE</link>
+#define             <link linkend="DEBUG-PREFERENCES--CAPS">DEBUG_PREFERENCES</link>
+#define             <link linkend="DEBUG-PRINTING--CAPS">DEBUG_PRINTING</link>
+#define             <link linkend="DEBUG-LCMS--CAPS">DEBUG_LCMS</link>
+#define             <link linkend="DEBUG-PLUGINS--CAPS">DEBUG_PLUGINS</link>
+<link linkend="void">void</link>                <link linkend="eog-debug-init">eog_debug_init</link>                      (void);
+<link linkend="void">void</link>                <link linkend="eog-debug">eog_debug</link>                           (<link linkend="EogDebugSection">EogDebugSection</link> section,
+                                                         const <link linkend="gchar">gchar</link> *file,
+                                                         <link linkend="gint">gint</link> line,
+                                                         const <link linkend="gchar">gchar</link> *function);
+<link linkend="void">void</link>                <link linkend="eog-debug-message">eog_debug_message</link>                   (<link linkend="EogDebugSection">EogDebugSection</link> section,
+                                                         const <link linkend="gchar">gchar</link> *file,
+                                                         <link linkend="gint">gint</link> line,
+                                                         const <link linkend="gchar">gchar</link> *function,
+                                                         const <link linkend="gchar">gchar</link> *format,
+                                                         ...);
+</synopsis>
+</refsynopsisdiv>
+
+
+
+
+
+
+
+
+
+<refsect1 id="eog-eog-debug.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+</para>
+</refsect1>
+
+<refsect1 id="eog-eog-debug.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="EogDebugSection" role="enum">
+<title>enum EogDebugSection</title>
+<indexterm zone="EogDebugSection"><primary sortas="EogDebugSection">EogDebugSection</primary></indexterm><programlisting>typedef enum {
+	EOG_NO_DEBUG           = 0,
+	EOG_DEBUG_WINDOW       = 1 &lt;&lt; 0,
+	EOG_DEBUG_VIEW         = 1 &lt;&lt; 1,
+	EOG_DEBUG_JOBS         = 1 &lt;&lt; 2,
+	EOG_DEBUG_THUMBNAIL    = 1 &lt;&lt; 3,
+	EOG_DEBUG_IMAGE_DATA   = 1 &lt;&lt; 4,
+	EOG_DEBUG_IMAGE_LOAD   = 1 &lt;&lt; 5,
+	EOG_DEBUG_IMAGE_SAVE   = 1 &lt;&lt; 6,
+	EOG_DEBUG_LIST_STORE   = 1 &lt;&lt; 7,
+	EOG_DEBUG_PREFERENCES  = 1 &lt;&lt; 8,
+	EOG_DEBUG_PRINTING     = 1 &lt;&lt; 9,
+	EOG_DEBUG_LCMS         = 1 &lt;&lt; 10,
+	EOG_DEBUG_PLUGINS      = 1 &lt;&lt; 11
+} EogDebugSection;
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="DEBUG-WINDOW--CAPS" role="macro">
+<title>DEBUG_WINDOW</title>
+<indexterm zone="DEBUG-WINDOW--CAPS"><primary sortas="DEBUG_WINDOW">DEBUG_WINDOW</primary></indexterm><programlisting>#define	DEBUG_WINDOW		EOG_DEBUG_WINDOW,      __FILE__, __LINE__, G_STRFUNC
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="DEBUG-VIEW--CAPS" role="macro">
+<title>DEBUG_VIEW</title>
+<indexterm zone="DEBUG-VIEW--CAPS"><primary sortas="DEBUG_VIEW">DEBUG_VIEW</primary></indexterm><programlisting>#define	DEBUG_VIEW		EOG_DEBUG_VIEW,        __FILE__, __LINE__, G_STRFUNC
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="DEBUG-JOBS--CAPS" role="macro">
+<title>DEBUG_JOBS</title>
+<indexterm zone="DEBUG-JOBS--CAPS"><primary sortas="DEBUG_JOBS">DEBUG_JOBS</primary></indexterm><programlisting>#define	DEBUG_JOBS		EOG_DEBUG_JOBS,        __FILE__, __LINE__, G_STRFUNC
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="DEBUG-THUMBNAIL--CAPS" role="macro">
+<title>DEBUG_THUMBNAIL</title>
+<indexterm zone="DEBUG-THUMBNAIL--CAPS"><primary sortas="DEBUG_THUMBNAIL">DEBUG_THUMBNAIL</primary></indexterm><programlisting>#define	DEBUG_THUMBNAIL		EOG_DEBUG_THUMBNAIL,   __FILE__, __LINE__, G_STRFUNC
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="DEBUG-IMAGE-DATA--CAPS" role="macro">
+<title>DEBUG_IMAGE_DATA</title>
+<indexterm zone="DEBUG-IMAGE-DATA--CAPS"><primary sortas="DEBUG_IMAGE_DATA">DEBUG_IMAGE_DATA</primary></indexterm><programlisting>#define	DEBUG_IMAGE_DATA	EOG_DEBUG_IMAGE_DATA,  __FILE__, __LINE__, G_STRFUNC
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="DEBUG-IMAGE-LOAD--CAPS" role="macro">
+<title>DEBUG_IMAGE_LOAD</title>
+<indexterm zone="DEBUG-IMAGE-LOAD--CAPS"><primary sortas="DEBUG_IMAGE_LOAD">DEBUG_IMAGE_LOAD</primary></indexterm><programlisting>#define	DEBUG_IMAGE_LOAD	EOG_DEBUG_IMAGE_LOAD,  __FILE__, __LINE__, G_STRFUNC
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="DEBUG-IMAGE-SAVE--CAPS" role="macro">
+<title>DEBUG_IMAGE_SAVE</title>
+<indexterm zone="DEBUG-IMAGE-SAVE--CAPS"><primary sortas="DEBUG_IMAGE_SAVE">DEBUG_IMAGE_SAVE</primary></indexterm><programlisting>#define	DEBUG_IMAGE_SAVE	EOG_DEBUG_IMAGE_SAVE,  __FILE__, __LINE__, G_STRFUNC
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="DEBUG-LIST-STORE--CAPS" role="macro">
+<title>DEBUG_LIST_STORE</title>
+<indexterm zone="DEBUG-LIST-STORE--CAPS"><primary sortas="DEBUG_LIST_STORE">DEBUG_LIST_STORE</primary></indexterm><programlisting>#define	DEBUG_LIST_STORE	EOG_DEBUG_LIST_STORE,  __FILE__, __LINE__, G_STRFUNC
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="DEBUG-PREFERENCES--CAPS" role="macro">
+<title>DEBUG_PREFERENCES</title>
+<indexterm zone="DEBUG-PREFERENCES--CAPS"><primary sortas="DEBUG_PREFERENCES">DEBUG_PREFERENCES</primary></indexterm><programlisting>#define	DEBUG_PREFERENCES	EOG_DEBUG_PREFERENCES, __FILE__, __LINE__, G_STRFUNC
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="DEBUG-PRINTING--CAPS" role="macro">
+<title>DEBUG_PRINTING</title>
+<indexterm zone="DEBUG-PRINTING--CAPS"><primary sortas="DEBUG_PRINTING">DEBUG_PRINTING</primary></indexterm><programlisting>#define	DEBUG_PRINTING		EOG_DEBUG_PRINTING,    __FILE__, __LINE__, G_STRFUNC
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="DEBUG-LCMS--CAPS" role="macro">
+<title>DEBUG_LCMS</title>
+<indexterm zone="DEBUG-LCMS--CAPS"><primary sortas="DEBUG_LCMS">DEBUG_LCMS</primary></indexterm><programlisting>#define	DEBUG_LCMS 		EOG_DEBUG_LCMS,        __FILE__, __LINE__, G_STRFUNC
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="DEBUG-PLUGINS--CAPS" role="macro">
+<title>DEBUG_PLUGINS</title>
+<indexterm zone="DEBUG-PLUGINS--CAPS"><primary sortas="DEBUG_PLUGINS">DEBUG_PLUGINS</primary></indexterm><programlisting>#define	DEBUG_PLUGINS 		EOG_DEBUG_PLUGINS,     __FILE__, __LINE__, G_STRFUNC
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="eog-debug-init" role="function">
+<title>eog_debug_init ()</title>
+<indexterm zone="eog-debug-init"><primary sortas="eog_debug_init">eog_debug_init</primary></indexterm><programlisting><link linkend="void">void</link>                eog_debug_init                      (void);</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="eog-debug" role="function">
+<title>eog_debug ()</title>
+<indexterm zone="eog-debug"><primary sortas="eog_debug">eog_debug</primary></indexterm><programlisting><link linkend="void">void</link>                eog_debug                           (<link linkend="EogDebugSection">EogDebugSection</link> section,
+                                                         const <link linkend="gchar">gchar</link> *file,
+                                                         <link linkend="gint">gint</link> line,
+                                                         const <link linkend="gchar">gchar</link> *function);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>section</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>file</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>line</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>function</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-debug-message" role="function">
+<title>eog_debug_message ()</title>
+<indexterm zone="eog-debug-message"><primary sortas="eog_debug_message">eog_debug_message</primary></indexterm><programlisting><link linkend="void">void</link>                eog_debug_message                   (<link linkend="EogDebugSection">EogDebugSection</link> section,
+                                                         const <link linkend="gchar">gchar</link> *file,
+                                                         <link linkend="gint">gint</link> line,
+                                                         const <link linkend="gchar">gchar</link> *function,
+                                                         const <link linkend="gchar">gchar</link> *format,
+                                                         ...);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>section</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>file</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>line</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>function</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>format</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>...</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

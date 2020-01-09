@@ -1,0 +1,617 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN"
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="EogImage">
+<refmeta>
+<refentrytitle role="top_of_page" id="EogImage.top_of_page">EogImage</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>EOG Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>EogImage</refname>
+<refpurpose></refpurpose>
+</refnamediv>
+
+<refsynopsisdiv id="EogImage.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+enum                <link linkend="EogImageData">EogImageData</link>;
+#define             <link linkend="EOG-IMAGE-DATA-ALL--CAPS">EOG_IMAGE_DATA_ALL</link>
+enum                <link linkend="EogImageError">EogImageError</link>;
+#define             <link linkend="EOG-IMAGE-ERROR--CAPS">EOG_IMAGE_ERROR</link>
+enum                <link linkend="EogImageStatus">EogImageStatus</link>;
+                    <link linkend="EogImage-struct">EogImage</link>;
+<link linkend="GQuark">GQuark</link>              <link linkend="eog-image-error-quark">eog_image_error_quark</link>               (void);
+<link linkend="EogImage">EogImage</link> *          <link linkend="eog-image-new">eog_image_new</link>                       (const <link linkend="char">char</link> *txt_uri);
+<link linkend="EogImage">EogImage</link> *          <link linkend="eog-image-new-file">eog_image_new_file</link>                  (<link linkend="GFile">GFile</link> *file);
+<link linkend="gboolean">gboolean</link>            <link linkend="eog-image-load">eog_image_load</link>                      (<link linkend="EogImage">EogImage</link> *img,
+                                                         <link linkend="EogImageData">EogImageData</link> data2read,
+                                                         <link linkend="EogJob">EogJob</link> *job,
+                                                         <link linkend="GError">GError</link> **error);
+<link linkend="void">void</link>                <link linkend="eog-image-cancel-load">eog_image_cancel_load</link>               (<link linkend="EogImage">EogImage</link> *img);
+<link linkend="gboolean">gboolean</link>            <link linkend="eog-image-has-data">eog_image_has_data</link>                  (<link linkend="EogImage">EogImage</link> *img,
+                                                         <link linkend="EogImageData">EogImageData</link> data);
+<link linkend="void">void</link>                <link linkend="eog-image-data-ref">eog_image_data_ref</link>                  (<link linkend="EogImage">EogImage</link> *img);
+<link linkend="void">void</link>                <link linkend="eog-image-data-unref">eog_image_data_unref</link>                (<link linkend="EogImage">EogImage</link> *img);
+<link linkend="void">void</link>                <link linkend="eog-image-set-thumbnail">eog_image_set_thumbnail</link>             (<link linkend="EogImage">EogImage</link> *img,
+                                                         <link linkend="GdkPixbuf">GdkPixbuf</link> *pixbuf);
+<link linkend="gboolean">gboolean</link>            <link linkend="eog-image-save-as-by-info">eog_image_save_as_by_info</link>           (<link linkend="EogImage">EogImage</link> *img,
+                                                         <link linkend="EogImageSaveInfo">EogImageSaveInfo</link> *source,
+                                                         <link linkend="EogImageSaveInfo">EogImageSaveInfo</link> *target,
+                                                         <link linkend="GError">GError</link> **error);
+<link linkend="gboolean">gboolean</link>            <link linkend="eog-image-save-by-info">eog_image_save_by_info</link>              (<link linkend="EogImage">EogImage</link> *img,
+                                                         <link linkend="EogImageSaveInfo">EogImageSaveInfo</link> *source,
+                                                         <link linkend="GError">GError</link> **error);
+<link linkend="GdkPixbuf">GdkPixbuf</link>*          <link linkend="eog-image-get-pixbuf">eog_image_get_pixbuf</link>                (<link linkend="EogImage">EogImage</link> *img);
+<link linkend="GdkPixbuf">GdkPixbuf</link>*          <link linkend="eog-image-get-thumbnail">eog_image_get_thumbnail</link>             (<link linkend="EogImage">EogImage</link> *img);
+<link linkend="void">void</link>                <link linkend="eog-image-get-size">eog_image_get_size</link>                  (<link linkend="EogImage">EogImage</link> *img,
+                                                         <link linkend="gint">gint</link> *width,
+                                                         <link linkend="gint">gint</link> *height);
+<link linkend="goffset">goffset</link>             <link linkend="eog-image-get-bytes">eog_image_get_bytes</link>                 (<link linkend="EogImage">EogImage</link> *img);
+<link linkend="gboolean">gboolean</link>            <link linkend="eog-image-is-modified">eog_image_is_modified</link>               (<link linkend="EogImage">EogImage</link> *img);
+<link linkend="void">void</link>                <link linkend="eog-image-modified">eog_image_modified</link>                  (<link linkend="EogImage">EogImage</link> *img);
+const <link linkend="gchar">gchar</link>*        <link linkend="eog-image-get-caption">eog_image_get_caption</link>               (<link linkend="EogImage">EogImage</link> *img);
+const <link linkend="gchar">gchar</link> *       <link linkend="eog-image-get-collate-key">eog_image_get_collate_key</link>           (<link linkend="EogImage">EogImage</link> *img);
+<link linkend="gpointer">gpointer</link>            <link linkend="eog-image-get-exif-info">eog_image_get_exif_info</link>             (<link linkend="EogImage">EogImage</link> *img);
+<link linkend="gpointer">gpointer</link>            <link linkend="eog-image-get-xmp-info">eog_image_get_xmp_info</link>              (<link linkend="EogImage">EogImage</link> *img);
+<link linkend="GFile">GFile</link>*              <link linkend="eog-image-get-file">eog_image_get_file</link>                  (<link linkend="EogImage">EogImage</link> *img);
+<link linkend="gchar">gchar</link>*              <link linkend="eog-image-get-uri-for-display">eog_image_get_uri_for_display</link>       (<link linkend="EogImage">EogImage</link> *img);
+<link linkend="EogImageStatus">EogImageStatus</link>      <link linkend="eog-image-get-status">eog_image_get_status</link>                (<link linkend="EogImage">EogImage</link> *img);
+<link linkend="void">void</link>                <link linkend="eog-image-transform">eog_image_transform</link>                 (<link linkend="EogImage">EogImage</link> *img,
+                                                         <link linkend="EogTransform">EogTransform</link> *trans,
+                                                         <link linkend="EogJob">EogJob</link> *job);
+<link linkend="void">void</link>                <link linkend="eog-image-autorotate">eog_image_autorotate</link>                (<link linkend="EogImage">EogImage</link> *img);
+<link linkend="cmsHPROFILE">cmsHPROFILE</link>         <link linkend="eog-image-get-profile">eog_image_get_profile</link>               (<link linkend="EogImage">EogImage</link> *img);
+<link linkend="void">void</link>                <link linkend="eog-image-apply-display-profile">eog_image_apply_display_profile</link>     (<link linkend="EogImage">EogImage</link> *img,
+                                                         <link linkend="cmsHPROFILE">cmsHPROFILE</link> display_profile);
+<link linkend="void">void</link>                <link linkend="eog-image-undo">eog_image_undo</link>                      (<link linkend="EogImage">EogImage</link> *img);
+<link linkend="GList">GList</link> *             <link linkend="eog-image-get-supported-mime-types">eog_image_get_supported_mime_types</link>  (void);
+<link linkend="gboolean">gboolean</link>            <link linkend="eog-image-is-supported-mime-type">eog_image_is_supported_mime_type</link>    (const <link linkend="char">char</link> *mime_type);
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 id="EogImage.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<synopsis>
+  <link linkend="GObject">GObject</link>
+   +----EogImage
+</synopsis>
+</refsect1>
+
+
+
+
+
+
+<refsect1 id="EogImage.signals" role="signal_proto">
+<title role="signal_proto.title">Signals</title>
+<synopsis>
+  &quot;<link linkend="EogImage-changed">changed</link>&quot;                                        : Run Last
+  &quot;<link linkend="EogImage-next-frame">next-frame</link>&quot;                                     : Run Last
+  &quot;<link linkend="EogImage-save-progress">save-progress</link>&quot;                                  : Run Last
+  &quot;<link linkend="EogImage-size-prepared">size-prepared</link>&quot;                                  : Run Last
+  &quot;<link linkend="EogImage-thumbnail-changed">thumbnail-changed</link>&quot;                              : Run Last
+</synopsis>
+</refsect1>
+
+
+<refsect1 id="EogImage.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+</para>
+</refsect1>
+
+<refsect1 id="EogImage.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="EogImageData" role="enum">
+<title>enum EogImageData</title>
+<indexterm zone="EogImageData"><primary sortas="EogImageData">EogImageData</primary></indexterm><programlisting>typedef enum {
+	EOG_IMAGE_DATA_IMAGE     = 1 &lt;&lt; 0,
+	EOG_IMAGE_DATA_DIMENSION = 1 &lt;&lt; 1,
+	EOG_IMAGE_DATA_EXIF      = 1 &lt;&lt; 2,
+	EOG_IMAGE_DATA_XMP       = 1 &lt;&lt; 3
+} EogImageData;
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="EOG-IMAGE-DATA-ALL--CAPS" role="macro">
+<title>EOG_IMAGE_DATA_ALL</title>
+<indexterm zone="EOG-IMAGE-DATA-ALL--CAPS"><primary sortas="EOG_IMAGE_DATA_ALL">EOG_IMAGE_DATA_ALL</primary></indexterm><programlisting>#define             EOG_IMAGE_DATA_ALL</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="EogImageError" role="enum">
+<title>enum EogImageError</title>
+<indexterm zone="EogImageError"><primary sortas="EogImageError">EogImageError</primary></indexterm><programlisting>typedef enum {
+	EOG_IMAGE_ERROR_SAVE_NOT_LOCAL,
+	EOG_IMAGE_ERROR_NOT_LOADED,
+	EOG_IMAGE_ERROR_VFS,
+	EOG_IMAGE_ERROR_FILE_EXISTS,
+	EOG_IMAGE_ERROR_TMP_FILE_FAILED,
+	EOG_IMAGE_ERROR_GENERIC,
+	EOG_IMAGE_ERROR_UNKNOWN
+} EogImageError;
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="EOG-IMAGE-ERROR--CAPS" role="macro">
+<title>EOG_IMAGE_ERROR</title>
+<indexterm zone="EOG-IMAGE-ERROR--CAPS"><primary sortas="EOG_IMAGE_ERROR">EOG_IMAGE_ERROR</primary></indexterm><programlisting>#define EOG_IMAGE_ERROR eog_image_error_quark ()
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="EogImageStatus" role="enum">
+<title>enum EogImageStatus</title>
+<indexterm zone="EogImageStatus"><primary sortas="EogImageStatus">EogImageStatus</primary></indexterm><programlisting>typedef enum {
+	EOG_IMAGE_STATUS_UNKNOWN,
+	EOG_IMAGE_STATUS_LOADING,
+	EOG_IMAGE_STATUS_LOADED,
+	EOG_IMAGE_STATUS_SAVING,
+	EOG_IMAGE_STATUS_FAILED
+} EogImageStatus;
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="EogImage-struct" role="struct">
+<title>EogImage</title>
+<indexterm zone="EogImage-struct"><primary sortas="EogImage">EogImage</primary></indexterm><programlisting>typedef struct _EogImage EogImage;</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="eog-image-error-quark" role="function">
+<title>eog_image_error_quark ()</title>
+<indexterm zone="eog-image-error-quark"><primary sortas="eog_image_error_quark">eog_image_error_quark</primary></indexterm><programlisting><link linkend="GQuark">GQuark</link>              eog_image_error_quark               (void);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-image-new" role="function">
+<title>eog_image_new ()</title>
+<indexterm zone="eog-image-new"><primary sortas="eog_image_new">eog_image_new</primary></indexterm><programlisting><link linkend="EogImage">EogImage</link> *          eog_image_new                       (const <link linkend="char">char</link> *txt_uri);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>txt_uri</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-image-new-file" role="function">
+<title>eog_image_new_file ()</title>
+<indexterm zone="eog-image-new-file"><primary sortas="eog_image_new_file">eog_image_new_file</primary></indexterm><programlisting><link linkend="EogImage">EogImage</link> *          eog_image_new_file                  (<link linkend="GFile">GFile</link> *file);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>file</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-image-load" role="function">
+<title>eog_image_load ()</title>
+<indexterm zone="eog-image-load"><primary sortas="eog_image_load">eog_image_load</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            eog_image_load                      (<link linkend="EogImage">EogImage</link> *img,
+                                                         <link linkend="EogImageData">EogImageData</link> data2read,
+                                                         <link linkend="EogJob">EogJob</link> *job,
+                                                         <link linkend="GError">GError</link> **error);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>img</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>data2read</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>job</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>error</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-image-cancel-load" role="function">
+<title>eog_image_cancel_load ()</title>
+<indexterm zone="eog-image-cancel-load"><primary sortas="eog_image_cancel_load">eog_image_cancel_load</primary></indexterm><programlisting><link linkend="void">void</link>                eog_image_cancel_load               (<link linkend="EogImage">EogImage</link> *img);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>img</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-image-has-data" role="function">
+<title>eog_image_has_data ()</title>
+<indexterm zone="eog-image-has-data"><primary sortas="eog_image_has_data">eog_image_has_data</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            eog_image_has_data                  (<link linkend="EogImage">EogImage</link> *img,
+                                                         <link linkend="EogImageData">EogImageData</link> data);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>img</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>data</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-image-data-ref" role="function">
+<title>eog_image_data_ref ()</title>
+<indexterm zone="eog-image-data-ref"><primary sortas="eog_image_data_ref">eog_image_data_ref</primary></indexterm><programlisting><link linkend="void">void</link>                eog_image_data_ref                  (<link linkend="EogImage">EogImage</link> *img);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>img</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-image-data-unref" role="function">
+<title>eog_image_data_unref ()</title>
+<indexterm zone="eog-image-data-unref"><primary sortas="eog_image_data_unref">eog_image_data_unref</primary></indexterm><programlisting><link linkend="void">void</link>                eog_image_data_unref                (<link linkend="EogImage">EogImage</link> *img);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>img</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-image-set-thumbnail" role="function">
+<title>eog_image_set_thumbnail ()</title>
+<indexterm zone="eog-image-set-thumbnail"><primary sortas="eog_image_set_thumbnail">eog_image_set_thumbnail</primary></indexterm><programlisting><link linkend="void">void</link>                eog_image_set_thumbnail             (<link linkend="EogImage">EogImage</link> *img,
+                                                         <link linkend="GdkPixbuf">GdkPixbuf</link> *pixbuf);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>img</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>pixbuf</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-image-save-as-by-info" role="function">
+<title>eog_image_save_as_by_info ()</title>
+<indexterm zone="eog-image-save-as-by-info"><primary sortas="eog_image_save_as_by_info">eog_image_save_as_by_info</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            eog_image_save_as_by_info           (<link linkend="EogImage">EogImage</link> *img,
+                                                         <link linkend="EogImageSaveInfo">EogImageSaveInfo</link> *source,
+                                                         <link linkend="EogImageSaveInfo">EogImageSaveInfo</link> *target,
+                                                         <link linkend="GError">GError</link> **error);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>img</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>source</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>target</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>error</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-image-save-by-info" role="function">
+<title>eog_image_save_by_info ()</title>
+<indexterm zone="eog-image-save-by-info"><primary sortas="eog_image_save_by_info">eog_image_save_by_info</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            eog_image_save_by_info              (<link linkend="EogImage">EogImage</link> *img,
+                                                         <link linkend="EogImageSaveInfo">EogImageSaveInfo</link> *source,
+                                                         <link linkend="GError">GError</link> **error);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>img</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>source</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>error</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-image-get-pixbuf" role="function">
+<title>eog_image_get_pixbuf ()</title>
+<indexterm zone="eog-image-get-pixbuf"><primary sortas="eog_image_get_pixbuf">eog_image_get_pixbuf</primary></indexterm><programlisting><link linkend="GdkPixbuf">GdkPixbuf</link>*          eog_image_get_pixbuf                (<link linkend="EogImage">EogImage</link> *img);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>img</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-image-get-thumbnail" role="function">
+<title>eog_image_get_thumbnail ()</title>
+<indexterm zone="eog-image-get-thumbnail"><primary sortas="eog_image_get_thumbnail">eog_image_get_thumbnail</primary></indexterm><programlisting><link linkend="GdkPixbuf">GdkPixbuf</link>*          eog_image_get_thumbnail             (<link linkend="EogImage">EogImage</link> *img);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>img</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-image-get-size" role="function">
+<title>eog_image_get_size ()</title>
+<indexterm zone="eog-image-get-size"><primary sortas="eog_image_get_size">eog_image_get_size</primary></indexterm><programlisting><link linkend="void">void</link>                eog_image_get_size                  (<link linkend="EogImage">EogImage</link> *img,
+                                                         <link linkend="gint">gint</link> *width,
+                                                         <link linkend="gint">gint</link> *height);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>img</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>width</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>height</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-image-get-bytes" role="function">
+<title>eog_image_get_bytes ()</title>
+<indexterm zone="eog-image-get-bytes"><primary sortas="eog_image_get_bytes">eog_image_get_bytes</primary></indexterm><programlisting><link linkend="goffset">goffset</link>             eog_image_get_bytes                 (<link linkend="EogImage">EogImage</link> *img);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>img</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-image-is-modified" role="function">
+<title>eog_image_is_modified ()</title>
+<indexterm zone="eog-image-is-modified"><primary sortas="eog_image_is_modified">eog_image_is_modified</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            eog_image_is_modified               (<link linkend="EogImage">EogImage</link> *img);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>img</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-image-modified" role="function">
+<title>eog_image_modified ()</title>
+<indexterm zone="eog-image-modified"><primary sortas="eog_image_modified">eog_image_modified</primary></indexterm><programlisting><link linkend="void">void</link>                eog_image_modified                  (<link linkend="EogImage">EogImage</link> *img);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>img</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-image-get-caption" role="function">
+<title>eog_image_get_caption ()</title>
+<indexterm zone="eog-image-get-caption"><primary sortas="eog_image_get_caption">eog_image_get_caption</primary></indexterm><programlisting>const <link linkend="gchar">gchar</link>*        eog_image_get_caption               (<link linkend="EogImage">EogImage</link> *img);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>img</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-image-get-collate-key" role="function">
+<title>eog_image_get_collate_key ()</title>
+<indexterm zone="eog-image-get-collate-key"><primary sortas="eog_image_get_collate_key">eog_image_get_collate_key</primary></indexterm><programlisting>const <link linkend="gchar">gchar</link> *       eog_image_get_collate_key           (<link linkend="EogImage">EogImage</link> *img);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>img</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-image-get-exif-info" role="function">
+<title>eog_image_get_exif_info ()</title>
+<indexterm zone="eog-image-get-exif-info"><primary sortas="eog_image_get_exif_info">eog_image_get_exif_info</primary></indexterm><programlisting><link linkend="gpointer">gpointer</link>            eog_image_get_exif_info             (<link linkend="EogImage">EogImage</link> *img);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>img</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-image-get-xmp-info" role="function">
+<title>eog_image_get_xmp_info ()</title>
+<indexterm zone="eog-image-get-xmp-info"><primary sortas="eog_image_get_xmp_info">eog_image_get_xmp_info</primary></indexterm><programlisting><link linkend="gpointer">gpointer</link>            eog_image_get_xmp_info              (<link linkend="EogImage">EogImage</link> *img);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>img</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-image-get-file" role="function">
+<title>eog_image_get_file ()</title>
+<indexterm zone="eog-image-get-file"><primary sortas="eog_image_get_file">eog_image_get_file</primary></indexterm><programlisting><link linkend="GFile">GFile</link>*              eog_image_get_file                  (<link linkend="EogImage">EogImage</link> *img);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>img</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-image-get-uri-for-display" role="function">
+<title>eog_image_get_uri_for_display ()</title>
+<indexterm zone="eog-image-get-uri-for-display"><primary sortas="eog_image_get_uri_for_display">eog_image_get_uri_for_display</primary></indexterm><programlisting><link linkend="gchar">gchar</link>*              eog_image_get_uri_for_display       (<link linkend="EogImage">EogImage</link> *img);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>img</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-image-get-status" role="function">
+<title>eog_image_get_status ()</title>
+<indexterm zone="eog-image-get-status"><primary sortas="eog_image_get_status">eog_image_get_status</primary></indexterm><programlisting><link linkend="EogImageStatus">EogImageStatus</link>      eog_image_get_status                (<link linkend="EogImage">EogImage</link> *img);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>img</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-image-transform" role="function">
+<title>eog_image_transform ()</title>
+<indexterm zone="eog-image-transform"><primary sortas="eog_image_transform">eog_image_transform</primary></indexterm><programlisting><link linkend="void">void</link>                eog_image_transform                 (<link linkend="EogImage">EogImage</link> *img,
+                                                         <link linkend="EogTransform">EogTransform</link> *trans,
+                                                         <link linkend="EogJob">EogJob</link> *job);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>img</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>trans</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>job</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-image-autorotate" role="function">
+<title>eog_image_autorotate ()</title>
+<indexterm zone="eog-image-autorotate"><primary sortas="eog_image_autorotate">eog_image_autorotate</primary></indexterm><programlisting><link linkend="void">void</link>                eog_image_autorotate                (<link linkend="EogImage">EogImage</link> *img);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>img</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-image-get-profile" role="function">
+<title>eog_image_get_profile ()</title>
+<indexterm zone="eog-image-get-profile"><primary sortas="eog_image_get_profile">eog_image_get_profile</primary></indexterm><programlisting><link linkend="cmsHPROFILE">cmsHPROFILE</link>         eog_image_get_profile               (<link linkend="EogImage">EogImage</link> *img);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>img</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-image-apply-display-profile" role="function">
+<title>eog_image_apply_display_profile ()</title>
+<indexterm zone="eog-image-apply-display-profile"><primary sortas="eog_image_apply_display_profile">eog_image_apply_display_profile</primary></indexterm><programlisting><link linkend="void">void</link>                eog_image_apply_display_profile     (<link linkend="EogImage">EogImage</link> *img,
+                                                         <link linkend="cmsHPROFILE">cmsHPROFILE</link> display_profile);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>img</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>display_profile</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-image-undo" role="function">
+<title>eog_image_undo ()</title>
+<indexterm zone="eog-image-undo"><primary sortas="eog_image_undo">eog_image_undo</primary></indexterm><programlisting><link linkend="void">void</link>                eog_image_undo                      (<link linkend="EogImage">EogImage</link> *img);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>img</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-image-get-supported-mime-types" role="function">
+<title>eog_image_get_supported_mime_types ()</title>
+<indexterm zone="eog-image-get-supported-mime-types"><primary sortas="eog_image_get_supported_mime_types">eog_image_get_supported_mime_types</primary></indexterm><programlisting><link linkend="GList">GList</link> *             eog_image_get_supported_mime_types  (void);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-image-is-supported-mime-type" role="function">
+<title>eog_image_is_supported_mime_type ()</title>
+<indexterm zone="eog-image-is-supported-mime-type"><primary sortas="eog_image_is_supported_mime_type">eog_image_is_supported_mime_type</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            eog_image_is_supported_mime_type    (const <link linkend="char">char</link> *mime_type);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>mime_type</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+<refsect1 id="EogImage.signal-details" role="signals">
+<title role="signals.title">Signal Details</title>
+<refsect2 id="EogImage-changed" role="signal"><title>The <literal>&quot;changed&quot;</literal> signal</title>
+<indexterm zone="EogImage-changed"><primary sortas="EogImage::changed">EogImage::changed</primary></indexterm><programlisting><link linkend="void">void</link>                user_function                      (<link linkend="EogImage">EogImage</link> *eogimage,
+                                                        <link linkend="gpointer">gpointer</link>  user_data)      : Run Last</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>eogimage</parameter>&#160;:</term>
+<listitem><simpara>the object which received the signal.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&#160;:</term>
+<listitem><simpara>user data set when the signal handler was connected.</simpara></listitem></varlistentry>
+</variablelist></refsect2><refsect2 id="EogImage-next-frame" role="signal"><title>The <literal>&quot;next-frame&quot;</literal> signal</title>
+<indexterm zone="EogImage-next-frame"><primary sortas="EogImage::next-frame">EogImage::next-frame</primary></indexterm><programlisting><link linkend="void">void</link>                user_function                      (<link linkend="EogImage">EogImage</link> *img,
+                                                        <link linkend="gint">gint</link>      delay,
+                                                        <link linkend="gpointer">gpointer</link>  user_data)      : Run Last</programlisting>
+<para>
+The ::next-frame signal will be emitted each time an animated image
+advances to the next frame.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>img</parameter>&#160;:</term>
+<listitem><simpara> the object which received the signal.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>delay</parameter>&#160;:</term>
+<listitem><simpara> number of milliseconds the current frame will be displayed.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&#160;:</term>
+<listitem><simpara>user data set when the signal handler was connected.</simpara></listitem></varlistentry>
+</variablelist></refsect2><refsect2 id="EogImage-save-progress" role="signal"><title>The <literal>&quot;save-progress&quot;</literal> signal</title>
+<indexterm zone="EogImage-save-progress"><primary sortas="EogImage::save-progress">EogImage::save-progress</primary></indexterm><programlisting><link linkend="void">void</link>                user_function                      (<link linkend="EogImage">EogImage</link> *eogimage,
+                                                        <link linkend="gfloat">gfloat</link>    arg1,
+                                                        <link linkend="gpointer">gpointer</link>  user_data)      : Run Last</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>eogimage</parameter>&#160;:</term>
+<listitem><simpara>the object which received the signal.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>arg1</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&#160;:</term>
+<listitem><simpara>user data set when the signal handler was connected.</simpara></listitem></varlistentry>
+</variablelist></refsect2><refsect2 id="EogImage-size-prepared" role="signal"><title>The <literal>&quot;size-prepared&quot;</literal> signal</title>
+<indexterm zone="EogImage-size-prepared"><primary sortas="EogImage::size-prepared">EogImage::size-prepared</primary></indexterm><programlisting><link linkend="void">void</link>                user_function                      (<link linkend="EogImage">EogImage</link> *eogimage,
+                                                        <link linkend="gint">gint</link>      arg1,
+                                                        <link linkend="gint">gint</link>      arg2,
+                                                        <link linkend="gpointer">gpointer</link>  user_data)      : Run Last</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>eogimage</parameter>&#160;:</term>
+<listitem><simpara>the object which received the signal.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>arg1</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>arg2</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&#160;:</term>
+<listitem><simpara>user data set when the signal handler was connected.</simpara></listitem></varlistentry>
+</variablelist></refsect2><refsect2 id="EogImage-thumbnail-changed" role="signal"><title>The <literal>&quot;thumbnail-changed&quot;</literal> signal</title>
+<indexterm zone="EogImage-thumbnail-changed"><primary sortas="EogImage::thumbnail-changed">EogImage::thumbnail-changed</primary></indexterm><programlisting><link linkend="void">void</link>                user_function                      (<link linkend="EogImage">EogImage</link> *eogimage,
+                                                        <link linkend="gpointer">gpointer</link>  user_data)      : Run Last</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>eogimage</parameter>&#160;:</term>
+<listitem><simpara>the object which received the signal.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&#160;:</term>
+<listitem><simpara>user data set when the signal handler was connected.</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+</refsect1>
+
+
+
+</refentry>

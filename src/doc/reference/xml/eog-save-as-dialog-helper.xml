@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN"
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="eog-eog-save-as-dialog-helper">
+<refmeta>
+<refentrytitle role="top_of_page" id="eog-eog-save-as-dialog-helper.top_of_page">eog-save-as-dialog-helper</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>EOG Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>eog-save-as-dialog-helper</refname>
+<refpurpose></refpurpose>
+</refnamediv>
+
+<refsynopsisdiv id="eog-eog-save-as-dialog-helper.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+<link linkend="GtkWidget">GtkWidget</link>*          <link linkend="eog-save-as-dialog-new">eog_save_as_dialog_new</link>              (<link linkend="GtkWindow">GtkWindow</link> *main,
+                                                         <link linkend="GList">GList</link> *images,
+                                                         <link linkend="GFile">GFile</link> *base_file);
+<link linkend="EogURIConverter">EogURIConverter</link>*    <link linkend="eog-save-as-dialog-get-converter">eog_save_as_dialog_get_converter</link>    (<link linkend="GtkWidget">GtkWidget</link> *dlg);
+</synopsis>
+</refsynopsisdiv>
+
+
+
+
+
+
+
+
+
+<refsect1 id="eog-eog-save-as-dialog-helper.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+</para>
+</refsect1>
+
+<refsect1 id="eog-eog-save-as-dialog-helper.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="eog-save-as-dialog-new" role="function">
+<title>eog_save_as_dialog_new ()</title>
+<indexterm zone="eog-save-as-dialog-new"><primary sortas="eog_save_as_dialog_new">eog_save_as_dialog_new</primary></indexterm><programlisting><link linkend="GtkWidget">GtkWidget</link>*          eog_save_as_dialog_new              (<link linkend="GtkWindow">GtkWindow</link> *main,
+                                                         <link linkend="GList">GList</link> *images,
+                                                         <link linkend="GFile">GFile</link> *base_file);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>main</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>images</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>base_file</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-save-as-dialog-get-converter" role="function">
+<title>eog_save_as_dialog_get_converter ()</title>
+<indexterm zone="eog-save-as-dialog-get-converter"><primary sortas="eog_save_as_dialog_get_converter">eog_save_as_dialog_get_converter</primary></indexterm><programlisting><link linkend="EogURIConverter">EogURIConverter</link>*    eog_save_as_dialog_get_converter    (<link linkend="GtkWidget">GtkWidget</link> *dlg);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>dlg</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

@@ -1,0 +1,362 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>EogTransform</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<link rel="home" href="index.html" title="Eye of GNOME Reference Manual">
+<link rel="up" href="ch02.html" title="Image data and manipulation">
+<link rel="prev" href="EogImageSaveInfo.html" title="EogImageSaveInfo">
+<link rel="next" href="eog-eog-metadata-reader.html" title="eog-metadata-reader">
+<meta name="generator" content="GTK-Doc V1.11 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="chapter" href="ch01.html" title="User Interface">
+<link rel="chapter" href="ch02.html" title="Image data and manipulation">
+<link rel="chapter" href="ch03.html" title="Printing">
+<link rel="chapter" href="ch04.html" title="Application and configuration">
+<link rel="chapter" href="ch05.html" title="Plugins">
+<link rel="chapter" href="ch06.html" title="Utilities">
+<link rel="chapter" href="ch07.html" title="Asynchronous jobs">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="EogImageSaveInfo.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch02.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Eye of GNOME Reference Manual</th>
+<td><a accesskey="n" href="eog-eog-metadata-reader.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#EogTransform.synopsis" class="shortcut">Top</a>
+                 | 
+                <a href="#EogTransform.description" class="shortcut">Description</a>
+                 | 
+                <a href="#EogTransform.object-hierarchy" class="shortcut">Object Hierarchy</a>
+</td></tr>
+</table>
+<div class="refentry" title="EogTransform">
+<a name="EogTransform"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="EogTransform.top_of_page"></a>EogTransform</span></h2>
+<p>EogTransform</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv" title="Synopsis">
+<a name="EogTransform.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+enum                <a class="link" href="EogTransform.html#EogTransformType" title="enum EogTransformType">EogTransformType</a>;
+                    <a class="link" href="EogTransform.html#EogTransform-struct" title="EogTransform">EogTransform</a>;
+<a
+href="http://library.gnome.org/devel/gdk-pixbuf/unstable/gdk-pixbuf-gdk-pixbuf.html#GdkPixbuf"
+>GdkPixbuf</a>*          <a class="link" href="EogTransform.html#eog-transform-apply" title="eog_transform_apply ()">eog_transform_apply</a>                 (<a class="link" href="EogTransform.html" title="EogTransform">EogTransform</a> *trans,
+                                                         <a
+href="http://library.gnome.org/devel/gdk-pixbuf/unstable/gdk-pixbuf-gdk-pixbuf.html#GdkPixbuf"
+>GdkPixbuf</a> *pixbuf,
+                                                         <a class="link" href="EogJobCopy.html#EogJob">EogJob</a> *job);
+<a class="link" href="EogTransform.html" title="EogTransform">EogTransform</a>*       <a class="link" href="EogTransform.html#eog-transform-reverse" title="eog_transform_reverse ()">eog_transform_reverse</a>               (<a class="link" href="EogTransform.html" title="EogTransform">EogTransform</a> *trans);
+<a class="link" href="EogTransform.html" title="EogTransform">EogTransform</a>*       <a class="link" href="EogTransform.html#eog-transform-compose" title="eog_transform_compose ()">eog_transform_compose</a>               (<a class="link" href="EogTransform.html" title="EogTransform">EogTransform</a> *trans,
+                                                         <a class="link" href="EogTransform.html" title="EogTransform">EogTransform</a> *compose);
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="EogTransform.html#eog-transform-is-identity" title="eog_transform_is_identity ()">eog_transform_is_identity</a>           (<a class="link" href="EogTransform.html" title="EogTransform">EogTransform</a> *trans);
+<a class="link" href="EogTransform.html" title="EogTransform">EogTransform</a>*       <a class="link" href="EogTransform.html#eog-transform-identity-new" title="eog_transform_identity_new ()">eog_transform_identity_new</a>          (void);
+<a class="link" href="EogTransform.html" title="EogTransform">EogTransform</a>*       <a class="link" href="EogTransform.html#eog-transform-rotate-new" title="eog_transform_rotate_new ()">eog_transform_rotate_new</a>            (int degree);
+<a class="link" href="EogTransform.html" title="EogTransform">EogTransform</a>*       <a class="link" href="EogTransform.html#eog-transform-flip-new" title="eog_transform_flip_new ()">eog_transform_flip_new</a>              (<a class="link" href="EogTransform.html#EogTransformType" title="enum EogTransformType">EogTransformType</a> type);
+<a class="link" href="EogTransform.html" title="EogTransform">EogTransform</a>*       <a class="link" href="EogTransform.html#eog-transform-scale-new" title="eog_transform_scale_new ()">eog_transform_scale_new</a>             (double sx,
+                                                         double sy);
+<a class="link" href="EogTransform.html" title="EogTransform">EogTransform</a>*       <a class="link" href="EogTransform.html#eog-transform-new" title="eog_transform_new ()">eog_transform_new</a>                   (<a class="link" href="EogTransform.html#EogTransformType" title="enum EogTransformType">EogTransformType</a> trans);
+<a class="link" href="EogTransform.html#EogTransformType" title="enum EogTransformType">EogTransformType</a>    <a class="link" href="EogTransform.html#eog-transform-get-transform-type" title="eog_transform_get_transform_type ()">eog_transform_get_transform_type</a>    (<a class="link" href="EogTransform.html" title="EogTransform">EogTransform</a> *trans);
+</pre>
+</div>
+<div class="refsect1" title="Object Hierarchy">
+<a name="EogTransform.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  <a
+href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject"
+>GObject</a>
+   +----EogTransform
+</pre>
+</div>
+<div class="refsect1" title="Description">
+<a name="EogTransform.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1" title="Details">
+<a name="EogTransform.details"></a><h2>Details</h2>
+<div class="refsect2" title="enum EogTransformType">
+<a name="EogTransformType"></a><h3>enum EogTransformType</h3>
+<pre class="programlisting">typedef enum {
+	EOG_TRANSFORM_NONE,
+	EOG_TRANSFORM_ROT_90,
+	EOG_TRANSFORM_ROT_180,
+	EOG_TRANSFORM_ROT_270,
+	EOG_TRANSFORM_FLIP_HORIZONTAL,
+	EOG_TRANSFORM_FLIP_VERTICAL,
+	EOG_TRANSFORM_TRANSPOSE,
+	EOG_TRANSFORM_TRANSVERSE
+} EogTransformType;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="EogTransform">
+<a name="EogTransform-struct"></a><h3>EogTransform</h3>
+<pre class="programlisting">typedef struct _EogTransform EogTransform;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="eog_transform_apply ()">
+<a name="eog-transform-apply"></a><h3>eog_transform_apply ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/gdk-pixbuf/unstable/gdk-pixbuf-gdk-pixbuf.html#GdkPixbuf"
+>GdkPixbuf</a>*          eog_transform_apply                 (<a class="link" href="EogTransform.html" title="EogTransform">EogTransform</a> *trans,
+                                                         <a
+href="http://library.gnome.org/devel/gdk-pixbuf/unstable/gdk-pixbuf-gdk-pixbuf.html#GdkPixbuf"
+>GdkPixbuf</a> *pixbuf,
+                                                         <a class="link" href="EogJobCopy.html#EogJob">EogJob</a> *job);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>trans</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>pixbuf</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>job</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="eog_transform_reverse ()">
+<a name="eog-transform-reverse"></a><h3>eog_transform_reverse ()</h3>
+<pre class="programlisting"><a class="link" href="EogTransform.html" title="EogTransform">EogTransform</a>*       eog_transform_reverse               (<a class="link" href="EogTransform.html" title="EogTransform">EogTransform</a> *trans);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>trans</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="eog_transform_compose ()">
+<a name="eog-transform-compose"></a><h3>eog_transform_compose ()</h3>
+<pre class="programlisting"><a class="link" href="EogTransform.html" title="EogTransform">EogTransform</a>*       eog_transform_compose               (<a class="link" href="EogTransform.html" title="EogTransform">EogTransform</a> *trans,
+                                                         <a class="link" href="EogTransform.html" title="EogTransform">EogTransform</a> *compose);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>trans</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>compose</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="eog_transform_is_identity ()">
+<a name="eog-transform-is-identity"></a><h3>eog_transform_is_identity ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            eog_transform_is_identity           (<a class="link" href="EogTransform.html" title="EogTransform">EogTransform</a> *trans);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>trans</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="eog_transform_identity_new ()">
+<a name="eog-transform-identity-new"></a><h3>eog_transform_identity_new ()</h3>
+<pre class="programlisting"><a class="link" href="EogTransform.html" title="EogTransform">EogTransform</a>*       eog_transform_identity_new          (void);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="eog_transform_rotate_new ()">
+<a name="eog-transform-rotate-new"></a><h3>eog_transform_rotate_new ()</h3>
+<pre class="programlisting"><a class="link" href="EogTransform.html" title="EogTransform">EogTransform</a>*       eog_transform_rotate_new            (int degree);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>degree</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="eog_transform_flip_new ()">
+<a name="eog-transform-flip-new"></a><h3>eog_transform_flip_new ()</h3>
+<pre class="programlisting"><a class="link" href="EogTransform.html" title="EogTransform">EogTransform</a>*       eog_transform_flip_new              (<a class="link" href="EogTransform.html#EogTransformType" title="enum EogTransformType">EogTransformType</a> type);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>type</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="eog_transform_scale_new ()">
+<a name="eog-transform-scale-new"></a><h3>eog_transform_scale_new ()</h3>
+<pre class="programlisting"><a class="link" href="EogTransform.html" title="EogTransform">EogTransform</a>*       eog_transform_scale_new             (double sx,
+                                                         double sy);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>sx</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>sy</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="eog_transform_new ()">
+<a name="eog-transform-new"></a><h3>eog_transform_new ()</h3>
+<pre class="programlisting"><a class="link" href="EogTransform.html" title="EogTransform">EogTransform</a>*       eog_transform_new                   (<a class="link" href="EogTransform.html#EogTransformType" title="enum EogTransformType">EogTransformType</a> trans);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>trans</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="eog_transform_get_transform_type ()">
+<a name="eog-transform-get-transform-type"></a><h3>eog_transform_get_transform_type ()</h3>
+<pre class="programlisting"><a class="link" href="EogTransform.html#EogTransformType" title="enum EogTransformType">EogTransformType</a>    eog_transform_get_transform_type    (<a class="link" href="EogTransform.html" title="EogTransform">EogTransform</a> *trans);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>trans</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.11</div>
+</body>
+</html>

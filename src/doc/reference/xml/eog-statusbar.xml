@@ -1,0 +1,132 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN"
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="EogStatusbar">
+<refmeta>
+<refentrytitle role="top_of_page" id="EogStatusbar.top_of_page">EogStatusbar</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>EOG Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>EogStatusbar</refname>
+<refpurpose></refpurpose>
+</refnamediv>
+
+<refsynopsisdiv id="EogStatusbar.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+                    <link linkend="EogStatusbar-struct">EogStatusbar</link>;
+<link linkend="GtkWidget">GtkWidget</link> *         <link linkend="eog-statusbar-new">eog_statusbar_new</link>                   (void);
+<link linkend="void">void</link>                <link linkend="eog-statusbar-set-image-number">eog_statusbar_set_image_number</link>      (<link linkend="EogStatusbar">EogStatusbar</link> *statusbar,
+                                                         <link linkend="gint">gint</link> num,
+                                                         <link linkend="gint">gint</link> tot);
+<link linkend="void">void</link>                <link linkend="eog-statusbar-set-progress">eog_statusbar_set_progress</link>          (<link linkend="EogStatusbar">EogStatusbar</link> *statusbar,
+                                                         <link linkend="gdouble">gdouble</link> progress);
+<link linkend="void">void</link>                <link linkend="eog-statusbar-set-has-resize-grip">eog_statusbar_set_has_resize_grip</link>   (<link linkend="EogStatusbar">EogStatusbar</link> *statusbar,
+                                                         <link linkend="gboolean">gboolean</link> has_resize_grip);
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 id="EogStatusbar.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<synopsis>
+  <link linkend="GObject">GObject</link>
+   +----<link linkend="GInitiallyUnowned">GInitiallyUnowned</link>
+         +----<link linkend="GtkObject">GtkObject</link>
+               +----<link linkend="GtkWidget">GtkWidget</link>
+                     +----<link linkend="GtkContainer">GtkContainer</link>
+                           +----<link linkend="GtkBox">GtkBox</link>
+                                 +----<link linkend="GtkHBox">GtkHBox</link>
+                                       +----<link linkend="GtkStatusbar">GtkStatusbar</link>
+                                             +----EogStatusbar
+</synopsis>
+</refsect1>
+
+
+
+<refsect1 id="EogStatusbar.implemented-interfaces" role="impl_interfaces">
+<title role="impl_interfaces.title">Implemented Interfaces</title>
+<para>
+EogStatusbar implements
+ <link linkend="AtkImplementorIface">AtkImplementorIface</link>,  <link linkend="GtkBuildable">GtkBuildable</link> and  <link linkend="GtkOrientable">GtkOrientable</link>.</para>
+</refsect1>
+
+
+
+
+
+<refsect1 id="EogStatusbar.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+</para>
+</refsect1>
+
+<refsect1 id="EogStatusbar.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="EogStatusbar-struct" role="struct">
+<title>EogStatusbar</title>
+<indexterm zone="EogStatusbar-struct"><primary sortas="EogStatusbar">EogStatusbar</primary></indexterm><programlisting>typedef struct _EogStatusbar EogStatusbar;</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="eog-statusbar-new" role="function">
+<title>eog_statusbar_new ()</title>
+<indexterm zone="eog-statusbar-new"><primary sortas="eog_statusbar_new">eog_statusbar_new</primary></indexterm><programlisting><link linkend="GtkWidget">GtkWidget</link> *         eog_statusbar_new                   (void);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-statusbar-set-image-number" role="function">
+<title>eog_statusbar_set_image_number ()</title>
+<indexterm zone="eog-statusbar-set-image-number"><primary sortas="eog_statusbar_set_image_number">eog_statusbar_set_image_number</primary></indexterm><programlisting><link linkend="void">void</link>                eog_statusbar_set_image_number      (<link linkend="EogStatusbar">EogStatusbar</link> *statusbar,
+                                                         <link linkend="gint">gint</link> num,
+                                                         <link linkend="gint">gint</link> tot);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>statusbar</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>num</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>tot</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-statusbar-set-progress" role="function">
+<title>eog_statusbar_set_progress ()</title>
+<indexterm zone="eog-statusbar-set-progress"><primary sortas="eog_statusbar_set_progress">eog_statusbar_set_progress</primary></indexterm><programlisting><link linkend="void">void</link>                eog_statusbar_set_progress          (<link linkend="EogStatusbar">EogStatusbar</link> *statusbar,
+                                                         <link linkend="gdouble">gdouble</link> progress);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>statusbar</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>progress</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-statusbar-set-has-resize-grip" role="function">
+<title>eog_statusbar_set_has_resize_grip ()</title>
+<indexterm zone="eog-statusbar-set-has-resize-grip"><primary sortas="eog_statusbar_set_has_resize_grip">eog_statusbar_set_has_resize_grip</primary></indexterm><programlisting><link linkend="void">void</link>                eog_statusbar_set_has_resize_grip   (<link linkend="EogStatusbar">EogStatusbar</link> *statusbar,
+                                                         <link linkend="gboolean">gboolean</link> has_resize_grip);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>statusbar</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>has_resize_grip</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

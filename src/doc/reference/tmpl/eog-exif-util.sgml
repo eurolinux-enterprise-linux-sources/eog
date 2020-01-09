@@ -1,0 +1,40 @@
+<!-- ##### SECTION Title ##### -->
+eog-exif-util
+
+<!-- ##### SECTION Short_Description ##### -->
+
+
+<!-- ##### SECTION Long_Description ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION See_Also ##### -->
+<para>
+
+</para>
+
+<!-- ##### SECTION Stability_Level ##### -->
+
+
+<!-- ##### FUNCTION eog_exif_util_format_date ##### -->
+<para>
+
+</para>
+
+@date: 
+@Returns: 
+
+
+<!-- ##### FUNCTION eog_exif_util_get_value ##### -->
+<para>
+
+</para>
+
+@exif_data: 
+@tag_id: 
+@buffer: 
+@buf_size: 
+@Returns: 
+
+

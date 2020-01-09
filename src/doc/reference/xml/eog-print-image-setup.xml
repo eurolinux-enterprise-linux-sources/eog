@@ -1,0 +1,141 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN"
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="EogPrintImageSetup">
+<refmeta>
+<refentrytitle role="top_of_page" id="EogPrintImageSetup.top_of_page">EogPrintImageSetup</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>EOG Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>EogPrintImageSetup</refname>
+<refpurpose></refpurpose>
+</refnamediv>
+
+<refsynopsisdiv id="EogPrintImageSetup.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+                    <link linkend="EogPrintImageSetup-struct">EogPrintImageSetup</link>;
+<link linkend="GtkWidget">GtkWidget</link> *         <link linkend="eog-print-image-setup-new">eog_print_image_setup_new</link>           (<link linkend="EogImage">EogImage</link> *image,
+                                                         <link linkend="GtkPageSetup">GtkPageSetup</link> *page_setup);
+<link linkend="void">void</link>                <link linkend="eog-print-image-setup-get-options">eog_print_image_setup_get_options</link>   (<link linkend="EogPrintImageSetup">EogPrintImageSetup</link> *setup,
+                                                         <link linkend="gdouble">gdouble</link> *left,
+                                                         <link linkend="gdouble">gdouble</link> *top,
+                                                         <link linkend="gdouble">gdouble</link> *scale,
+                                                         <link linkend="GtkUnit">GtkUnit</link> *unit);
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 id="EogPrintImageSetup.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<synopsis>
+  <link linkend="GObject">GObject</link>
+   +----<link linkend="GInitiallyUnowned">GInitiallyUnowned</link>
+         +----<link linkend="GtkObject">GtkObject</link>
+               +----<link linkend="GtkWidget">GtkWidget</link>
+                     +----<link linkend="GtkContainer">GtkContainer</link>
+                           +----<link linkend="GtkTable">GtkTable</link>
+                                 +----EogPrintImageSetup
+</synopsis>
+</refsect1>
+
+
+
+<refsect1 id="EogPrintImageSetup.implemented-interfaces" role="impl_interfaces">
+<title role="impl_interfaces.title">Implemented Interfaces</title>
+<para>
+EogPrintImageSetup implements
+ <link linkend="AtkImplementorIface">AtkImplementorIface</link> and  <link linkend="GtkBuildable">GtkBuildable</link>.</para>
+</refsect1>
+
+
+<refsect1 id="EogPrintImageSetup.properties" role="properties">
+<title role="properties.title">Properties</title>
+<synopsis>
+  &quot;<link linkend="EogPrintImageSetup--image">image</link>&quot;                    <link linkend="EogImage">EogImage</link>*             : Read / Write
+  &quot;<link linkend="EogPrintImageSetup--page-setup">page-setup</link>&quot;               <link linkend="GtkPageSetup">GtkPageSetup</link>*         : Read / Write
+</synopsis>
+</refsect1>
+
+
+
+<refsect1 id="EogPrintImageSetup.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+</para>
+</refsect1>
+
+<refsect1 id="EogPrintImageSetup.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="EogPrintImageSetup-struct" role="struct">
+<title>EogPrintImageSetup</title>
+<indexterm zone="EogPrintImageSetup-struct"><primary sortas="EogPrintImageSetup">EogPrintImageSetup</primary></indexterm><programlisting>typedef struct _EogPrintImageSetup EogPrintImageSetup;</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="eog-print-image-setup-new" role="function">
+<title>eog_print_image_setup_new ()</title>
+<indexterm zone="eog-print-image-setup-new"><primary sortas="eog_print_image_setup_new">eog_print_image_setup_new</primary></indexterm><programlisting><link linkend="GtkWidget">GtkWidget</link> *         eog_print_image_setup_new           (<link linkend="EogImage">EogImage</link> *image,
+                                                         <link linkend="GtkPageSetup">GtkPageSetup</link> *page_setup);</programlisting>
+<para>
+Creates a new <link linkend="EogPrintImageSetup"><type>EogPrintImageSetup</type></link> widget, to be used as a custom
+widget in a <link linkend="GtkPrinUnixDialog"><type>GtkPrinUnixDialog</type></link>. This widgets allows to set
+the image position and scale in a page.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>image</parameter>&#160;:</term>
+<listitem><simpara> the <link linkend="EogImage"><type>EogImage</type></link> to print
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>page_setup</parameter>&#160;:</term>
+<listitem><simpara> a <link linkend="GtkPageSetup"><type>GtkPageSetup</type></link> specifying the page where
+the image will be print
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> a new <link linkend="EogPrintImageSetup"><type>EogPrintImageSetup</type></link>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-print-image-setup-get-options" role="function">
+<title>eog_print_image_setup_get_options ()</title>
+<indexterm zone="eog-print-image-setup-get-options"><primary sortas="eog_print_image_setup_get_options">eog_print_image_setup_get_options</primary></indexterm><programlisting><link linkend="void">void</link>                eog_print_image_setup_get_options   (<link linkend="EogPrintImageSetup">EogPrintImageSetup</link> *setup,
+                                                         <link linkend="gdouble">gdouble</link> *left,
+                                                         <link linkend="gdouble">gdouble</link> *top,
+                                                         <link linkend="gdouble">gdouble</link> *scale,
+                                                         <link linkend="GtkUnit">GtkUnit</link> *unit);</programlisting>
+<para>
+Gets the options set by the <link linkend="EogPrintImageSetup"><type>EogPrintImageSetup</type></link>.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>setup</parameter>&#160;:</term>
+<listitem><simpara> a <link linkend="EogPrintImageSetup"><type>EogPrintImageSetup</type></link>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>left</parameter>&#160;:</term>
+<listitem><simpara> a pointer where to store the image's left position
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>top</parameter>&#160;:</term>
+<listitem><simpara> a pointer where to store the image's top position
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>scale</parameter>&#160;:</term>
+<listitem><simpara> a pointer where to store the image's scale
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>unit</parameter>&#160;:</term>
+<listitem><simpara> a pointer where to store the <link linkend="GtkUnit"><type>GtkUnit</type></link> used by the <parameter>left</parameter> and <parameter>top</parameter> values.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+<refsect1 id="EogPrintImageSetup.property-details" role="property_details">
+<title role="property_details.title">Property Details</title>
+<refsect2 id="EogPrintImageSetup--image" role="property"><title>The <literal>&quot;image&quot;</literal> property</title>
+<indexterm zone="EogPrintImageSetup--image"><primary sortas="EogPrintImageSetup:image">EogPrintImageSetup:image</primary></indexterm><programlisting>  &quot;image&quot;                    <link linkend="EogImage">EogImage</link>*             : Read / Write</programlisting>
+<para>The image whose printing properties will be setup.</para></refsect2>
+<refsect2 id="EogPrintImageSetup--page-setup" role="property"><title>The <literal>&quot;page-setup&quot;</literal> property</title>
+<indexterm zone="EogPrintImageSetup--page-setup"><primary sortas="EogPrintImageSetup:page-setup">EogPrintImageSetup:page-setup</primary></indexterm><programlisting>  &quot;page-setup&quot;               <link linkend="GtkPageSetup">GtkPageSetup</link>*         : Read / Write</programlisting>
+<para>The information for the page where the image will be printed.</para></refsect2>
+</refsect1>
+
+
+
+
+</refentry>

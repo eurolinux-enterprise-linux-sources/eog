@@ -1,0 +1,134 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN"
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="EogDialog">
+<refmeta>
+<refentrytitle role="top_of_page" id="EogDialog.top_of_page">EogDialog</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>EOG Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>EogDialog</refname>
+<refpurpose></refpurpose>
+</refnamediv>
+
+<refsynopsisdiv id="EogDialog.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+                    <link linkend="EogDialog-struct">EogDialog</link>;
+<link linkend="void">void</link>                <link linkend="eog-dialog-construct">eog_dialog_construct</link>                (<link linkend="EogDialog">EogDialog</link> *dialog,
+                                                         const <link linkend="gchar">gchar</link> *glade_file,
+                                                         const <link linkend="gchar">gchar</link> *dlg_node);
+<link linkend="void">void</link>                <link linkend="eog-dialog-show">eog_dialog_show</link>                     (<link linkend="EogDialog">EogDialog</link> *dialog);
+<link linkend="void">void</link>                <link linkend="eog-dialog-hide">eog_dialog_hide</link>                     (<link linkend="EogDialog">EogDialog</link> *dialog);
+<link linkend="void">void</link>                <link linkend="eog-dialog-get-controls">eog_dialog_get_controls</link>             (<link linkend="EogDialog">EogDialog</link> *dialog,
+                                                         const <link linkend="gchar">gchar</link> *property_id,
+                                                         ...);
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 id="EogDialog.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<synopsis>
+  <link linkend="GObject">GObject</link>
+   +----EogDialog
+         +----<link linkend="EogPropertiesDialog">EogPropertiesDialog</link>
+         +----<link linkend="EogPreferencesDialog">EogPreferencesDialog</link>
+</synopsis>
+</refsect1>
+
+
+
+
+
+<refsect1 id="EogDialog.properties" role="properties">
+<title role="properties.title">Properties</title>
+<synopsis>
+  &quot;<link linkend="EogDialog--parent-window">parent-window</link>&quot;            <link linkend="GtkWindow">GtkWindow</link>*            : Read / Write / Construct Only
+</synopsis>
+</refsect1>
+
+
+
+<refsect1 id="EogDialog.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+</para>
+</refsect1>
+
+<refsect1 id="EogDialog.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="EogDialog-struct" role="struct">
+<title>EogDialog</title>
+<indexterm zone="EogDialog-struct"><primary sortas="EogDialog">EogDialog</primary></indexterm><programlisting>typedef struct _EogDialog EogDialog;</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="eog-dialog-construct" role="function">
+<title>eog_dialog_construct ()</title>
+<indexterm zone="eog-dialog-construct"><primary sortas="eog_dialog_construct">eog_dialog_construct</primary></indexterm><programlisting><link linkend="void">void</link>                eog_dialog_construct                (<link linkend="EogDialog">EogDialog</link> *dialog,
+                                                         const <link linkend="gchar">gchar</link> *glade_file,
+                                                         const <link linkend="gchar">gchar</link> *dlg_node);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>dialog</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>glade_file</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>dlg_node</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-dialog-show" role="function">
+<title>eog_dialog_show ()</title>
+<indexterm zone="eog-dialog-show"><primary sortas="eog_dialog_show">eog_dialog_show</primary></indexterm><programlisting><link linkend="void">void</link>                eog_dialog_show                     (<link linkend="EogDialog">EogDialog</link> *dialog);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>dialog</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-dialog-hide" role="function">
+<title>eog_dialog_hide ()</title>
+<indexterm zone="eog-dialog-hide"><primary sortas="eog_dialog_hide">eog_dialog_hide</primary></indexterm><programlisting><link linkend="void">void</link>                eog_dialog_hide                     (<link linkend="EogDialog">EogDialog</link> *dialog);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>dialog</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-dialog-get-controls" role="function">
+<title>eog_dialog_get_controls ()</title>
+<indexterm zone="eog-dialog-get-controls"><primary sortas="eog_dialog_get_controls">eog_dialog_get_controls</primary></indexterm><programlisting><link linkend="void">void</link>                eog_dialog_get_controls             (<link linkend="EogDialog">EogDialog</link> *dialog,
+                                                         const <link linkend="gchar">gchar</link> *property_id,
+                                                         ...);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>dialog</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>property_id</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>...</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+<refsect1 id="EogDialog.property-details" role="property_details">
+<title role="property_details.title">Property Details</title>
+<refsect2 id="EogDialog--parent-window" role="property"><title>The <literal>&quot;parent-window&quot;</literal> property</title>
+<indexterm zone="EogDialog--parent-window"><primary sortas="EogDialog:parent-window">EogDialog:parent-window</primary></indexterm><programlisting>  &quot;parent-window&quot;            <link linkend="GtkWindow">GtkWindow</link>*            : Read / Write / Construct Only</programlisting>
+<para>Parent window.</para></refsect2>
+</refsect1>
+
+
+
+
+</refentry>

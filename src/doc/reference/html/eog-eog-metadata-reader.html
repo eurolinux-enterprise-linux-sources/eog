@@ -1,0 +1,392 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>eog-metadata-reader</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<link rel="home" href="index.html" title="Eye of GNOME Reference Manual">
+<link rel="up" href="ch02.html" title="Image data and manipulation">
+<link rel="prev" href="EogTransform.html" title="EogTransform">
+<link rel="next" href="EogMetadataReaderPng.html" title="EogMetadataReaderPng">
+<meta name="generator" content="GTK-Doc V1.11 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="chapter" href="ch01.html" title="User Interface">
+<link rel="chapter" href="ch02.html" title="Image data and manipulation">
+<link rel="chapter" href="ch03.html" title="Printing">
+<link rel="chapter" href="ch04.html" title="Application and configuration">
+<link rel="chapter" href="ch05.html" title="Plugins">
+<link rel="chapter" href="ch06.html" title="Utilities">
+<link rel="chapter" href="ch07.html" title="Asynchronous jobs">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="EogTransform.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch02.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Eye of GNOME Reference Manual</th>
+<td><a accesskey="n" href="EogMetadataReaderPng.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#eog-eog-metadata-reader.synopsis" class="shortcut">Top</a>
+                 | 
+                <a href="#eog-eog-metadata-reader.description" class="shortcut">Description</a>
+                 | 
+                <a href="#eog-eog-metadata-reader.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                 | 
+                <a href="#eog-eog-metadata-reader.implementations" class="shortcut">Known Implementations</a>
+</td></tr>
+</table>
+<div class="refentry" title="eog-metadata-reader">
+<a name="eog-eog-metadata-reader"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="eog-eog-metadata-reader.top_of_page"></a>eog-metadata-reader</span></h2>
+<p>eog-metadata-reader</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv" title="Synopsis">
+<a name="eog-eog-metadata-reader.synopsis"></a><h2>Synopsis</h2>
+<a name="EogMetadataReader"></a><pre class="synopsis">
+#define             <a class="link" href="eog-eog-metadata-reader.html#EOG-METADATA-READER-GET-INTERFACE--CAPS" title="EOG_METADATA_READER_GET_INTERFACE()">EOG_METADATA_READER_GET_INTERFACE</a>   (o)
+                    <a class="link" href="eog-eog-metadata-reader.html#EogMetadataReader-struct" title="EogMetadataReader">EogMetadataReader</a>;
+                    <a class="link" href="eog-eog-metadata-reader.html#EogMetadataReaderInterface" title="EogMetadataReaderInterface">EogMetadataReaderInterface</a>;
+enum                <a class="link" href="eog-eog-metadata-reader.html#EogMetadataFileType" title="enum EogMetadataFileType">EogMetadataFileType</a>;
+<a class="link" href="eog-eog-metadata-reader.html#EogMetadataReader">EogMetadataReader</a>*  <a class="link" href="eog-eog-metadata-reader.html#eog-metadata-reader-new" title="eog_metadata_reader_new ()">eog_metadata_reader_new</a>             (<a class="link" href="eog-eog-metadata-reader.html#EogMetadataFileType" title="enum EogMetadataFileType">EogMetadataFileType</a> type);
+void                <a class="link" href="eog-eog-metadata-reader.html#eog-metadata-reader-consume" title="eog_metadata_reader_consume ()">eog_metadata_reader_consume</a>         (<a class="link" href="eog-eog-metadata-reader.html#EogMetadataReader">EogMetadataReader</a> *emr,
+                                                         const <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guchar"
+>guchar</a> *buf,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"
+>guint</a> len);
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="eog-eog-metadata-reader.html#eog-metadata-reader-finished" title="eog_metadata_reader_finished ()">eog_metadata_reader_finished</a>        (<a class="link" href="eog-eog-metadata-reader.html#EogMetadataReader">EogMetadataReader</a> *emr);
+void                <a class="link" href="eog-eog-metadata-reader.html#eog-metadata-reader-get-exif-chunk" title="eog_metadata_reader_get_exif_chunk ()">eog_metadata_reader_get_exif_chunk</a>  (<a class="link" href="eog-eog-metadata-reader.html#EogMetadataReader">EogMetadataReader</a> *emr,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guchar"
+>guchar</a> **data,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"
+>guint</a> *len);
+ExifData*           <a class="link" href="eog-eog-metadata-reader.html#eog-metadata-reader-get-exif-data" title="eog_metadata_reader_get_exif_data ()">eog_metadata_reader_get_exif_data</a>   (<a class="link" href="eog-eog-metadata-reader.html#EogMetadataReader">EogMetadataReader</a> *emr);
+XmpPtr              <a class="link" href="eog-eog-metadata-reader.html#eog-metadata-reader-get-xmp-data" title="eog_metadata_reader_get_xmp_data ()">eog_metadata_reader_get_xmp_data</a>    (<a class="link" href="eog-eog-metadata-reader.html#EogMetadataReader">EogMetadataReader</a> *emr);
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"
+>gpointer</a>            <a class="link" href="eog-eog-metadata-reader.html#eog-metadata-reader-get-iptc-chunk" title="eog_metadata_reader_get_iptc_chunk ()">eog_metadata_reader_get_iptc_chunk</a>  (<a class="link" href="eog-eog-metadata-reader.html#EogMetadataReader">EogMetadataReader</a> *emr);
+IptcData*           <a class="link" href="eog-eog-metadata-reader.html#eog-metadata-reader-get-iptc-data" title="eog_metadata_reader_get_iptc_data ()">eog_metadata_reader_get_iptc_data</a>   (<a class="link" href="eog-eog-metadata-reader.html#EogMetadataReader">EogMetadataReader</a> *emr);
+cmsHPROFILE         <a class="link" href="eog-eog-metadata-reader.html#eog-metadata-reader-get-icc-profile" title="eog_metadata_reader_get_icc_profile ()">eog_metadata_reader_get_icc_profile</a> (<a class="link" href="eog-eog-metadata-reader.html#EogMetadataReader">EogMetadataReader</a> *emr);
+</pre>
+</div>
+<div class="refsect1" title="Object Hierarchy">
+<a name="eog-eog-metadata-reader.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  GInterface
+   +----EogMetadataReader
+</pre>
+</div>
+<div class="refsect1" title="Known Implementations">
+<a name="eog-eog-metadata-reader.implementations"></a><h2>Known Implementations</h2>
+<p>
+EogMetadataReader is implemented by
+ <a class="link" href="EogMetadataReaderJpg.html" title="EogMetadataReaderJpg">EogMetadataReaderJpg</a> and  <a class="link" href="EogMetadataReaderPng.html" title="EogMetadataReaderPng">EogMetadataReaderPng</a>.</p>
+</div>
+<div class="refsect1" title="Description">
+<a name="eog-eog-metadata-reader.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1" title="Details">
+<a name="eog-eog-metadata-reader.details"></a><h2>Details</h2>
+<div class="refsect2" title="EOG_METADATA_READER_GET_INTERFACE()">
+<a name="EOG-METADATA-READER-GET-INTERFACE--CAPS"></a><h3>EOG_METADATA_READER_GET_INTERFACE()</h3>
+<pre class="programlisting">#define EOG_METADATA_READER_GET_INTERFACE(o)  (G_TYPE_INSTANCE_GET_INTERFACE ((o), EOG_TYPE_METADATA_READER, EogMetadataReaderInterface))
+</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>o</code></em> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="EogMetadataReader">
+<a name="EogMetadataReader-struct"></a><h3>EogMetadataReader</h3>
+<pre class="programlisting">typedef struct _EogMetadataReader EogMetadataReader;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="EogMetadataReaderInterface">
+<a name="EogMetadataReaderInterface"></a><h3>EogMetadataReaderInterface</h3>
+<pre class="programlisting">typedef struct {
+	GTypeInterface parent;
+
+	void		(*consume)		(EogMetadataReader *self,
+						 const guchar *buf,
+						 guint len);
+
+	gboolean	(*finished)		(EogMetadataReader *self);
+
+	void		(*get_raw_exif)		(EogMetadataReader *self,
+						 guchar **data,
+						 guint *len);
+
+	gpointer	(*get_exif_data)	(EogMetadataReader *self);
+
+	gpointer	(*get_icc_profile)	(EogMetadataReader *self);
+
+	gpointer	(*get_xmp_ptr)		(EogMetadataReader *self);
+} EogMetadataReaderInterface;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="enum EogMetadataFileType">
+<a name="EogMetadataFileType"></a><h3>enum EogMetadataFileType</h3>
+<pre class="programlisting">typedef enum {
+	EOG_METADATA_JPEG,
+	EOG_METADATA_PNG
+} EogMetadataFileType;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="eog_metadata_reader_new ()">
+<a name="eog-metadata-reader-new"></a><h3>eog_metadata_reader_new ()</h3>
+<pre class="programlisting"><a class="link" href="eog-eog-metadata-reader.html#EogMetadataReader">EogMetadataReader</a>*  eog_metadata_reader_new             (<a class="link" href="eog-eog-metadata-reader.html#EogMetadataFileType" title="enum EogMetadataFileType">EogMetadataFileType</a> type);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>type</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="eog_metadata_reader_consume ()">
+<a name="eog-metadata-reader-consume"></a><h3>eog_metadata_reader_consume ()</h3>
+<pre class="programlisting">void                eog_metadata_reader_consume         (<a class="link" href="eog-eog-metadata-reader.html#EogMetadataReader">EogMetadataReader</a> *emr,
+                                                         const <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guchar"
+>guchar</a> *buf,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"
+>guint</a> len);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>emr</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>buf</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>len</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="eog_metadata_reader_finished ()">
+<a name="eog-metadata-reader-finished"></a><h3>eog_metadata_reader_finished ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            eog_metadata_reader_finished        (<a class="link" href="eog-eog-metadata-reader.html#EogMetadataReader">EogMetadataReader</a> *emr);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>emr</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="eog_metadata_reader_get_exif_chunk ()">
+<a name="eog-metadata-reader-get-exif-chunk"></a><h3>eog_metadata_reader_get_exif_chunk ()</h3>
+<pre class="programlisting">void                eog_metadata_reader_get_exif_chunk  (<a class="link" href="eog-eog-metadata-reader.html#EogMetadataReader">EogMetadataReader</a> *emr,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guchar"
+>guchar</a> **data,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"
+>guint</a> *len);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>emr</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>data</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>len</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="eog_metadata_reader_get_exif_data ()">
+<a name="eog-metadata-reader-get-exif-data"></a><h3>eog_metadata_reader_get_exif_data ()</h3>
+<pre class="programlisting">ExifData*           eog_metadata_reader_get_exif_data   (<a class="link" href="eog-eog-metadata-reader.html#EogMetadataReader">EogMetadataReader</a> *emr);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>emr</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="eog_metadata_reader_get_xmp_data ()">
+<a name="eog-metadata-reader-get-xmp-data"></a><h3>eog_metadata_reader_get_xmp_data ()</h3>
+<pre class="programlisting">XmpPtr              eog_metadata_reader_get_xmp_data    (<a class="link" href="eog-eog-metadata-reader.html#EogMetadataReader">EogMetadataReader</a> *emr);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>emr</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="eog_metadata_reader_get_iptc_chunk ()">
+<a name="eog-metadata-reader-get-iptc-chunk"></a><h3>eog_metadata_reader_get_iptc_chunk ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gpointer"
+>gpointer</a>            eog_metadata_reader_get_iptc_chunk  (<a class="link" href="eog-eog-metadata-reader.html#EogMetadataReader">EogMetadataReader</a> *emr);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>emr</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="eog_metadata_reader_get_iptc_data ()">
+<a name="eog-metadata-reader-get-iptc-data"></a><h3>eog_metadata_reader_get_iptc_data ()</h3>
+<pre class="programlisting">IptcData*           eog_metadata_reader_get_iptc_data   (<a class="link" href="eog-eog-metadata-reader.html#EogMetadataReader">EogMetadataReader</a> *emr);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>emr</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="eog_metadata_reader_get_icc_profile ()">
+<a name="eog-metadata-reader-get-icc-profile"></a><h3>eog_metadata_reader_get_icc_profile ()</h3>
+<pre class="programlisting">cmsHPROFILE         eog_metadata_reader_get_icc_profile (<a class="link" href="eog-eog-metadata-reader.html#EogMetadataReader">EogMetadataReader</a> *emr);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>emr</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.11</div>
+</body>
+</html>

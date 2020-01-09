@@ -1,0 +1,677 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN"
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="EogJobCopy">
+<refmeta>
+<refentrytitle role="top_of_page" id="EogJobCopy.top_of_page">EogJobCopy</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>EOG Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>EogJobCopy</refname>
+<refpurpose></refpurpose>
+</refnamediv>
+
+<refsynopsisdiv id="EogJobCopy.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+<anchor id="EogJob"/><anchor id="EogJobThumbnail"/><anchor id="EogJobLoad"/><anchor id="EogJobModel"/><anchor id="EogJobTransform"/><anchor id="EogJobSave"/><anchor id="EogJobSaveAs"/>
+<synopsis>
+#define             <link linkend="EOG-TYPE-JOB-THUMBNAIL--CAPS">EOG_TYPE_JOB_THUMBNAIL</link>
+#define             <link linkend="EOG-JOB-THUMBNAIL--CAPS">EOG_JOB_THUMBNAIL</link>                   (obj)
+#define             <link linkend="EOG-JOB-THUMBNAIL-CLASS--CAPS">EOG_JOB_THUMBNAIL_CLASS</link>             (klass)
+#define             <link linkend="EOG-IS-JOB-THUMBNAIL--CAPS">EOG_IS_JOB_THUMBNAIL</link>                (obj)
+#define             <link linkend="EOG-TYPE-JOB-LOAD--CAPS">EOG_TYPE_JOB_LOAD</link>
+#define             <link linkend="EOG-JOB-LOAD--CAPS">EOG_JOB_LOAD</link>                        (obj)
+#define             <link linkend="EOG-JOB-LOAD-CLASS--CAPS">EOG_JOB_LOAD_CLASS</link>                  (klass)
+#define             <link linkend="EOG-IS-JOB-LOAD--CAPS">EOG_IS_JOB_LOAD</link>                     (obj)
+#define             <link linkend="EOG-TYPE-JOB-MODEL--CAPS">EOG_TYPE_JOB_MODEL</link>
+#define             <link linkend="EOG-JOB-MODEL--CAPS">EOG_JOB_MODEL</link>                       (obj)
+#define             <link linkend="EOG-JOB-MODEL-CLASS--CAPS">EOG_JOB_MODEL_CLASS</link>                 (klass)
+#define             <link linkend="EOG-IS-JOB-MODEL--CAPS">EOG_IS_JOB_MODEL</link>                    (obj)
+#define             <link linkend="EOG-TYPE-JOB-TRANSFORM--CAPS">EOG_TYPE_JOB_TRANSFORM</link>
+#define             <link linkend="EOG-JOB-TRANSFORM--CAPS">EOG_JOB_TRANSFORM</link>                   (obj)
+#define             <link linkend="EOG-JOB-TRANSFORM-CLASS--CAPS">EOG_JOB_TRANSFORM_CLASS</link>             (klass)
+#define             <link linkend="EOG-IS-JOB-TRANSFORM--CAPS">EOG_IS_JOB_TRANSFORM</link>                (obj)
+#define             <link linkend="EOG-TYPE-JOB-SAVE--CAPS">EOG_TYPE_JOB_SAVE</link>
+#define             <link linkend="EOG-JOB-SAVE--CAPS">EOG_JOB_SAVE</link>                        (obj)
+#define             <link linkend="EOG-JOB-SAVE-CLASS--CAPS">EOG_JOB_SAVE_CLASS</link>                  (klass)
+#define             <link linkend="EOG-IS-JOB-SAVE--CAPS">EOG_IS_JOB_SAVE</link>                     (obj)
+#define             <link linkend="EOG-JOB-SAVE-GET-CLASS--CAPS">EOG_JOB_SAVE_GET_CLASS</link>              (obj)
+#define             <link linkend="EOG-TYPE-JOB-SAVE-AS--CAPS">EOG_TYPE_JOB_SAVE_AS</link>
+#define             <link linkend="EOG-JOB-SAVE-AS--CAPS">EOG_JOB_SAVE_AS</link>                     (obj)
+#define             <link linkend="EOG-JOB-SAVE-AS-CLASS--CAPS">EOG_JOB_SAVE_AS_CLASS</link>               (klass)
+#define             <link linkend="EOG-IS-JOB-SAVE-AS--CAPS">EOG_IS_JOB_SAVE_AS</link>                  (obj)
+#define             <link linkend="EOG-JOB-COPY--CAPS">EOG_JOB_COPY</link>                        (obj)
+#define             <link linkend="EOG-JOB-COPY-CLASS--CAPS">EOG_JOB_COPY_CLASS</link>                  (klass)
+                    <link linkend="EogJob-struct">EogJob</link>;
+                    <link linkend="EogJobThumbnail-struct">EogJobThumbnail</link>;
+                    <link linkend="EogJobLoad-struct">EogJobLoad</link>;
+                    <link linkend="EogJobModel-struct">EogJobModel</link>;
+                    <link linkend="EogJobTransform-struct">EogJobTransform</link>;
+enum                <link linkend="EogJobSaveResponse">EogJobSaveResponse</link>;
+                    <link linkend="EogJobSave-struct">EogJobSave</link>;
+                    <link linkend="EogJobSaveAs-struct">EogJobSaveAs</link>;
+                    <link linkend="EogJobCopy-struct">EogJobCopy</link>;
+<link linkend="void">void</link>                <link linkend="eog-job-finished">eog_job_finished</link>                    (<link linkend="EogJob">EogJob</link> *job);
+<link linkend="void">void</link>                <link linkend="eog-job-run">eog_job_run</link>                         (<link linkend="EogJob">EogJob</link> *job);
+<link linkend="void">void</link>                <link linkend="eog-job-set-progress">eog_job_set_progress</link>                (<link linkend="EogJob">EogJob</link> *job,
+                                                         <link linkend="float">float</link> progress);
+<link linkend="GType">GType</link>               <link linkend="eog-job-thumbnail-get-type">eog_job_thumbnail_get_type</link>          (void);
+<link linkend="EogJob">EogJob</link> *            <link linkend="eog-job-thumbnail-new">eog_job_thumbnail_new</link>               (<link linkend="EogImage">EogImage</link> *image);
+<link linkend="GType">GType</link>               <link linkend="eog-job-load-get-type">eog_job_load_get_type</link>               (void);
+<link linkend="EogJob">EogJob</link> *            <link linkend="eog-job-load-new">eog_job_load_new</link>                    (<link linkend="EogImage">EogImage</link> *image,
+                                                         <link linkend="EogImageData">EogImageData</link> data);
+<link linkend="GType">GType</link>               <link linkend="eog-job-model-get-type">eog_job_model_get_type</link>              (void);
+<link linkend="EogJob">EogJob</link> *            <link linkend="eog-job-model-new">eog_job_model_new</link>                   (<link linkend="GSList">GSList</link> *file_list);
+<link linkend="GType">GType</link>               <link linkend="eog-job-transform-get-type">eog_job_transform_get_type</link>          (void);
+<link linkend="EogJob">EogJob</link> *            <link linkend="eog-job-transform-new">eog_job_transform_new</link>               (<link linkend="GList">GList</link> *images,
+                                                         <link linkend="EogTransform">EogTransform</link> *trans);
+<link linkend="GType">GType</link>               <link linkend="eog-job-save-get-type">eog_job_save_get_type</link>               (void);
+<link linkend="EogJob">EogJob</link> *            <link linkend="eog-job-save-new">eog_job_save_new</link>                    (<link linkend="GList">GList</link> *images);
+<link linkend="GType">GType</link>               <link linkend="eog-job-save-as-get-type">eog_job_save_as_get_type</link>            (void);
+<link linkend="EogJob">EogJob</link> *            <link linkend="eog-job-save-as-new">eog_job_save_as_new</link>                 (<link linkend="GList">GList</link> *images,
+                                                         <link linkend="EogURIConverter">EogURIConverter</link> *converter,
+                                                         <link linkend="GFile">GFile</link> *file);
+<link linkend="GType">GType</link>               <link linkend="eog-job-copy-get-type">eog_job_copy_get_type</link>               (void);
+<link linkend="EogJob">EogJob</link> *            <link linkend="eog-job-copy-new">eog_job_copy_new</link>                    (<link linkend="GList">GList</link> *images,
+                                                         const <link linkend="gchar">gchar</link> *dest);
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 id="EogJobCopy.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<synopsis>
+  <link linkend="GObject">GObject</link>
+   +----EogJob
+         +----<link linkend="EogJobThumbnail">EogJobThumbnail</link>
+         +----<link linkend="EogJobLoad">EogJobLoad</link>
+         +----<link linkend="EogJobModel">EogJobModel</link>
+         +----<link linkend="EogJobTransform">EogJobTransform</link>
+         +----<link linkend="EogJobSave">EogJobSave</link>
+         +----<link linkend="EogJobCopy">EogJobCopy</link>
+</synopsis>
+<synopsis>
+  <link linkend="GObject">GObject</link>
+   +----<link linkend="EogJob">EogJob</link>
+         +----EogJobThumbnail
+</synopsis>
+<synopsis>
+  <link linkend="GObject">GObject</link>
+   +----<link linkend="EogJob">EogJob</link>
+         +----EogJobLoad
+</synopsis>
+<synopsis>
+  <link linkend="GObject">GObject</link>
+   +----<link linkend="EogJob">EogJob</link>
+         +----EogJobModel
+</synopsis>
+<synopsis>
+  <link linkend="GObject">GObject</link>
+   +----<link linkend="EogJob">EogJob</link>
+         +----EogJobTransform
+</synopsis>
+<synopsis>
+  <link linkend="GObject">GObject</link>
+   +----<link linkend="EogJob">EogJob</link>
+         +----EogJobSave
+               +----<link linkend="EogJobSaveAs">EogJobSaveAs</link>
+</synopsis>
+<synopsis>
+  <link linkend="GObject">GObject</link>
+   +----<link linkend="EogJob">EogJob</link>
+         +----<link linkend="EogJobSave">EogJobSave</link>
+               +----EogJobSaveAs
+</synopsis>
+<synopsis>
+  <link linkend="GObject">GObject</link>
+   +----<link linkend="EogJob">EogJob</link>
+         +----EogJobCopy
+</synopsis>
+</refsect1>
+
+
+
+
+
+
+<refsect1 id="EogJobCopy.signals" role="signal_proto">
+<title role="signal_proto.title">Signals</title>
+<synopsis>
+  &quot;<link linkend="EogJob-finished">finished</link>&quot;                                       : Run Last
+  &quot;<link linkend="EogJob-progress">progress</link>&quot;                                       : Run Last
+</synopsis>
+</refsect1>
+
+
+<refsect1 id="EogJobCopy.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+</para>
+</refsect1>
+
+<refsect1 id="EogJobCopy.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="EOG-TYPE-JOB-THUMBNAIL--CAPS" role="macro">
+<title>EOG_TYPE_JOB_THUMBNAIL</title>
+<indexterm zone="EOG-TYPE-JOB-THUMBNAIL--CAPS"><primary sortas="EOG_TYPE_JOB_THUMBNAIL">EOG_TYPE_JOB_THUMBNAIL</primary></indexterm><programlisting>#define EOG_TYPE_JOB_THUMBNAIL	       (eog_job_thumbnail_get_type())
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="EOG-JOB-THUMBNAIL--CAPS" role="macro">
+<title>EOG_JOB_THUMBNAIL()</title>
+<indexterm zone="EOG-JOB-THUMBNAIL--CAPS"><primary sortas="EOG_JOB_THUMBNAIL">EOG_JOB_THUMBNAIL</primary></indexterm><programlisting>#define EOG_JOB_THUMBNAIL(obj)	       (G_TYPE_CHECK_INSTANCE_CAST((obj), EOG_TYPE_JOB_THUMBNAIL, EogJobThumbnail))
+</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>obj</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="EOG-JOB-THUMBNAIL-CLASS--CAPS" role="macro">
+<title>EOG_JOB_THUMBNAIL_CLASS()</title>
+<indexterm zone="EOG-JOB-THUMBNAIL-CLASS--CAPS"><primary sortas="EOG_JOB_THUMBNAIL_CLASS">EOG_JOB_THUMBNAIL_CLASS</primary></indexterm><programlisting>#define EOG_JOB_THUMBNAIL_CLASS(klass) (G_TYPE_CHECK_CLASS_CAST((klass),  EOG_TYPE_JOB_THUMBNAIL, EogJobThumbnailClass))
+</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>klass</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="EOG-IS-JOB-THUMBNAIL--CAPS" role="macro">
+<title>EOG_IS_JOB_THUMBNAIL()</title>
+<indexterm zone="EOG-IS-JOB-THUMBNAIL--CAPS"><primary sortas="EOG_IS_JOB_THUMBNAIL">EOG_IS_JOB_THUMBNAIL</primary></indexterm><programlisting>#define EOG_IS_JOB_THUMBNAIL(obj)      (G_TYPE_CHECK_INSTANCE_TYPE((obj), EOG_TYPE_JOB_THUMBNAIL))
+</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>obj</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="EOG-TYPE-JOB-LOAD--CAPS" role="macro">
+<title>EOG_TYPE_JOB_LOAD</title>
+<indexterm zone="EOG-TYPE-JOB-LOAD--CAPS"><primary sortas="EOG_TYPE_JOB_LOAD">EOG_TYPE_JOB_LOAD</primary></indexterm><programlisting>#define EOG_TYPE_JOB_LOAD	       (eog_job_load_get_type())
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="EOG-JOB-LOAD--CAPS" role="macro">
+<title>EOG_JOB_LOAD()</title>
+<indexterm zone="EOG-JOB-LOAD--CAPS"><primary sortas="EOG_JOB_LOAD">EOG_JOB_LOAD</primary></indexterm><programlisting>#define EOG_JOB_LOAD(obj)	       (G_TYPE_CHECK_INSTANCE_CAST((obj), EOG_TYPE_JOB_LOAD, EogJobLoad))
+</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>obj</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="EOG-JOB-LOAD-CLASS--CAPS" role="macro">
+<title>EOG_JOB_LOAD_CLASS()</title>
+<indexterm zone="EOG-JOB-LOAD-CLASS--CAPS"><primary sortas="EOG_JOB_LOAD_CLASS">EOG_JOB_LOAD_CLASS</primary></indexterm><programlisting>#define EOG_JOB_LOAD_CLASS(klass)      (G_TYPE_CHECK_CLASS_CAST((klass),  EOG_TYPE_JOB_LOAD, EogJobLoadClass))
+</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>klass</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="EOG-IS-JOB-LOAD--CAPS" role="macro">
+<title>EOG_IS_JOB_LOAD()</title>
+<indexterm zone="EOG-IS-JOB-LOAD--CAPS"><primary sortas="EOG_IS_JOB_LOAD">EOG_IS_JOB_LOAD</primary></indexterm><programlisting>#define EOG_IS_JOB_LOAD(obj)	       (G_TYPE_CHECK_INSTANCE_TYPE((obj), EOG_TYPE_JOB_LOAD))
+</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>obj</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="EOG-TYPE-JOB-MODEL--CAPS" role="macro">
+<title>EOG_TYPE_JOB_MODEL</title>
+<indexterm zone="EOG-TYPE-JOB-MODEL--CAPS"><primary sortas="EOG_TYPE_JOB_MODEL">EOG_TYPE_JOB_MODEL</primary></indexterm><programlisting>#define EOG_TYPE_JOB_MODEL	       (eog_job_model_get_type())
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="EOG-JOB-MODEL--CAPS" role="macro">
+<title>EOG_JOB_MODEL()</title>
+<indexterm zone="EOG-JOB-MODEL--CAPS"><primary sortas="EOG_JOB_MODEL">EOG_JOB_MODEL</primary></indexterm><programlisting>#define EOG_JOB_MODEL(obj)	       (G_TYPE_CHECK_INSTANCE_CAST((obj), EOG_TYPE_JOB_MODEL, EogJobModel))
+</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>obj</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="EOG-JOB-MODEL-CLASS--CAPS" role="macro">
+<title>EOG_JOB_MODEL_CLASS()</title>
+<indexterm zone="EOG-JOB-MODEL-CLASS--CAPS"><primary sortas="EOG_JOB_MODEL_CLASS">EOG_JOB_MODEL_CLASS</primary></indexterm><programlisting>#define EOG_JOB_MODEL_CLASS(klass)     (G_TYPE_CHECK_CLASS_CAST((klass),  EOG_TYPE_JOB_MODEL, EogJobModelClass))
+</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>klass</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="EOG-IS-JOB-MODEL--CAPS" role="macro">
+<title>EOG_IS_JOB_MODEL()</title>
+<indexterm zone="EOG-IS-JOB-MODEL--CAPS"><primary sortas="EOG_IS_JOB_MODEL">EOG_IS_JOB_MODEL</primary></indexterm><programlisting>#define EOG_IS_JOB_MODEL(obj)          (G_TYPE_CHECK_INSTANCE_TYPE((obj), EOG_TYPE_JOB_MODEL))
+</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>obj</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="EOG-TYPE-JOB-TRANSFORM--CAPS" role="macro">
+<title>EOG_TYPE_JOB_TRANSFORM</title>
+<indexterm zone="EOG-TYPE-JOB-TRANSFORM--CAPS"><primary sortas="EOG_TYPE_JOB_TRANSFORM">EOG_TYPE_JOB_TRANSFORM</primary></indexterm><programlisting>#define EOG_TYPE_JOB_TRANSFORM	       (eog_job_transform_get_type())
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="EOG-JOB-TRANSFORM--CAPS" role="macro">
+<title>EOG_JOB_TRANSFORM()</title>
+<indexterm zone="EOG-JOB-TRANSFORM--CAPS"><primary sortas="EOG_JOB_TRANSFORM">EOG_JOB_TRANSFORM</primary></indexterm><programlisting>#define EOG_JOB_TRANSFORM(obj)	       (G_TYPE_CHECK_INSTANCE_CAST((obj), EOG_TYPE_JOB_TRANSFORM, EogJobTransform))
+</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>obj</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="EOG-JOB-TRANSFORM-CLASS--CAPS" role="macro">
+<title>EOG_JOB_TRANSFORM_CLASS()</title>
+<indexterm zone="EOG-JOB-TRANSFORM-CLASS--CAPS"><primary sortas="EOG_JOB_TRANSFORM_CLASS">EOG_JOB_TRANSFORM_CLASS</primary></indexterm><programlisting>#define EOG_JOB_TRANSFORM_CLASS(klass) (G_TYPE_CHECK_CLASS_CAST((klass),  EOG_TYPE_JOB_TRANSFORM, EogJobTransformClass))
+</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>klass</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="EOG-IS-JOB-TRANSFORM--CAPS" role="macro">
+<title>EOG_IS_JOB_TRANSFORM()</title>
+<indexterm zone="EOG-IS-JOB-TRANSFORM--CAPS"><primary sortas="EOG_IS_JOB_TRANSFORM">EOG_IS_JOB_TRANSFORM</primary></indexterm><programlisting>#define EOG_IS_JOB_TRANSFORM(obj)      (G_TYPE_CHECK_INSTANCE_TYPE((obj), EOG_TYPE_JOB_TRANSFORM))
+</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>obj</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="EOG-TYPE-JOB-SAVE--CAPS" role="macro">
+<title>EOG_TYPE_JOB_SAVE</title>
+<indexterm zone="EOG-TYPE-JOB-SAVE--CAPS"><primary sortas="EOG_TYPE_JOB_SAVE">EOG_TYPE_JOB_SAVE</primary></indexterm><programlisting>#define EOG_TYPE_JOB_SAVE              (eog_job_save_get_type())
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="EOG-JOB-SAVE--CAPS" role="macro">
+<title>EOG_JOB_SAVE()</title>
+<indexterm zone="EOG-JOB-SAVE--CAPS"><primary sortas="EOG_JOB_SAVE">EOG_JOB_SAVE</primary></indexterm><programlisting>#define EOG_JOB_SAVE(obj)              (G_TYPE_CHECK_INSTANCE_CAST((obj), EOG_TYPE_JOB_SAVE, EogJobSave))
+</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>obj</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="EOG-JOB-SAVE-CLASS--CAPS" role="macro">
+<title>EOG_JOB_SAVE_CLASS()</title>
+<indexterm zone="EOG-JOB-SAVE-CLASS--CAPS"><primary sortas="EOG_JOB_SAVE_CLASS">EOG_JOB_SAVE_CLASS</primary></indexterm><programlisting>#define EOG_JOB_SAVE_CLASS(klass)      (G_TYPE_CHECK_CLASS_CAST((klass), EOG_TYPE_JOB_SAVE, EogJobSaveClass))
+</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>klass</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="EOG-IS-JOB-SAVE--CAPS" role="macro">
+<title>EOG_IS_JOB_SAVE()</title>
+<indexterm zone="EOG-IS-JOB-SAVE--CAPS"><primary sortas="EOG_IS_JOB_SAVE">EOG_IS_JOB_SAVE</primary></indexterm><programlisting>#define EOG_IS_JOB_SAVE(obj)           (G_TYPE_CHECK_INSTANCE_TYPE((obj), EOG_TYPE_JOB_SAVE))
+</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>obj</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="EOG-JOB-SAVE-GET-CLASS--CAPS" role="macro">
+<title>EOG_JOB_SAVE_GET_CLASS()</title>
+<indexterm zone="EOG-JOB-SAVE-GET-CLASS--CAPS"><primary sortas="EOG_JOB_SAVE_GET_CLASS">EOG_JOB_SAVE_GET_CLASS</primary></indexterm><programlisting>#define EOG_JOB_SAVE_GET_CLASS(obj)    (G_TYPE_INSTANCE_GET_CLASS ((obj), EOG_TYPE_JOB_SAVE, EogJobSaveClass))
+</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>obj</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="EOG-TYPE-JOB-SAVE-AS--CAPS" role="macro">
+<title>EOG_TYPE_JOB_SAVE_AS</title>
+<indexterm zone="EOG-TYPE-JOB-SAVE-AS--CAPS"><primary sortas="EOG_TYPE_JOB_SAVE_AS">EOG_TYPE_JOB_SAVE_AS</primary></indexterm><programlisting>#define EOG_TYPE_JOB_SAVE_AS           (eog_job_save_as_get_type())
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="EOG-JOB-SAVE-AS--CAPS" role="macro">
+<title>EOG_JOB_SAVE_AS()</title>
+<indexterm zone="EOG-JOB-SAVE-AS--CAPS"><primary sortas="EOG_JOB_SAVE_AS">EOG_JOB_SAVE_AS</primary></indexterm><programlisting>#define EOG_JOB_SAVE_AS(obj)           (G_TYPE_CHECK_INSTANCE_CAST((obj), EOG_TYPE_JOB_SAVE_AS, EogJobSaveAs))
+</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>obj</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="EOG-JOB-SAVE-AS-CLASS--CAPS" role="macro">
+<title>EOG_JOB_SAVE_AS_CLASS()</title>
+<indexterm zone="EOG-JOB-SAVE-AS-CLASS--CAPS"><primary sortas="EOG_JOB_SAVE_AS_CLASS">EOG_JOB_SAVE_AS_CLASS</primary></indexterm><programlisting>#define EOG_JOB_SAVE_AS_CLASS(klass)   (G_TYPE_CHECK_CLASS_CAST((klass), EOG_TYPE_JOB_SAVE_AS, EogJobSaveAsClass))
+</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>klass</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="EOG-IS-JOB-SAVE-AS--CAPS" role="macro">
+<title>EOG_IS_JOB_SAVE_AS()</title>
+<indexterm zone="EOG-IS-JOB-SAVE-AS--CAPS"><primary sortas="EOG_IS_JOB_SAVE_AS">EOG_IS_JOB_SAVE_AS</primary></indexterm><programlisting>#define EOG_IS_JOB_SAVE_AS(obj)        (G_TYPE_CHECK_INSTANCE_TYPE((obj), EOG_TYPE_JOB_SAVE_AS))
+</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>obj</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="EOG-JOB-COPY--CAPS" role="macro">
+<title>EOG_JOB_COPY()</title>
+<indexterm zone="EOG-JOB-COPY--CAPS"><primary sortas="EOG_JOB_COPY">EOG_JOB_COPY</primary></indexterm><programlisting>#define EOG_JOB_COPY(obj)	       (G_TYPE_CHECK_INSTANCE_CAST((obj), EOG_TYPE_JOB_COPY, EogJobCopy))
+</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>obj</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="EOG-JOB-COPY-CLASS--CAPS" role="macro">
+<title>EOG_JOB_COPY_CLASS()</title>
+<indexterm zone="EOG-JOB-COPY-CLASS--CAPS"><primary sortas="EOG_JOB_COPY_CLASS">EOG_JOB_COPY_CLASS</primary></indexterm><programlisting>#define EOG_JOB_COPY_CLASS(klass) (G_TYPE_CHECK_CLASS_CAST((klass),  EOG_TYPE_JOB_COPY, EogJobCopyClass))
+</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>klass</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="EogJob-struct" role="struct">
+<title>EogJob</title>
+<indexterm zone="EogJob-struct"><primary sortas="EogJob">EogJob</primary></indexterm><programlisting>typedef struct _EogJob EogJob;</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="EogJobThumbnail-struct" role="struct">
+<title>EogJobThumbnail</title>
+<indexterm zone="EogJobThumbnail-struct"><primary sortas="EogJobThumbnail">EogJobThumbnail</primary></indexterm><programlisting>typedef struct _EogJobThumbnail EogJobThumbnail;</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="EogJobLoad-struct" role="struct">
+<title>EogJobLoad</title>
+<indexterm zone="EogJobLoad-struct"><primary sortas="EogJobLoad">EogJobLoad</primary></indexterm><programlisting>typedef struct _EogJobLoad EogJobLoad;</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="EogJobModel-struct" role="struct">
+<title>EogJobModel</title>
+<indexterm zone="EogJobModel-struct"><primary sortas="EogJobModel">EogJobModel</primary></indexterm><programlisting>typedef struct _EogJobModel EogJobModel;</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="EogJobTransform-struct" role="struct">
+<title>EogJobTransform</title>
+<indexterm zone="EogJobTransform-struct"><primary sortas="EogJobTransform">EogJobTransform</primary></indexterm><programlisting>typedef struct _EogJobTransform EogJobTransform;</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="EogJobSaveResponse" role="enum">
+<title>enum EogJobSaveResponse</title>
+<indexterm zone="EogJobSaveResponse"><primary sortas="EogJobSaveResponse">EogJobSaveResponse</primary></indexterm><programlisting>typedef enum {
+	EOG_SAVE_RESPONSE_NONE,
+	EOG_SAVE_RESPONSE_RETRY,
+	EOG_SAVE_RESPONSE_SKIP,
+	EOG_SAVE_RESPONSE_OVERWRITE,
+	EOG_SAVE_RESPONSE_CANCEL,
+	EOG_SAVE_RESPONSE_LAST
+} EogJobSaveResponse;
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="EogJobSave-struct" role="struct">
+<title>EogJobSave</title>
+<indexterm zone="EogJobSave-struct"><primary sortas="EogJobSave">EogJobSave</primary></indexterm><programlisting>typedef struct _EogJobSave EogJobSave;</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="EogJobSaveAs-struct" role="struct">
+<title>EogJobSaveAs</title>
+<indexterm zone="EogJobSaveAs-struct"><primary sortas="EogJobSaveAs">EogJobSaveAs</primary></indexterm><programlisting>typedef struct _EogJobSaveAs EogJobSaveAs;</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="EogJobCopy-struct" role="struct">
+<title>EogJobCopy</title>
+<indexterm zone="EogJobCopy-struct"><primary sortas="EogJobCopy">EogJobCopy</primary></indexterm><programlisting>typedef struct _EogJobCopy EogJobCopy;</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="eog-job-finished" role="function">
+<title>eog_job_finished ()</title>
+<indexterm zone="eog-job-finished"><primary sortas="eog_job_finished">eog_job_finished</primary></indexterm><programlisting><link linkend="void">void</link>                eog_job_finished                    (<link linkend="EogJob">EogJob</link> *job);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>job</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-job-run" role="function">
+<title>eog_job_run ()</title>
+<indexterm zone="eog-job-run"><primary sortas="eog_job_run">eog_job_run</primary></indexterm><programlisting><link linkend="void">void</link>                eog_job_run                         (<link linkend="EogJob">EogJob</link> *job);</programlisting>
+<para>
+Executes the job passed as <parameter>job</parameter>. Usually there is no need to call this
+on your own. Jobs should be executed by using the EogJobQueue.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>job</parameter>&#160;:</term>
+<listitem><simpara> the job to execute.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-job-set-progress" role="function">
+<title>eog_job_set_progress ()</title>
+<indexterm zone="eog-job-set-progress"><primary sortas="eog_job_set_progress">eog_job_set_progress</primary></indexterm><programlisting><link linkend="void">void</link>                eog_job_set_progress                (<link linkend="EogJob">EogJob</link> *job,
+                                                         <link linkend="float">float</link> progress);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>job</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>progress</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-job-thumbnail-get-type" role="function">
+<title>eog_job_thumbnail_get_type ()</title>
+<indexterm zone="eog-job-thumbnail-get-type"><primary sortas="eog_job_thumbnail_get_type">eog_job_thumbnail_get_type</primary></indexterm><programlisting><link linkend="GType">GType</link>               eog_job_thumbnail_get_type          (void);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-job-thumbnail-new" role="function">
+<title>eog_job_thumbnail_new ()</title>
+<indexterm zone="eog-job-thumbnail-new"><primary sortas="eog_job_thumbnail_new">eog_job_thumbnail_new</primary></indexterm><programlisting><link linkend="EogJob">EogJob</link> *            eog_job_thumbnail_new               (<link linkend="EogImage">EogImage</link> *image);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>image</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-job-load-get-type" role="function">
+<title>eog_job_load_get_type ()</title>
+<indexterm zone="eog-job-load-get-type"><primary sortas="eog_job_load_get_type">eog_job_load_get_type</primary></indexterm><programlisting><link linkend="GType">GType</link>               eog_job_load_get_type               (void);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-job-load-new" role="function">
+<title>eog_job_load_new ()</title>
+<indexterm zone="eog-job-load-new"><primary sortas="eog_job_load_new">eog_job_load_new</primary></indexterm><programlisting><link linkend="EogJob">EogJob</link> *            eog_job_load_new                    (<link linkend="EogImage">EogImage</link> *image,
+                                                         <link linkend="EogImageData">EogImageData</link> data);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>image</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>data</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-job-model-get-type" role="function">
+<title>eog_job_model_get_type ()</title>
+<indexterm zone="eog-job-model-get-type"><primary sortas="eog_job_model_get_type">eog_job_model_get_type</primary></indexterm><programlisting><link linkend="GType">GType</link>               eog_job_model_get_type              (void);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-job-model-new" role="function">
+<title>eog_job_model_new ()</title>
+<indexterm zone="eog-job-model-new"><primary sortas="eog_job_model_new">eog_job_model_new</primary></indexterm><programlisting><link linkend="EogJob">EogJob</link> *            eog_job_model_new                   (<link linkend="GSList">GSList</link> *file_list);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>file_list</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-job-transform-get-type" role="function">
+<title>eog_job_transform_get_type ()</title>
+<indexterm zone="eog-job-transform-get-type"><primary sortas="eog_job_transform_get_type">eog_job_transform_get_type</primary></indexterm><programlisting><link linkend="GType">GType</link>               eog_job_transform_get_type          (void);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-job-transform-new" role="function">
+<title>eog_job_transform_new ()</title>
+<indexterm zone="eog-job-transform-new"><primary sortas="eog_job_transform_new">eog_job_transform_new</primary></indexterm><programlisting><link linkend="EogJob">EogJob</link> *            eog_job_transform_new               (<link linkend="GList">GList</link> *images,
+                                                         <link linkend="EogTransform">EogTransform</link> *trans);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>images</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>trans</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-job-save-get-type" role="function">
+<title>eog_job_save_get_type ()</title>
+<indexterm zone="eog-job-save-get-type"><primary sortas="eog_job_save_get_type">eog_job_save_get_type</primary></indexterm><programlisting><link linkend="GType">GType</link>               eog_job_save_get_type               (void);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-job-save-new" role="function">
+<title>eog_job_save_new ()</title>
+<indexterm zone="eog-job-save-new"><primary sortas="eog_job_save_new">eog_job_save_new</primary></indexterm><programlisting><link linkend="EogJob">EogJob</link> *            eog_job_save_new                    (<link linkend="GList">GList</link> *images);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>images</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-job-save-as-get-type" role="function">
+<title>eog_job_save_as_get_type ()</title>
+<indexterm zone="eog-job-save-as-get-type"><primary sortas="eog_job_save_as_get_type">eog_job_save_as_get_type</primary></indexterm><programlisting><link linkend="GType">GType</link>               eog_job_save_as_get_type            (void);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-job-save-as-new" role="function">
+<title>eog_job_save_as_new ()</title>
+<indexterm zone="eog-job-save-as-new"><primary sortas="eog_job_save_as_new">eog_job_save_as_new</primary></indexterm><programlisting><link linkend="EogJob">EogJob</link> *            eog_job_save_as_new                 (<link linkend="GList">GList</link> *images,
+                                                         <link linkend="EogURIConverter">EogURIConverter</link> *converter,
+                                                         <link linkend="GFile">GFile</link> *file);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>images</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>converter</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>file</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-job-copy-get-type" role="function">
+<title>eog_job_copy_get_type ()</title>
+<indexterm zone="eog-job-copy-get-type"><primary sortas="eog_job_copy_get_type">eog_job_copy_get_type</primary></indexterm><programlisting><link linkend="GType">GType</link>               eog_job_copy_get_type               (void);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-job-copy-new" role="function">
+<title>eog_job_copy_new ()</title>
+<indexterm zone="eog-job-copy-new"><primary sortas="eog_job_copy_new">eog_job_copy_new</primary></indexterm><programlisting><link linkend="EogJob">EogJob</link> *            eog_job_copy_new                    (<link linkend="GList">GList</link> *images,
+                                                         const <link linkend="gchar">gchar</link> *dest);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>images</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>dest</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+<refsect1 id="EogJobCopy.signal-details" role="signals">
+<title role="signals.title">Signal Details</title>
+<refsect2 id="EogJob-finished" role="signal"><title>The <literal>&quot;finished&quot;</literal> signal</title>
+<indexterm zone="EogJob-finished"><primary sortas="EogJob::finished">EogJob::finished</primary></indexterm><programlisting><link linkend="void">void</link>                user_function                      (<link linkend="EogJob">EogJob</link>  *eogjob,
+                                                        <link linkend="gpointer">gpointer</link> user_data)      : Run Last</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>eogjob</parameter>&#160;:</term>
+<listitem><simpara>the object which received the signal.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&#160;:</term>
+<listitem><simpara>user data set when the signal handler was connected.</simpara></listitem></varlistentry>
+</variablelist></refsect2><refsect2 id="EogJob-progress" role="signal"><title>The <literal>&quot;progress&quot;</literal> signal</title>
+<indexterm zone="EogJob-progress"><primary sortas="EogJob::progress">EogJob::progress</primary></indexterm><programlisting><link linkend="void">void</link>                user_function                      (<link linkend="EogJob">EogJob</link>  *eogjob,
+                                                        <link linkend="gfloat">gfloat</link>   arg1,
+                                                        <link linkend="gpointer">gpointer</link> user_data)      : Run Last</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>eogjob</parameter>&#160;:</term>
+<listitem><simpara>the object which received the signal.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>arg1</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&#160;:</term>
+<listitem><simpara>user data set when the signal handler was connected.</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+</refsect1>
+
+
+
+</refentry>

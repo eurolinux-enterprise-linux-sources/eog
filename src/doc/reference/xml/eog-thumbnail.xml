@@ -1,0 +1,113 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN"
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="eog-eog-thumbnail">
+<refmeta>
+<refentrytitle role="top_of_page" id="eog-eog-thumbnail.top_of_page">eog-thumbnail</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>EOG Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>eog-thumbnail</refname>
+<refpurpose></refpurpose>
+</refnamediv>
+
+<refsynopsisdiv id="eog-eog-thumbnail.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+<link linkend="void">void</link>                <link linkend="eog-thumbnail-init">eog_thumbnail_init</link>                  (void);
+<link linkend="GdkPixbuf">GdkPixbuf</link>*          <link linkend="eog-thumbnail-fit-to-size">eog_thumbnail_fit_to_size</link>           (<link linkend="GdkPixbuf">GdkPixbuf</link> *thumbnail,
+                                                         <link linkend="gint">gint</link> dimension);
+<link linkend="GdkPixbuf">GdkPixbuf</link>*          <link linkend="eog-thumbnail-add-frame">eog_thumbnail_add_frame</link>             (<link linkend="GdkPixbuf">GdkPixbuf</link> *thumbnail);
+<link linkend="GdkPixbuf">GdkPixbuf</link>*          <link linkend="eog-thumbnail-load">eog_thumbnail_load</link>                  (<link linkend="EogImage">EogImage</link> *image,
+                                                         <link linkend="GError">GError</link> **error);
+#define             <link linkend="EOG-THUMBNAIL-ORIGINAL-WIDTH--CAPS">EOG_THUMBNAIL_ORIGINAL_WIDTH</link>
+#define             <link linkend="EOG-THUMBNAIL-ORIGINAL-HEIGHT--CAPS">EOG_THUMBNAIL_ORIGINAL_HEIGHT</link>
+</synopsis>
+</refsynopsisdiv>
+
+
+
+
+
+
+
+
+
+<refsect1 id="eog-eog-thumbnail.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+</para>
+</refsect1>
+
+<refsect1 id="eog-eog-thumbnail.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="eog-thumbnail-init" role="function">
+<title>eog_thumbnail_init ()</title>
+<indexterm zone="eog-thumbnail-init"><primary sortas="eog_thumbnail_init">eog_thumbnail_init</primary></indexterm><programlisting><link linkend="void">void</link>                eog_thumbnail_init                  (void);</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="eog-thumbnail-fit-to-size" role="function">
+<title>eog_thumbnail_fit_to_size ()</title>
+<indexterm zone="eog-thumbnail-fit-to-size"><primary sortas="eog_thumbnail_fit_to_size">eog_thumbnail_fit_to_size</primary></indexterm><programlisting><link linkend="GdkPixbuf">GdkPixbuf</link>*          eog_thumbnail_fit_to_size           (<link linkend="GdkPixbuf">GdkPixbuf</link> *thumbnail,
+                                                         <link linkend="gint">gint</link> dimension);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>thumbnail</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>dimension</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-thumbnail-add-frame" role="function">
+<title>eog_thumbnail_add_frame ()</title>
+<indexterm zone="eog-thumbnail-add-frame"><primary sortas="eog_thumbnail_add_frame">eog_thumbnail_add_frame</primary></indexterm><programlisting><link linkend="GdkPixbuf">GdkPixbuf</link>*          eog_thumbnail_add_frame             (<link linkend="GdkPixbuf">GdkPixbuf</link> *thumbnail);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>thumbnail</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-thumbnail-load" role="function">
+<title>eog_thumbnail_load ()</title>
+<indexterm zone="eog-thumbnail-load"><primary sortas="eog_thumbnail_load">eog_thumbnail_load</primary></indexterm><programlisting><link linkend="GdkPixbuf">GdkPixbuf</link>*          eog_thumbnail_load                  (<link linkend="EogImage">EogImage</link> *image,
+                                                         <link linkend="GError">GError</link> **error);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>image</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>error</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="EOG-THUMBNAIL-ORIGINAL-WIDTH--CAPS" role="macro">
+<title>EOG_THUMBNAIL_ORIGINAL_WIDTH</title>
+<indexterm zone="EOG-THUMBNAIL-ORIGINAL-WIDTH--CAPS"><primary sortas="EOG_THUMBNAIL_ORIGINAL_WIDTH">EOG_THUMBNAIL_ORIGINAL_WIDTH</primary></indexterm><programlisting>#define EOG_THUMBNAIL_ORIGINAL_WIDTH  "eog-thumbnail-orig-width"
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="EOG-THUMBNAIL-ORIGINAL-HEIGHT--CAPS" role="macro">
+<title>EOG_THUMBNAIL_ORIGINAL_HEIGHT</title>
+<indexterm zone="EOG-THUMBNAIL-ORIGINAL-HEIGHT--CAPS"><primary sortas="EOG_THUMBNAIL_ORIGINAL_HEIGHT">EOG_THUMBNAIL_ORIGINAL_HEIGHT</primary></indexterm><programlisting>#define EOG_THUMBNAIL_ORIGINAL_HEIGHT "eog-thumbnail-orig-height"
+</programlisting>
+<para>
+</para></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

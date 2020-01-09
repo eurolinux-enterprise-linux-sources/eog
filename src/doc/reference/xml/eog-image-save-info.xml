@@ -1,0 +1,113 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN"
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="EogImageSaveInfo">
+<refmeta>
+<refentrytitle role="top_of_page" id="EogImageSaveInfo.top_of_page">EogImageSaveInfo</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>EOG Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>EogImageSaveInfo</refname>
+<refpurpose></refpurpose>
+</refnamediv>
+
+<refsynopsisdiv id="EogImageSaveInfo.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+                    <link linkend="EogImageSaveInfo-struct">EogImageSaveInfo</link>;
+#define             <link linkend="EOG-FILE-FORMAT-JPEG--CAPS">EOG_FILE_FORMAT_JPEG</link>
+<link linkend="EogImageSaveInfo">EogImageSaveInfo</link> *  <link linkend="eog-image-save-info-from-image">eog_image_save_info_from_image</link>      (<link linkend="gpointer">gpointer</link> data);
+<link linkend="EogImageSaveInfo">EogImageSaveInfo</link> *  <link linkend="eog-image-save-info-from-uri">eog_image_save_info_from_uri</link>        (const <link linkend="char">char</link> *uri,
+                                                         <link linkend="GdkPixbufFormat">GdkPixbufFormat</link> *format);
+<link linkend="EogImageSaveInfo">EogImageSaveInfo</link> *  <link linkend="eog-image-save-info-from-file">eog_image_save_info_from_file</link>       (<link linkend="GFile">GFile</link> *file,
+                                                         <link linkend="GdkPixbufFormat">GdkPixbufFormat</link> *format);
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 id="EogImageSaveInfo.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<synopsis>
+  <link linkend="GObject">GObject</link>
+   +----EogImageSaveInfo
+</synopsis>
+</refsect1>
+
+
+
+
+
+
+
+
+<refsect1 id="EogImageSaveInfo.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+</para>
+</refsect1>
+
+<refsect1 id="EogImageSaveInfo.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="EogImageSaveInfo-struct" role="struct">
+<title>EogImageSaveInfo</title>
+<indexterm zone="EogImageSaveInfo-struct"><primary sortas="EogImageSaveInfo">EogImageSaveInfo</primary></indexterm><programlisting>typedef struct _EogImageSaveInfo EogImageSaveInfo;</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="EOG-FILE-FORMAT-JPEG--CAPS" role="macro">
+<title>EOG_FILE_FORMAT_JPEG</title>
+<indexterm zone="EOG-FILE-FORMAT-JPEG--CAPS"><primary sortas="EOG_FILE_FORMAT_JPEG">EOG_FILE_FORMAT_JPEG</primary></indexterm><programlisting>#define EOG_FILE_FORMAT_JPEG   "jpeg"
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="eog-image-save-info-from-image" role="function">
+<title>eog_image_save_info_from_image ()</title>
+<indexterm zone="eog-image-save-info-from-image"><primary sortas="eog_image_save_info_from_image">eog_image_save_info_from_image</primary></indexterm><programlisting><link linkend="EogImageSaveInfo">EogImageSaveInfo</link> *  eog_image_save_info_from_image      (<link linkend="gpointer">gpointer</link> data);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>data</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-image-save-info-from-uri" role="function">
+<title>eog_image_save_info_from_uri ()</title>
+<indexterm zone="eog-image-save-info-from-uri"><primary sortas="eog_image_save_info_from_uri">eog_image_save_info_from_uri</primary></indexterm><programlisting><link linkend="EogImageSaveInfo">EogImageSaveInfo</link> *  eog_image_save_info_from_uri        (const <link linkend="char">char</link> *uri,
+                                                         <link linkend="GdkPixbufFormat">GdkPixbufFormat</link> *format);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>uri</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>format</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-image-save-info-from-file" role="function">
+<title>eog_image_save_info_from_file ()</title>
+<indexterm zone="eog-image-save-info-from-file"><primary sortas="eog_image_save_info_from_file">eog_image_save_info_from_file</primary></indexterm><programlisting><link linkend="EogImageSaveInfo">EogImageSaveInfo</link> *  eog_image_save_info_from_file       (<link linkend="GFile">GFile</link> *file,
+                                                         <link linkend="GdkPixbufFormat">GdkPixbufFormat</link> *format);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>file</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>format</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

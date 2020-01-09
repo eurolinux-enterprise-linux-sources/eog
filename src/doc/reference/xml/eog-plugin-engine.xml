@@ -1,0 +1,259 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN"
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="eog-eog-plugin-engine">
+<refmeta>
+<refentrytitle role="top_of_page" id="eog-eog-plugin-engine.top_of_page">eog-plugin-engine</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>EOG Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>eog-plugin-engine</refname>
+<refpurpose></refpurpose>
+</refnamediv>
+
+<refsynopsisdiv id="eog-eog-plugin-engine.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+                    <link linkend="EogPluginInfo">EogPluginInfo</link>;
+<link linkend="gboolean">gboolean</link>            <link linkend="eog-plugin-engine-init">eog_plugin_engine_init</link>              (void);
+<link linkend="void">void</link>                <link linkend="eog-plugin-engine-shutdown">eog_plugin_engine_shutdown</link>          (void);
+<link linkend="void">void</link>                <link linkend="eog-plugin-engine-garbage-collect">eog_plugin_engine_garbage_collect</link>   (void);
+const <link linkend="GList">GList</link> *       <link linkend="eog-plugin-engine-get-plugins-list">eog_plugin_engine_get_plugins_list</link>  (void);
+<link linkend="gboolean">gboolean</link>            <link linkend="eog-plugin-engine-activate-plugin">eog_plugin_engine_activate_plugin</link>   (<link linkend="EogPluginInfo">EogPluginInfo</link> *info);
+<link linkend="gboolean">gboolean</link>            <link linkend="eog-plugin-engine-deactivate-plugin">eog_plugin_engine_deactivate_plugin</link> (<link linkend="EogPluginInfo">EogPluginInfo</link> *info);
+<link linkend="gboolean">gboolean</link>            <link linkend="eog-plugin-engine-plugin-is-active">eog_plugin_engine_plugin_is_active</link>  (<link linkend="EogPluginInfo">EogPluginInfo</link> *info);
+<link linkend="gboolean">gboolean</link>            <link linkend="eog-plugin-engine-plugin-is-available">eog_plugin_engine_plugin_is_available</link>
+                                                        (<link linkend="EogPluginInfo">EogPluginInfo</link> *info);
+<link linkend="gboolean">gboolean</link>            <link linkend="eog-plugin-engine-plugin-is-configurable">eog_plugin_engine_plugin_is_configurable</link>
+                                                        (<link linkend="EogPluginInfo">EogPluginInfo</link> *info);
+<link linkend="void">void</link>                <link linkend="eog-plugin-engine-configure-plugin">eog_plugin_engine_configure_plugin</link>  (<link linkend="EogPluginInfo">EogPluginInfo</link> *info,
+                                                         <link linkend="GtkWindow">GtkWindow</link> *parent);
+<link linkend="void">void</link>                <link linkend="eog-plugin-engine-update-plugins-ui">eog_plugin_engine_update_plugins_ui</link> (<link linkend="EogWindow">EogWindow</link> *window,
+                                                         <link linkend="gboolean">gboolean</link> new_window);
+const <link linkend="gchar">gchar</link> *       <link linkend="eog-plugin-engine-get-plugin-name">eog_plugin_engine_get_plugin_name</link>   (<link linkend="EogPluginInfo">EogPluginInfo</link> *info);
+const <link linkend="gchar">gchar</link> *       <link linkend="eog-plugin-engine-get-plugin-description">eog_plugin_engine_get_plugin_description</link>
+                                                        (<link linkend="EogPluginInfo">EogPluginInfo</link> *info);
+const <link linkend="gchar">gchar</link> *       <link linkend="eog-plugin-engine-get-plugin-icon-name">eog_plugin_engine_get_plugin_icon_name</link>
+                                                        (<link linkend="EogPluginInfo">EogPluginInfo</link> *info);
+const <link linkend="gchar">gchar</link> **      <link linkend="eog-plugin-engine-get-plugin-authors">eog_plugin_engine_get_plugin_authors</link>
+                                                        (<link linkend="EogPluginInfo">EogPluginInfo</link> *info);
+const <link linkend="gchar">gchar</link> *       <link linkend="eog-plugin-engine-get-plugin-website">eog_plugin_engine_get_plugin_website</link>
+                                                        (<link linkend="EogPluginInfo">EogPluginInfo</link> *info);
+const <link linkend="gchar">gchar</link> *       <link linkend="eog-plugin-engine-get-plugin-copyright">eog_plugin_engine_get_plugin_copyright</link>
+                                                        (<link linkend="EogPluginInfo">EogPluginInfo</link> *info);
+</synopsis>
+</refsynopsisdiv>
+
+
+
+
+
+
+
+
+
+<refsect1 id="eog-eog-plugin-engine.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+</para>
+</refsect1>
+
+<refsect1 id="eog-eog-plugin-engine.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="EogPluginInfo" role="struct">
+<title>EogPluginInfo</title>
+<indexterm zone="EogPluginInfo"><primary sortas="EogPluginInfo">EogPluginInfo</primary></indexterm><programlisting>typedef struct _EogPluginInfo EogPluginInfo;</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="eog-plugin-engine-init" role="function">
+<title>eog_plugin_engine_init ()</title>
+<indexterm zone="eog-plugin-engine-init"><primary sortas="eog_plugin_engine_init">eog_plugin_engine_init</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            eog_plugin_engine_init              (void);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-plugin-engine-shutdown" role="function">
+<title>eog_plugin_engine_shutdown ()</title>
+<indexterm zone="eog-plugin-engine-shutdown"><primary sortas="eog_plugin_engine_shutdown">eog_plugin_engine_shutdown</primary></indexterm><programlisting><link linkend="void">void</link>                eog_plugin_engine_shutdown          (void);</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="eog-plugin-engine-garbage-collect" role="function">
+<title>eog_plugin_engine_garbage_collect ()</title>
+<indexterm zone="eog-plugin-engine-garbage-collect"><primary sortas="eog_plugin_engine_garbage_collect">eog_plugin_engine_garbage_collect</primary></indexterm><programlisting><link linkend="void">void</link>                eog_plugin_engine_garbage_collect   (void);</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="eog-plugin-engine-get-plugins-list" role="function">
+<title>eog_plugin_engine_get_plugins_list ()</title>
+<indexterm zone="eog-plugin-engine-get-plugins-list"><primary sortas="eog_plugin_engine_get_plugins_list">eog_plugin_engine_get_plugins_list</primary></indexterm><programlisting>const <link linkend="GList">GList</link> *       eog_plugin_engine_get_plugins_list  (void);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-plugin-engine-activate-plugin" role="function">
+<title>eog_plugin_engine_activate_plugin ()</title>
+<indexterm zone="eog-plugin-engine-activate-plugin"><primary sortas="eog_plugin_engine_activate_plugin">eog_plugin_engine_activate_plugin</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            eog_plugin_engine_activate_plugin   (<link linkend="EogPluginInfo">EogPluginInfo</link> *info);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>info</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-plugin-engine-deactivate-plugin" role="function">
+<title>eog_plugin_engine_deactivate_plugin ()</title>
+<indexterm zone="eog-plugin-engine-deactivate-plugin"><primary sortas="eog_plugin_engine_deactivate_plugin">eog_plugin_engine_deactivate_plugin</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            eog_plugin_engine_deactivate_plugin (<link linkend="EogPluginInfo">EogPluginInfo</link> *info);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>info</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-plugin-engine-plugin-is-active" role="function">
+<title>eog_plugin_engine_plugin_is_active ()</title>
+<indexterm zone="eog-plugin-engine-plugin-is-active"><primary sortas="eog_plugin_engine_plugin_is_active">eog_plugin_engine_plugin_is_active</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            eog_plugin_engine_plugin_is_active  (<link linkend="EogPluginInfo">EogPluginInfo</link> *info);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>info</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-plugin-engine-plugin-is-available" role="function">
+<title>eog_plugin_engine_plugin_is_available ()</title>
+<indexterm zone="eog-plugin-engine-plugin-is-available"><primary sortas="eog_plugin_engine_plugin_is_available">eog_plugin_engine_plugin_is_available</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            eog_plugin_engine_plugin_is_available
+                                                        (<link linkend="EogPluginInfo">EogPluginInfo</link> *info);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>info</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-plugin-engine-plugin-is-configurable" role="function">
+<title>eog_plugin_engine_plugin_is_configurable ()</title>
+<indexterm zone="eog-plugin-engine-plugin-is-configurable"><primary sortas="eog_plugin_engine_plugin_is_configurable">eog_plugin_engine_plugin_is_configurable</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            eog_plugin_engine_plugin_is_configurable
+                                                        (<link linkend="EogPluginInfo">EogPluginInfo</link> *info);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>info</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-plugin-engine-configure-plugin" role="function">
+<title>eog_plugin_engine_configure_plugin ()</title>
+<indexterm zone="eog-plugin-engine-configure-plugin"><primary sortas="eog_plugin_engine_configure_plugin">eog_plugin_engine_configure_plugin</primary></indexterm><programlisting><link linkend="void">void</link>                eog_plugin_engine_configure_plugin  (<link linkend="EogPluginInfo">EogPluginInfo</link> *info,
+                                                         <link linkend="GtkWindow">GtkWindow</link> *parent);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>info</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>parent</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-plugin-engine-update-plugins-ui" role="function">
+<title>eog_plugin_engine_update_plugins_ui ()</title>
+<indexterm zone="eog-plugin-engine-update-plugins-ui"><primary sortas="eog_plugin_engine_update_plugins_ui">eog_plugin_engine_update_plugins_ui</primary></indexterm><programlisting><link linkend="void">void</link>                eog_plugin_engine_update_plugins_ui (<link linkend="EogWindow">EogWindow</link> *window,
+                                                         <link linkend="gboolean">gboolean</link> new_window);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>window</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>new_window</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-plugin-engine-get-plugin-name" role="function">
+<title>eog_plugin_engine_get_plugin_name ()</title>
+<indexterm zone="eog-plugin-engine-get-plugin-name"><primary sortas="eog_plugin_engine_get_plugin_name">eog_plugin_engine_get_plugin_name</primary></indexterm><programlisting>const <link linkend="gchar">gchar</link> *       eog_plugin_engine_get_plugin_name   (<link linkend="EogPluginInfo">EogPluginInfo</link> *info);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>info</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-plugin-engine-get-plugin-description" role="function">
+<title>eog_plugin_engine_get_plugin_description ()</title>
+<indexterm zone="eog-plugin-engine-get-plugin-description"><primary sortas="eog_plugin_engine_get_plugin_description">eog_plugin_engine_get_plugin_description</primary></indexterm><programlisting>const <link linkend="gchar">gchar</link> *       eog_plugin_engine_get_plugin_description
+                                                        (<link linkend="EogPluginInfo">EogPluginInfo</link> *info);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>info</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-plugin-engine-get-plugin-icon-name" role="function">
+<title>eog_plugin_engine_get_plugin_icon_name ()</title>
+<indexterm zone="eog-plugin-engine-get-plugin-icon-name"><primary sortas="eog_plugin_engine_get_plugin_icon_name">eog_plugin_engine_get_plugin_icon_name</primary></indexterm><programlisting>const <link linkend="gchar">gchar</link> *       eog_plugin_engine_get_plugin_icon_name
+                                                        (<link linkend="EogPluginInfo">EogPluginInfo</link> *info);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>info</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-plugin-engine-get-plugin-authors" role="function">
+<title>eog_plugin_engine_get_plugin_authors ()</title>
+<indexterm zone="eog-plugin-engine-get-plugin-authors"><primary sortas="eog_plugin_engine_get_plugin_authors">eog_plugin_engine_get_plugin_authors</primary></indexterm><programlisting>const <link linkend="gchar">gchar</link> **      eog_plugin_engine_get_plugin_authors
+                                                        (<link linkend="EogPluginInfo">EogPluginInfo</link> *info);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>info</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-plugin-engine-get-plugin-website" role="function">
+<title>eog_plugin_engine_get_plugin_website ()</title>
+<indexterm zone="eog-plugin-engine-get-plugin-website"><primary sortas="eog_plugin_engine_get_plugin_website">eog_plugin_engine_get_plugin_website</primary></indexterm><programlisting>const <link linkend="gchar">gchar</link> *       eog_plugin_engine_get_plugin_website
+                                                        (<link linkend="EogPluginInfo">EogPluginInfo</link> *info);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>info</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-plugin-engine-get-plugin-copyright" role="function">
+<title>eog_plugin_engine_get_plugin_copyright ()</title>
+<indexterm zone="eog-plugin-engine-get-plugin-copyright"><primary sortas="eog_plugin_engine_get_plugin_copyright">eog_plugin_engine_get_plugin_copyright</primary></indexterm><programlisting>const <link linkend="gchar">gchar</link> *       eog_plugin_engine_get_plugin_copyright
+                                                        (<link linkend="EogPluginInfo">EogPluginInfo</link> *info);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>info</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

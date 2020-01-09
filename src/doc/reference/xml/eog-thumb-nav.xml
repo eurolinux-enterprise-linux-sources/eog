@@ -1,0 +1,195 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN"
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="EogThumbNav">
+<refmeta>
+<refentrytitle role="top_of_page" id="EogThumbNav.top_of_page">EogThumbNav</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>EOG Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>EogThumbNav</refname>
+<refpurpose></refpurpose>
+</refnamediv>
+
+<refsynopsisdiv id="EogThumbNav.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+enum                <link linkend="EogThumbNavMode">EogThumbNavMode</link>;
+                    <link linkend="EogThumbNav-struct">EogThumbNav</link>;
+<link linkend="GtkWidget">GtkWidget</link> *         <link linkend="eog-thumb-nav-new">eog_thumb_nav_new</link>                   (<link linkend="GtkWidget">GtkWidget</link> *thumbview,
+                                                         <link linkend="EogThumbNavMode">EogThumbNavMode</link> mode,
+                                                         <link linkend="gboolean">gboolean</link> show_buttons);
+<link linkend="gboolean">gboolean</link>            <link linkend="eog-thumb-nav-get-show-buttons">eog_thumb_nav_get_show_buttons</link>      (<link linkend="EogThumbNav">EogThumbNav</link> *nav);
+<link linkend="void">void</link>                <link linkend="eog-thumb-nav-set-show-buttons">eog_thumb_nav_set_show_buttons</link>      (<link linkend="EogThumbNav">EogThumbNav</link> *nav,
+                                                         <link linkend="gboolean">gboolean</link> show_buttons);
+<link linkend="EogThumbNavMode">EogThumbNavMode</link>     <link linkend="eog-thumb-nav-get-mode">eog_thumb_nav_get_mode</link>              (<link linkend="EogThumbNav">EogThumbNav</link> *nav);
+<link linkend="void">void</link>                <link linkend="eog-thumb-nav-set-mode">eog_thumb_nav_set_mode</link>              (<link linkend="EogThumbNav">EogThumbNav</link> *nav,
+                                                         <link linkend="EogThumbNavMode">EogThumbNavMode</link> mode);
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 id="EogThumbNav.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<synopsis>
+  <link linkend="GObject">GObject</link>
+   +----<link linkend="GInitiallyUnowned">GInitiallyUnowned</link>
+         +----<link linkend="GtkObject">GtkObject</link>
+               +----<link linkend="GtkWidget">GtkWidget</link>
+                     +----<link linkend="GtkContainer">GtkContainer</link>
+                           +----<link linkend="GtkBox">GtkBox</link>
+                                 +----<link linkend="GtkHBox">GtkHBox</link>
+                                       +----EogThumbNav
+</synopsis>
+</refsect1>
+
+
+
+<refsect1 id="EogThumbNav.implemented-interfaces" role="impl_interfaces">
+<title role="impl_interfaces.title">Implemented Interfaces</title>
+<para>
+EogThumbNav implements
+ <link linkend="AtkImplementorIface">AtkImplementorIface</link>,  <link linkend="GtkBuildable">GtkBuildable</link> and  <link linkend="GtkOrientable">GtkOrientable</link>.</para>
+</refsect1>
+
+
+<refsect1 id="EogThumbNav.properties" role="properties">
+<title role="properties.title">Properties</title>
+<synopsis>
+  &quot;<link linkend="EogThumbNav--mode">mode</link>&quot;                     <link linkend="gint">gint</link>                  : Read / Write
+  &quot;<link linkend="EogThumbNav--show-buttons">show-buttons</link>&quot;             <link linkend="gboolean">gboolean</link>              : Read / Write
+  &quot;<link linkend="EogThumbNav--thumbview">thumbview</link>&quot;                <link linkend="EogThumbView">EogThumbView</link>*         : Read / Write / Construct Only
+</synopsis>
+</refsect1>
+
+
+
+<refsect1 id="EogThumbNav.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+</para>
+</refsect1>
+
+<refsect1 id="EogThumbNav.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="EogThumbNavMode" role="enum">
+<title>enum EogThumbNavMode</title>
+<indexterm zone="EogThumbNavMode"><primary sortas="EogThumbNavMode">EogThumbNavMode</primary></indexterm><programlisting>typedef enum {
+	EOG_THUMB_NAV_MODE_ONE_ROW,
+	EOG_THUMB_NAV_MODE_ONE_COLUMN,
+	EOG_THUMB_NAV_MODE_MULTIPLE_ROWS,
+	EOG_THUMB_NAV_MODE_MULTIPLE_COLUMNS
+} EogThumbNavMode;
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="EogThumbNav-struct" role="struct">
+<title>EogThumbNav</title>
+<indexterm zone="EogThumbNav-struct"><primary sortas="EogThumbNav">EogThumbNav</primary></indexterm><programlisting>typedef struct _EogThumbNav EogThumbNav;</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="eog-thumb-nav-new" role="function">
+<title>eog_thumb_nav_new ()</title>
+<indexterm zone="eog-thumb-nav-new"><primary sortas="eog_thumb_nav_new">eog_thumb_nav_new</primary></indexterm><programlisting><link linkend="GtkWidget">GtkWidget</link> *         eog_thumb_nav_new                   (<link linkend="GtkWidget">GtkWidget</link> *thumbview,
+                                                         <link linkend="EogThumbNavMode">EogThumbNavMode</link> mode,
+                                                         <link linkend="gboolean">gboolean</link> show_buttons);</programlisting>
+<para>
+Creates a new thumbnail navigation widget.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>thumbview</parameter>&#160;:</term>
+<listitem><simpara> an <link linkend="EogThumbView"><type>EogThumbView</type></link> to embed in the navigation widget.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>mode</parameter>&#160;:</term>
+<listitem><simpara> The navigation mode.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>show_buttons</parameter>&#160;:</term>
+<listitem><simpara> Whether to show the navigation buttons.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> a new <link linkend="EogThumbNav"><type>EogThumbNav</type></link> object.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-thumb-nav-get-show-buttons" role="function">
+<title>eog_thumb_nav_get_show_buttons ()</title>
+<indexterm zone="eog-thumb-nav-get-show-buttons"><primary sortas="eog_thumb_nav_get_show_buttons">eog_thumb_nav_get_show_buttons</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            eog_thumb_nav_get_show_buttons      (<link linkend="EogThumbNav">EogThumbNav</link> *nav);</programlisting>
+<para>
+Gets whether the navigation buttons are visible.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>nav</parameter>&#160;:</term>
+<listitem><simpara> an <link linkend="EogThumbNav"><type>EogThumbNav</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> <link linkend="TRUE--CAPS"><literal>TRUE</literal></link> if the navigation buttons are visible,
+<link linkend="FALSE--CAPS"><literal>FALSE</literal></link> otherwise.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-thumb-nav-set-show-buttons" role="function">
+<title>eog_thumb_nav_set_show_buttons ()</title>
+<indexterm zone="eog-thumb-nav-set-show-buttons"><primary sortas="eog_thumb_nav_set_show_buttons">eog_thumb_nav_set_show_buttons</primary></indexterm><programlisting><link linkend="void">void</link>                eog_thumb_nav_set_show_buttons      (<link linkend="EogThumbNav">EogThumbNav</link> *nav,
+                                                         <link linkend="gboolean">gboolean</link> show_buttons);</programlisting>
+<para>
+Sets whether the navigation buttons to the left and right of the
+widget should be visible.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>nav</parameter>&#160;:</term>
+<listitem><simpara> an <link linkend="EogThumbNav"><type>EogThumbNav</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>show_buttons</parameter>&#160;:</term>
+<listitem><simpara> <link linkend="TRUE--CAPS"><literal>TRUE</literal></link> to show the buttons, <link linkend="FALSE--CAPS"><literal>FALSE</literal></link> to hide them.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-thumb-nav-get-mode" role="function">
+<title>eog_thumb_nav_get_mode ()</title>
+<indexterm zone="eog-thumb-nav-get-mode"><primary sortas="eog_thumb_nav_get_mode">eog_thumb_nav_get_mode</primary></indexterm><programlisting><link linkend="EogThumbNavMode">EogThumbNavMode</link>     eog_thumb_nav_get_mode              (<link linkend="EogThumbNav">EogThumbNav</link> *nav);</programlisting>
+<para>
+Gets the navigation mode in <parameter>nav</parameter>.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>nav</parameter>&#160;:</term>
+<listitem><simpara> an <link linkend="EogThumbNav"><type>EogThumbNav</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> A value in <link linkend="EogThumbNavMode"><type>EogThumbNavMode</type></link>.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-thumb-nav-set-mode" role="function">
+<title>eog_thumb_nav_set_mode ()</title>
+<indexterm zone="eog-thumb-nav-set-mode"><primary sortas="eog_thumb_nav_set_mode">eog_thumb_nav_set_mode</primary></indexterm><programlisting><link linkend="void">void</link>                eog_thumb_nav_set_mode              (<link linkend="EogThumbNav">EogThumbNav</link> *nav,
+                                                         <link linkend="EogThumbNavMode">EogThumbNavMode</link> mode);</programlisting>
+<para>
+Sets the navigation mode in <parameter>nav</parameter>. See <link linkend="EogThumbNavMode"><type>EogThumbNavMode</type></link> for details.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>nav</parameter>&#160;:</term>
+<listitem><simpara> An <link linkend="EogThumbNav"><type>EogThumbNav</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>mode</parameter>&#160;:</term>
+<listitem><simpara> One of <link linkend="EogThumbNavMode"><type>EogThumbNavMode</type></link>.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+<refsect1 id="EogThumbNav.property-details" role="property_details">
+<title role="property_details.title">Property Details</title>
+<refsect2 id="EogThumbNav--mode" role="property"><title>The <literal>&quot;mode&quot;</literal> property</title>
+<indexterm zone="EogThumbNav--mode"><primary sortas="EogThumbNav:mode">EogThumbNav:mode</primary></indexterm><programlisting>  &quot;mode&quot;                     <link linkend="gint">gint</link>                  : Read / Write</programlisting>
+<para>Thumb navigator mode.</para><para>Allowed values: [0,2]</para>
+<para>Default value: 0</para>
+</refsect2>
+<refsect2 id="EogThumbNav--show-buttons" role="property"><title>The <literal>&quot;show-buttons&quot;</literal> property</title>
+<indexterm zone="EogThumbNav--show-buttons"><primary sortas="EogThumbNav:show-buttons">EogThumbNav:show-buttons</primary></indexterm><programlisting>  &quot;show-buttons&quot;             <link linkend="gboolean">gboolean</link>              : Read / Write</programlisting>
+<para>Whether to show navigation buttons or not.</para><para>Default value: TRUE</para>
+</refsect2>
+<refsect2 id="EogThumbNav--thumbview" role="property"><title>The <literal>&quot;thumbview&quot;</literal> property</title>
+<indexterm zone="EogThumbNav--thumbview"><primary sortas="EogThumbNav:thumbview">EogThumbNav:thumbview</primary></indexterm><programlisting>  &quot;thumbview&quot;                <link linkend="EogThumbView">EogThumbView</link>*         : Read / Write / Construct Only</programlisting>
+<para>The internal thumbnail viewer widget.</para></refsect2>
+</refsect1>
+
+
+
+
+</refentry>

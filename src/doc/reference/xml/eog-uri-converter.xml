@@ -1,0 +1,295 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN"
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="EogURIConverter">
+<refmeta>
+<refentrytitle role="top_of_page" id="EogURIConverter.top_of_page">EogURIConverter</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>EOG Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>EogURIConverter</refname>
+<refpurpose></refpurpose>
+</refnamediv>
+
+<refsynopsisdiv id="EogURIConverter.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+enum                <link linkend="EogUCType">EogUCType</link>;
+                    <link linkend="EogUCInfo">EogUCInfo</link>;
+enum                <link linkend="EogUCError">EogUCError</link>;
+#define             <link linkend="EOG-UC-ERROR--CAPS">EOG_UC_ERROR</link>
+                    <link linkend="EogURIConverter-struct">EogURIConverter</link>;
+<link linkend="GQuark">GQuark</link>              <link linkend="eog-uc-error-quark">eog_uc_error_quark</link>                  (void);
+<link linkend="EogURIConverter">EogURIConverter</link>*    <link linkend="eog-uri-converter-new">eog_uri_converter_new</link>               (<link linkend="GFile">GFile</link> *base_file,
+                                                         <link linkend="GdkPixbufFormat">GdkPixbufFormat</link> *img_format,
+                                                         const <link linkend="char">char</link> *format_string);
+<link linkend="gboolean">gboolean</link>            <link linkend="eog-uri-converter-check">eog_uri_converter_check</link>             (<link linkend="EogURIConverter">EogURIConverter</link> *converter,
+                                                         <link linkend="GList">GList</link> *img_list,
+                                                         <link linkend="GError">GError</link> **error);
+<link linkend="gboolean">gboolean</link>            <link linkend="eog-uri-converter-requires-exif">eog_uri_converter_requires_exif</link>     (<link linkend="EogURIConverter">EogURIConverter</link> *converter);
+<link linkend="gboolean">gboolean</link>            <link linkend="eog-uri-converter-do">eog_uri_converter_do</link>                (<link linkend="EogURIConverter">EogURIConverter</link> *converter,
+                                                         <link linkend="EogImage">EogImage</link> *image,
+                                                         <link linkend="GFile">GFile</link> **file,
+                                                         <link linkend="GdkPixbufFormat">GdkPixbufFormat</link> **format,
+                                                         <link linkend="GError">GError</link> **error);
+<link linkend="char">char</link>*               <link linkend="eog-uri-converter-preview">eog_uri_converter_preview</link>           (const <link linkend="char">char</link> *format_str,
+                                                         <link linkend="EogImage">EogImage</link> *img,
+                                                         <link linkend="GdkPixbufFormat">GdkPixbufFormat</link> *format,
+                                                         <link linkend="gulong">gulong</link> counter,
+                                                         <link linkend="guint">guint</link> n_images,
+                                                         <link linkend="gboolean">gboolean</link> convert_spaces,
+                                                         <link linkend="gunichar">gunichar</link> space_char);
+<link linkend="void">void</link>                <link linkend="eog-uri-converter-print-list">eog_uri_converter_print_list</link>        (<link linkend="EogURIConverter">EogURIConverter</link> *conv);
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 id="EogURIConverter.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<synopsis>
+  <link linkend="GObject">GObject</link>
+   +----EogURIConverter
+</synopsis>
+</refsect1>
+
+
+
+
+
+<refsect1 id="EogURIConverter.properties" role="properties">
+<title role="properties.title">Properties</title>
+<synopsis>
+  &quot;<link linkend="EogURIConverter--convert-spaces">convert-spaces</link>&quot;           <link linkend="gboolean">gboolean</link>              : Read / Write
+  &quot;<link linkend="EogURIConverter--counter-n-digits">counter-n-digits</link>&quot;         <link linkend="guint">guint</link>                 : Read / Write
+  &quot;<link linkend="EogURIConverter--counter-start">counter-start</link>&quot;            <link linkend="gulong">gulong</link>                : Read / Write
+  &quot;<link linkend="EogURIConverter--n-images">n-images</link>&quot;                 <link linkend="guint">guint</link>                 : Write
+  &quot;<link linkend="EogURIConverter--space-character">space-character</link>&quot;          <link linkend="gchar">gchar</link>                 : Read / Write
+</synopsis>
+</refsect1>
+
+
+
+<refsect1 id="EogURIConverter.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+</para>
+</refsect1>
+
+<refsect1 id="EogURIConverter.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="EogUCType" role="enum">
+<title>enum EogUCType</title>
+<indexterm zone="EogUCType"><primary sortas="EogUCType">EogUCType</primary></indexterm><programlisting>typedef enum {
+	EOG_UC_STRING,
+	EOG_UC_FILENAME,
+	EOG_UC_COUNTER,
+	EOG_UC_COMMENT,
+	EOG_UC_DATE,
+	EOG_UC_TIME,
+	EOG_UC_DAY,
+	EOG_UC_MONTH,
+	EOG_UC_YEAR,
+	EOG_UC_HOUR,
+	EOG_UC_MINUTE,
+	EOG_UC_SECOND,
+	EOG_UC_END
+} EogUCType;
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="EogUCInfo" role="struct">
+<title>EogUCInfo</title>
+<indexterm zone="EogUCInfo"><primary sortas="EogUCInfo">EogUCInfo</primary></indexterm><programlisting>typedef struct {
+	char     *description;
+	char     *rep;
+	gboolean req_exif;
+} EogUCInfo;
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="EogUCError" role="enum">
+<title>enum EogUCError</title>
+<indexterm zone="EogUCError"><primary sortas="EogUCError">EogUCError</primary></indexterm><programlisting>typedef enum {
+	EOG_UC_ERROR_INVALID_UNICODE,
+	EOG_UC_ERROR_INVALID_CHARACTER,
+	EOG_UC_ERROR_EQUAL_FILENAMES,
+	EOG_UC_ERROR_UNKNOWN
+} EogUCError;
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="EOG-UC-ERROR--CAPS" role="macro">
+<title>EOG_UC_ERROR</title>
+<indexterm zone="EOG-UC-ERROR--CAPS"><primary sortas="EOG_UC_ERROR">EOG_UC_ERROR</primary></indexterm><programlisting>#define EOG_UC_ERROR eog_uc_error_quark ()
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="EogURIConverter-struct" role="struct">
+<title>EogURIConverter</title>
+<indexterm zone="EogURIConverter-struct"><primary sortas="EogURIConverter">EogURIConverter</primary></indexterm><programlisting>typedef struct _EogURIConverter EogURIConverter;</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="eog-uc-error-quark" role="function">
+<title>eog_uc_error_quark ()</title>
+<indexterm zone="eog-uc-error-quark"><primary sortas="eog_uc_error_quark">eog_uc_error_quark</primary></indexterm><programlisting><link linkend="GQuark">GQuark</link>              eog_uc_error_quark                  (void);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-uri-converter-new" role="function">
+<title>eog_uri_converter_new ()</title>
+<indexterm zone="eog-uri-converter-new"><primary sortas="eog_uri_converter_new">eog_uri_converter_new</primary></indexterm><programlisting><link linkend="EogURIConverter">EogURIConverter</link>*    eog_uri_converter_new               (<link linkend="GFile">GFile</link> *base_file,
+                                                         <link linkend="GdkPixbufFormat">GdkPixbufFormat</link> *img_format,
+                                                         const <link linkend="char">char</link> *format_string);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>base_file</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>img_format</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>format_string</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-uri-converter-check" role="function">
+<title>eog_uri_converter_check ()</title>
+<indexterm zone="eog-uri-converter-check"><primary sortas="eog_uri_converter_check">eog_uri_converter_check</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            eog_uri_converter_check             (<link linkend="EogURIConverter">EogURIConverter</link> *converter,
+                                                         <link linkend="GList">GList</link> *img_list,
+                                                         <link linkend="GError">GError</link> **error);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>converter</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>img_list</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>error</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-uri-converter-requires-exif" role="function">
+<title>eog_uri_converter_requires_exif ()</title>
+<indexterm zone="eog-uri-converter-requires-exif"><primary sortas="eog_uri_converter_requires_exif">eog_uri_converter_requires_exif</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            eog_uri_converter_requires_exif     (<link linkend="EogURIConverter">EogURIConverter</link> *converter);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>converter</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-uri-converter-do" role="function">
+<title>eog_uri_converter_do ()</title>
+<indexterm zone="eog-uri-converter-do"><primary sortas="eog_uri_converter_do">eog_uri_converter_do</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            eog_uri_converter_do                (<link linkend="EogURIConverter">EogURIConverter</link> *converter,
+                                                         <link linkend="EogImage">EogImage</link> *image,
+                                                         <link linkend="GFile">GFile</link> **file,
+                                                         <link linkend="GdkPixbufFormat">GdkPixbufFormat</link> **format,
+                                                         <link linkend="GError">GError</link> **error);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>converter</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>image</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>file</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>format</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>error</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-uri-converter-preview" role="function">
+<title>eog_uri_converter_preview ()</title>
+<indexterm zone="eog-uri-converter-preview"><primary sortas="eog_uri_converter_preview">eog_uri_converter_preview</primary></indexterm><programlisting><link linkend="char">char</link>*               eog_uri_converter_preview           (const <link linkend="char">char</link> *format_str,
+                                                         <link linkend="EogImage">EogImage</link> *img,
+                                                         <link linkend="GdkPixbufFormat">GdkPixbufFormat</link> *format,
+                                                         <link linkend="gulong">gulong</link> counter,
+                                                         <link linkend="guint">guint</link> n_images,
+                                                         <link linkend="gboolean">gboolean</link> convert_spaces,
+                                                         <link linkend="gunichar">gunichar</link> space_char);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>format_str</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>img</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>format</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>counter</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>n_images</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>convert_spaces</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>space_char</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-uri-converter-print-list" role="function">
+<title>eog_uri_converter_print_list ()</title>
+<indexterm zone="eog-uri-converter-print-list"><primary sortas="eog_uri_converter_print_list">eog_uri_converter_print_list</primary></indexterm><programlisting><link linkend="void">void</link>                eog_uri_converter_print_list        (<link linkend="EogURIConverter">EogURIConverter</link> *conv);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>conv</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+<refsect1 id="EogURIConverter.property-details" role="property_details">
+<title role="property_details.title">Property Details</title>
+<refsect2 id="EogURIConverter--convert-spaces" role="property"><title>The <literal>&quot;convert-spaces&quot;</literal> property</title>
+<indexterm zone="EogURIConverter--convert-spaces"><primary sortas="EogURIConverter:convert-spaces">EogURIConverter:convert-spaces</primary></indexterm><programlisting>  &quot;convert-spaces&quot;           <link linkend="gboolean">gboolean</link>              : Read / Write</programlisting>
+<para></para><para>Default value: FALSE</para>
+</refsect2>
+<refsect2 id="EogURIConverter--counter-n-digits" role="property"><title>The <literal>&quot;counter-n-digits&quot;</literal> property</title>
+<indexterm zone="EogURIConverter--counter-n-digits"><primary sortas="EogURIConverter:counter-n-digits">EogURIConverter:counter-n-digits</primary></indexterm><programlisting>  &quot;counter-n-digits&quot;         <link linkend="guint">guint</link>                 : Read / Write</programlisting>
+<para></para><para>Allowed values: &gt;= 1</para>
+<para>Default value: 1</para>
+</refsect2>
+<refsect2 id="EogURIConverter--counter-start" role="property"><title>The <literal>&quot;counter-start&quot;</literal> property</title>
+<indexterm zone="EogURIConverter--counter-start"><primary sortas="EogURIConverter:counter-start">EogURIConverter:counter-start</primary></indexterm><programlisting>  &quot;counter-start&quot;            <link linkend="gulong">gulong</link>                : Read / Write</programlisting>
+<para></para></refsect2>
+<refsect2 id="EogURIConverter--n-images" role="property"><title>The <literal>&quot;n-images&quot;</literal> property</title>
+<indexterm zone="EogURIConverter--n-images"><primary sortas="EogURIConverter:n-images">EogURIConverter:n-images</primary></indexterm><programlisting>  &quot;n-images&quot;                 <link linkend="guint">guint</link>                 : Write</programlisting>
+<para></para><para>Allowed values: &gt;= 1</para>
+<para>Default value: 1</para>
+</refsect2>
+<refsect2 id="EogURIConverter--space-character" role="property"><title>The <literal>&quot;space-character&quot;</literal> property</title>
+<indexterm zone="EogURIConverter--space-character"><primary sortas="EogURIConverter:space-character">EogURIConverter:space-character</primary></indexterm><programlisting>  &quot;space-character&quot;          <link linkend="gchar">gchar</link>                 : Read / Write</programlisting>
+<para></para><para>Allowed values: [32,126]</para>
+<para>Default value: 95</para>
+</refsect2>
+</refsect1>
+
+
+
+
+</refentry>

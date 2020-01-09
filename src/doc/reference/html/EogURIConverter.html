@@ -1,0 +1,520 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>EogURIConverter</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<link rel="home" href="index.html" title="Eye of GNOME Reference Manual">
+<link rel="up" href="ch06.html" title="Utilities">
+<link rel="prev" href="eog-eog-debug.html" title="eog-debug">
+<link rel="next" href="eog-eog-util.html" title="eog-util">
+<meta name="generator" content="GTK-Doc V1.11 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="chapter" href="ch01.html" title="User Interface">
+<link rel="chapter" href="ch02.html" title="Image data and manipulation">
+<link rel="chapter" href="ch03.html" title="Printing">
+<link rel="chapter" href="ch04.html" title="Application and configuration">
+<link rel="chapter" href="ch05.html" title="Plugins">
+<link rel="chapter" href="ch06.html" title="Utilities">
+<link rel="chapter" href="ch07.html" title="Asynchronous jobs">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="eog-eog-debug.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch06.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Eye of GNOME Reference Manual</th>
+<td><a accesskey="n" href="eog-eog-util.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#EogURIConverter.synopsis" class="shortcut">Top</a>
+                 | 
+                <a href="#EogURIConverter.description" class="shortcut">Description</a>
+                 | 
+                <a href="#EogURIConverter.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                 | 
+                <a href="#EogURIConverter.properties" class="shortcut">Properties</a>
+</td></tr>
+</table>
+<div class="refentry" title="EogURIConverter">
+<a name="EogURIConverter"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="EogURIConverter.top_of_page"></a>EogURIConverter</span></h2>
+<p>EogURIConverter</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv" title="Synopsis">
+<a name="EogURIConverter.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+enum                <a class="link" href="EogURIConverter.html#EogUCType" title="enum EogUCType">EogUCType</a>;
+                    <a class="link" href="EogURIConverter.html#EogUCInfo" title="EogUCInfo">EogUCInfo</a>;
+enum                <a class="link" href="EogURIConverter.html#EogUCError" title="enum EogUCError">EogUCError</a>;
+#define             <a class="link" href="EogURIConverter.html#EOG-UC-ERROR--CAPS" title="EOG_UC_ERROR">EOG_UC_ERROR</a>
+                    <a class="link" href="EogURIConverter.html#EogURIConverter-struct" title="EogURIConverter">EogURIConverter</a>;
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Quarks.html#GQuark"
+>GQuark</a>              <a class="link" href="EogURIConverter.html#eog-uc-error-quark" title="eog_uc_error_quark ()">eog_uc_error_quark</a>                  (void);
+<a class="link" href="EogURIConverter.html" title="EogURIConverter">EogURIConverter</a>*    <a class="link" href="EogURIConverter.html#eog-uri-converter-new" title="eog_uri_converter_new ()">eog_uri_converter_new</a>               (<a
+href="http://library.gnome.org/devel/gio/unstable/GFile.html"
+>GFile</a> *base_file,
+                                                         <a
+href="http://library.gnome.org/devel/gdk-pixbuf/unstable/gdk-pixbuf-Module-Interface.html#GdkPixbufFormat"
+>GdkPixbufFormat</a> *img_format,
+                                                         const char *format_string);
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="EogURIConverter.html#eog-uri-converter-check" title="eog_uri_converter_check ()">eog_uri_converter_check</a>             (<a class="link" href="EogURIConverter.html" title="EogURIConverter">EogURIConverter</a> *converter,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#GList"
+>GList</a> *img_list,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"
+>GError</a> **error);
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="EogURIConverter.html#eog-uri-converter-requires-exif" title="eog_uri_converter_requires_exif ()">eog_uri_converter_requires_exif</a>     (<a class="link" href="EogURIConverter.html" title="EogURIConverter">EogURIConverter</a> *converter);
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            <a class="link" href="EogURIConverter.html#eog-uri-converter-do" title="eog_uri_converter_do ()">eog_uri_converter_do</a>                (<a class="link" href="EogURIConverter.html" title="EogURIConverter">EogURIConverter</a> *converter,
+                                                         <a class="link" href="EogImage.html" title="EogImage">EogImage</a> *image,
+                                                         <a
+href="http://library.gnome.org/devel/gio/unstable/GFile.html"
+>GFile</a> **file,
+                                                         <a
+href="http://library.gnome.org/devel/gdk-pixbuf/unstable/gdk-pixbuf-Module-Interface.html#GdkPixbufFormat"
+>GdkPixbufFormat</a> **format,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"
+>GError</a> **error);
+char*               <a class="link" href="EogURIConverter.html#eog-uri-converter-preview" title="eog_uri_converter_preview ()">eog_uri_converter_preview</a>           (const char *format_str,
+                                                         <a class="link" href="EogImage.html" title="EogImage">EogImage</a> *img,
+                                                         <a
+href="http://library.gnome.org/devel/gdk-pixbuf/unstable/gdk-pixbuf-Module-Interface.html#GdkPixbufFormat"
+>GdkPixbufFormat</a> *format,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gulong"
+>gulong</a> counter,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"
+>guint</a> n_images,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a> convert_spaces,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Unicode-Manipulation.html#gunichar"
+>gunichar</a> space_char);
+void                <a class="link" href="EogURIConverter.html#eog-uri-converter-print-list" title="eog_uri_converter_print_list ()">eog_uri_converter_print_list</a>        (<a class="link" href="EogURIConverter.html" title="EogURIConverter">EogURIConverter</a> *conv);
+</pre>
+</div>
+<div class="refsect1" title="Object Hierarchy">
+<a name="EogURIConverter.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  <a
+href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject"
+>GObject</a>
+   +----EogURIConverter
+</pre>
+</div>
+<div class="refsect1" title="Properties">
+<a name="EogURIConverter.properties"></a><h2>Properties</h2>
+<pre class="synopsis">
+  "<a class="link" href="EogURIConverter.html#EogURIConverter--convert-spaces" title='The "convert-spaces" property'>convert-spaces</a>"           <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>              : Read / Write
+  "<a class="link" href="EogURIConverter.html#EogURIConverter--counter-n-digits" title='The "counter-n-digits" property'>counter-n-digits</a>"         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"
+>guint</a>                 : Read / Write
+  "<a class="link" href="EogURIConverter.html#EogURIConverter--counter-start" title='The "counter-start" property'>counter-start</a>"            <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gulong"
+>gulong</a>                : Read / Write
+  "<a class="link" href="EogURIConverter.html#EogURIConverter--n-images" title='The "n-images" property'>n-images</a>"                 <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"
+>guint</a>                 : Write
+  "<a class="link" href="EogURIConverter.html#EogURIConverter--space-character" title='The "space-character" property'>space-character</a>"          <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a>                 : Read / Write
+</pre>
+</div>
+<div class="refsect1" title="Description">
+<a name="EogURIConverter.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1" title="Details">
+<a name="EogURIConverter.details"></a><h2>Details</h2>
+<div class="refsect2" title="enum EogUCType">
+<a name="EogUCType"></a><h3>enum EogUCType</h3>
+<pre class="programlisting">typedef enum {
+	EOG_UC_STRING,
+	EOG_UC_FILENAME,
+	EOG_UC_COUNTER,
+	EOG_UC_COMMENT,
+	EOG_UC_DATE,
+	EOG_UC_TIME,
+	EOG_UC_DAY,
+	EOG_UC_MONTH,
+	EOG_UC_YEAR,
+	EOG_UC_HOUR,
+	EOG_UC_MINUTE,
+	EOG_UC_SECOND,
+	EOG_UC_END
+} EogUCType;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="EogUCInfo">
+<a name="EogUCInfo"></a><h3>EogUCInfo</h3>
+<pre class="programlisting">typedef struct {
+	char     *description;
+	char     *rep;
+	gboolean req_exif;
+} EogUCInfo;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="enum EogUCError">
+<a name="EogUCError"></a><h3>enum EogUCError</h3>
+<pre class="programlisting">typedef enum {
+	EOG_UC_ERROR_INVALID_UNICODE,
+	EOG_UC_ERROR_INVALID_CHARACTER,
+	EOG_UC_ERROR_EQUAL_FILENAMES,
+	EOG_UC_ERROR_UNKNOWN
+} EogUCError;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="EOG_UC_ERROR">
+<a name="EOG-UC-ERROR--CAPS"></a><h3>EOG_UC_ERROR</h3>
+<pre class="programlisting">#define EOG_UC_ERROR eog_uc_error_quark ()
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="EogURIConverter">
+<a name="EogURIConverter-struct"></a><h3>EogURIConverter</h3>
+<pre class="programlisting">typedef struct _EogURIConverter EogURIConverter;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="eog_uc_error_quark ()">
+<a name="eog-uc-error-quark"></a><h3>eog_uc_error_quark ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Quarks.html#GQuark"
+>GQuark</a>              eog_uc_error_quark                  (void);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="eog_uri_converter_new ()">
+<a name="eog-uri-converter-new"></a><h3>eog_uri_converter_new ()</h3>
+<pre class="programlisting"><a class="link" href="EogURIConverter.html" title="EogURIConverter">EogURIConverter</a>*    eog_uri_converter_new               (<a
+href="http://library.gnome.org/devel/gio/unstable/GFile.html"
+>GFile</a> *base_file,
+                                                         <a
+href="http://library.gnome.org/devel/gdk-pixbuf/unstable/gdk-pixbuf-Module-Interface.html#GdkPixbufFormat"
+>GdkPixbufFormat</a> *img_format,
+                                                         const char *format_string);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>base_file</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>img_format</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>format_string</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="eog_uri_converter_check ()">
+<a name="eog-uri-converter-check"></a><h3>eog_uri_converter_check ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            eog_uri_converter_check             (<a class="link" href="EogURIConverter.html" title="EogURIConverter">EogURIConverter</a> *converter,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#GList"
+>GList</a> *img_list,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"
+>GError</a> **error);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>converter</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>img_list</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="eog_uri_converter_requires_exif ()">
+<a name="eog-uri-converter-requires-exif"></a><h3>eog_uri_converter_requires_exif ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            eog_uri_converter_requires_exif     (<a class="link" href="EogURIConverter.html" title="EogURIConverter">EogURIConverter</a> *converter);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>converter</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="eog_uri_converter_do ()">
+<a name="eog-uri-converter-do"></a><h3>eog_uri_converter_do ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>            eog_uri_converter_do                (<a class="link" href="EogURIConverter.html" title="EogURIConverter">EogURIConverter</a> *converter,
+                                                         <a class="link" href="EogImage.html" title="EogImage">EogImage</a> *image,
+                                                         <a
+href="http://library.gnome.org/devel/gio/unstable/GFile.html"
+>GFile</a> **file,
+                                                         <a
+href="http://library.gnome.org/devel/gdk-pixbuf/unstable/gdk-pixbuf-Module-Interface.html#GdkPixbufFormat"
+>GdkPixbufFormat</a> **format,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Error-Reporting.html#GError"
+>GError</a> **error);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>converter</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>image</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>file</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>format</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>error</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="eog_uri_converter_preview ()">
+<a name="eog-uri-converter-preview"></a><h3>eog_uri_converter_preview ()</h3>
+<pre class="programlisting">char*               eog_uri_converter_preview           (const char *format_str,
+                                                         <a class="link" href="EogImage.html" title="EogImage">EogImage</a> *img,
+                                                         <a
+href="http://library.gnome.org/devel/gdk-pixbuf/unstable/gdk-pixbuf-Module-Interface.html#GdkPixbufFormat"
+>GdkPixbufFormat</a> *format,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gulong"
+>gulong</a> counter,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"
+>guint</a> n_images,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a> convert_spaces,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Unicode-Manipulation.html#gunichar"
+>gunichar</a> space_char);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>format_str</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>img</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>format</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>counter</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>n_images</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>convert_spaces</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>space_char</code></em> :</span></p></td>
+<td>
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td>
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="eog_uri_converter_print_list ()">
+<a name="eog-uri-converter-print-list"></a><h3>eog_uri_converter_print_list ()</h3>
+<pre class="programlisting">void                eog_uri_converter_print_list        (<a class="link" href="EogURIConverter.html" title="EogURIConverter">EogURIConverter</a> *conv);</pre>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><em class="parameter"><code>conv</code></em> :</span></p></td>
+<td>
+</td>
+</tr></tbody>
+</table></div>
+</div>
+</div>
+<div class="refsect1" title="Property Details">
+<a name="EogURIConverter.property-details"></a><h2>Property Details</h2>
+<div class="refsect2" title='The "convert-spaces" property'>
+<a name="EogURIConverter--convert-spaces"></a><h3>The <code class="literal">"convert-spaces"</code> property</h3>
+<pre class="programlisting">  "convert-spaces"           <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a>              : Read / Write</pre>
+<p></p>
+<p>Default value: FALSE</p>
+</div>
+<hr>
+<div class="refsect2" title='The "counter-n-digits" property'>
+<a name="EogURIConverter--counter-n-digits"></a><h3>The <code class="literal">"counter-n-digits"</code> property</h3>
+<pre class="programlisting">  "counter-n-digits"         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"
+>guint</a>                 : Read / Write</pre>
+<p></p>
+<p>Allowed values: &gt;= 1</p>
+<p>Default value: 1</p>
+</div>
+<hr>
+<div class="refsect2" title='The "counter-start" property'>
+<a name="EogURIConverter--counter-start"></a><h3>The <code class="literal">"counter-start"</code> property</h3>
+<pre class="programlisting">  "counter-start"            <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gulong"
+>gulong</a>                : Read / Write</pre>
+<p></p>
+</div>
+<hr>
+<div class="refsect2" title='The "n-images" property'>
+<a name="EogURIConverter--n-images"></a><h3>The <code class="literal">"n-images"</code> property</h3>
+<pre class="programlisting">  "n-images"                 <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"
+>guint</a>                 : Write</pre>
+<p></p>
+<p>Allowed values: &gt;= 1</p>
+<p>Default value: 1</p>
+</div>
+<hr>
+<div class="refsect2" title='The "space-character" property'>
+<a name="EogURIConverter--space-character"></a><h3>The <code class="literal">"space-character"</code> property</h3>
+<pre class="programlisting">  "space-character"          <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gchar"
+>gchar</a>                 : Read / Write</pre>
+<p></p>
+<p>Allowed values: [32,126]</p>
+<p>Default value: 95</p>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.11</div>
+</body>
+</html>

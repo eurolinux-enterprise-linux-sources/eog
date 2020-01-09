@@ -1,0 +1,318 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN"
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="EogMessageArea">
+<refmeta>
+<refentrytitle role="top_of_page" id="EogMessageArea.top_of_page">EogMessageArea</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>EOG Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>EogMessageArea</refname>
+<refpurpose></refpurpose>
+</refnamediv>
+
+<refsynopsisdiv id="EogMessageArea.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+                    <link linkend="EogMessageArea-struct">EogMessageArea</link>;
+<link linkend="GtkWidget">GtkWidget</link> *         <link linkend="eog-message-area-new">eog_message_area_new</link>                (void);
+<link linkend="GtkWidget">GtkWidget</link> *         <link linkend="eog-message-area-new-with-buttons">eog_message_area_new_with_buttons</link>   (const <link linkend="gchar">gchar</link> *first_button_text,
+                                                         ...);
+<link linkend="void">void</link>                <link linkend="eog-message-area-set-contents">eog_message_area_set_contents</link>       (<link linkend="EogMessageArea">EogMessageArea</link> *message_area,
+                                                         <link linkend="GtkWidget">GtkWidget</link> *contents);
+<link linkend="void">void</link>                <link linkend="eog-message-area-add-action-widget">eog_message_area_add_action_widget</link>  (<link linkend="EogMessageArea">EogMessageArea</link> *message_area,
+                                                         <link linkend="GtkWidget">GtkWidget</link> *child,
+                                                         <link linkend="gint">gint</link> response_id);
+<link linkend="GtkWidget">GtkWidget</link> *         <link linkend="eog-message-area-add-button">eog_message_area_add_button</link>         (<link linkend="EogMessageArea">EogMessageArea</link> *message_area,
+                                                         const <link linkend="gchar">gchar</link> *button_text,
+                                                         <link linkend="gint">gint</link> response_id);
+<link linkend="GtkWidget">GtkWidget</link> *         <link linkend="eog-message-area-add-stock-button-with-text">eog_message_area_add_stock_button_with_text</link>
+                                                        (<link linkend="EogMessageArea">EogMessageArea</link> *message_area,
+                                                         const <link linkend="gchar">gchar</link> *text,
+                                                         const <link linkend="gchar">gchar</link> *stock_id,
+                                                         <link linkend="gint">gint</link> response_id);
+<link linkend="void">void</link>                <link linkend="eog-message-area-add-buttons">eog_message_area_add_buttons</link>        (<link linkend="EogMessageArea">EogMessageArea</link> *message_area,
+                                                         const <link linkend="gchar">gchar</link> *first_button_text,
+                                                         ...);
+<link linkend="void">void</link>                <link linkend="eog-message-area-set-response-sensitive">eog_message_area_set_response_sensitive</link>
+                                                        (<link linkend="EogMessageArea">EogMessageArea</link> *message_area,
+                                                         <link linkend="gint">gint</link> response_id,
+                                                         <link linkend="gboolean">gboolean</link> setting);
+<link linkend="void">void</link>                <link linkend="eog-message-area-set-default-response">eog_message_area_set_default_response</link>
+                                                        (<link linkend="EogMessageArea">EogMessageArea</link> *message_area,
+                                                         <link linkend="gint">gint</link> response_id);
+<link linkend="void">void</link>                <link linkend="eog-message-area-response">eog_message_area_response</link>           (<link linkend="EogMessageArea">EogMessageArea</link> *message_area,
+                                                         <link linkend="gint">gint</link> response_id);
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 id="EogMessageArea.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<synopsis>
+  <link linkend="GObject">GObject</link>
+   +----<link linkend="GInitiallyUnowned">GInitiallyUnowned</link>
+         +----<link linkend="GtkObject">GtkObject</link>
+               +----<link linkend="GtkWidget">GtkWidget</link>
+                     +----<link linkend="GtkContainer">GtkContainer</link>
+                           +----<link linkend="GtkBox">GtkBox</link>
+                                 +----<link linkend="GtkHBox">GtkHBox</link>
+                                       +----EogMessageArea
+</synopsis>
+</refsect1>
+
+
+
+<refsect1 id="EogMessageArea.implemented-interfaces" role="impl_interfaces">
+<title role="impl_interfaces.title">Implemented Interfaces</title>
+<para>
+EogMessageArea implements
+ <link linkend="AtkImplementorIface">AtkImplementorIface</link>,  <link linkend="GtkBuildable">GtkBuildable</link> and  <link linkend="GtkOrientable">GtkOrientable</link>.</para>
+</refsect1>
+
+
+
+<refsect1 id="EogMessageArea.signals" role="signal_proto">
+<title role="signal_proto.title">Signals</title>
+<synopsis>
+  &quot;<link linkend="EogMessageArea-close">close</link>&quot;                                          : Run Last / Action
+  &quot;<link linkend="EogMessageArea-response">response</link>&quot;                                       : Run Last
+</synopsis>
+</refsect1>
+
+
+<refsect1 id="EogMessageArea.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+</para>
+</refsect1>
+
+<refsect1 id="EogMessageArea.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="EogMessageArea-struct" role="struct">
+<title>EogMessageArea</title>
+<indexterm zone="EogMessageArea-struct"><primary sortas="EogMessageArea">EogMessageArea</primary></indexterm><programlisting>typedef struct _EogMessageArea EogMessageArea;</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="eog-message-area-new" role="function">
+<title>eog_message_area_new ()</title>
+<indexterm zone="eog-message-area-new"><primary sortas="eog_message_area_new">eog_message_area_new</primary></indexterm><programlisting><link linkend="GtkWidget">GtkWidget</link> *         eog_message_area_new                (void);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-message-area-new-with-buttons" role="function">
+<title>eog_message_area_new_with_buttons ()</title>
+<indexterm zone="eog-message-area-new-with-buttons"><primary sortas="eog_message_area_new_with_buttons">eog_message_area_new_with_buttons</primary></indexterm><programlisting><link linkend="GtkWidget">GtkWidget</link> *         eog_message_area_new_with_buttons   (const <link linkend="gchar">gchar</link> *first_button_text,
+                                                         ...);</programlisting>
+<para>
+Creates a new <link linkend="EogMessageArea"><type>EogMessageArea</type></link> with default buttons.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>first_button_text</parameter>&#160;:</term>
+<listitem><simpara> The text for the first button.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>...</parameter>&#160;:</term>
+<listitem><simpara> additional buttons, terminated with <link linkend="NULL--CAPS"><literal>NULL</literal></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> A newly created <link linkend="EogMessageArea"><type>EogMessageArea</type></link> widget.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-message-area-set-contents" role="function">
+<title>eog_message_area_set_contents ()</title>
+<indexterm zone="eog-message-area-set-contents"><primary sortas="eog_message_area_set_contents">eog_message_area_set_contents</primary></indexterm><programlisting><link linkend="void">void</link>                eog_message_area_set_contents       (<link linkend="EogMessageArea">EogMessageArea</link> *message_area,
+                                                         <link linkend="GtkWidget">GtkWidget</link> *contents);</programlisting>
+<para>
+Sets the contents of <parameter>message_area</parameter>. The <parameter>contents</parameter> will
+be packed into the message area.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>message_area</parameter>&#160;:</term>
+<listitem><simpara> an <link linkend="EogMessageArea"><type>EogMessageArea</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>contents</parameter>&#160;:</term>
+<listitem><simpara> a <link linkend="GtkWidget"><type>GtkWidget</type></link>.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-message-area-add-action-widget" role="function">
+<title>eog_message_area_add_action_widget ()</title>
+<indexterm zone="eog-message-area-add-action-widget"><primary sortas="eog_message_area_add_action_widget">eog_message_area_add_action_widget</primary></indexterm><programlisting><link linkend="void">void</link>                eog_message_area_add_action_widget  (<link linkend="EogMessageArea">EogMessageArea</link> *message_area,
+                                                         <link linkend="GtkWidget">GtkWidget</link> *child,
+                                                         <link linkend="gint">gint</link> response_id);</programlisting>
+<para>
+Adds a widget to the action area of <parameter>message_area</parameter>. Only 'activatable'
+widgets can be packed into the action area of a <link linkend="EogMessageArea"><type>EogMessageArea</type></link>.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>message_area</parameter>&#160;:</term>
+<listitem><simpara> an <link linkend="EogMessageArea"><type>EogMessageArea</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>child</parameter>&#160;:</term>
+<listitem><simpara> The widget to be packed into the message area.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>response_id</parameter>&#160;:</term>
+<listitem><simpara> A response id for <parameter>child</parameter>.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-message-area-add-button" role="function">
+<title>eog_message_area_add_button ()</title>
+<indexterm zone="eog-message-area-add-button"><primary sortas="eog_message_area_add_button">eog_message_area_add_button</primary></indexterm><programlisting><link linkend="GtkWidget">GtkWidget</link> *         eog_message_area_add_button         (<link linkend="EogMessageArea">EogMessageArea</link> *message_area,
+                                                         const <link linkend="gchar">gchar</link> *button_text,
+                                                         <link linkend="gint">gint</link> response_id);</programlisting>
+<para>
+Adds a single button to <parameter>message_area</parameter>.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>message_area</parameter>&#160;:</term>
+<listitem><simpara> an <link linkend="EogMessageArea"><type>EogMessageArea</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>button_text</parameter>&#160;:</term>
+<listitem><simpara> The text for the button to be added.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>response_id</parameter>&#160;:</term>
+<listitem><simpara> A response id.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> The newly added <link linkend="GtkButton"><type>GtkButton</type></link>.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-message-area-add-stock-button-with-text" role="function">
+<title>eog_message_area_add_stock_button_with_text ()</title>
+<indexterm zone="eog-message-area-add-stock-button-with-text"><primary sortas="eog_message_area_add_stock_button_with_text">eog_message_area_add_stock_button_with_text</primary></indexterm><programlisting><link linkend="GtkWidget">GtkWidget</link> *         eog_message_area_add_stock_button_with_text
+                                                        (<link linkend="EogMessageArea">EogMessageArea</link> *message_area,
+                                                         const <link linkend="gchar">gchar</link> *text,
+                                                         const <link linkend="gchar">gchar</link> *stock_id,
+                                                         <link linkend="gint">gint</link> response_id);</programlisting>
+<para>
+Adds a new button to <parameter>message_area</parameter> containing a image from stock and a
+user defined text. Stock items may have a macro defined, like <link linkend="GTK-STOCK-OK--CAPS"><literal>GTK_STOCK_OK</literal></link>.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>message_area</parameter>&#160;:</term>
+<listitem><simpara> An <link linkend="EogMessageArea"><type>EogMessageArea</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>text</parameter>&#160;:</term>
+<listitem><simpara> The text for the button.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>stock_id</parameter>&#160;:</term>
+<listitem><simpara> A stock item.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>response_id</parameter>&#160;:</term>
+<listitem><simpara> A response id for the button.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> the newly added <link linkend="GtkButton"><type>GtkButton</type></link>.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-message-area-add-buttons" role="function">
+<title>eog_message_area_add_buttons ()</title>
+<indexterm zone="eog-message-area-add-buttons"><primary sortas="eog_message_area_add_buttons">eog_message_area_add_buttons</primary></indexterm><programlisting><link linkend="void">void</link>                eog_message_area_add_buttons        (<link linkend="EogMessageArea">EogMessageArea</link> *message_area,
+                                                         const <link linkend="gchar">gchar</link> *first_button_text,
+                                                         ...);</programlisting>
+<para>
+Adds one or more buttons to <parameter>message_area</parameter>.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>message_area</parameter>&#160;:</term>
+<listitem><simpara> An <link linkend="EogMessageArea"><type>EogMessageArea</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>first_button_text</parameter>&#160;:</term>
+<listitem><simpara> the text for the first button to be added.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>...</parameter>&#160;:</term>
+<listitem><simpara> text for extra buttons, terminated with <link linkend="NULL--CAPS"><literal>NULL</literal></link>.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-message-area-set-response-sensitive" role="function">
+<title>eog_message_area_set_response_sensitive ()</title>
+<indexterm zone="eog-message-area-set-response-sensitive"><primary sortas="eog_message_area_set_response_sensitive">eog_message_area_set_response_sensitive</primary></indexterm><programlisting><link linkend="void">void</link>                eog_message_area_set_response_sensitive
+                                                        (<link linkend="EogMessageArea">EogMessageArea</link> *message_area,
+                                                         <link linkend="gint">gint</link> response_id,
+                                                         <link linkend="gboolean">gboolean</link> setting);</programlisting>
+<para>
+Sets sensitivity in <parameter>message_area</parameter>'s child widget associated to
+<parameter>response_id</parameter>.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>message_area</parameter>&#160;:</term>
+<listitem><simpara> a <link linkend="EogMessageArea"><type>EogMessageArea</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>response_id</parameter>&#160;:</term>
+<listitem><simpara> the response id associated to the widget whose
+sensitivity is to be set.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>setting</parameter>&#160;:</term>
+<listitem><simpara> <link linkend="TRUE--CAPS"><literal>TRUE</literal></link> to set the widget sensitive, <link linkend="FALSE--CAPS"><literal>FALSE</literal></link> otherwise.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-message-area-set-default-response" role="function">
+<title>eog_message_area_set_default_response ()</title>
+<indexterm zone="eog-message-area-set-default-response"><primary sortas="eog_message_area_set_default_response">eog_message_area_set_default_response</primary></indexterm><programlisting><link linkend="void">void</link>                eog_message_area_set_default_response
+                                                        (<link linkend="EogMessageArea">EogMessageArea</link> *message_area,
+                                                         <link linkend="gint">gint</link> response_id);</programlisting>
+<para>
+Sets the default response in <parameter>message_area</parameter>. This is done by
+making the widget associated to <parameter>response_id</parameter> the default widget.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>message_area</parameter>&#160;:</term>
+<listitem><simpara> an <link linkend="EogMessageArea"><type>EogMessageArea</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>response_id</parameter>&#160;:</term>
+<listitem><simpara> the response id associated to the widget to
+be set default.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-message-area-response" role="function">
+<title>eog_message_area_response ()</title>
+<indexterm zone="eog-message-area-response"><primary sortas="eog_message_area_response">eog_message_area_response</primary></indexterm><programlisting><link linkend="void">void</link>                eog_message_area_response           (<link linkend="EogMessageArea">EogMessageArea</link> *message_area,
+                                                         <link linkend="gint">gint</link> response_id);</programlisting>
+<para>
+Emits a <link linkend="EogMessageArea-response"><type>"response"</type></link> signal to the given <link linkend="EogMessageArea"><type>EogMessageArea</type></link>.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>message_area</parameter>&#160;:</term>
+<listitem><simpara> an <link linkend="EogMessageArea"><type>EogMessageArea</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>response_id</parameter>&#160;:</term>
+<listitem><simpara> The response id for the emission.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+<refsect1 id="EogMessageArea.signal-details" role="signals">
+<title role="signals.title">Signal Details</title>
+<refsect2 id="EogMessageArea-close" role="signal"><title>The <literal>&quot;close&quot;</literal> signal</title>
+<indexterm zone="EogMessageArea-close"><primary sortas="EogMessageArea::close">EogMessageArea::close</primary></indexterm><programlisting><link linkend="void">void</link>                user_function                      (<link linkend="EogMessageArea">EogMessageArea</link> *eogmessagearea,
+                                                        <link linkend="gpointer">gpointer</link>        user_data)           : Run Last / Action</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>eogmessagearea</parameter>&#160;:</term>
+<listitem><simpara>the object which received the signal.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&#160;:</term>
+<listitem><simpara>user data set when the signal handler was connected.</simpara></listitem></varlistentry>
+</variablelist></refsect2><refsect2 id="EogMessageArea-response" role="signal"><title>The <literal>&quot;response&quot;</literal> signal</title>
+<indexterm zone="EogMessageArea-response"><primary sortas="EogMessageArea::response">EogMessageArea::response</primary></indexterm><programlisting><link linkend="void">void</link>                user_function                      (<link linkend="EogMessageArea">EogMessageArea</link> *message_area,
+                                                        <link linkend="gint">gint</link>            arg1,
+                                                        <link linkend="gpointer">gpointer</link>        user_data)         : Run Last</programlisting>
+<para>
+The <link linkend="EogMessageArea-response"><type>"response"</type></link> signal is emitted when one of the
+activatable widgets packed into <parameter>message_area</parameter> is activated.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>message_area</parameter>&#160;:</term>
+<listitem><simpara> the object which received the signal.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&#160;:</term>
+<listitem><simpara>user data set when the signal handler was connected.</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+</refsect1>
+
+
+
+</refentry>

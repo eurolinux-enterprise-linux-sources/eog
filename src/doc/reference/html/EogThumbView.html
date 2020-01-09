@@ -1,0 +1,403 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>EogThumbView</title>
+<meta name="generator" content="DocBook XSL Stylesheets V1.75.2">
+<link rel="home" href="index.html" title="Eye of GNOME Reference Manual">
+<link rel="up" href="ch01.html" title="User Interface">
+<link rel="prev" href="EogThumbNav.html" title="EogThumbNav">
+<link rel="next" href="EogScrollView.html" title="EogScrollView">
+<meta name="generator" content="GTK-Doc V1.11 (XML mode)">
+<link rel="stylesheet" href="style.css" type="text/css">
+<link rel="chapter" href="ch01.html" title="User Interface">
+<link rel="chapter" href="ch02.html" title="Image data and manipulation">
+<link rel="chapter" href="ch03.html" title="Printing">
+<link rel="chapter" href="ch04.html" title="Application and configuration">
+<link rel="chapter" href="ch05.html" title="Plugins">
+<link rel="chapter" href="ch06.html" title="Utilities">
+<link rel="chapter" href="ch07.html" title="Asynchronous jobs">
+</head>
+<body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
+<table class="navigation" id="top" width="100%" summary="Navigation header" cellpadding="2" cellspacing="2">
+<tr valign="middle">
+<td><a accesskey="p" href="EogThumbNav.html"><img src="left.png" width="24" height="24" border="0" alt="Prev"></a></td>
+<td><a accesskey="u" href="ch01.html"><img src="up.png" width="24" height="24" border="0" alt="Up"></a></td>
+<td><a accesskey="h" href="index.html"><img src="home.png" width="24" height="24" border="0" alt="Home"></a></td>
+<th width="100%" align="center">Eye of GNOME Reference Manual</th>
+<td><a accesskey="n" href="EogScrollView.html"><img src="right.png" width="24" height="24" border="0" alt="Next"></a></td>
+</tr>
+<tr><td colspan="5" class="shortcuts">
+<a href="#EogThumbView.synopsis" class="shortcut">Top</a>
+                 | 
+                <a href="#EogThumbView.description" class="shortcut">Description</a>
+                 | 
+                <a href="#EogThumbView.object-hierarchy" class="shortcut">Object Hierarchy</a>
+                 | 
+                <a href="#EogThumbView.implemented-interfaces" class="shortcut">Implemented Interfaces</a>
+</td></tr>
+</table>
+<div class="refentry" title="EogThumbView">
+<a name="EogThumbView"></a><div class="titlepage"></div>
+<div class="refnamediv"><table width="100%"><tr>
+<td valign="top">
+<h2><span class="refentrytitle"><a name="EogThumbView.top_of_page"></a>EogThumbView</span></h2>
+<p>EogThumbView</p>
+</td>
+<td valign="top" align="right"></td>
+</tr></table></div>
+<div class="refsynopsisdiv" title="Synopsis">
+<a name="EogThumbView.synopsis"></a><h2>Synopsis</h2>
+<pre class="synopsis">
+enum                <a class="link" href="EogThumbView.html#EogThumbViewSelectionChange" title="enum EogThumbViewSelectionChange">EogThumbViewSelectionChange</a>;
+                    <a class="link" href="EogThumbView.html#EogThumbView-struct" title="EogThumbView">EogThumbView</a>;
+<a
+href="http://library.gnome.org/devel/gtk/unstable/GtkWidget.html"
+>GtkWidget</a> *         <a class="link" href="EogThumbView.html#eog-thumb-view-new" title="eog_thumb_view_new ()">eog_thumb_view_new</a>                  (void);
+void                <a class="link" href="EogThumbView.html#eog-thumb-view-set-model" title="eog_thumb_view_set_model ()">eog_thumb_view_set_model</a>            (<a class="link" href="EogThumbView.html" title="EogThumbView">EogThumbView</a> *thumbview,
+                                                         <a class="link" href="EogListStore.html" title="EogListStore">EogListStore</a> *store);
+void                <a class="link" href="EogThumbView.html#eog-thumb-view-set-item-height" title="eog_thumb_view_set_item_height ()">eog_thumb_view_set_item_height</a>      (<a class="link" href="EogThumbView.html" title="EogThumbView">EogThumbView</a> *thumbview,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a> height);
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"
+>guint</a>               <a class="link" href="EogThumbView.html#eog-thumb-view-get-n-selected" title="eog_thumb_view_get_n_selected ()">eog_thumb_view_get_n_selected</a>       (<a class="link" href="EogThumbView.html" title="EogThumbView">EogThumbView</a> *thumbview);
+<a class="link" href="EogImage.html" title="EogImage">EogImage</a> *          <a class="link" href="EogThumbView.html#eog-thumb-view-get-first-selected-image" title="eog_thumb_view_get_first_selected_image ()">eog_thumb_view_get_first_selected_image</a>
+                                                        (<a class="link" href="EogThumbView.html" title="EogThumbView">EogThumbView</a> *thumbview);
+<a
+href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#GList"
+>GList</a> *             <a class="link" href="EogThumbView.html#eog-thumb-view-get-selected-images" title="eog_thumb_view_get_selected_images ()">eog_thumb_view_get_selected_images</a>  (<a class="link" href="EogThumbView.html" title="EogThumbView">EogThumbView</a> *thumbview);
+void                <a class="link" href="EogThumbView.html#eog-thumb-view-select-single" title="eog_thumb_view_select_single ()">eog_thumb_view_select_single</a>        (<a class="link" href="EogThumbView.html" title="EogThumbView">EogThumbView</a> *thumbview,
+                                                         <a class="link" href="EogThumbView.html#EogThumbViewSelectionChange" title="enum EogThumbViewSelectionChange">EogThumbViewSelectionChange</a> change);
+void                <a class="link" href="EogThumbView.html#eog-thumb-view-set-current-image" title="eog_thumb_view_set_current_image ()">eog_thumb_view_set_current_image</a>    (<a class="link" href="EogThumbView.html" title="EogThumbView">EogThumbView</a> *thumbview,
+                                                         <a class="link" href="EogImage.html" title="EogImage">EogImage</a> *image,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a> deselect_other);
+void                <a class="link" href="EogThumbView.html#eog-thumb-view-set-thumbnail-popup" title="eog_thumb_view_set_thumbnail_popup ()">eog_thumb_view_set_thumbnail_popup</a>  (<a class="link" href="EogThumbView.html" title="EogThumbView">EogThumbView</a> *thumbview,
+                                                         <a
+href="http://library.gnome.org/devel/gtk/unstable/GtkMenu.html"
+>GtkMenu</a> *menu);
+</pre>
+</div>
+<div class="refsect1" title="Object Hierarchy">
+<a name="EogThumbView.object-hierarchy"></a><h2>Object Hierarchy</h2>
+<pre class="synopsis">
+  <a
+href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GObject"
+>GObject</a>
+   +----<a
+href="http://library.gnome.org/devel/gobject/unstable/gobject-The-Base-Object-Type.html#GInitiallyUnowned"
+>GInitiallyUnowned</a>
+         +----<a
+href="http://library.gnome.org/devel/gtk/unstable/GtkObject.html"
+>GtkObject</a>
+               +----<a
+href="http://library.gnome.org/devel/gtk/unstable/GtkWidget.html"
+>GtkWidget</a>
+                     +----<a
+href="http://library.gnome.org/devel/gtk/unstable/GtkContainer.html"
+>GtkContainer</a>
+                           +----<a
+href="http://library.gnome.org/devel/gtk/unstable/GtkIconView.html"
+>GtkIconView</a>
+                                 +----EogThumbView
+</pre>
+</div>
+<div class="refsect1" title="Implemented Interfaces">
+<a name="EogThumbView.implemented-interfaces"></a><h2>Implemented Interfaces</h2>
+<p>
+EogThumbView implements
+ AtkImplementorIface,  <a
+href="http://library.gnome.org/devel/gtk/unstable/gtk-gtkbuildable.html#GtkBuildable"
+>GtkBuildable</a> and  <a
+href="http://library.gnome.org/devel/gtk/unstable/GtkCellLayout.html"
+>GtkCellLayout</a>.</p>
+</div>
+<div class="refsect1" title="Description">
+<a name="EogThumbView.description"></a><h2>Description</h2>
+<p>
+</p>
+</div>
+<div class="refsect1" title="Details">
+<a name="EogThumbView.details"></a><h2>Details</h2>
+<div class="refsect2" title="enum EogThumbViewSelectionChange">
+<a name="EogThumbViewSelectionChange"></a><h3>enum EogThumbViewSelectionChange</h3>
+<pre class="programlisting">typedef enum {
+	EOG_THUMB_VIEW_SELECT_CURRENT = 0,
+	EOG_THUMB_VIEW_SELECT_LEFT,
+	EOG_THUMB_VIEW_SELECT_RIGHT,
+	EOG_THUMB_VIEW_SELECT_FIRST,
+	EOG_THUMB_VIEW_SELECT_LAST
+} EogThumbViewSelectionChange;
+</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="EogThumbView">
+<a name="EogThumbView-struct"></a><h3>EogThumbView</h3>
+<pre class="programlisting">typedef struct _EogThumbView EogThumbView;</pre>
+<p>
+</p>
+</div>
+<hr>
+<div class="refsect2" title="eog_thumb_view_new ()">
+<a name="eog-thumb-view-new"></a><h3>eog_thumb_view_new ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/gtk/unstable/GtkWidget.html"
+>GtkWidget</a> *         eog_thumb_view_new                  (void);</pre>
+<p>
+Creates a new <a class="link" href="EogThumbView.html" title="EogThumbView"><span class="type">EogThumbView</span></a> object.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody><tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> a newly created <a class="link" href="EogThumbView.html" title="EogThumbView"><span class="type">EogThumbView</span></a>.
+</td>
+</tr></tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="eog_thumb_view_set_model ()">
+<a name="eog-thumb-view-set-model"></a><h3>eog_thumb_view_set_model ()</h3>
+<pre class="programlisting">void                eog_thumb_view_set_model            (<a class="link" href="EogThumbView.html" title="EogThumbView">EogThumbView</a> *thumbview,
+                                                         <a class="link" href="EogListStore.html" title="EogListStore">EogListStore</a> *store);</pre>
+<p>
+Sets the <a class="link" href="EogListStore.html" title="EogListStore"><span class="type">EogListStore</span></a> to be used with <em class="parameter"><code>thumbview</code></em>. If an initial image
+was set during <em class="parameter"><code>store</code></em> creation, its thumbnail will be selected and visible.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>thumbview</code></em> :</span></p></td>
+<td> A <a class="link" href="EogThumbView.html" title="EogThumbView"><span class="type">EogThumbView</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>store</code></em> :</span></p></td>
+<td> A <a class="link" href="EogListStore.html" title="EogListStore"><span class="type">EogListStore</span></a>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="eog_thumb_view_set_item_height ()">
+<a name="eog-thumb-view-set-item-height"></a><h3>eog_thumb_view_set_item_height ()</h3>
+<pre class="programlisting">void                eog_thumb_view_set_item_height      (<a class="link" href="EogThumbView.html" title="EogThumbView">EogThumbView</a> *thumbview,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gint"
+>gint</a> height);</pre>
+<p>
+Sets the height of each thumbnail in <em class="parameter"><code>thumbview</code></em>.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>thumbview</code></em> :</span></p></td>
+<td> A <a class="link" href="EogThumbView.html" title="EogThumbView"><span class="type">EogThumbView</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>height</code></em> :</span></p></td>
+<td> The desired height.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="eog_thumb_view_get_n_selected ()">
+<a name="eog-thumb-view-get-n-selected"></a><h3>eog_thumb_view_get_n_selected ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#guint"
+>guint</a>               eog_thumb_view_get_n_selected       (<a class="link" href="EogThumbView.html" title="EogThumbView">EogThumbView</a> *thumbview);</pre>
+<p>
+Gets the number of images that are currently selected in <em class="parameter"><code>thumbview</code></em>.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>thumbview</code></em> :</span></p></td>
+<td> An <a class="link" href="EogThumbView.html" title="EogThumbView"><span class="type">EogThumbView</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> the number of selected images in <em class="parameter"><code>thumbview</code></em>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="eog_thumb_view_get_first_selected_image ()">
+<a name="eog-thumb-view-get-first-selected-image"></a><h3>eog_thumb_view_get_first_selected_image ()</h3>
+<pre class="programlisting"><a class="link" href="EogImage.html" title="EogImage">EogImage</a> *          eog_thumb_view_get_first_selected_image
+                                                        (<a class="link" href="EogThumbView.html" title="EogThumbView">EogThumbView</a> *thumbview);</pre>
+<p>
+Returns the first selected image. Note that the returned <a class="link" href="EogImage.html" title="EogImage"><span class="type">EogImage</span></a>
+is not ensured to be really the first selected image in <em class="parameter"><code>thumbview</code></em>, but
+generally, it will be.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>thumbview</code></em> :</span></p></td>
+<td> A <a class="link" href="EogThumbView.html" title="EogThumbView"><span class="type">EogThumbView</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> A <a class="link" href="EogImage.html" title="EogImage"><span class="type">EogImage</span></a>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="eog_thumb_view_get_selected_images ()">
+<a name="eog-thumb-view-get-selected-images"></a><h3>eog_thumb_view_get_selected_images ()</h3>
+<pre class="programlisting"><a
+href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#GList"
+>GList</a> *             eog_thumb_view_get_selected_images  (<a class="link" href="EogThumbView.html" title="EogThumbView">EogThumbView</a> *thumbview);</pre>
+<p>
+Gets a list with the currently selected images. Note that a new reference is
+hold for each image and the list must be freed with <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Doubly-Linked-Lists.html#g-list-free"
+><code class="function">g_list_free()</code></a>.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>thumbview</code></em> :</span></p></td>
+<td> A <a class="link" href="EogThumbView.html" title="EogThumbView"><span class="type">EogThumbView</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><span class="emphasis"><em>Returns</em></span> :</span></p></td>
+<td> A newly allocated list of <a class="link" href="EogImage.html" title="EogImage"><span class="type">EogImage</span></a>'s.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="eog_thumb_view_select_single ()">
+<a name="eog-thumb-view-select-single"></a><h3>eog_thumb_view_select_single ()</h3>
+<pre class="programlisting">void                eog_thumb_view_select_single        (<a class="link" href="EogThumbView.html" title="EogThumbView">EogThumbView</a> *thumbview,
+                                                         <a class="link" href="EogThumbView.html#EogThumbViewSelectionChange" title="enum EogThumbViewSelectionChange">EogThumbViewSelectionChange</a> change);</pre>
+<p>
+Changes the current selection according to a single movement
+described by <a class="link" href="EogThumbView.html#EogThumbViewSelectionChange" title="enum EogThumbViewSelectionChange"><span class="type">EogThumbViewSelectionChange</span></a>. If there are no
+thumbnails currently selected, one is selected according to the
+natural selection according to the <a class="link" href="EogThumbView.html#EogThumbViewSelectionChange" title="enum EogThumbViewSelectionChange"><span class="type">EogThumbViewSelectionChange</span></a>
+used, p.g., when <code class="literal">EOG_THUMB_VIEW_SELECT_RIGHT</code> is the selected change,
+the first thumbnail will be selected.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>thumbview</code></em> :</span></p></td>
+<td> A <a class="link" href="EogThumbView.html" title="EogThumbView"><span class="type">EogThumbView</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>change</code></em> :</span></p></td>
+<td> A <a class="link" href="EogThumbView.html#EogThumbViewSelectionChange" title="enum EogThumbViewSelectionChange"><span class="type">EogThumbViewSelectionChange</span></a>, describing the
+desired selection change.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="eog_thumb_view_set_current_image ()">
+<a name="eog-thumb-view-set-current-image"></a><h3>eog_thumb_view_set_current_image ()</h3>
+<pre class="programlisting">void                eog_thumb_view_set_current_image    (<a class="link" href="EogThumbView.html" title="EogThumbView">EogThumbView</a> *thumbview,
+                                                         <a class="link" href="EogImage.html" title="EogImage">EogImage</a> *image,
+                                                         <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Basic-Types.html#gboolean"
+>gboolean</a> deselect_other);</pre>
+<p>
+Changes the status of a image, marking it as currently selected.
+If <em class="parameter"><code>deselect_other</code></em> is <a
+href="http://library.gnome.org/devel/glib/unstable/glib-Standard-Macros.html#TRUE--CAPS"
+><code class="literal">TRUE</code></a>, all other selected images will be
+deselected.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>thumbview</code></em> :</span></p></td>
+<td> A <a class="link" href="EogThumbView.html" title="EogThumbView"><span class="type">EogThumbView</span></a>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>image</code></em> :</span></p></td>
+<td> The image to be selected.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>deselect_other</code></em> :</span></p></td>
+<td> Whether to deselect currently selected images.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+<hr>
+<div class="refsect2" title="eog_thumb_view_set_thumbnail_popup ()">
+<a name="eog-thumb-view-set-thumbnail-popup"></a><h3>eog_thumb_view_set_thumbnail_popup ()</h3>
+<pre class="programlisting">void                eog_thumb_view_set_thumbnail_popup  (<a class="link" href="EogThumbView.html" title="EogThumbView">EogThumbView</a> *thumbview,
+                                                         <a
+href="http://library.gnome.org/devel/gtk/unstable/GtkMenu.html"
+>GtkMenu</a> *menu);</pre>
+<p>
+Set the contextual menu to be used with the thumbnails in the
+widget. This can be done only once.</p>
+<p>
+</p>
+<div class="variablelist"><table border="0">
+<col align="left" valign="top">
+<tbody>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>thumbview</code></em> :</span></p></td>
+<td> A <span class="type">GtkThumbView</span>.
+</td>
+</tr>
+<tr>
+<td><p><span class="term"><em class="parameter"><code>menu</code></em> :</span></p></td>
+<td> A <a
+href="http://library.gnome.org/devel/gtk/unstable/GtkMenu.html"
+><span class="type">GtkMenu</span></a>.
+</td>
+</tr>
+</tbody>
+</table></div>
+</div>
+</div>
+</div>
+<div class="footer">
+<hr>
+          Generated by GTK-Doc V1.11</div>
+</body>
+</html>

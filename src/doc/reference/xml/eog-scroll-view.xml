@@ -1,0 +1,367 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN"
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="EogScrollView">
+<refmeta>
+<refentrytitle role="top_of_page" id="EogScrollView.top_of_page">EogScrollView</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>EOG Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>EogScrollView</refname>
+<refpurpose></refpurpose>
+</refnamediv>
+
+<refsynopsisdiv id="EogScrollView.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+                    <link linkend="EogScrollView-struct">EogScrollView</link>;
+enum                <link linkend="EogTransparencyStyle">EogTransparencyStyle</link>;
+<link linkend="GtkWidget">GtkWidget</link>*          <link linkend="eog-scroll-view-new">eog_scroll_view_new</link>                 (void);
+<link linkend="void">void</link>                <link linkend="eog-scroll-view-set-image">eog_scroll_view_set_image</link>           (<link linkend="EogScrollView">EogScrollView</link> *view,
+                                                         <link linkend="EogImage">EogImage</link> *image);
+<link linkend="void">void</link>                <link linkend="eog-scroll-view-set-scroll-wheel-zoom">eog_scroll_view_set_scroll_wheel_zoom</link>
+                                                        (<link linkend="EogScrollView">EogScrollView</link> *view,
+                                                         <link linkend="gboolean">gboolean</link> scroll_wheel_zoom);
+<link linkend="void">void</link>                <link linkend="eog-scroll-view-set-zoom-upscale">eog_scroll_view_set_zoom_upscale</link>    (<link linkend="EogScrollView">EogScrollView</link> *view,
+                                                         <link linkend="gboolean">gboolean</link> upscale);
+<link linkend="void">void</link>                <link linkend="eog-scroll-view-set-zoom-multiplier">eog_scroll_view_set_zoom_multiplier</link> (<link linkend="EogScrollView">EogScrollView</link> *view,
+                                                         <link linkend="gdouble">gdouble</link> multiplier);
+<link linkend="void">void</link>                <link linkend="eog-scroll-view-set-antialiasing-in">eog_scroll_view_set_antialiasing_in</link> (<link linkend="EogScrollView">EogScrollView</link> *view,
+                                                         <link linkend="gboolean">gboolean</link> state);
+<link linkend="void">void</link>                <link linkend="eog-scroll-view-set-antialiasing-out">eog_scroll_view_set_antialiasing_out</link>
+                                                        (<link linkend="EogScrollView">EogScrollView</link> *view,
+                                                         <link linkend="gboolean">gboolean</link> state);
+<link linkend="void">void</link>                <link linkend="eog-scroll-view-set-transparency">eog_scroll_view_set_transparency</link>    (<link linkend="EogScrollView">EogScrollView</link> *view,
+                                                         <link linkend="EogTransparencyStyle">EogTransparencyStyle</link> style,
+                                                         <link linkend="GdkColor">GdkColor</link> *color);
+<link linkend="gboolean">gboolean</link>            <link linkend="eog-scroll-view-scrollbars-visible">eog_scroll_view_scrollbars_visible</link>  (<link linkend="EogScrollView">EogScrollView</link> *view);
+<link linkend="void">void</link>                <link linkend="eog-scroll-view-set-popup">eog_scroll_view_set_popup</link>           (<link linkend="EogScrollView">EogScrollView</link> *view,
+                                                         <link linkend="GtkMenu">GtkMenu</link> *menu);
+<link linkend="void">void</link>                <link linkend="eog-scroll-view-zoom-in">eog_scroll_view_zoom_in</link>             (<link linkend="EogScrollView">EogScrollView</link> *view,
+                                                         <link linkend="gboolean">gboolean</link> smooth);
+<link linkend="void">void</link>                <link linkend="eog-scroll-view-zoom-out">eog_scroll_view_zoom_out</link>            (<link linkend="EogScrollView">EogScrollView</link> *view,
+                                                         <link linkend="gboolean">gboolean</link> smooth);
+<link linkend="void">void</link>                <link linkend="eog-scroll-view-zoom-fit">eog_scroll_view_zoom_fit</link>            (<link linkend="EogScrollView">EogScrollView</link> *view);
+<link linkend="void">void</link>                <link linkend="eog-scroll-view-set-zoom">eog_scroll_view_set_zoom</link>            (<link linkend="EogScrollView">EogScrollView</link> *view,
+                                                         <link linkend="double">double</link> zoom);
+<link linkend="double">double</link>              <link linkend="eog-scroll-view-get-zoom">eog_scroll_view_get_zoom</link>            (<link linkend="EogScrollView">EogScrollView</link> *view);
+<link linkend="gboolean">gboolean</link>            <link linkend="eog-scroll-view-get-zoom-is-min">eog_scroll_view_get_zoom_is_min</link>     (<link linkend="EogScrollView">EogScrollView</link> *view);
+<link linkend="gboolean">gboolean</link>            <link linkend="eog-scroll-view-get-zoom-is-max">eog_scroll_view_get_zoom_is_max</link>     (<link linkend="EogScrollView">EogScrollView</link> *view);
+<link linkend="void">void</link>                <link linkend="eog-scroll-view-show-cursor">eog_scroll_view_show_cursor</link>         (<link linkend="EogScrollView">EogScrollView</link> *view);
+<link linkend="void">void</link>                <link linkend="eog-scroll-view-hide-cursor">eog_scroll_view_hide_cursor</link>         (<link linkend="EogScrollView">EogScrollView</link> *view);
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 id="EogScrollView.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<synopsis>
+  <link linkend="GObject">GObject</link>
+   +----<link linkend="GInitiallyUnowned">GInitiallyUnowned</link>
+         +----<link linkend="GtkObject">GtkObject</link>
+               +----<link linkend="GtkWidget">GtkWidget</link>
+                     +----<link linkend="GtkContainer">GtkContainer</link>
+                           +----<link linkend="GtkTable">GtkTable</link>
+                                 +----EogScrollView
+</synopsis>
+</refsect1>
+
+
+
+<refsect1 id="EogScrollView.implemented-interfaces" role="impl_interfaces">
+<title role="impl_interfaces.title">Implemented Interfaces</title>
+<para>
+EogScrollView implements
+ <link linkend="AtkImplementorIface">AtkImplementorIface</link> and  <link linkend="GtkBuildable">GtkBuildable</link>.</para>
+</refsect1>
+
+
+
+<refsect1 id="EogScrollView.signals" role="signal_proto">
+<title role="signal_proto.title">Signals</title>
+<synopsis>
+  &quot;<link linkend="EogScrollView-zoom-changed">zoom-changed</link>&quot;                                   : Run Last
+</synopsis>
+</refsect1>
+
+
+<refsect1 id="EogScrollView.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+</para>
+</refsect1>
+
+<refsect1 id="EogScrollView.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="EogScrollView-struct" role="struct">
+<title>EogScrollView</title>
+<indexterm zone="EogScrollView-struct"><primary sortas="EogScrollView">EogScrollView</primary></indexterm><programlisting>typedef struct _EogScrollView EogScrollView;</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="EogTransparencyStyle" role="enum">
+<title>enum EogTransparencyStyle</title>
+<indexterm zone="EogTransparencyStyle"><primary sortas="EogTransparencyStyle">EogTransparencyStyle</primary></indexterm><programlisting>typedef enum {
+	EOG_TRANSP_BACKGROUND,
+	EOG_TRANSP_CHECKED,
+	EOG_TRANSP_COLOR
+} EogTransparencyStyle;
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="eog-scroll-view-new" role="function">
+<title>eog_scroll_view_new ()</title>
+<indexterm zone="eog-scroll-view-new"><primary sortas="eog_scroll_view_new">eog_scroll_view_new</primary></indexterm><programlisting><link linkend="GtkWidget">GtkWidget</link>*          eog_scroll_view_new                 (void);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-scroll-view-set-image" role="function">
+<title>eog_scroll_view_set_image ()</title>
+<indexterm zone="eog-scroll-view-set-image"><primary sortas="eog_scroll_view_set_image">eog_scroll_view_set_image</primary></indexterm><programlisting><link linkend="void">void</link>                eog_scroll_view_set_image           (<link linkend="EogScrollView">EogScrollView</link> *view,
+                                                         <link linkend="EogImage">EogImage</link> *image);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>view</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>image</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-scroll-view-set-scroll-wheel-zoom" role="function">
+<title>eog_scroll_view_set_scroll_wheel_zoom ()</title>
+<indexterm zone="eog-scroll-view-set-scroll-wheel-zoom"><primary sortas="eog_scroll_view_set_scroll_wheel_zoom">eog_scroll_view_set_scroll_wheel_zoom</primary></indexterm><programlisting><link linkend="void">void</link>                eog_scroll_view_set_scroll_wheel_zoom
+                                                        (<link linkend="EogScrollView">EogScrollView</link> *view,
+                                                         <link linkend="gboolean">gboolean</link> scroll_wheel_zoom);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>view</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>scroll_wheel_zoom</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-scroll-view-set-zoom-upscale" role="function">
+<title>eog_scroll_view_set_zoom_upscale ()</title>
+<indexterm zone="eog-scroll-view-set-zoom-upscale"><primary sortas="eog_scroll_view_set_zoom_upscale">eog_scroll_view_set_zoom_upscale</primary></indexterm><programlisting><link linkend="void">void</link>                eog_scroll_view_set_zoom_upscale    (<link linkend="EogScrollView">EogScrollView</link> *view,
+                                                         <link linkend="gboolean">gboolean</link> upscale);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>view</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>upscale</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-scroll-view-set-zoom-multiplier" role="function">
+<title>eog_scroll_view_set_zoom_multiplier ()</title>
+<indexterm zone="eog-scroll-view-set-zoom-multiplier"><primary sortas="eog_scroll_view_set_zoom_multiplier">eog_scroll_view_set_zoom_multiplier</primary></indexterm><programlisting><link linkend="void">void</link>                eog_scroll_view_set_zoom_multiplier (<link linkend="EogScrollView">EogScrollView</link> *view,
+                                                         <link linkend="gdouble">gdouble</link> multiplier);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>view</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>multiplier</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-scroll-view-set-antialiasing-in" role="function">
+<title>eog_scroll_view_set_antialiasing_in ()</title>
+<indexterm zone="eog-scroll-view-set-antialiasing-in"><primary sortas="eog_scroll_view_set_antialiasing_in">eog_scroll_view_set_antialiasing_in</primary></indexterm><programlisting><link linkend="void">void</link>                eog_scroll_view_set_antialiasing_in (<link linkend="EogScrollView">EogScrollView</link> *view,
+                                                         <link linkend="gboolean">gboolean</link> state);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>view</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>state</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-scroll-view-set-antialiasing-out" role="function">
+<title>eog_scroll_view_set_antialiasing_out ()</title>
+<indexterm zone="eog-scroll-view-set-antialiasing-out"><primary sortas="eog_scroll_view_set_antialiasing_out">eog_scroll_view_set_antialiasing_out</primary></indexterm><programlisting><link linkend="void">void</link>                eog_scroll_view_set_antialiasing_out
+                                                        (<link linkend="EogScrollView">EogScrollView</link> *view,
+                                                         <link linkend="gboolean">gboolean</link> state);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>view</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>state</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-scroll-view-set-transparency" role="function">
+<title>eog_scroll_view_set_transparency ()</title>
+<indexterm zone="eog-scroll-view-set-transparency"><primary sortas="eog_scroll_view_set_transparency">eog_scroll_view_set_transparency</primary></indexterm><programlisting><link linkend="void">void</link>                eog_scroll_view_set_transparency    (<link linkend="EogScrollView">EogScrollView</link> *view,
+                                                         <link linkend="EogTransparencyStyle">EogTransparencyStyle</link> style,
+                                                         <link linkend="GdkColor">GdkColor</link> *color);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>view</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>style</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>color</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-scroll-view-scrollbars-visible" role="function">
+<title>eog_scroll_view_scrollbars_visible ()</title>
+<indexterm zone="eog-scroll-view-scrollbars-visible"><primary sortas="eog_scroll_view_scrollbars_visible">eog_scroll_view_scrollbars_visible</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            eog_scroll_view_scrollbars_visible  (<link linkend="EogScrollView">EogScrollView</link> *view);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>view</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-scroll-view-set-popup" role="function">
+<title>eog_scroll_view_set_popup ()</title>
+<indexterm zone="eog-scroll-view-set-popup"><primary sortas="eog_scroll_view_set_popup">eog_scroll_view_set_popup</primary></indexterm><programlisting><link linkend="void">void</link>                eog_scroll_view_set_popup           (<link linkend="EogScrollView">EogScrollView</link> *view,
+                                                         <link linkend="GtkMenu">GtkMenu</link> *menu);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>view</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>menu</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-scroll-view-zoom-in" role="function">
+<title>eog_scroll_view_zoom_in ()</title>
+<indexterm zone="eog-scroll-view-zoom-in"><primary sortas="eog_scroll_view_zoom_in">eog_scroll_view_zoom_in</primary></indexterm><programlisting><link linkend="void">void</link>                eog_scroll_view_zoom_in             (<link linkend="EogScrollView">EogScrollView</link> *view,
+                                                         <link linkend="gboolean">gboolean</link> smooth);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>view</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>smooth</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-scroll-view-zoom-out" role="function">
+<title>eog_scroll_view_zoom_out ()</title>
+<indexterm zone="eog-scroll-view-zoom-out"><primary sortas="eog_scroll_view_zoom_out">eog_scroll_view_zoom_out</primary></indexterm><programlisting><link linkend="void">void</link>                eog_scroll_view_zoom_out            (<link linkend="EogScrollView">EogScrollView</link> *view,
+                                                         <link linkend="gboolean">gboolean</link> smooth);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>view</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>smooth</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-scroll-view-zoom-fit" role="function">
+<title>eog_scroll_view_zoom_fit ()</title>
+<indexterm zone="eog-scroll-view-zoom-fit"><primary sortas="eog_scroll_view_zoom_fit">eog_scroll_view_zoom_fit</primary></indexterm><programlisting><link linkend="void">void</link>                eog_scroll_view_zoom_fit            (<link linkend="EogScrollView">EogScrollView</link> *view);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>view</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-scroll-view-set-zoom" role="function">
+<title>eog_scroll_view_set_zoom ()</title>
+<indexterm zone="eog-scroll-view-set-zoom"><primary sortas="eog_scroll_view_set_zoom">eog_scroll_view_set_zoom</primary></indexterm><programlisting><link linkend="void">void</link>                eog_scroll_view_set_zoom            (<link linkend="EogScrollView">EogScrollView</link> *view,
+                                                         <link linkend="double">double</link> zoom);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>view</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>zoom</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-scroll-view-get-zoom" role="function">
+<title>eog_scroll_view_get_zoom ()</title>
+<indexterm zone="eog-scroll-view-get-zoom"><primary sortas="eog_scroll_view_get_zoom">eog_scroll_view_get_zoom</primary></indexterm><programlisting><link linkend="double">double</link>              eog_scroll_view_get_zoom            (<link linkend="EogScrollView">EogScrollView</link> *view);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>view</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-scroll-view-get-zoom-is-min" role="function">
+<title>eog_scroll_view_get_zoom_is_min ()</title>
+<indexterm zone="eog-scroll-view-get-zoom-is-min"><primary sortas="eog_scroll_view_get_zoom_is_min">eog_scroll_view_get_zoom_is_min</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            eog_scroll_view_get_zoom_is_min     (<link linkend="EogScrollView">EogScrollView</link> *view);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>view</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-scroll-view-get-zoom-is-max" role="function">
+<title>eog_scroll_view_get_zoom_is_max ()</title>
+<indexterm zone="eog-scroll-view-get-zoom-is-max"><primary sortas="eog_scroll_view_get_zoom_is_max">eog_scroll_view_get_zoom_is_max</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            eog_scroll_view_get_zoom_is_max     (<link linkend="EogScrollView">EogScrollView</link> *view);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>view</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-scroll-view-show-cursor" role="function">
+<title>eog_scroll_view_show_cursor ()</title>
+<indexterm zone="eog-scroll-view-show-cursor"><primary sortas="eog_scroll_view_show_cursor">eog_scroll_view_show_cursor</primary></indexterm><programlisting><link linkend="void">void</link>                eog_scroll_view_show_cursor         (<link linkend="EogScrollView">EogScrollView</link> *view);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>view</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-scroll-view-hide-cursor" role="function">
+<title>eog_scroll_view_hide_cursor ()</title>
+<indexterm zone="eog-scroll-view-hide-cursor"><primary sortas="eog_scroll_view_hide_cursor">eog_scroll_view_hide_cursor</primary></indexterm><programlisting><link linkend="void">void</link>                eog_scroll_view_hide_cursor         (<link linkend="EogScrollView">EogScrollView</link> *view);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>view</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+<refsect1 id="EogScrollView.signal-details" role="signals">
+<title role="signals.title">Signal Details</title>
+<refsect2 id="EogScrollView-zoom-changed" role="signal"><title>The <literal>&quot;zoom-changed&quot;</literal> signal</title>
+<indexterm zone="EogScrollView-zoom-changed"><primary sortas="EogScrollView::zoom-changed">EogScrollView::zoom-changed</primary></indexterm><programlisting><link linkend="void">void</link>                user_function                      (<link linkend="EogScrollView">EogScrollView</link> *eogscrollview,
+                                                        <link linkend="gdouble">gdouble</link>        arg1,
+                                                        <link linkend="gpointer">gpointer</link>       user_data)          : Run Last</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>eogscrollview</parameter>&#160;:</term>
+<listitem><simpara>the object which received the signal.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>arg1</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&#160;:</term>
+<listitem><simpara>user data set when the signal handler was connected.</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+</refsect1>
+
+
+
+</refentry>

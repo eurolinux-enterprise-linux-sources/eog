@@ -1,0 +1,315 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN"
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="EogListStore">
+<refmeta>
+<refentrytitle role="top_of_page" id="EogListStore.top_of_page">EogListStore</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>EOG Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>EogListStore</refname>
+<refpurpose></refpurpose>
+</refnamediv>
+
+<refsynopsisdiv id="EogListStore.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+#define             <link linkend="EOG-LIST-STORE-THUMB-SIZE--CAPS">EOG_LIST_STORE_THUMB_SIZE</link>
+enum                <link linkend="EogListStoreColumn">EogListStoreColumn</link>;
+                    <link linkend="EogListStore-struct">EogListStore</link>;
+<link linkend="GtkListStore">GtkListStore</link> *      <link linkend="eog-list-store-new">eog_list_store_new</link>                  (void);
+<link linkend="GtkListStore">GtkListStore</link> *      <link linkend="eog-list-store-new-from-glist">eog_list_store_new_from_glist</link>       (<link linkend="GList">GList</link> *list);
+<link linkend="void">void</link>                <link linkend="eog-list-store-append-image">eog_list_store_append_image</link>         (<link linkend="EogListStore">EogListStore</link> *store,
+                                                         <link linkend="EogImage">EogImage</link> *image);
+<link linkend="void">void</link>                <link linkend="eog-list-store-add-files">eog_list_store_add_files</link>            (<link linkend="EogListStore">EogListStore</link> *store,
+                                                         <link linkend="GList">GList</link> *file_list);
+<link linkend="void">void</link>                <link linkend="eog-list-store-remove-image">eog_list_store_remove_image</link>         (<link linkend="EogListStore">EogListStore</link> *store,
+                                                         <link linkend="EogImage">EogImage</link> *image);
+<link linkend="gint">gint</link>                <link linkend="eog-list-store-get-pos-by-image">eog_list_store_get_pos_by_image</link>     (<link linkend="EogListStore">EogListStore</link> *store,
+                                                         <link linkend="EogImage">EogImage</link> *image);
+<link linkend="EogImage">EogImage</link> *          <link linkend="eog-list-store-get-image-by-pos">eog_list_store_get_image_by_pos</link>     (<link linkend="EogListStore">EogListStore</link> *store,
+                                                         <link linkend="gint">gint</link> pos);
+<link linkend="gint">gint</link>                <link linkend="eog-list-store-get-pos-by-iter">eog_list_store_get_pos_by_iter</link>      (<link linkend="EogListStore">EogListStore</link> *store,
+                                                         <link linkend="GtkTreeIter">GtkTreeIter</link> *iter);
+<link linkend="gint">gint</link>                <link linkend="eog-list-store-length">eog_list_store_length</link>               (<link linkend="EogListStore">EogListStore</link> *store);
+<link linkend="gint">gint</link>                <link linkend="eog-list-store-get-initial-pos">eog_list_store_get_initial_pos</link>      (<link linkend="EogListStore">EogListStore</link> *store);
+<link linkend="void">void</link>                <link linkend="eog-list-store-thumbnail-set">eog_list_store_thumbnail_set</link>        (<link linkend="EogListStore">EogListStore</link> *store,
+                                                         <link linkend="GtkTreeIter">GtkTreeIter</link> *iter);
+<link linkend="void">void</link>                <link linkend="eog-list-store-thumbnail-unset">eog_list_store_thumbnail_unset</link>      (<link linkend="EogListStore">EogListStore</link> *store,
+                                                         <link linkend="GtkTreeIter">GtkTreeIter</link> *iter);
+<link linkend="void">void</link>                <link linkend="eog-list-store-thumbnail-refresh">eog_list_store_thumbnail_refresh</link>    (<link linkend="EogListStore">EogListStore</link> *store,
+                                                         <link linkend="GtkTreeIter">GtkTreeIter</link> *iter);
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 id="EogListStore.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<synopsis>
+  <link linkend="GObject">GObject</link>
+   +----<link linkend="GtkListStore">GtkListStore</link>
+         +----EogListStore
+</synopsis>
+</refsect1>
+
+
+
+<refsect1 id="EogListStore.implemented-interfaces" role="impl_interfaces">
+<title role="impl_interfaces.title">Implemented Interfaces</title>
+<para>
+EogListStore implements
+ <link linkend="GtkBuildable">GtkBuildable</link>,  <link linkend="GtkTreeDragDest">GtkTreeDragDest</link>,  <link linkend="GtkTreeSortable">GtkTreeSortable</link>,  <link linkend="GtkTreeModel">GtkTreeModel</link> and  <link linkend="GtkTreeDragSource">GtkTreeDragSource</link>.</para>
+</refsect1>
+
+
+
+
+
+<refsect1 id="EogListStore.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+</para>
+</refsect1>
+
+<refsect1 id="EogListStore.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="EOG-LIST-STORE-THUMB-SIZE--CAPS" role="macro">
+<title>EOG_LIST_STORE_THUMB_SIZE</title>
+<indexterm zone="EOG-LIST-STORE-THUMB-SIZE--CAPS"><primary sortas="EOG_LIST_STORE_THUMB_SIZE">EOG_LIST_STORE_THUMB_SIZE</primary></indexterm><programlisting>#define EOG_LIST_STORE_THUMB_SIZE 90
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="EogListStoreColumn" role="enum">
+<title>enum EogListStoreColumn</title>
+<indexterm zone="EogListStoreColumn"><primary sortas="EogListStoreColumn">EogListStoreColumn</primary></indexterm><programlisting>typedef enum {
+	EOG_LIST_STORE_THUMBNAIL = 0,
+	EOG_LIST_STORE_THUMB_SET,
+	EOG_LIST_STORE_EOG_IMAGE,
+	EOG_LIST_STORE_EOG_JOB,
+	EOG_LIST_STORE_NUM_COLUMNS
+} EogListStoreColumn;
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="EogListStore-struct" role="struct">
+<title>EogListStore</title>
+<indexterm zone="EogListStore-struct"><primary sortas="EogListStore">EogListStore</primary></indexterm><programlisting>typedef struct _EogListStore EogListStore;</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="eog-list-store-new" role="function">
+<title>eog_list_store_new ()</title>
+<indexterm zone="eog-list-store-new"><primary sortas="eog_list_store_new">eog_list_store_new</primary></indexterm><programlisting><link linkend="GtkListStore">GtkListStore</link> *      eog_list_store_new                  (void);</programlisting>
+<para>
+Creates a new and empty <link linkend="EogListStore"><type>EogListStore</type></link>.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> a newly created <link linkend="EogListStore"><type>EogListStore</type></link>.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-list-store-new-from-glist" role="function">
+<title>eog_list_store_new_from_glist ()</title>
+<indexterm zone="eog-list-store-new-from-glist"><primary sortas="eog_list_store_new_from_glist">eog_list_store_new_from_glist</primary></indexterm><programlisting><link linkend="GtkListStore">GtkListStore</link> *      eog_list_store_new_from_glist       (<link linkend="GList">GList</link> *list);</programlisting>
+<para>
+Creates a new <link linkend="EogListStore"><type>EogListStore</type></link> from a list of <link linkend="EogImage"><type>EogImage</type></link>'s.
+The given list must be <link linkend="NULL--CAPS"><literal>NULL</literal></link>-terminated.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>list</parameter>&#160;:</term>
+<listitem><simpara> a <link linkend="NULL--CAPS"><literal>NULL</literal></link>-terminated list of <link linkend="EogImage"><type>EogImage</type></link>'s.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> a new <link linkend="EogListStore"><type>EogListStore</type></link>.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-list-store-append-image" role="function">
+<title>eog_list_store_append_image ()</title>
+<indexterm zone="eog-list-store-append-image"><primary sortas="eog_list_store_append_image">eog_list_store_append_image</primary></indexterm><programlisting><link linkend="void">void</link>                eog_list_store_append_image         (<link linkend="EogListStore">EogListStore</link> *store,
+                                                         <link linkend="EogImage">EogImage</link> *image);</programlisting>
+<para>
+Adds an <link linkend="EogImage"><type>EogImage</type></link> to <parameter>store</parameter>. The thumbnail of the image is not
+loaded and will only be loaded if the thumbnail is made visible
+or <link linkend="eog-list-store-set-thumbnail"><function>eog_list_store_set_thumbnail()</function></link> is called.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>store</parameter>&#160;:</term>
+<listitem><simpara> An <link linkend="EogListStore"><type>EogListStore</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>image</parameter>&#160;:</term>
+<listitem><simpara> An <link linkend="EogImage"><type>EogImage</type></link>.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-list-store-add-files" role="function">
+<title>eog_list_store_add_files ()</title>
+<indexterm zone="eog-list-store-add-files"><primary sortas="eog_list_store_add_files">eog_list_store_add_files</primary></indexterm><programlisting><link linkend="void">void</link>                eog_list_store_add_files            (<link linkend="EogListStore">EogListStore</link> *store,
+                                                         <link linkend="GList">GList</link> *file_list);</programlisting>
+<para>
+Adds a list of <link linkend="GFile"><type>GFile</type></link>'s to <parameter>store</parameter>. The given list
+must be <link linkend="NULL--CAPS"><literal>NULL</literal></link>-terminated.
+</para>
+<para>
+If any of the <link linkend="GFile"><type>GFile</type></link>'s in <parameter>file_list</parameter> is a directory, all the images
+in that directory will be added to <parameter>store</parameter>. If the list of files contains
+only one file and this is a regular file, then all the images in the same
+directory will be added as well to <parameter>store</parameter>.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>store</parameter>&#160;:</term>
+<listitem><simpara> An <link linkend="EogListStore"><type>EogListStore</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>file_list</parameter>&#160;:</term>
+<listitem><simpara> A <link linkend="NULL--CAPS"><literal>NULL</literal></link>-terminated list of <link linkend="GFile"><type>GFile</type></link>'s.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-list-store-remove-image" role="function">
+<title>eog_list_store_remove_image ()</title>
+<indexterm zone="eog-list-store-remove-image"><primary sortas="eog_list_store_remove_image">eog_list_store_remove_image</primary></indexterm><programlisting><link linkend="void">void</link>                eog_list_store_remove_image         (<link linkend="EogListStore">EogListStore</link> *store,
+                                                         <link linkend="EogImage">EogImage</link> *image);</programlisting>
+<para>
+Removes <parameter>image</parameter> from <parameter>store</parameter>.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>store</parameter>&#160;:</term>
+<listitem><simpara> An <link linkend="EogListStore"><type>EogListStore</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>image</parameter>&#160;:</term>
+<listitem><simpara> An <link linkend="EogImage"><type>EogImage</type></link>.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-list-store-get-pos-by-image" role="function">
+<title>eog_list_store_get_pos_by_image ()</title>
+<indexterm zone="eog-list-store-get-pos-by-image"><primary sortas="eog_list_store_get_pos_by_image">eog_list_store_get_pos_by_image</primary></indexterm><programlisting><link linkend="gint">gint</link>                eog_list_store_get_pos_by_image     (<link linkend="EogListStore">EogListStore</link> *store,
+                                                         <link linkend="EogImage">EogImage</link> *image);</programlisting>
+<para>
+Gets the position where <parameter>image</parameter> is stored in <parameter>store</parameter>. If <parameter>image</parameter>
+is not stored in <parameter>store</parameter>, -1 is returned.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>store</parameter>&#160;:</term>
+<listitem><simpara> An <link linkend="EogListStore"><type>EogListStore</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>image</parameter>&#160;:</term>
+<listitem><simpara> An <link linkend="EogImage"><type>EogImage</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> the position of <parameter>image</parameter> in <parameter>store</parameter> or -1 if not found.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-list-store-get-image-by-pos" role="function">
+<title>eog_list_store_get_image_by_pos ()</title>
+<indexterm zone="eog-list-store-get-image-by-pos"><primary sortas="eog_list_store_get_image_by_pos">eog_list_store_get_image_by_pos</primary></indexterm><programlisting><link linkend="EogImage">EogImage</link> *          eog_list_store_get_image_by_pos     (<link linkend="EogListStore">EogListStore</link> *store,
+                                                         <link linkend="gint">gint</link> pos);</programlisting>
+<para>
+Gets the <link linkend="EogImage"><type>EogImage</type></link> in the position <parameter>pos</parameter> of <parameter>store</parameter>. If there is
+no image at position <parameter>pos</parameter>, <link linkend="NULL--CAPS"><literal>NULL</literal></link> is returned.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>store</parameter>&#160;:</term>
+<listitem><simpara> An <link linkend="EogListStore"><type>EogListStore</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>pos</parameter>&#160;:</term>
+<listitem><simpara> the position of the required <link linkend="EogImage"><type>EogImage</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> the <link linkend="EogImage"><type>EogImage</type></link> in position <parameter>pos</parameter> or <link linkend="NULL--CAPS"><literal>NULL</literal></link>.
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-list-store-get-pos-by-iter" role="function">
+<title>eog_list_store_get_pos_by_iter ()</title>
+<indexterm zone="eog-list-store-get-pos-by-iter"><primary sortas="eog_list_store_get_pos_by_iter">eog_list_store_get_pos_by_iter</primary></indexterm><programlisting><link linkend="gint">gint</link>                eog_list_store_get_pos_by_iter      (<link linkend="EogListStore">EogListStore</link> *store,
+                                                         <link linkend="GtkTreeIter">GtkTreeIter</link> *iter);</programlisting>
+<para>
+Gets the position of the image pointed by <parameter>iter</parameter>.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>store</parameter>&#160;:</term>
+<listitem><simpara> An <link linkend="EogListStore"><type>EogListStore</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>iter</parameter>&#160;:</term>
+<listitem><simpara> A <link linkend="GtkTreeIter"><type>GtkTreeIter</type></link> pointing to an image in <parameter>store</parameter>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> The position of the image pointed by <parameter>iter</parameter>.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-list-store-length" role="function">
+<title>eog_list_store_length ()</title>
+<indexterm zone="eog-list-store-length"><primary sortas="eog_list_store_length">eog_list_store_length</primary></indexterm><programlisting><link linkend="gint">gint</link>                eog_list_store_length               (<link linkend="EogListStore">EogListStore</link> *store);</programlisting>
+<para>
+Returns the number of images in the store.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>store</parameter>&#160;:</term>
+<listitem><simpara> An <link linkend="EogListStore"><type>EogListStore</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> The number of images in <parameter>store</parameter>.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-list-store-get-initial-pos" role="function">
+<title>eog_list_store_get_initial_pos ()</title>
+<indexterm zone="eog-list-store-get-initial-pos"><primary sortas="eog_list_store_get_initial_pos">eog_list_store_get_initial_pos</primary></indexterm><programlisting><link linkend="gint">gint</link>                eog_list_store_get_initial_pos      (<link linkend="EogListStore">EogListStore</link> *store);</programlisting>
+<para>
+Gets the position of the <link linkend="EogImage"><type>EogImage</type></link> that should be loaded first.
+If not set, it returns -1.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>store</parameter>&#160;:</term>
+<listitem><simpara> An <link linkend="EogListStore"><type>EogListStore</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara> the position of the image to be loaded first or -1.
+
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-list-store-thumbnail-set" role="function">
+<title>eog_list_store_thumbnail_set ()</title>
+<indexterm zone="eog-list-store-thumbnail-set"><primary sortas="eog_list_store_thumbnail_set">eog_list_store_thumbnail_set</primary></indexterm><programlisting><link linkend="void">void</link>                eog_list_store_thumbnail_set        (<link linkend="EogListStore">EogListStore</link> *store,
+                                                         <link linkend="GtkTreeIter">GtkTreeIter</link> *iter);</programlisting>
+<para>
+Sets the thumbnail for the image pointed by <parameter>iter</parameter>.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>store</parameter>&#160;:</term>
+<listitem><simpara> An <link linkend="EogListStore"><type>EogListStore</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>iter</parameter>&#160;:</term>
+<listitem><simpara> A <link linkend="GtkTreeIter"><type>GtkTreeIter</type></link> pointing to an image in <parameter>store</parameter>.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-list-store-thumbnail-unset" role="function">
+<title>eog_list_store_thumbnail_unset ()</title>
+<indexterm zone="eog-list-store-thumbnail-unset"><primary sortas="eog_list_store_thumbnail_unset">eog_list_store_thumbnail_unset</primary></indexterm><programlisting><link linkend="void">void</link>                eog_list_store_thumbnail_unset      (<link linkend="EogListStore">EogListStore</link> *store,
+                                                         <link linkend="GtkTreeIter">GtkTreeIter</link> *iter);</programlisting>
+<para>
+Unsets the thumbnail for the image pointed by <parameter>iter</parameter>, changing
+it to a "busy" icon.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>store</parameter>&#160;:</term>
+<listitem><simpara> An <link linkend="EogListStore"><type>EogListStore</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>iter</parameter>&#160;:</term>
+<listitem><simpara> A <link linkend="GtkTreeIter"><type>GtkTreeIter</type></link> pointing to an image in <parameter>store</parameter>.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-list-store-thumbnail-refresh" role="function">
+<title>eog_list_store_thumbnail_refresh ()</title>
+<indexterm zone="eog-list-store-thumbnail-refresh"><primary sortas="eog_list_store_thumbnail_refresh">eog_list_store_thumbnail_refresh</primary></indexterm><programlisting><link linkend="void">void</link>                eog_list_store_thumbnail_refresh    (<link linkend="EogListStore">EogListStore</link> *store,
+                                                         <link linkend="GtkTreeIter">GtkTreeIter</link> *iter);</programlisting>
+<para>
+Refreshes the thumbnail for the image pointed by <parameter>iter</parameter>.</para>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>store</parameter>&#160;:</term>
+<listitem><simpara> An <link linkend="EogListStore"><type>EogListStore</type></link>.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>iter</parameter>&#160;:</term>
+<listitem><simpara> A <link linkend="GtkTreeIter"><type>GtkTreeIter</type></link> pointing to an image in <parameter>store</parameter>.
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+
+
+
+
+</refentry>

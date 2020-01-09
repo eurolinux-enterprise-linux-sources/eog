@@ -1,0 +1,206 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN"
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="EogSidebar">
+<refmeta>
+<refentrytitle role="top_of_page" id="EogSidebar.top_of_page">EogSidebar</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>EOG Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>EogSidebar</refname>
+<refpurpose></refpurpose>
+</refnamediv>
+
+<refsynopsisdiv id="EogSidebar.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+                    <link linkend="EogSidebar-struct">EogSidebar</link>;
+<link linkend="GtkWidget">GtkWidget</link> *         <link linkend="eog-sidebar-new">eog_sidebar_new</link>                     (void);
+<link linkend="void">void</link>                <link linkend="eog-sidebar-add-page">eog_sidebar_add_page</link>                (<link linkend="EogSidebar">EogSidebar</link> *eog_sidebar,
+                                                         const <link linkend="gchar">gchar</link> *title,
+                                                         <link linkend="GtkWidget">GtkWidget</link> *main_widget);
+<link linkend="void">void</link>                <link linkend="eog-sidebar-remove-page">eog_sidebar_remove_page</link>             (<link linkend="EogSidebar">EogSidebar</link> *eog_sidebar,
+                                                         <link linkend="GtkWidget">GtkWidget</link> *main_widget);
+<link linkend="void">void</link>                <link linkend="eog-sidebar-set-page">eog_sidebar_set_page</link>                (<link linkend="EogSidebar">EogSidebar</link> *eog_sidebar,
+                                                         <link linkend="GtkWidget">GtkWidget</link> *main_widget);
+<link linkend="gint">gint</link>                <link linkend="eog-sidebar-get-n-pages">eog_sidebar_get_n_pages</link>             (<link linkend="EogSidebar">EogSidebar</link> *eog_sidebar);
+<link linkend="gboolean">gboolean</link>            <link linkend="eog-sidebar-is-empty">eog_sidebar_is_empty</link>                (<link linkend="EogSidebar">EogSidebar</link> *eog_sidebar);
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 id="EogSidebar.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<synopsis>
+  <link linkend="GObject">GObject</link>
+   +----<link linkend="GInitiallyUnowned">GInitiallyUnowned</link>
+         +----<link linkend="GtkObject">GtkObject</link>
+               +----<link linkend="GtkWidget">GtkWidget</link>
+                     +----<link linkend="GtkContainer">GtkContainer</link>
+                           +----<link linkend="GtkBox">GtkBox</link>
+                                 +----<link linkend="GtkVBox">GtkVBox</link>
+                                       +----EogSidebar
+</synopsis>
+</refsect1>
+
+
+
+<refsect1 id="EogSidebar.implemented-interfaces" role="impl_interfaces">
+<title role="impl_interfaces.title">Implemented Interfaces</title>
+<para>
+EogSidebar implements
+ <link linkend="AtkImplementorIface">AtkImplementorIface</link>,  <link linkend="GtkBuildable">GtkBuildable</link> and  <link linkend="GtkOrientable">GtkOrientable</link>.</para>
+</refsect1>
+
+
+<refsect1 id="EogSidebar.properties" role="properties">
+<title role="properties.title">Properties</title>
+<synopsis>
+  &quot;<link linkend="EogSidebar--current-page">current-page</link>&quot;             <link linkend="GtkWidget">GtkWidget</link>*            : Read / Write
+</synopsis>
+</refsect1>
+
+<refsect1 id="EogSidebar.signals" role="signal_proto">
+<title role="signal_proto.title">Signals</title>
+<synopsis>
+  &quot;<link linkend="EogSidebar-page-added">page-added</link>&quot;                                     : Run First
+  &quot;<link linkend="EogSidebar-page-removed">page-removed</link>&quot;                                   : Run First
+</synopsis>
+</refsect1>
+
+
+<refsect1 id="EogSidebar.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+</para>
+</refsect1>
+
+<refsect1 id="EogSidebar.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="EogSidebar-struct" role="struct">
+<title>EogSidebar</title>
+<indexterm zone="EogSidebar-struct"><primary sortas="EogSidebar">EogSidebar</primary></indexterm><programlisting>typedef struct _EogSidebar EogSidebar;</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="eog-sidebar-new" role="function">
+<title>eog_sidebar_new ()</title>
+<indexterm zone="eog-sidebar-new"><primary sortas="eog_sidebar_new">eog_sidebar_new</primary></indexterm><programlisting><link linkend="GtkWidget">GtkWidget</link> *         eog_sidebar_new                     (void);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-sidebar-add-page" role="function">
+<title>eog_sidebar_add_page ()</title>
+<indexterm zone="eog-sidebar-add-page"><primary sortas="eog_sidebar_add_page">eog_sidebar_add_page</primary></indexterm><programlisting><link linkend="void">void</link>                eog_sidebar_add_page                (<link linkend="EogSidebar">EogSidebar</link> *eog_sidebar,
+                                                         const <link linkend="gchar">gchar</link> *title,
+                                                         <link linkend="GtkWidget">GtkWidget</link> *main_widget);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>eog_sidebar</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>title</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>main_widget</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-sidebar-remove-page" role="function">
+<title>eog_sidebar_remove_page ()</title>
+<indexterm zone="eog-sidebar-remove-page"><primary sortas="eog_sidebar_remove_page">eog_sidebar_remove_page</primary></indexterm><programlisting><link linkend="void">void</link>                eog_sidebar_remove_page             (<link linkend="EogSidebar">EogSidebar</link> *eog_sidebar,
+                                                         <link linkend="GtkWidget">GtkWidget</link> *main_widget);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>eog_sidebar</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>main_widget</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-sidebar-set-page" role="function">
+<title>eog_sidebar_set_page ()</title>
+<indexterm zone="eog-sidebar-set-page"><primary sortas="eog_sidebar_set_page">eog_sidebar_set_page</primary></indexterm><programlisting><link linkend="void">void</link>                eog_sidebar_set_page                (<link linkend="EogSidebar">EogSidebar</link> *eog_sidebar,
+                                                         <link linkend="GtkWidget">GtkWidget</link> *main_widget);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>eog_sidebar</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>main_widget</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-sidebar-get-n-pages" role="function">
+<title>eog_sidebar_get_n_pages ()</title>
+<indexterm zone="eog-sidebar-get-n-pages"><primary sortas="eog_sidebar_get_n_pages">eog_sidebar_get_n_pages</primary></indexterm><programlisting><link linkend="gint">gint</link>                eog_sidebar_get_n_pages             (<link linkend="EogSidebar">EogSidebar</link> *eog_sidebar);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>eog_sidebar</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-sidebar-is-empty" role="function">
+<title>eog_sidebar_is_empty ()</title>
+<indexterm zone="eog-sidebar-is-empty"><primary sortas="eog_sidebar_is_empty">eog_sidebar_is_empty</primary></indexterm><programlisting><link linkend="gboolean">gboolean</link>            eog_sidebar_is_empty                (<link linkend="EogSidebar">EogSidebar</link> *eog_sidebar);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>eog_sidebar</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+<refsect1 id="EogSidebar.property-details" role="property_details">
+<title role="property_details.title">Property Details</title>
+<refsect2 id="EogSidebar--current-page" role="property"><title>The <literal>&quot;current-page&quot;</literal> property</title>
+<indexterm zone="EogSidebar--current-page"><primary sortas="EogSidebar:current-page">EogSidebar:current-page</primary></indexterm><programlisting>  &quot;current-page&quot;             <link linkend="GtkWidget">GtkWidget</link>*            : Read / Write</programlisting>
+<para>The currently visible page.</para></refsect2>
+</refsect1>
+
+<refsect1 id="EogSidebar.signal-details" role="signals">
+<title role="signals.title">Signal Details</title>
+<refsect2 id="EogSidebar-page-added" role="signal"><title>The <literal>&quot;page-added&quot;</literal> signal</title>
+<indexterm zone="EogSidebar-page-added"><primary sortas="EogSidebar::page-added">EogSidebar::page-added</primary></indexterm><programlisting><link linkend="void">void</link>                user_function                      (<link linkend="EogSidebar">EogSidebar</link> *eogsidebar,
+                                                        <link linkend="GtkWidget">GtkWidget</link>  *widget,
+                                                        <link linkend="gpointer">gpointer</link>    user_data)       : Run First</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>eogsidebar</parameter>&#160;:</term>
+<listitem><simpara>the object which received the signal.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>widget</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&#160;:</term>
+<listitem><simpara>user data set when the signal handler was connected.</simpara></listitem></varlistentry>
+</variablelist></refsect2><refsect2 id="EogSidebar-page-removed" role="signal"><title>The <literal>&quot;page-removed&quot;</literal> signal</title>
+<indexterm zone="EogSidebar-page-removed"><primary sortas="EogSidebar::page-removed">EogSidebar::page-removed</primary></indexterm><programlisting><link linkend="void">void</link>                user_function                      (<link linkend="EogSidebar">EogSidebar</link> *eogsidebar,
+                                                        <link linkend="GtkWidget">GtkWidget</link>  *widget,
+                                                        <link linkend="gpointer">gpointer</link>    user_data)       : Run First</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>eogsidebar</parameter>&#160;:</term>
+<listitem><simpara>the object which received the signal.
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>widget</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>user_data</parameter>&#160;:</term>
+<listitem><simpara>user data set when the signal handler was connected.</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+</refsect1>
+
+
+
+</refentry>

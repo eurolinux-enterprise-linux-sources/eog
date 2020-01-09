@@ -1,0 +1,147 @@
+<?xml version="1.0"?>
+<!DOCTYPE refentry PUBLIC "-//OASIS//DTD DocBook XML V4.1.2//EN"
+               "http://www.oasis-open.org/docbook/xml/4.1.2/docbookx.dtd" [
+<!ENTITY version SYSTEM "version.xml">
+]>
+<refentry id="EogPropertiesDialog">
+<refmeta>
+<refentrytitle role="top_of_page" id="EogPropertiesDialog.top_of_page">EogPropertiesDialog</refentrytitle>
+<manvolnum>3</manvolnum>
+<refmiscinfo>EOG Library</refmiscinfo>
+</refmeta>
+
+<refnamediv>
+<refname>EogPropertiesDialog</refname>
+<refpurpose></refpurpose>
+</refnamediv>
+
+<refsynopsisdiv id="EogPropertiesDialog.synopsis" role="synopsis">
+<title role="synopsis.title">Synopsis</title>
+
+<synopsis>
+enum                <link linkend="EogPropertiesDialogPage">EogPropertiesDialogPage</link>;
+                    <link linkend="EogPropertiesDialog-struct">EogPropertiesDialog</link>;
+<link linkend="GObject">GObject</link> *           <link linkend="eog-properties-dialog-new">eog_properties_dialog_new</link>           (<link linkend="GtkWindow">GtkWindow</link> *parent,
+                                                         <link linkend="EogThumbView">EogThumbView</link> *thumbview,
+                                                         <link linkend="GtkAction">GtkAction</link> *next_image_action,
+                                                         <link linkend="GtkAction">GtkAction</link> *previous_image_action);
+<link linkend="void">void</link>                <link linkend="eog-properties-dialog-update">eog_properties_dialog_update</link>        (<link linkend="EogPropertiesDialog">EogPropertiesDialog</link> *prop,
+                                                         <link linkend="EogImage">EogImage</link> *image);
+<link linkend="void">void</link>                <link linkend="eog-properties-dialog-set-page">eog_properties_dialog_set_page</link>      (<link linkend="EogPropertiesDialog">EogPropertiesDialog</link> *prop,
+                                                         <link linkend="EogPropertiesDialogPage">EogPropertiesDialogPage</link> page);
+</synopsis>
+</refsynopsisdiv>
+
+<refsect1 id="EogPropertiesDialog.object-hierarchy" role="object_hierarchy">
+<title role="object_hierarchy.title">Object Hierarchy</title>
+<synopsis>
+  <link linkend="GObject">GObject</link>
+   +----<link linkend="EogDialog">EogDialog</link>
+         +----EogPropertiesDialog
+</synopsis>
+</refsect1>
+
+
+
+
+
+<refsect1 id="EogPropertiesDialog.properties" role="properties">
+<title role="properties.title">Properties</title>
+<synopsis>
+  &quot;<link linkend="EogPropertiesDialog--netbook-mode">netbook-mode</link>&quot;             <link linkend="gboolean">gboolean</link>              : Read / Write
+  &quot;<link linkend="EogPropertiesDialog--thumbview">thumbview</link>&quot;                <link linkend="EogThumbView">EogThumbView</link>*         : Read / Write / Construct Only
+</synopsis>
+</refsect1>
+
+
+
+<refsect1 id="EogPropertiesDialog.description" role="desc">
+<title role="desc.title">Description</title>
+<para>
+</para>
+</refsect1>
+
+<refsect1 id="EogPropertiesDialog.details" role="details">
+<title role="details.title">Details</title>
+<refsect2 id="EogPropertiesDialogPage" role="enum">
+<title>enum EogPropertiesDialogPage</title>
+<indexterm zone="EogPropertiesDialogPage"><primary sortas="EogPropertiesDialogPage">EogPropertiesDialogPage</primary></indexterm><programlisting>typedef enum {
+	EOG_PROPERTIES_DIALOG_PAGE_GENERAL = 0,
+	EOG_PROPERTIES_DIALOG_PAGE_EXIF,
+	EOG_PROPERTIES_DIALOG_PAGE_DETAILS,
+	EOG_PROPERTIES_DIALOG_N_PAGES
+} EogPropertiesDialogPage;
+</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="EogPropertiesDialog-struct" role="struct">
+<title>EogPropertiesDialog</title>
+<indexterm zone="EogPropertiesDialog-struct"><primary sortas="EogPropertiesDialog">EogPropertiesDialog</primary></indexterm><programlisting>typedef struct _EogPropertiesDialog EogPropertiesDialog;</programlisting>
+<para>
+</para></refsect2>
+<refsect2 id="eog-properties-dialog-new" role="function">
+<title>eog_properties_dialog_new ()</title>
+<indexterm zone="eog-properties-dialog-new"><primary sortas="eog_properties_dialog_new">eog_properties_dialog_new</primary></indexterm><programlisting><link linkend="GObject">GObject</link> *           eog_properties_dialog_new           (<link linkend="GtkWindow">GtkWindow</link> *parent,
+                                                         <link linkend="EogThumbView">EogThumbView</link> *thumbview,
+                                                         <link linkend="GtkAction">GtkAction</link> *next_image_action,
+                                                         <link linkend="GtkAction">GtkAction</link> *previous_image_action);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>parent</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>thumbview</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>next_image_action</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>previous_image_action</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><emphasis>Returns</emphasis>&#160;:</term><listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-properties-dialog-update" role="function">
+<title>eog_properties_dialog_update ()</title>
+<indexterm zone="eog-properties-dialog-update"><primary sortas="eog_properties_dialog_update">eog_properties_dialog_update</primary></indexterm><programlisting><link linkend="void">void</link>                eog_properties_dialog_update        (<link linkend="EogPropertiesDialog">EogPropertiesDialog</link> *prop,
+                                                         <link linkend="EogImage">EogImage</link> *image);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>prop</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>image</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+<refsect2 id="eog-properties-dialog-set-page" role="function">
+<title>eog_properties_dialog_set_page ()</title>
+<indexterm zone="eog-properties-dialog-set-page"><primary sortas="eog_properties_dialog_set_page">eog_properties_dialog_set_page</primary></indexterm><programlisting><link linkend="void">void</link>                eog_properties_dialog_set_page      (<link linkend="EogPropertiesDialog">EogPropertiesDialog</link> *prop,
+                                                         <link linkend="EogPropertiesDialogPage">EogPropertiesDialogPage</link> page);</programlisting>
+<para>
+</para><variablelist role="params">
+<varlistentry><term><parameter>prop</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+<varlistentry><term><parameter>page</parameter>&#160;:</term>
+<listitem><simpara>
+</simpara></listitem></varlistentry>
+</variablelist></refsect2>
+
+</refsect1>
+<refsect1 id="EogPropertiesDialog.property-details" role="property_details">
+<title role="property_details.title">Property Details</title>
+<refsect2 id="EogPropertiesDialog--netbook-mode" role="property"><title>The <literal>&quot;netbook-mode&quot;</literal> property</title>
+<indexterm zone="EogPropertiesDialog--netbook-mode"><primary sortas="EogPropertiesDialog:netbook-mode">EogPropertiesDialog:netbook-mode</primary></indexterm><programlisting>  &quot;netbook-mode&quot;             <link linkend="gboolean">gboolean</link>              : Read / Write</programlisting>
+<para>Netbook Mode.</para><para>Default value: FALSE</para>
+</refsect2>
+<refsect2 id="EogPropertiesDialog--thumbview" role="property"><title>The <literal>&quot;thumbview&quot;</literal> property</title>
+<indexterm zone="EogPropertiesDialog--thumbview"><primary sortas="EogPropertiesDialog:thumbview">EogPropertiesDialog:thumbview</primary></indexterm><programlisting>  &quot;thumbview&quot;                <link linkend="EogThumbView">EogThumbView</link>*         : Read / Write / Construct Only</programlisting>
+<para>Thumbview.</para></refsect2>
+</refsect1>
+
+
+
+
+</refentry>
