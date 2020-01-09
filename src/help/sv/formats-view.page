@@ -4,7 +4,7 @@
   <info>
     <link type="guide" xref="index"/>
     <link type="seealso" xref="formats-save"/>
-    <desc>The image viewer can display pictures in a wide range of image formats, including PNG, JPEG, and TIFF.</desc>
+    <desc>Bildvisaren kan visa bilder i ett stort antal format, inklusive PNG, JPEG och TIFF.</desc>
 
     <revision pkgversion="3.2" version="0.1" date="2011-09-05" status="final"/>
   <credit type="author">
@@ -12,13 +12,31 @@
     <email>tiffany.antopolski@gmail.com</email>
   </credit>
   <license>
-   <p>Creative Commons Share Alike 3.0</p>
+   <p>Creative Commons DelaLika 3.0</p>
   </license>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Daniel Nylander</mal:name>
+      <mal:email>po@danielnylander.se</mal:email>
+      <mal:years>2007, 2008, 2009</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Henrik Löwendahl</mal:name>
+      <mal:email>henrik.lowendahl@purplescout.se</mal:email>
+      <mal:years>2011</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Sebastian Rasmussen</mal:name>
+      <mal:email>sebras@gmail.com</mal:email>
+      <mal:years>2016</mal:years>
+    </mal:credit>
   </info>
 
- <title>Supported image formats</title>
+ <title>Bildformat som stöds</title>
 
-  <p>The image viewer is able to open pictures in the following formats:</p>
+  <p>Bildvisaren kan öppna följande format:</p>
   <list>
    <item><p>ANI - Animation</p></item>
    <item><p>BMP - Bitmap</p></item>
@@ -36,8 +54,5 @@
    <item><p>XBM - X Bitmap</p></item>
    <item><p>XPM - X Pixmap</p></item>
   </list>
-  <p>
-   If you try to open a picture in an unsupported format, you will get a <gui>Could
-not load image 'image_name'.</gui> error.
-  </p>
+  <p>Om du försöker öppna en bild i ett format som inte stöds kommer du att få felet <gui>Kunde inte läsa in bilden ”bildnamn”</gui>.</p>
 </page>

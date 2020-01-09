@@ -1,3 +1,532 @@
+Version 3.20.5
+--------------
+
+* Some smaller code improvements
+
+Bug fixes:
+
+ #772162, When deleting ALL images, the last one stays in preview (F. Riemann)
+
+New and updated translations:
+
+- David King [en_GB]
+- Daniel Mustieles [es]
+- gogo [hr]
+- Hannie Dumoleyn [nl]
+- Piotr Drąg [pl]
+- Matej Urbančič [sl]
+
+Version 3.20.4
+--------------
+
+Bug fixes:
+
+ #770143, CVE-2016-6855 out-of-bounds write in eog 3.10.2
+ #770197, eog leaks error message if loading an SVG fails
+
+New and updated translations:
+
+- gogo [hr]
+- Muhammet Kara [tr]
+
+New and updated manual translations
+
+- Sebastian Rasmussen [sv]
+
+Version 3.20.3
+--------------
+
+Bug fixes:
+
+ #767003, Eye Of Gnome should refresh automatically the image when it is edited
+
+New and updated translations:
+
+- Frédéric Péters [fr]
+- Sveinn í Felli [is]
+- Kjartan Maraas [nb]
+- Cédric Valmary (totenoc.eu) [oc]
+- Daniel Șerbănescu [ro]
+- Theppitak Karoonboonyanan [th]
+
+Version 3.20.2
+--------------
+
+New and updated translations:
+
+- Fabio Tomat [fur]
+- GunChleoc [gd]
+- Sérgio Cardeira [pt]
+
+New and updated manual translations
+
+- sujiniku, Jiro Matsuzawa [ja]
+
+Version 3.20.1
+--------------
+
+ * Improved startup time especially on remote shares (Debarshi Ray)
+ * Miscellaneous fixes and improvements (Debarshi Ray, Richard Hughes)
+
+Bug fixes:
+
+ #665897, Scaled down images have poor quality (Debarshi Ray)
+ #764139, Opening a 100 kB file takes about 45 seconds (Debarshi Ray)
+
+New and updated translations:
+
+- Arash Mousavi [fa]
+- Fabio Tomat [fur]
+- Andika Triwidada [id]
+- Trần Ngọc Quân [vi]
+
+Version 3.20.0
+--------------
+
+New and updated translations:
+
+- scootergrisen, Ask Hjorth Larsen [da]
+- Inaki Larranaga Murgoitio [eu]
+- Gianvito Cavasoli [it]
+- Changwoo Ryu [ko]
+- Марко М. Костић [sr]
+- Marko M. Kostić [sr@latin]
+
+Version 3.19.92
+---------------
+
+ * Code improvements (Debarshi Ray, Robert Ancell)
+  
+Bug fixes:
+
+ #763505, EogPrintPreview: Silence -Wsign-compare and -Wswitch-default
+          (Debarshi Ray)
+
+New and updated translations:
+
+- Khaled Hosny [ar]
+- Jordi Mas [ca]
+- Efstathios Iosifidis [el]
+- Jiri Grönroos [fi]
+- Yosef Or Boczko [he]
+- Jiro Matsuzawa [ja]
+- Aurimas Černius [lt]
+- Rūdolfs Mazurs [lv]
+- Piotr Drąg [pl]
+- Stas Solovey [ru]
+- Dušan Kazik [sk]
+- Daniel Korostil [uk]
+
+Version 3.19.91
+---------------
+
+New and updated translations:
+
+- Jordi Mas [ca]
+- Marek Černocký [cs]
+- Alexandre Franke [fr]
+- Fran Dieguez [gl]
+- Piotr Drąg [pl]
+- Мирослав Николић [sr]
+- Miroslav Nikolić [sr@latin]
+- Anders Jonsson [sv]
+
+Version 3.19.90
+---------------
+
+ * Better image quality when downscaling (Russel Haley, Felix Riemann)
+ * Improved AppData (Richard Hughes)
+ * Improved strings in the shortcuts window (Piotr Drąg, Alexandre Franke)
+
+Bug fixes:
+
+ #665897, Scaled down images have poor quality (Russel Haley, Felix Riemann)
+ #761408, Add context to strings in the shortcut window (Piotr Drąg)
+ #762028, >=eog-3.16 is affected by CVE-2013-7447 (Felix Riemann)
+
+New and updated translations:
+
+- Alexander Shopov [bg]
+- Mario Blättermann [de]
+- Tom Tryfonidis [el]
+- Daniel Mustieles [es]
+- Jiri Grönroos [fi]
+- Erwan Georget [fr]
+- Meskó Balázs, Gabor Kelemen [hu]
+- Baurzhan Muftakhidinov [kk]
+- Rūdolfs Mazurs [lv]
+- Piotr Drąg [pl]
+- Rafael Fontenelle [pt_BR]
+- Dušan Kazik [sk]
+- Chao-Hsiung Liao [zh_TW]
+
+New and updated manual translations
+
+- David King [fi]
+
+Version 3.19.4
+--------------
+
+ * Small application menu improvements (Felix Riemann)
+
+New and updated translations:
+
+- Marek Černocký [cs]
+- Mario Blättermann [de]
+- Tom Tryfonidis [el]
+- Daniel Mustieles [es]
+- Jiri Grönroos [fi]
+- Yosef Or Boczko [he]
+- Jiro Matsuzawa [ja]
+- Aurimas Černius [lt]
+- Kjartan Maraas [nb]
+- Gustavo Marques [pt_BR]
+- Dušan Kazik [sk]
+
+Version 3.19.3
+--------------
+
+ * Convert custom CSS to use CSS nodes (Trinh Anh Ngoc)
+ * Add a shortcuts window (Felix Riemann)
+
+Bug fixes:
+
+ #757827, Provide a shortcuts window (Felix Riemann)
+ #758763, Update CSS nodes (Trinh Anh Ngoc)
+
+New and updated translations:
+
+- Daniel Mustieles [es]
+- Jiro Matsuzawa [ja]
+- Baurzhan Muftakhidinov [kk]
+- Pedro Albuquerque [pt]
+- Dušan Kazik [sk]
+- Sebastian Rasmussen [sv]
+
+Version 3.19.2
+--------------
+
+ * Further UI improvements (Trinh Anh Ngoc)
+
+Bug fixes:
+
+ #754628, Improve UI (Trinh Anh Ngoc)
+
+New and updated translations:
+
+- Marek Černocký [cs]
+- Daniel Mustieles [es]
+- Jiri Grönroos [fi]
+- GunChleoc [gd]
+- Yosef Or Boczko [he]
+- Aurimas Černius [lt]
+- Kjartan Maraas [nb]
+- Pedro Albuquerque [pt]
+- Daniel Șerbănescu, Kalev Lember [ro]
+- YunQiang Su, Jeff Bai [zh_CN]
+
+Version 3.19.1
+--------------
+
+ * Various UI improvements (Trinh Anh Ngoc, Lars Uebernickel)
+
+Bug fixes:
+
+ #754628, Improve UI (Trinh Anh Ngoc)
+ #754985, no way to open menu using keyboard (Felix Riemann)
+ #755244, Some entries of the popovermenu entry should be grayed
+          when no image opened (Felix Riemann)
+ #755799, "Exit fullscreen" button has a dark background (Lars Uebernickel)
+
+New and updated translations:
+
+- Marek Černocký [cs]
+- Inaki Larranaga Murgoitio [eu]
+- Pedro Albuquerque [pt]
+- Daniel Șerbănescu [ro]
+
+Version 3.18.0
+--------------
+
+New and updated translations:
+
+- Khaled Hosny [ar]
+- scootergrisen [da]
+- Rūdolfs Mazurs [lv]
+- Enrico Nicoletto [pt_BR]
+- Милош Поповић [sr]
+- Miloš Popović [sr@latin]
+- Trần Ngọc Quân [vi]
+
+Version 3.17.92
+---------------
+
+Bug fixes:
+
+ #754731, Use standard::display-name for Google Drive items (Debarshi Ray)
+
+New and updated translations:
+
+- Marek Černocký [cs]
+- Bernd Homuth [de]
+- Arash Mousavi [fa]
+- Jiri Grönroos [fi]
+- Erwan Georget [fr]
+- Sveinn í Felli [is]
+- Gianvito Cavasoli [it]
+- Jiro Matsuzawa [ja]
+- Baurzhan Muftakhidinov [kk]
+- Changwoo Ryu [ko]
+- Aurimas Černius [lt]
+- Kjartan Maraas [nb]
+- Matej Urbančič [sl]
+- Muhammet Kara [tr]
+
+Version 3.17.91
+---------------
+
+ * Various code improvements and fixes (Emmanuel Pacaud)
+
+Bug fixes:
+
+ #753987, Access key is not assigned to button "Open with Document Viewer"
+          (Jiro Matzuzawa)
+ #754104, Compilation cleanups (Emmanuel Pacaud)
+
+New and updated translations:
+
+- Tom Tryfonidis [el]
+- Daniel Mustieles [es]
+- Alexandre Franke [fr]
+- Fran Dieguez [gl]
+- Yosef Or Boczko [he]
+- Balázs Úr [hu]
+- Andika Triwidada [id]
+- Piotr Drąg [pl]
+- Pedro Albuquerque [pt]
+- Yuri Myasoedov [ru]
+- Dušan Kazik [sk]
+- Anders Jonsson [sv]
+- Chao-Hsiung Liao [zh_TW]
+
+Version 3.17.90
+---------------
+
+Bug fixes:
+
+ #753627, Add touchpad gesture event mask to EogScrolledWindow (Carlos Garnacho)
+
+New and updated translations:
+
+- Jordi Mas [ca]
+- Efstathios Iosifidis [el]
+- Fabio Tomat [fur]
+- Andika Triwidada [id]
+- Kjartan Maraas [nb]
+- Enrico Nicoletto [pt_BR]
+
+New and updated manual translations
+
+- Henrik Löwendahl [sv]
+
+Version 3.17.3
+--------------
+
+New and updated translations:
+
+- Balázs Úr [hu]
+- Sveinn í Felli [is]
+- Pedro Albuquerque [pt]
+- Stas Solovey [ru]
+- Matej Urbančič [sl]
+
+Version 3.17.2
+--------------
+
+Bug fixes:
+
+ #746132, can't zoom to 100% 200% etc. in eog 3.15.91 (Felix Riemann)
+ #751007, Compilation error when EXIF support disabled (Alexandre Rostovtsev)
+ #751021, Use symbolic icons for fullscreen toolbar (Alexandre Franke)
+
+New and updated translations:
+
+- Marek Černocký [cs]
+- Benjamin Steinwender [de]
+- Dimitris Spingos (Δημήτρης Σπίγγος) [el]
+- Piotr Drąg [en_CA]
+- Daniel Mustieles [es]
+- Yosef Or Boczko [he]
+- Dušan Kazik [sk]
+- Victor Ibragimov [tg]
+- Muhammet Kara [tr]
+
+Version 3.17.1
+--------------
+
+ * Small improvements for the new UI
+ * Bug fixes and code improvements
+
+Bug fixes:
+
+ #538279, Always show image area box/outline (Felix Riemann)
+ #739654, support multi-page TIFFs, somehow (Felix Riemann)
+ #743477, Add a view category to the options popover menu (Felix Riemann)
+ #746802, Zoom toggle button should zoom in and out when pressed (Felix Riemann)
+ #748598, EOG opens tiff always with a small window (Felix Riemann)
+
+New and updated translations:
+
+- Cédric Valmary (Tot en òc) [oc]
+
+New and updated manual translations
+
+- Jordi Mas [ca]
+
+Version 3.16.2
+--------------
+
+ * Install symbolic app icon (Jakub Steiner)
+
+Bug fixes:
+
+ #746842, provide a scalable -symbolic variant of the app icon (Jakub Steiner)
+ #747806, Ctrl+W shortcut stopped working (Felix Riemann)
+ #748653 - Progress not updated for corrupt images (Kent Vander Velden)
+
+New and updated translations:
+
+- Sveinn í Felli [is]
+- Cédric Valmary (Tot en Òc) [oc]
+- Dean Chen [zh_CN]
+
+Version 3.16.1
+--------------
+
+Bug fixes:
+
+ #735633, eog crashes when attempting two-finger zoom gesture on touchpad
+ #747410, regression: default zoom incorrect when browsing
+
+New and updated translations:
+
+- Khaled Hosny [ar]
+- Mattias Põldaru [et]
+- Gianvito Cavasoli [it]
+- Rūdolfs Mazurs [lv]
+- Hannie Dumoleyn [nl]
+
+Version 3.16.0
+--------------
+
+Bug fixes:
+
+ #746336, remove the overlay timeout in dispose (Felix Riemann)
+
+New and updated translations:
+
+- Daniel Martinez [an]
+- Jordi Mas [ca]
+- Iñaki Larrañaga Murgoitio [eu]
+- Andika Triwidada [id]
+
+Version 3.15.92
+---------------
+
+ * Improvements to UI changes based on initial feedback (Felix Riemann)
+ * Adjust UI tests for UI changes (Vadim Rutkovsky)
+
+Bug fixes:
+
+ #745077, The next/previous buttons in RTL are sliced (Felix Riemann)
+ #746105, Larger margin for sidebar (Felix Riemann)
+
+New and updated translations:
+
+- Alexander Shopov [bg]
+- Samir Ribić [bs]
+- Ask Hjorth Larsen [da]
+- Wolfgang Stoeggl [de]
+- Jiri Grönroos [fi]
+- Guillaume Bernard [fr]
+- Fran Dieguez [gl]
+- Yosef Or Boczko [he]
+- Sveinn í Felli [is]
+- Jiro Matsuzawa [ja]
+- Baurzhan Muftakhidinov [kk]
+- Changwoo Ryu [ko]
+- Aurimas Černius [lt]
+- A S Alam [pa]
+- Paweł Żołnowski [pl]
+- Matej Urbančič [sl]
+- Мирослав Николић [sr]
+- Miroslav Nikolić [sr@latin]
+- Anders Jonsson [sv]
+- Victor Ibragimov [tg]
+- Muhammet Kara [tr]
+- Trần Ngọc Quân [vi]
+- Chao-Hsiung Liao [zh_TW]
+
+Version 3.15.90
+---------------
+
+ * More cleanup after the first round of UI modernization
+ * Make GAction plugin interface actually usable by plugins
+   NOTE: Plugins using the old GtkUIManager interface won't work anymore!
+
+Bug fixes:
+
+ #743887, Image buttons should have tooltips (Felix Riemann)
+
+New and updated translations:
+
+- Marek Černocký [cs]
+- Efstathios Iosifidis [el]
+- Kristjan SCHMIDT [eo]
+- Daniel Mustieles [es]
+- Yosef Or Boczko [he]
+- Balázs Úr [hu]
+- Sveinn í Felli [is]
+- Åka Sikrom [nb]
+- Rafael Ferreira [pt_BR]
+- Stas Solovey [ru]
+- Dušan Kazik [sk]
+- Daniel Korostil [uk]
+
+Version 3.15.1
+--------------
+
+ * Modernize the GUI (Allan Day, Jente Hidskes, Felix Riemann)
+ * Migrate to GAction (Jente Hidskes, Felix Riemann)
+
+Bug fixes:
+
+ #740426, Use a header bar (Allan Day, Jente Hidskes, Felix Riemann)
+ #741050, Migrate to GAction (Jente Hidskes, Felix Riemann)
+ #742369, doesn't use high quality icon in the overview (Andreas Nilsson)
+
+New and updated translations:
+
+- Daniel Martinez [an]
+- Marek Černocký [cs]
+- Dimitris Spingos (Δημήτρης Σπίγγος) [el]
+- Daniel Mustieles [es]
+- Iñaki Larrañaga Murgoitio [eu]
+- Fran Dieguez [gl]
+- Yosef Or Boczko [he]
+- Balázs Úr [hu]
+- Sveinn í Felli [is]
+- Aurimas Černius [lt]
+- Hannie Dumoleyn [nl]
+- Rafael Ferreira [pt_BR]
+- Stas Solovey [ru]
+- Dušan Kazik [sk]
+- Trần Ngọc Quân [vi]
+
+New and updated manual translations
+
+- Christian Kirbach [de]
+
 Version 3.14.3
 --------------
 
@@ -5,8 +534,9 @@ Version 3.14.3
  * Fixed a few memory leaks (Boris Egorov, Felix Riemann)
 
 Bug fixes:
+
  #739618, preferences does not load properly (Felix Riemann)
- #740348, Fixing memory leaks detected by cppcheck
+ #740348, Fixing memory leaks detected by cppcheck (Boris Egorov, Felix Riemann)
 
 New and updated translations:
 

@@ -5,7 +5,7 @@
     <link type="guide" xref="index#viewing"/>
     <link type="seealso" xref="shortcuts#zoom-rotate"/>
     <link type="seealso" xref="toolbar"/>
-    <desc>Enlarge the picture on the screen by clicking <guiseq><gui>View</gui><gui>Zoom In</gui></guiseq>.</desc>
+    <desc>Förstora bilden på skärmen genom att klicka på <guiseq><gui>Visa</gui><gui>Zooma in</gui></guiseq>.</desc>
 
     <revision pkgversion="3.2" version="0.1" date="2011-09-05" status="final"/>
     <credit type="author">
@@ -13,37 +13,49 @@
       <email>tiffany@antopolski.com</email>
     </credit>
     <license>
-      <p>Creative Commons Share Alike 3.0</p>
+      <p>Creative Commons DelaLika 3.0</p>
     </license>
 
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Daniel Nylander</mal:name>
+      <mal:email>po@danielnylander.se</mal:email>
+      <mal:years>2007, 2008, 2009</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Henrik Löwendahl</mal:name>
+      <mal:email>henrik.lowendahl@purplescout.se</mal:email>
+      <mal:years>2011</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Sebastian Rasmussen</mal:name>
+      <mal:email>sebras@gmail.com</mal:email>
+      <mal:years>2016</mal:years>
+    </mal:credit>
   </info>
 
 <title>Zoom</title>
 
-<p>You can zoom in and out to show more or less of a picture on the screen at once. This is useful if you want to see a big picture in its entirety, or if you want to inspect the fine details of a picture.</p>
+<p>Du kan zooma in och ut för att visa mer eller mindre av bilden på skärmen. Detta är användbart om du vill se en stor bild i sin helhet eller om du vill inspektera små detaljer i en bild.</p>
 
 <list>
  <item>
-  <p>You can zoom using the mouse wheel. Scroll up to zoom in or scroll down to zoom out.</p>
+  <p>Du kan zooma via mushjulet. Rulla uppåt för att zooma in eller rulla nedåt för att zooma ut.</p>
  </item>
  <item>
-  <p>You can also zoom using the buttons on the toolbar. To zoom in, click the 
-  <gui>Enlarge the image</gui> icon, and to zoom out click the <gui>Shrink the 
-  image</gui> icon. These look like "plus" and "minus" signs.</p>
+  <p>Du kan också zooma via knapparna i verktygsfältet. För att zooma in, klicka på ikonen <gui>Förstora bilden</gui> och för att zooma ut klicka på ikonen <gui>Förminska bilden</gui>. Dessa ser ut som ”plus”- och ”minus”-tecken.</p>
  </item>
  <item>
- <p>Alternatively, click <guiseq><gui>View</gui><gui>Zoom In</gui></guiseq> or <guiseq><gui>View</gui><gui>Zoom Out</gui></guiseq>.</p>
+ <p>Alternativt, klicka på <guiseq><gui>Visa</gui><gui>Zooma in</gui></guiseq> eller <guiseq><gui>Visa</gui><gui>Zooma ut</gui></guiseq>.</p>
  </item>
 </list>
 
-<p>To view the picture in its original, unscaled size, click 
-<guiseq><gui>View</gui><gui>Normal Size</gui></guiseq>. This is the same as 
-the "100%" zoom level.</p>
+<p>För att visa bilden i dess oskalade originalstorlek, klicka på <guiseq><gui>Visa</gui><gui>Normal storlek</gui></guiseq>. Detta är det samma som zoomnivån ”100%”.</p>
 
 <section id="bestfit">
- <title>Zoom to best-fit the window</title>
- <p>You can choose to zoom in so that the picture fits fully in the window, 
- even if you resize it. Click <guiseq><gui>View</gui><gui>Best 
- Fit</gui></guiseq> to do this.</p>
+ <title>Zooma för att passa till fönstret</title>
+ <p>Du kan välja att zooma in så att bilden anpassas till fönstret, även som du ändrar storlek på det. Klicka på <guiseq><gui>Visa</gui><gui>Bästa anpassning</gui></guiseq> för att göra detta.</p>
 </section>
 </page>

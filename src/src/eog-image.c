@@ -332,25 +332,14 @@ eog_image_init (EogImage *img)
 }
 
 EogImage *
-eog_image_new (const char *txt_uri)
-{
-	EogImage *img;
-
-	img = EOG_IMAGE (g_object_new (EOG_TYPE_IMAGE, NULL));
-
-	img->priv->file = g_file_new_for_uri (txt_uri);
-
-	return img;
-}
-
-EogImage *
-eog_image_new_file (GFile *file)
+eog_image_new_file (GFile *file, const gchar *caption)
 {
 	EogImage *img;
 
 	img = EOG_IMAGE (g_object_new (EOG_TYPE_IMAGE, NULL));
 
 	img->priv->file = g_object_ref (file);
+	img->priv->caption = g_strdup (caption);
 
 	return img;
 }
@@ -498,40 +487,6 @@ eog_image_emit_size_prepared (EogImage *img)
 			 g_object_ref (img), g_object_unref);
 }
 
-static gboolean
-check_loader_threadsafety (GdkPixbufLoader *loader, gboolean *result)
-{
-	GdkPixbufFormat *format;
-	gboolean ret_val = FALSE;
-
-	format = gdk_pixbuf_loader_get_format (loader);
-	if (format) {
-		ret_val = TRUE;
-		if (result)
-		/* FIXME: We should not be accessing this struct internals
- 		 * directly. Keep track of bug #469209 to fix that. */
-			*result = format->flags & GDK_PIXBUF_FORMAT_THREADSAFE;
-	}
-
-	return ret_val;
-}
-
-static void
-eog_image_pre_size_prepared (GdkPixbufLoader *loader,
-			     gint width,
-			     gint height,
-			     gpointer data)
-{
-	EogImage *img;
-
-	eog_debug (DEBUG_IMAGE_LOAD);
-
-	g_return_if_fail (EOG_IS_IMAGE (data));
-
-	img = EOG_IMAGE (data);
-	check_loader_threadsafety (loader, &img->priv->threadsafe_format);
-}
-
 static void
 eog_image_size_prepared (GdkPixbufLoader *loader,
 			 gint             width,
@@ -554,9 +509,7 @@ eog_image_size_prepared (GdkPixbufLoader *loader,
 	g_mutex_unlock (&img->priv->status_mutex);
 
 #ifdef HAVE_EXIF
-	if (img->priv->threadsafe_format && (!img->priv->autorotate || img->priv->exif))
-#else
-	if (img->priv->threadsafe_format)
+	if (!img->priv->autorotate || img->priv->exif)
 #endif
 		eog_image_emit_size_prepared (img);
 }
@@ -972,8 +925,6 @@ eog_image_real_load (EogImage *img,
 		priv->file_type = NULL;
 	}
 
-	priv->threadsafe_format = FALSE;
-
 	eog_image_get_file_info (img, &priv->bytes, &mime_type, error);
 
 	if (error && *error) {
@@ -1016,8 +967,6 @@ eog_image_real_load (EogImage *img,
 	buffer = g_new0 (guchar, EOG_IMAGE_READ_BUFFER_SIZE);
 
 	if (read_image_data || read_only_dimension) {
-		gboolean checked_threadsafety = FALSE;
-
 #ifdef HAVE_RSVG
 		if (priv->svg != NULL) {
 			g_object_unref (priv->svg);
@@ -1047,20 +996,7 @@ eog_image_real_load (EogImage *img,
 				*error = NULL;
 
 				loader = gdk_pixbuf_loader_new ();
-			} else {
-				/* The mimetype-based loader should know the
-				 * format here already. */
-				checked_threadsafety = check_loader_threadsafety (loader, &priv->threadsafe_format);
 			}
-
-		/* This is used to detect non-threadsafe loaders and disable
- 		 * any possible asyncronous task that could bring deadlocks
- 		 * to image loading process. */
-			if (!checked_threadsafety)
-				g_signal_connect (loader,
-					  "size-prepared",
-					  G_CALLBACK (eog_image_pre_size_prepared),
-					  img);
 
 			g_signal_connect_object (G_OBJECT (loader),
 					 "size-prepared",
@@ -1134,16 +1070,13 @@ eog_image_real_load (EogImage *img,
 				if (data2read == EOG_IMAGE_DATA_EXIF) {
 					g_set_error (error,
 						     EOG_IMAGE_ERROR,
-                                	             EOG_IMAGE_ERROR_GENERIC,
-                                	             _("EXIF not supported for this file format."));
+						     EOG_IMAGE_ERROR_GENERIC,
+						     _("EXIF not supported for this file format."));
 					break;
 				}
 
-				if (priv->threadsafe_format)
-					eog_image_emit_size_prepared (img);
-
-                                priv->metadata_status = EOG_IMAGE_METADATA_NOT_AVAILABLE;
-                        }
+				priv->metadata_status = EOG_IMAGE_METADATA_NOT_AVAILABLE;
+			}
 
 			first_run = FALSE;
 		}
@@ -1163,7 +1096,7 @@ eog_image_real_load (EogImage *img,
 					eog_image_set_xmp_data (img, md_reader);
 #endif
 					set_metadata = FALSE;
-                                        priv->metadata_status = EOG_IMAGE_METADATA_READY;
+					priv->metadata_status = EOG_IMAGE_METADATA_READY;
 				}
 
 				if (data2read == EOG_IMAGE_DATA_EXIF)
@@ -1180,7 +1113,10 @@ eog_image_real_load (EogImage *img,
 	if (read_image_data || read_only_dimension) {
 #ifdef HAVE_RSVG
 		if (use_rsvg) {
-			rsvg_handle_close (priv->svg, error);
+			/* Ignore the error if loading failed earlier
+			 * as the error will already be set in that case */
+			rsvg_handle_close (priv->svg,
+			                   (failed ? NULL : error));
 		} else
 #endif
 		if (failed) {
@@ -1191,8 +1127,8 @@ eog_image_real_load (EogImage *img,
 				 * images as well. */
 				g_clear_error (error);
 			}
-	        }
-        }
+		}
+	}
 
 	g_free (buffer);
 
@@ -1256,12 +1192,10 @@ eog_image_real_load (EogImage *img,
 
 			/* Set orientation again for safety, eg. if we don't
 			 * have Exif data or HAVE_EXIF is undefined. */
-			eog_image_set_orientation (img);
-
-			/* If it's non-threadsafe loader, then trigger window
- 			 * showing in the end of the process. */
-			if (!priv->threadsafe_format)
+			if (priv->autorotate) {
+				eog_image_set_orientation (img);
 				eog_image_emit_size_prepared (img);
+			}
 		} else {
 			/* Some loaders don't report errors correctly.
 			 * Error will be set below. */
@@ -2490,6 +2424,14 @@ eog_image_get_svg (EogImage *img)
 }
 #endif
 
+/**
+ * eog_image_get_transform:
+ * @img: a #EogImage
+ *
+ * Get @img transform.
+ *
+ * Returns: (transfer none): A #EogTransform.
+ */
 
 EogTransform *
 eog_image_get_transform (EogImage *img)
@@ -2498,6 +2440,15 @@ eog_image_get_transform (EogImage *img)
 
 	return img->priv->trans;
 }
+
+/**
+ * eog_image_get_autorotate_transform:
+ * @img: a #EogImage
+ *
+ * Get @img autorotate transform.
+ *
+ * Returns: (transfer none): A #EogTransform.
+ */
 
 EogTransform*
 eog_image_get_autorotate_transform (EogImage *img)
@@ -2558,4 +2509,34 @@ eog_image_is_jpeg (EogImage *img)
 	g_return_val_if_fail (EOG_IS_IMAGE (img), FALSE);
 
 	return ((img->priv->file_type != NULL) && (g_ascii_strcasecmp (img->priv->file_type, EOG_FILE_FORMAT_JPEG) == 0));
+}
+
+/**
+ * eog_image_is_multipaged:
+ * @img: an #EogImage
+ *
+ * Check whether the image actually contains multiple images/pages.
+ * This can happen for TIFF files. GIF animations are not multipaged.
+ *
+ * Note that this only works if the image data is loaded.
+ *
+ * Returns: %TRUE if @img is multipaged, %FALSE if not or the image data wasn't loaded.
+ * Since: 3.18
+ **/
+gboolean
+eog_image_is_multipaged (EogImage *img)
+{
+	gboolean result = FALSE;
+
+	g_return_val_if_fail (EOG_IS_IMAGE (img), FALSE);
+
+	if (img->priv->image != NULL)
+	{
+		const gchar* value = gdk_pixbuf_get_option (img->priv->image,
+							    "multipage");
+
+		result = (g_strcmp0 ("yes", value) == 0);
+	}
+
+	return result;
 }

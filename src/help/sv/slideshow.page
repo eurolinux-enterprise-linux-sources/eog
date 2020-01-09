@@ -5,7 +5,7 @@
    <link type="guide" xref="index#viewing"/>
    <link type="seealso" xref="preferences#slideshow"/>
    <link type="seealso" xref="plugin-slideshow-shuffle"/>
-   <desc>Click <guiseq><gui>View</gui><gui>Slideshow</gui></guiseq> to show all of the pictures in a folder as a slideshow.</desc>
+   <desc>Klicka på <guiseq><gui>Visa</gui><gui>Bildspel</gui></guiseq> för att visa alla bilderna i mappen som ett bildspel.</desc>
 
    <revision pkgversion="3.2" version="0.1" date="2011-09-06" status="final"/>
    <credit type="author">
@@ -13,32 +13,46 @@
      <email>tiffany.antopolski@gmail.com</email>
    </credit>
    <license>
-     <p>Creative Commons Share Alike 3.0</p>
+     <p>Creative Commons DelaLika 3.0</p>
    </license>
 
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Daniel Nylander</mal:name>
+      <mal:email>po@danielnylander.se</mal:email>
+      <mal:years>2007, 2008, 2009</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Henrik Löwendahl</mal:name>
+      <mal:email>henrik.lowendahl@purplescout.se</mal:email>
+      <mal:years>2011</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Sebastian Rasmussen</mal:name>
+      <mal:email>sebras@gmail.com</mal:email>
+      <mal:years>2016</mal:years>
+    </mal:credit>
   </info>
 
 <title>Bildspel</title>
 
-<p>To view all of the pictures in a folder as a slideshow:</p>
+<p>För att visa alla bilderna i en mapp som ett bildspel:</p>
 
 <steps>
  <item>
-  <p><link xref="open">Open</link> one of the pictures from the folder.</p>
+  <p><link xref="open">Öppna</link> en av bilderna i mappen.</p>
  </item>
  <item>
-  <p>Click <guiseq><gui>View</gui><gui>Slideshow</gui></guiseq> or press 
-  <key>F5</key>.</p>
-  <p>A full-screen slideshow will start. Every few seconds a new picture will 
-  be displayed. If you would like to move through the slideshow more quickly, or return to an image which has already been displayed, you can use the <key>Left</key> and <key>Right</key> arrow keys to manually move backward and forward.</p>
+  <p>Klicka på <guiseq><gui>Visa</gui><gui>Bildspel</gui></guiseq> eller tryck på <key>F5</key>.</p>
+  <p>Ett bildspel i helskärmsläge startar. Efter några sekunder kommer en ny bild att visas. Om du vill flytta genom bildspelet snabbare eller återgå till en bild som redan visats kan du använda <key>Vänster</key> och <key>Höger</key> piltangenter för att manuellt flytta bakåt och framåt.</p>
  </item>
  <item>
-  <p>To quit the slideshow, press <key>Esc</key> or <key>F5</key>.</p>
+  <p>För att avsluta bildspelet, tryck på <key>Esc</key> eller <key>F5</key>.</p>
  </item>
 </steps>
 
-<p>You can change slideshow settings like how long it should show each picture 
-for. See the topic on <link xref="preferences#slideshow">slideshow 
-preferences</link> for more information.</p>
+<p>Du kan ändra bildspelsinställningar så som hur länge varje bild ska visas. Se avsnittet om <link xref="preferences#slideshow">bildspelsinställningar</link> för vidare information.</p>
 
 </page>

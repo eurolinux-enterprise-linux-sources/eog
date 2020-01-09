@@ -3,7 +3,7 @@
 
   <info>
     <link type="guide" xref="index#edit"/>
-    <desc>Horizontal/vertical, clockwise/counter-clockwise</desc>
+    <desc>Horisontell/vertikal, medurs/moturs</desc>
 
     <revision pkgversion="3.2" version="0.1" date="2011-09-05" status="final"/>
     <credit type="author">
@@ -11,51 +11,66 @@
       <email>tiffany@antopolski.com</email>
     </credit>
     <license>
-      <p>Creative Commons Share Alike 3.0</p>
+      <p>Creative Commons DelaLika 3.0</p>
     </license>
 
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Daniel Nylander</mal:name>
+      <mal:email>po@danielnylander.se</mal:email>
+      <mal:years>2007, 2008, 2009</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Henrik Löwendahl</mal:name>
+      <mal:email>henrik.lowendahl@purplescout.se</mal:email>
+      <mal:years>2011</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Sebastian Rasmussen</mal:name>
+      <mal:email>sebras@gmail.com</mal:email>
+      <mal:years>2016</mal:years>
+    </mal:credit>
   </info>
 
-<title>Flip or rotate pictures</title>
+<title>Vänd eller rotera bilder</title>
 
-<p>If your pictures are the wrong way up or back-to-front, you can flip or 
-rotate them so that they look right.</p>
+<p>Om dina bilder har fel sida upp eller är spegelvända kan du vända eller rotera dem så att de se rätt ut.</p>
 
 <section id="flip">
-<title>Flip a picture</title>
+<title>Vänd en bild</title>
 <steps>
- <item><p>Click <gui>Edit</gui>.</p></item>
- <item><p>Select either <gui>Flip Horizontal</gui> or <gui>Flip Vertical</gui>.</p></item>
+ <item><p>Klicka på <gui>Redigera</gui>.</p></item>
+ <item><p>Välj antingen <gui>Vänd horisontellt</gui> eller <gui>Vänd vertikalt</gui>.</p></item>
  <item>
-  <p>If you want to keep the picture flipped in this way, click <guiseq><gui>Image</gui><gui>Save</gui></guiseq>.</p>
-  <p>Otherwise, don't save the picture and it will be returned to its original orientation the next time you open it.</p>
+  <p>Om du vill behålla bilden vänd på detta sätt, klicka på <guiseq><gui>Bild</gui><gui>Spara</gui></guiseq>.</p>
+  <p>Annars, spara inte bilden så kommer den att återgå till dess ursprungliga orientering nästa gång du öppnar den.</p>
  </item>
 </steps>
 </section>
 
 <section id="rotate">
-<title>Rotate a picture</title>
+<title>Rotera en bild</title>
 <steps>
- <item><p>Click <gui>Edit</gui>.</p></item>
- <item><p>Select either <gui>Rotate Clockwise</gui> or <gui>Rotate
-Counter-clockwise</gui>.</p></item>
+ <item><p>Klicka på <gui>Redigera</gui>.</p></item>
+ <item><p>Välj antingen <gui>Rotera medurs</gui> eller <gui>Rotera moturs</gui>.</p></item>
  <item>
-  <p>If you want to keep the picture rotated in this way, click <guiseq><gui>Image</gui><gui>Save</gui></guiseq>.</p>
-  <p>Otherwise, don't save the picture and it will be returned to its original orientation the next time you open it.</p>
+  <p>Om du vill behålla bilden roterad på detta sätt, klicka på <guiseq><gui>Bild</gui><gui>Spara</gui></guiseq>.</p>
+  <p>Annars, spara inte bilden så kommer den att återgå till dess ursprungliga orientering nästa gång du öppnar den.</p>
  </item>
 </steps>
 
-<p>You can use the tools in the <link xref="toolbar">toolbar</link> to do this 
-instead. You can also use the keyboard shortcuts:</p>
+<p>Du kan också använda verktygen i <link xref="toolbar">verktygsfältet</link> för att göra detta. Eller så kan du använda tangentbordsgenvägarna:</p>
 
 <table>
   <tr>
-    <td><p>Rotate Clockwise</p></td>
+    <td><p>Rotera medurs</p></td>
     <td><p><keyseq><key>Ctrl</key><key>R</key></keyseq></p></td>
   </tr>
   <tr>
-    <td><p>Rotate Counter-clockwise</p></td>
-    <td><p><keyseq><key>Ctrl</key><key>Shift</key><key>R</key></keyseq></p></td>
+    <td><p>Rotera moturs</p></td>
+    <td><p><keyseq><key>Skift</key><key>Ctrl</key><key>R</key></keyseq></p></td>
   </tr>
 </table>
 

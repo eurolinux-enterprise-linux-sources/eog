@@ -77,10 +77,8 @@ IGNORE_HFILES= \
 	eog-print-preview.h
 
 if !HAVE_EXIF
-if !HAVE_EXEMPI
 IGNORE_HFILES +=			\
 	eog-exif-util.h
-endif
 endif
 
 # Images to copy into HTML directory.
@@ -107,7 +105,6 @@ GTKDOC_CFLAGS= \
 	-I$(top_srcdir)/src	\
 	-I$(top_srcdir)/plugins \
 	-I$(top_srcdir)/jpegutils				\
-	-I$(top_srcdir)/cut-n-paste/toolbar-editor		\
 	$(EOG_CFLAGS)
 
 if ENABLE_JPEG
@@ -116,7 +113,6 @@ endif
 
 GTKDOC_LIBS=\
 	$(top_builddir)/src/libeog.la 	\
-	$(top_builddir)/cut-n-paste/toolbar-editor/libtoolbareditor.la \
 	$(BINDING_LIBS)			\
 	$(LIBJPEG)			\
 	$(X_LIBS)			\

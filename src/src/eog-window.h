@@ -33,6 +33,7 @@
 
 #include <glib.h>
 #include <glib-object.h>
+#include <gio/gmenu.h>
 #include <gtk/gtk.h>
 
 G_BEGIN_DECLS
@@ -103,7 +104,8 @@ EogWindowMode eog_window_get_mode       (EogWindow       *window);
 void          eog_window_set_mode       (EogWindow       *window,
 					 EogWindowMode    mode);
 
-GtkUIManager *eog_window_get_ui_manager (EogWindow       *window);
+GMenu        *eog_window_get_gear_menu_section (EogWindow   *window,
+						const gchar *id);
 
 EogListStore *eog_window_get_store      (EogWindow       *window);
 

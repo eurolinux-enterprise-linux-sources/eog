@@ -2,13 +2,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Eye of GNOME Reference Manual: EogTransform</title>
+<title>EogTransform: Eye of GNOME Reference Manual</title>
 <meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
 <link rel="home" href="index.html" title="Eye of GNOME Reference Manual">
 <link rel="up" href="ch02.html" title="Image data and manipulation">
 <link rel="prev" href="EogImageSaveInfo.html" title="EogImageSaveInfo">
 <link rel="next" href="EogClipboardHandler.html" title="EogClipboardHandler">
-<meta name="generator" content="GTK-Doc V1.21.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.25 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -158,8 +158,6 @@
 </div>
 <div class="refsect1">
 <a name="eog-eog-transform.description"></a><h2>Description</h2>
-<p>
-</p>
 </div>
 <div class="refsect1">
 <a name="eog-eog-transform.functions_details"></a><h2>Functions</h2>
@@ -174,7 +172,7 @@ eog_transform_apply (<em class="parameter"><code><a class="link" href="eog-eog-t
 , setting its progress in <em class="parameter"><code>job</code></em>
 .</p>
 <div class="refsect3">
-<a name="id-1.2.3.4.8.2.5"></a><h4>Parameters</h4>
+<a name="eog-transform-apply.parameters"></a><h4>Parameters</h4>
 <div class="informaltable"><table width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
@@ -201,7 +199,7 @@ eog_transform_apply (<em class="parameter"><code><a class="link" href="eog-eog-t
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.3.4.8.2.6"></a><h4>Returns</h4>
+<a name="eog-transform-apply.returns"></a><h4>Returns</h4>
 <p> A new <span class="type">GdkPixbuf</span> with the transformation applied. </p>
 <p><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
 </div>
@@ -214,7 +212,7 @@ eog_transform_reverse (<em class="parameter"><code><a class="link" href="eog-eog
 <p>Creates the reverse transformation of <em class="parameter"><code>trans</code></em>
 </p>
 <div class="refsect3">
-<a name="id-1.2.3.4.8.3.5"></a><h4>Parameters</h4>
+<a name="eog-transform-reverse.parameters"></a><h4>Parameters</h4>
 <div class="informaltable"><table width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
@@ -229,7 +227,7 @@ eog_transform_reverse (<em class="parameter"><code><a class="link" href="eog-eog
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.3.4.8.3.6"></a><h4>Returns</h4>
+<a name="eog-transform-reverse.returns"></a><h4>Returns</h4>
 <p> a new transformation. </p>
 <p><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
 </div>
@@ -241,7 +239,7 @@ eog_transform_reverse (<em class="parameter"><code><a class="link" href="eog-eog
 eog_transform_compose (<em class="parameter"><code><a class="link" href="eog-eog-transform.html#EogTransform"><span class="type">EogTransform</span></a> *trans</code></em>,
                        <em class="parameter"><code><a class="link" href="eog-eog-transform.html#EogTransform"><span class="type">EogTransform</span></a> *compose</code></em>);</pre>
 <div class="refsect3">
-<a name="id-1.2.3.4.8.4.4"></a><h4>Parameters</h4>
+<a name="eog-transform-compose.parameters"></a><h4>Parameters</h4>
 <div class="informaltable"><table width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
@@ -263,7 +261,7 @@ eog_transform_compose (<em class="parameter"><code><a class="link" href="eog-eog
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.3.4.8.4.5"></a><h4>Returns</h4>
+<a name="eog-transform-compose.returns"></a><h4>Returns</h4>
 <p> a new transform. </p>
 <p><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
 </div>
@@ -274,60 +272,30 @@ eog_transform_compose (<em class="parameter"><code><a class="link" href="eog-eog
 <pre class="programlisting"><span class="returnvalue">gboolean</span>
 eog_transform_get_affine (<em class="parameter"><code><a class="link" href="eog-eog-transform.html#EogTransform"><span class="type">EogTransform</span></a> *trans</code></em>,
                           <em class="parameter"><code><span class="type">cairo_matrix_t</span> *affine</code></em>);</pre>
-<p>
-</p>
-<div class="refsect3">
-<a name="id-1.2.3.4.8.5.5"></a><h4>Returns</h4>
-<p></p>
-</div>
 </div>
 <hr>
 <div class="refsect2">
 <a name="eog-transform-is-identity"></a><h3>eog_transform_is_identity ()</h3>
 <pre class="programlisting"><span class="returnvalue">gboolean</span>
 eog_transform_is_identity (<em class="parameter"><code><a class="link" href="eog-eog-transform.html#EogTransform"><span class="type">EogTransform</span></a> *trans</code></em>);</pre>
-<p>
-</p>
-<div class="refsect3">
-<a name="id-1.2.3.4.8.6.5"></a><h4>Returns</h4>
-<p></p>
-</div>
 </div>
 <hr>
 <div class="refsect2">
 <a name="eog-transform-identity-new"></a><h3>eog_transform_identity_new ()</h3>
 <pre class="programlisting"><a class="link" href="eog-eog-transform.html#EogTransform"><span class="returnvalue">EogTransform</span></a> *
 eog_transform_identity_new (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
-<p>
-</p>
-<div class="refsect3">
-<a name="id-1.2.3.4.8.7.5"></a><h4>Returns</h4>
-<p></p>
-</div>
 </div>
 <hr>
 <div class="refsect2">
 <a name="eog-transform-rotate-new"></a><h3>eog_transform_rotate_new ()</h3>
 <pre class="programlisting"><a class="link" href="eog-eog-transform.html#EogTransform"><span class="returnvalue">EogTransform</span></a> *
 eog_transform_rotate_new (<em class="parameter"><code><span class="type">int</span> degree</code></em>);</pre>
-<p>
-</p>
-<div class="refsect3">
-<a name="id-1.2.3.4.8.8.5"></a><h4>Returns</h4>
-<p></p>
-</div>
 </div>
 <hr>
 <div class="refsect2">
 <a name="eog-transform-flip-new"></a><h3>eog_transform_flip_new ()</h3>
 <pre class="programlisting"><a class="link" href="eog-eog-transform.html#EogTransform"><span class="returnvalue">EogTransform</span></a> *
 eog_transform_flip_new (<em class="parameter"><code><a class="link" href="eog-eog-transform.html#EogTransformType" title="enum EogTransformType"><span class="type">EogTransformType</span></a> type</code></em>);</pre>
-<p>
-</p>
-<div class="refsect3">
-<a name="id-1.2.3.4.8.9.5"></a><h4>Returns</h4>
-<p></p>
-</div>
 </div>
 <hr>
 <div class="refsect2">
@@ -335,46 +303,26 @@ eog_transform_flip_new (<em class="parameter"><code><a class="link" href="eog-eo
 <pre class="programlisting"><a class="link" href="eog-eog-transform.html#EogTransform"><span class="returnvalue">EogTransform</span></a> *
 eog_transform_scale_new (<em class="parameter"><code><span class="type">double</span> sx</code></em>,
                          <em class="parameter"><code><span class="type">double</span> sy</code></em>);</pre>
-<p>
-</p>
-<div class="refsect3">
-<a name="id-1.2.3.4.8.10.5"></a><h4>Returns</h4>
-<p></p>
-</div>
 </div>
 <hr>
 <div class="refsect2">
 <a name="eog-transform-new"></a><h3>eog_transform_new ()</h3>
 <pre class="programlisting"><a class="link" href="eog-eog-transform.html#EogTransform"><span class="returnvalue">EogTransform</span></a> *
 eog_transform_new (<em class="parameter"><code><a class="link" href="eog-eog-transform.html#EogTransformType" title="enum EogTransformType"><span class="type">EogTransformType</span></a> trans</code></em>);</pre>
-<p>
-</p>
-<div class="refsect3">
-<a name="id-1.2.3.4.8.11.5"></a><h4>Returns</h4>
-<p></p>
-</div>
 </div>
 <hr>
 <div class="refsect2">
 <a name="eog-transform-get-transform-type"></a><h3>eog_transform_get_transform_type ()</h3>
 <pre class="programlisting"><a class="link" href="eog-eog-transform.html#EogTransformType" title="enum EogTransformType"><span class="returnvalue">EogTransformType</span></a>
 eog_transform_get_transform_type (<em class="parameter"><code><a class="link" href="eog-eog-transform.html#EogTransform"><span class="type">EogTransform</span></a> *trans</code></em>);</pre>
-<p>
-</p>
-<div class="refsect3">
-<a name="id-1.2.3.4.8.12.5"></a><h4>Returns</h4>
-<p></p>
-</div>
 </div>
 </div>
 <div class="refsect1">
 <a name="eog-eog-transform.other_details"></a><h2>Types and Values</h2>
 <div class="refsect2">
 <a name="EogTransformType"></a><h3>enum EogTransformType</h3>
-<p>
-</p>
 <div class="refsect3">
-<a name="id-1.2.3.4.9.2.4"></a><h4>Members</h4>
+<a name="EogTransformType.members"></a><h4>Members</h4>
 <div class="informaltable"><table width="100%" border="0">
 <colgroup>
 <col width="300px" class="enum_members_name">
@@ -384,43 +332,43 @@ eog_transform_get_transform_type (<em class="parameter"><code><a class="link" hr
 <tbody>
 <tr>
 <td class="enum_member_name"><p><a name="EOG-TRANSFORM-NONE:CAPS"></a>EOG_TRANSFORM_NONE</p></td>
-<td class="enum_member_description"> </td>
-<td class="enum_member_annotations"> </td>
+<td> </td>
+<td> </td>
 </tr>
 <tr>
 <td class="enum_member_name"><p><a name="EOG-TRANSFORM-ROT-90:CAPS"></a>EOG_TRANSFORM_ROT_90</p></td>
-<td class="enum_member_description"> </td>
-<td class="enum_member_annotations"> </td>
+<td> </td>
+<td> </td>
 </tr>
 <tr>
 <td class="enum_member_name"><p><a name="EOG-TRANSFORM-ROT-180:CAPS"></a>EOG_TRANSFORM_ROT_180</p></td>
-<td class="enum_member_description"> </td>
-<td class="enum_member_annotations"> </td>
+<td> </td>
+<td> </td>
 </tr>
 <tr>
 <td class="enum_member_name"><p><a name="EOG-TRANSFORM-ROT-270:CAPS"></a>EOG_TRANSFORM_ROT_270</p></td>
-<td class="enum_member_description"> </td>
-<td class="enum_member_annotations"> </td>
+<td> </td>
+<td> </td>
 </tr>
 <tr>
 <td class="enum_member_name"><p><a name="EOG-TRANSFORM-FLIP-HORIZONTAL:CAPS"></a>EOG_TRANSFORM_FLIP_HORIZONTAL</p></td>
-<td class="enum_member_description"> </td>
-<td class="enum_member_annotations"> </td>
+<td> </td>
+<td> </td>
 </tr>
 <tr>
 <td class="enum_member_name"><p><a name="EOG-TRANSFORM-FLIP-VERTICAL:CAPS"></a>EOG_TRANSFORM_FLIP_VERTICAL</p></td>
-<td class="enum_member_description"> </td>
-<td class="enum_member_annotations"> </td>
+<td> </td>
+<td> </td>
 </tr>
 <tr>
 <td class="enum_member_name"><p><a name="EOG-TRANSFORM-TRANSPOSE:CAPS"></a>EOG_TRANSFORM_TRANSPOSE</p></td>
-<td class="enum_member_description"> </td>
-<td class="enum_member_annotations"> </td>
+<td> </td>
+<td> </td>
 </tr>
 <tr>
 <td class="enum_member_name"><p><a name="EOG-TRANSFORM-TRANSVERSE:CAPS"></a>EOG_TRANSFORM_TRANSVERSE</p></td>
-<td class="enum_member_description"> </td>
-<td class="enum_member_annotations"> </td>
+<td> </td>
+<td> </td>
 </tr>
 </tbody>
 </table></div>
@@ -430,13 +378,10 @@ eog_transform_get_transform_type (<em class="parameter"><code><a class="link" hr
 <div class="refsect2">
 <a name="EogTransform-struct"></a><h3>struct EogTransform</h3>
 <pre class="programlisting">struct EogTransform;</pre>
-<p>
-</p>
 </div>
 </div>
 </div>
 <div class="footer">
-<hr>
-          Generated by GTK-Doc V1.21.1</div>
+<hr>Generated by GTK-Doc V1.25</div>
 </body>
 </html>

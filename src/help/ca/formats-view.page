@@ -36,5 +36,5 @@
    <item><p>XBM - X Bitmap (mapa de bits d'X)</p></item>
    <item><p>XPM - X Pixmap (mapa de píxels d'X)</p></item>
   </list>
-  <p>Si intenteu obrir un imatge d'un format no compatible us apareixerà l'error <gui>No s'ha pogut carregat la imatge «nom de la imatge».</gui>.</p>
+  <p>Si intenteu obrir una imatge d'un format no compatible us apareixerà l'error <gui>No s'ha pogut carregar la imatge «nom de la imatge».</gui></p>
 </page>

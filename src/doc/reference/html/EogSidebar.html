@@ -2,13 +2,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Eye of GNOME Reference Manual: EogSidebar</title>
+<title>EogSidebar: Eye of GNOME Reference Manual</title>
 <meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
 <link rel="home" href="index.html" title="Eye of GNOME Reference Manual">
 <link rel="up" href="ch01.html" title="User Interface">
 <link rel="prev" href="EogStatusbar.html" title="EogStatusbar">
 <link rel="next" href="eog-eog-thumbnail.html" title="eog-thumbnail">
-<meta name="generator" content="GTK-Doc V1.21.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.25 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -163,8 +163,6 @@ EogSidebar implements
 </div>
 <div class="refsect1">
 <a name="EogSidebar.description"></a><h2>Description</h2>
-<p>
-</p>
 </div>
 <div class="refsect1">
 <a name="EogSidebar.functions_details"></a><h2>Functions</h2>
@@ -172,12 +170,6 @@ EogSidebar implements
 <a name="eog-sidebar-new"></a><h3>eog_sidebar_new ()</h3>
 <pre class="programlisting"><span class="returnvalue">GtkWidget</span> *
 eog_sidebar_new (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
-<p>
-</p>
-<div class="refsect3">
-<a name="id-1.2.2.11.10.2.5"></a><h4>Returns</h4>
-<p></p>
-</div>
 </div>
 <hr>
 <div class="refsect2">
@@ -186,8 +178,6 @@ eog_sidebar_new (<em class="parameter"><code><span class="type">void</span></cod
 eog_sidebar_add_page (<em class="parameter"><code><a class="link" href="EogSidebar.html" title="EogSidebar"><span class="type">EogSidebar</span></a> *eog_sidebar</code></em>,
                       <em class="parameter"><code>const <span class="type">gchar</span> *title</code></em>,
                       <em class="parameter"><code><span class="type">GtkWidget</span> *main_widget</code></em>);</pre>
-<p>
-</p>
 </div>
 <hr>
 <div class="refsect2">
@@ -195,8 +185,6 @@ eog_sidebar_add_page (<em class="parameter"><code><a class="link" href="EogSideb
 <pre class="programlisting"><span class="returnvalue">void</span>
 eog_sidebar_remove_page (<em class="parameter"><code><a class="link" href="EogSidebar.html" title="EogSidebar"><span class="type">EogSidebar</span></a> *eog_sidebar</code></em>,
                          <em class="parameter"><code><span class="type">GtkWidget</span> *main_widget</code></em>);</pre>
-<p>
-</p>
 </div>
 <hr>
 <div class="refsect2">
@@ -204,32 +192,18 @@ eog_sidebar_remove_page (<em class="parameter"><code><a class="link" href="EogSi
 <pre class="programlisting"><span class="returnvalue">void</span>
 eog_sidebar_set_page (<em class="parameter"><code><a class="link" href="EogSidebar.html" title="EogSidebar"><span class="type">EogSidebar</span></a> *eog_sidebar</code></em>,
                       <em class="parameter"><code><span class="type">GtkWidget</span> *main_widget</code></em>);</pre>
-<p>
-</p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="eog-sidebar-get-n-pages"></a><h3>eog_sidebar_get_n_pages ()</h3>
 <pre class="programlisting"><span class="returnvalue">gint</span>
 eog_sidebar_get_n_pages (<em class="parameter"><code><a class="link" href="EogSidebar.html" title="EogSidebar"><span class="type">EogSidebar</span></a> *eog_sidebar</code></em>);</pre>
-<p>
-</p>
-<div class="refsect3">
-<a name="id-1.2.2.11.10.6.5"></a><h4>Returns</h4>
-<p></p>
-</div>
 </div>
 <hr>
 <div class="refsect2">
 <a name="eog-sidebar-is-empty"></a><h3>eog_sidebar_is_empty ()</h3>
 <pre class="programlisting"><span class="returnvalue">gboolean</span>
 eog_sidebar_is_empty (<em class="parameter"><code><a class="link" href="EogSidebar.html" title="EogSidebar"><span class="type">EogSidebar</span></a> *eog_sidebar</code></em>);</pre>
-<p>
-</p>
-<div class="refsect3">
-<a name="id-1.2.2.11.10.7.5"></a><h4>Returns</h4>
-<p></p>
-</div>
 </div>
 </div>
 <div class="refsect1">
@@ -237,8 +211,6 @@ eog_sidebar_is_empty (<em class="parameter"><code><a class="link" href="EogSideb
 <div class="refsect2">
 <a name="EogSidebar-struct"></a><h3>struct EogSidebar</h3>
 <pre class="programlisting">struct EogSidebar;</pre>
-<p>
-</p>
 </div>
 </div>
 <div class="refsect1">
@@ -258,30 +230,6 @@ eog_sidebar_is_empty (<em class="parameter"><code><a class="link" href="EogSideb
 user_function (<a class="link" href="EogSidebar.html" title="EogSidebar"><span class="type">EogSidebar</span></a> *eogsidebar,
                <span class="type">GtkWidget</span>  *widget,
                <span class="type">gpointer</span>    user_data)</pre>
-<p>
-</p>
-<div class="refsect3">
-<a name="id-1.2.2.11.13.2.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
-<colgroup>
-<col width="150px" class="parameters_name">
-<col class="parameters_description">
-<col width="200px" class="parameters_annotations">
-</colgroup>
-<tbody>
-<tr>
-<td class="parameter_name"><p>eogsidebar</p></td>
-<td class="parameter_description"><p>the object which received the signal.</p></td>
-<td class="parameter_annotations"> </td>
-</tr>
-<tr>
-<td class="parameter_name"><p>user_data</p></td>
-<td class="parameter_description"><p>user data set when the signal handler was connected.</p></td>
-<td class="parameter_annotations"> </td>
-</tr>
-</tbody>
-</table></div>
-</div>
 <p>Flags: Run First</p>
 </div>
 <hr>
@@ -291,36 +239,11 @@ user_function (<a class="link" href="EogSidebar.html" title="EogSidebar"><span c
 user_function (<a class="link" href="EogSidebar.html" title="EogSidebar"><span class="type">EogSidebar</span></a> *eogsidebar,
                <span class="type">GtkWidget</span>  *widget,
                <span class="type">gpointer</span>    user_data)</pre>
-<p>
-</p>
-<div class="refsect3">
-<a name="id-1.2.2.11.13.3.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
-<colgroup>
-<col width="150px" class="parameters_name">
-<col class="parameters_description">
-<col width="200px" class="parameters_annotations">
-</colgroup>
-<tbody>
-<tr>
-<td class="parameter_name"><p>eogsidebar</p></td>
-<td class="parameter_description"><p>the object which received the signal.</p></td>
-<td class="parameter_annotations"> </td>
-</tr>
-<tr>
-<td class="parameter_name"><p>user_data</p></td>
-<td class="parameter_description"><p>user data set when the signal handler was connected.</p></td>
-<td class="parameter_annotations"> </td>
-</tr>
-</tbody>
-</table></div>
-</div>
 <p>Flags: Run First</p>
 </div>
 </div>
 </div>
 <div class="footer">
-<hr>
-          Generated by GTK-Doc V1.21.1</div>
+<hr>Generated by GTK-Doc V1.25</div>
 </body>
 </html>

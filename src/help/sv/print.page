@@ -3,7 +3,7 @@
 
   <info>
     <link type="guide" xref="index#printing"/>
-    <desc>Click <guiseq><gui>Image</gui><gui>Print</gui></guiseq> and then use the tabs to change print settings.</desc>
+    <desc>Klicka på <guiseq><gui>Bild</gui><gui>Skriv ut</gui></guiseq> och använd sedan flikarna för att ändra skrivarinställningar.</desc>
 
     <revision pkgversion="3.2" version="0.1" date="2011-09-06" status="final"/>
     <credit type="author">
@@ -11,44 +11,52 @@
       <email>tiffany@antopolski.com</email>
     </credit>
     <license>
-      <p>Creative Commons Share Alike 3.0</p>
+      <p>Creative Commons DelaLika 3.0</p>
     </license>
 
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Daniel Nylander</mal:name>
+      <mal:email>po@danielnylander.se</mal:email>
+      <mal:years>2007, 2008, 2009</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Henrik Löwendahl</mal:name>
+      <mal:email>henrik.lowendahl@purplescout.se</mal:email>
+      <mal:years>2011</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Sebastian Rasmussen</mal:name>
+      <mal:email>sebras@gmail.com</mal:email>
+      <mal:years>2016</mal:years>
+    </mal:credit>
   </info>
 
-<title>Print a picture</title>
+<title>Skriv ut en bild</title>
 
-<p>To print the picture that you are currently viewing:</p>
+<p>För att skriva ut bilden som du tittar på för närvarande:</p>
 
 <steps>
  <item>
-  <p>Click <guiseq><gui>Image</gui><gui>Print</gui></guiseq>.</p>
+  <p>Klicka på <guiseq><gui>Bild</gui><gui>Skriv ut</gui></guiseq>.</p>
  </item>
  <item>
-  <p>Under the <gui>General</gui> tab, choose the printer you want to use and 
-  the number of copies you want to print.</p>
+  <p>I fliken <gui>Allmänt</gui> välj skrivaren som du vill använda och antal kopior du vill skriva ut.</p>
  </item>
  <item>
-  <p>If you go to the <gui>Image Settings</gui> tab, you can
-adjust the <gui>Position</gui> and <gui>Size</gui> of the picture.</p>
-  <p>The position of the image on the page can also be adjusted by dragging 
-  it around in the preview.</p>
+  <p>Om du går till fliken <gui>Bildinställningar</gui> kan du justera <gui>Position</gui> och <gui>Storlek</gui> för bilden.</p>
+  <p>Bildens position på sidan kan också justeras genom att dra runt den i förhandsgranskningen.</p>
  </item>
  <item>
-  <p>If you are using high-quality photo paper, go to the <gui>Page Setup</gui> 
-  tab and select the correct <gui>Paper Type</gui>. You should also go to the 
-  <gui>Image Quality</gui> tab and choose a high quality setting, so that you 
-  get the best possible photo quality.</p>
+  <p>Om du använder fotopapper av hög kvalitet gå till fliken <gui>Sidinställningar</gui> och välj korrekt <gui>Papperstyp</gui>. Du kan också gå till fliken <gui>Bildkvalitet</gui> och välja en hög kvalitetsinställning så att du får den bästa möjliga fotokvaliteten.</p>
  </item>
  <item>
-  <p>Click <gui>Print</gui>.</p>
+  <p>Klicka på <gui>Skriv ut</gui>.</p>
  </item>
 </steps>
 
-<p>Note that some of the tabs mentioned above are not displayed for certain 
-printer models. This is because the <em>printer drivers</em> for those 
-printers don't allow some settings to be changed. So, for example, if you don't 
-see an <gui>Image Quality</gui> tab, that probably means that the printer 
-drivers that are being used don't support those settings.</p>
+<p>Notera att vissa av flikarna som nämns ovan inte visas för vissa skrivarmodeller. Detta är för att <em>skrivardrivrutinen</em> för de skrivarna inte tillåter vissa inställningar att ändras. Så om du till exempel inte ser någon flik <gui>Bildkvalitet</gui> innebär det troligen att skrivardrivrutinerna som används inte har stöd för de inställningarna.</p>
 
 </page>

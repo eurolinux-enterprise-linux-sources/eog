@@ -2,13 +2,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Eye of GNOME Reference Manual: EogApplication</title>
+<title>EogApplication: Eye of GNOME Reference Manual</title>
 <meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
 <link rel="home" href="index.html" title="Eye of GNOME Reference Manual">
 <link rel="up" href="ch04.html" title="Application and configuration">
 <link rel="prev" href="ch04.html" title="Application and configuration">
 <link rel="next" href="eog-eog-session.html" title="eog-session">
-<meta name="generator" content="GTK-Doc V1.21.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.25 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -83,30 +83,6 @@
 </tr>
 <tr>
 <td class="function_type">
-<span class="returnvalue">EggToolbarsModel</span> *
-</td>
-<td class="function_name">
-<a class="link" href="eog-eog-application.html#eog-application-get-toolbars-model" title="eog_application_get_toolbars_model ()">eog_application_get_toolbars_model</a> <span class="c_punctuation">()</span>
-</td>
-</tr>
-<tr>
-<td class="function_type">
-<span class="returnvalue">void</span>
-</td>
-<td class="function_name">
-<a class="link" href="eog-eog-application.html#eog-application-save-toolbars-model" title="eog_application_save_toolbars_model ()">eog_application_save_toolbars_model</a> <span class="c_punctuation">()</span>
-</td>
-</tr>
-<tr>
-<td class="function_type">
-<span class="returnvalue">void</span>
-</td>
-<td class="function_name">
-<a class="link" href="eog-eog-application.html#eog-application-reset-toolbars-model" title="eog_application_reset_toolbars_model ()">eog_application_reset_toolbars_model</a> <span class="c_punctuation">()</span>
-</td>
-</tr>
-<tr>
-<td class="function_type">
 <span class="returnvalue">void</span>
 </td>
 <td class="function_name">
@@ -159,8 +135,6 @@ EogApplication implements
 </div>
 <div class="refsect1">
 <a name="eog-eog-application.description"></a><h2>Description</h2>
-<p>
-</p>
 </div>
 <div class="refsect1">
 <a name="eog-eog-application.functions_details"></a><h2>Functions</h2>
@@ -171,7 +145,7 @@ eog_application_get_instance (<em class="parameter"><code><span class="type">voi
 <p>Returns a singleton instance of <a class="link" href="eog-eog-application.html#EogApplication"><span class="type">EogApplication</span></a> currently running.
 If not running yet, it will create one.</p>
 <div class="refsect3">
-<a name="id-1.2.5.2.9.2.5"></a><h4>Returns</h4>
+<a name="eog-application-get-instance.returns"></a><h4>Returns</h4>
 <p> a running <a class="link" href="eog-eog-application.html#EogApplication"><span class="type">EogApplication</span></a>. </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
@@ -188,7 +162,7 @@ eog_application_open_window (<em class="parameter"><code><a class="link" href="e
 an empty window already open, this will be used. Otherwise, a
 new one will be instantiated.</p>
 <div class="refsect3">
-<a name="id-1.2.5.2.9.3.5"></a><h4>Parameters</h4>
+<a name="eog-application-open-window.parameters"></a><h4>Parameters</h4>
 <div class="informaltable"><table width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
@@ -221,10 +195,9 @@ new one will be instantiated.</p>
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.5.2.9.3.6"></a><h4>Returns</h4>
+<a name="eog-application-open-window.returns"></a><h4>Returns</h4>
 <p> <code class="literal">FALSE</code> if <em class="parameter"><code>application</code></em>
 is invalid, <code class="literal">TRUE</code> otherwise</p>
-<p></p>
 </div>
 </div>
 <hr>
@@ -239,7 +212,7 @@ eog_application_open_uri_list (<em class="parameter"><code><a class="link" href=
 <p>Opens a list of images, from a list of URIs. See
 <a class="link" href="eog-eog-application.html#eog-application-open-file-list" title="eog_application_open_file_list ()"><code class="function">eog_application_open_file_list()</code></a> for details.</p>
 <div class="refsect3">
-<a name="id-1.2.5.2.9.4.5"></a><h4>Parameters</h4>
+<a name="eog-application-open-uri-list.parameters"></a><h4>Parameters</h4>
 <div class="informaltable"><table width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
@@ -277,9 +250,8 @@ eog_application_open_uri_list (<em class="parameter"><code><a class="link" href=
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.5.2.9.4.6"></a><h4>Returns</h4>
+<a name="eog-application-open-uri-list.returns"></a><h4>Returns</h4>
 <p> Currently always <code class="literal">TRUE</code>.</p>
-<p></p>
 </div>
 </div>
 <hr>
@@ -297,7 +269,7 @@ image in the list is already open, this will be used. Otherwise, an empty
 If the EOG_STARTUP_SINGLE_WINDOW flag is set, the files are opened in the
 first <a class="link" href="eog-eog-window.html#EogWindow"><span class="type">EogWindow</span></a> and no new one is opened.</p>
 <div class="refsect3">
-<a name="id-1.2.5.2.9.5.5"></a><h4>Parameters</h4>
+<a name="eog-application-open-file-list.parameters"></a><h4>Parameters</h4>
 <div class="informaltable"><table width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
@@ -335,9 +307,8 @@ first <a class="link" href="eog-eog-window.html#EogWindow"><span class="type">Eo
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.5.2.9.5.6"></a><h4>Returns</h4>
+<a name="eog-application-open-file-list.returns"></a><h4>Returns</h4>
 <p> Currently always <code class="literal">TRUE</code>.</p>
-<p></p>
 </div>
 </div>
 <hr>
@@ -352,7 +323,7 @@ eog_application_open_uris (<em class="parameter"><code><a class="link" href="eog
 <p>Opens a list of images, from a list of URI strings. See
 <a class="link" href="eog-eog-application.html#eog-application-open-file-list" title="eog_application_open_file_list ()"><code class="function">eog_application_open_file_list()</code></a> for details.</p>
 <div class="refsect3">
-<a name="id-1.2.5.2.9.6.5"></a><h4>Parameters</h4>
+<a name="eog-application-open-uris.parameters"></a><h4>Parameters</h4>
 <div class="informaltable"><table width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
@@ -390,80 +361,8 @@ eog_application_open_uris (<em class="parameter"><code><a class="link" href="eog
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.5.2.9.6.6"></a><h4>Returns</h4>
+<a name="eog-application-open-uris.returns"></a><h4>Returns</h4>
 <p> Currently always <code class="literal">TRUE</code>.</p>
-<p></p>
-</div>
-</div>
-<hr>
-<div class="refsect2">
-<a name="eog-application-get-toolbars-model"></a><h3>eog_application_get_toolbars_model ()</h3>
-<pre class="programlisting"><span class="returnvalue">EggToolbarsModel</span> *
-eog_application_get_toolbars_model (<em class="parameter"><code><a class="link" href="eog-eog-application.html#EogApplication"><span class="type">EogApplication</span></a> *application</code></em>);</pre>
-<p>Retrieves the <span class="type">EggToolbarsModel</span> for the toolbar in <a class="link" href="eog-eog-application.html#EogApplication"><span class="type">EogApplication</span></a>.</p>
-<div class="refsect3">
-<a name="id-1.2.5.2.9.7.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
-<colgroup>
-<col width="150px" class="parameters_name">
-<col class="parameters_description">
-<col width="200px" class="parameters_annotations">
-</colgroup>
-<tbody><tr>
-<td class="parameter_name"><p>application</p></td>
-<td class="parameter_description"><p>An <a class="link" href="eog-eog-application.html#EogApplication"><span class="type">EogApplication</span></a>.</p></td>
-<td class="parameter_annotations"> </td>
-</tr></tbody>
-</table></div>
-</div>
-<div class="refsect3">
-<a name="id-1.2.5.2.9.7.6"></a><h4>Returns</h4>
-<p> An <span class="type">EggToolbarsModel</span>. </p>
-<p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
-</div>
-</div>
-<hr>
-<div class="refsect2">
-<a name="eog-application-save-toolbars-model"></a><h3>eog_application_save_toolbars_model ()</h3>
-<pre class="programlisting"><span class="returnvalue">void</span>
-eog_application_save_toolbars_model (<em class="parameter"><code><a class="link" href="eog-eog-application.html#EogApplication"><span class="type">EogApplication</span></a> *application</code></em>);</pre>
-<p>Causes the saving of the model of the toolbar in <a class="link" href="eog-eog-application.html#EogApplication"><span class="type">EogApplication</span></a> to a file.</p>
-<div class="refsect3">
-<a name="id-1.2.5.2.9.8.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
-<colgroup>
-<col width="150px" class="parameters_name">
-<col class="parameters_description">
-<col width="200px" class="parameters_annotations">
-</colgroup>
-<tbody><tr>
-<td class="parameter_name"><p>application</p></td>
-<td class="parameter_description"><p>An <a class="link" href="eog-eog-application.html#EogApplication"><span class="type">EogApplication</span></a>.</p></td>
-<td class="parameter_annotations"> </td>
-</tr></tbody>
-</table></div>
-</div>
-</div>
-<hr>
-<div class="refsect2">
-<a name="eog-application-reset-toolbars-model"></a><h3>eog_application_reset_toolbars_model ()</h3>
-<pre class="programlisting"><span class="returnvalue">void</span>
-eog_application_reset_toolbars_model (<em class="parameter"><code><a class="link" href="eog-eog-application.html#EogApplication"><span class="type">EogApplication</span></a> *app</code></em>);</pre>
-<p>Restores the toolbars model to the defaults.</p>
-<div class="refsect3">
-<a name="id-1.2.5.2.9.9.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
-<colgroup>
-<col width="150px" class="parameters_name">
-<col class="parameters_description">
-<col width="200px" class="parameters_annotations">
-</colgroup>
-<tbody><tr>
-<td class="parameter_name"><p>app</p></td>
-<td class="parameter_description"><p>an <a class="link" href="eog-eog-application.html#EogApplication"><span class="type">EogApplication</span></a></p></td>
-<td class="parameter_annotations"> </td>
-</tr></tbody>
-</table></div>
 </div>
 </div>
 <hr>
@@ -471,16 +370,12 @@ eog_application_reset_toolbars_model (<em class="parameter"><code><a class="link
 <a name="eog-application-screensaver-enable"></a><h3>eog_application_screensaver_enable ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 eog_application_screensaver_enable (<em class="parameter"><code><a class="link" href="eog-eog-application.html#EogApplication"><span class="type">EogApplication</span></a> *application</code></em>);</pre>
-<p>
-</p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="eog-application-screensaver-disable"></a><h3>eog_application_screensaver_disable ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 eog_application_screensaver_disable (<em class="parameter"><code><a class="link" href="eog-eog-application.html#EogApplication"><span class="type">EogApplication</span></a> *application</code></em>);</pre>
-<p>
-</p>
 </div>
 </div>
 <div class="refsect1">
@@ -489,20 +384,15 @@ eog_application_screensaver_disable (<em class="parameter"><code><a class="link"
 <a name="EOG-APP:CAPS"></a><h3>EOG_APP</h3>
 <pre class="programlisting">#define EOG_APP				(eog_application_get_instance ())
 </pre>
-<p>
-</p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="EogApplication-struct"></a><h3>struct EogApplication</h3>
 <pre class="programlisting">struct EogApplication;</pre>
-<p>
-</p>
 </div>
 </div>
 </div>
 <div class="footer">
-<hr>
-          Generated by GTK-Doc V1.21.1</div>
+<hr>Generated by GTK-Doc V1.25</div>
 </body>
 </html>

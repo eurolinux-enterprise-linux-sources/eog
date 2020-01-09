@@ -9,15 +9,6 @@ Feature: Smoke tests
     Then Website link to wiki is displayed
      And GPL 2.0 link is displayed
 
-  @undo @undo_via_toolbar
-  Scenario: Undo via toolbar
-    * Open "/tmp/gnome-logo.png" via menu
-    Then image size is 199x76
-    * Rotate the image clockwise
-    Then image size is 76x199
-    * Select "Edit -> Undo" menu
-    Then image size is 199x76
-
   @undo @undo_via_shortcut
   Scenario: Undo via shortcut
     * Open "/tmp/gnome-logo.png" via menu
@@ -31,7 +22,7 @@ Feature: Smoke tests
   Scenario: Sidepanel via menu
     * Open "/tmp/gnome-logo.png" via menu
     Then sidepanel is displayed
-    * Select "View -> Side Pane" menu
+    * Click "Side Pane" in GApplication menu
     Then sidepanel is hidden
 
   @sidepane @sidepane_via_shortcut
@@ -39,13 +30,13 @@ Feature: Smoke tests
     * Open "/tmp/gnome-logo.png" via menu
     * Press "<Ctrl><F9>"
     Then sidepanel is hidden
-    * Select "View -> Side Pane" menu
+    * Click "Side Pane" in GApplication menu
     Then sidepanel is displayed
 
   @fullscreen @fullscreen_via_menu
   Scenario: Fullscreen via menu
     * Open "/tmp/gnome-logo.png" via menu
-    * Select "View -> Fullscreen" menu
+    * Click Fullscreen button on headerbar
     Then application is displayed fullscreen
     * Press "<Esc>"
     Then application is not fullscreen anymore

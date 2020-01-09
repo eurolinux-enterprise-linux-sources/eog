@@ -99,8 +99,7 @@
 /* Define if _NL_MEASUREMENT_MEASUREMENT is available */
 #undef HAVE__NL_MEASUREMENT_MEASUREMENT
 
-/* Define to the sub-directory in which libtool stores uninstalled libraries.
-   */
+/* Define to the sub-directory where libtool stores uninstalled libraries. */
 #undef LT_OBJDIR
 
 /* Define if debugging is disabled */

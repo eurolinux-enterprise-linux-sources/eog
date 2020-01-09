@@ -3,7 +3,7 @@
 
   <info>
     <link type="guide" xref="index"/>
-    <desc>Welcome to the <app>Eye of GNOME Image Viewer</app>.</desc>
+    <desc>Väkommen till <app>Eye of GNOME bildvisare</app>.</desc>
 
     <revision pkgversion="3.2" version="0.1" date="2011-09-05" status="final"/>
     <credit type="author">
@@ -11,19 +11,31 @@
       <email>tiffany@antopolski.com</email>
     </credit>
     <license>
-      <p>Creative Commons Share Alike 3.0</p>
+      <p>Creative Commons DelaLika 3.0</p>
     </license>
 
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Daniel Nylander</mal:name>
+      <mal:email>po@danielnylander.se</mal:email>
+      <mal:years>2007, 2008, 2009</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Henrik Löwendahl</mal:name>
+      <mal:email>henrik.lowendahl@purplescout.se</mal:email>
+      <mal:years>2011</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Sebastian Rasmussen</mal:name>
+      <mal:email>sebras@gmail.com</mal:email>
+      <mal:years>2016</mal:years>
+    </mal:credit>
   </info>
 
 <title>Introduktion</title>
 
-<p><app>Eye of GNOME</app> is an image viewer. With it, you can view
-pictures of <link xref="formats-view">almost any type</link>. It can handle 
-<link xref="view#image-gallery">large collections</link> of pictures, and can 
-display a <link xref="slideshow">slideshow</link>. You can also make basic 
-changes to pictures, like <link xref="flip-rotate">rotating or flipping</link> 
-them, or <link xref="format-change">converting them</link> to a different file 
-format.</p>
+<p><app>Eye of GNOME</app> är en bildvisare. Med den kan du visa bilder i <link xref="formats-view">nästan alla format</link>. Den kan hantera <link xref="view#image-gallery">stora samlingar</link> av bilder och kan visa ett <link xref="slideshow">bildspel</link>. Du kan också göra grundläggande ändringar i bilder så som att <link xref="flip-rotate">rotera eller vända</link> dem eller <link xref="format-change">konvertera dem</link> till ett annat filformat.</p>
 
 </page>

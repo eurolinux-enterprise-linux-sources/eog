@@ -118,9 +118,7 @@ GType	          eog_image_get_type	             (void) G_GNUC_CONST;
 
 GQuark            eog_image_error_quark              (void);
 
-EogImage         *eog_image_new                      (const char *txt_uri);
-
-EogImage         *eog_image_new_file                 (GFile *file);
+EogImage         *eog_image_new_file                 (GFile *file, const gchar *caption);
 
 gboolean          eog_image_load                     (EogImage   *img,
 					              EogImageData data2read,
@@ -218,6 +216,8 @@ void              eog_image_file_changed             (EogImage *img);
 gboolean          eog_image_is_file_changed          (EogImage *img);
 
 gboolean          eog_image_is_file_writable         (EogImage *img);
+
+gboolean          eog_image_is_multipaged            (EogImage *img);
 
 G_END_DECLS
 

@@ -27,9 +27,7 @@
 <terms>
   <item>
     <title>画像の強調</title>
-    <p>Select <gui>Smooth images when zoomed out</gui> to enable <em>image 
-    smoothing</em> when you zoom in and out. This makes low-resolution 
-    (pixelated) pictures look better by smoothing out jagged edges.</p>
+    <p>画像を拡大および縮小した時に<em>イメージスムージング</em>を有効にするには、<gui>縮小 (拡大) 時に画像を滑らかにする</gui>を選択します。これは、低解像度 (ピクセレートされた) 画像をギザギザの縁を滑らかにすることで、よりよく見せます。</p>
     <p><gui>自動的に向きを調整する</gui>を有効にすれば、写真の<em>Exif メタデータ</em>に従って自動的に写真が回転します。Exif メタデータはデジタルカメラによって自動的に挿入される写真に関する情報であり、写真撮影時のカメラの設定の詳細を含めることができます。たとえば、<gui>自動的に向きを調整する</gui>が有効になっていると肖像写真は自動的に直立します。この回転は、<link xref="flip-rotate#rotate">回転された画像を保存</link>するまで保存されません。</p> 
     <p>自動方向修正は、すべての写真で機能するわけではありません。Exif 方向データを保存するカメラを利用して撮影された写真のみ回転されます。</p>
   </item>

@@ -3,7 +3,7 @@
 
   <info>
     <link type="guide" xref="index#viewing"/>
-    <desc>Press <key>Left</key> and <key>Right</key> to flip between pictures, or use the image gallery to show them all.</desc>
+    <desc>Tryck på <key>Vänster</key> och <key>Höger</key> för att växla mellan bilder eller använd bildgalleriet för att visa dem allihop.</desc>
 
     <revision pkgversion="3.2" version="0.1" date="2011-09-05" status="final"/>
   <credit type="author">
@@ -11,60 +11,63 @@
     <email>tiffany.antopolski@gmail.com</email>
   </credit>
   <license>
-   <p>Creative Commons Share Alike 3.0</p>
+   <p>Creative Commons DelaLika 3.0</p>
   </license>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Daniel Nylander</mal:name>
+      <mal:email>po@danielnylander.se</mal:email>
+      <mal:years>2007, 2008, 2009</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Henrik Löwendahl</mal:name>
+      <mal:email>henrik.lowendahl@purplescout.se</mal:email>
+      <mal:years>2011</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Sebastian Rasmussen</mal:name>
+      <mal:email>sebras@gmail.com</mal:email>
+      <mal:years>2016</mal:years>
+    </mal:credit>
   </info>
-<title>View all pictures in a folder</title>
+<title>Visa alla bilderna i en mapp</title>
 
-<p>You can quickly browse through all of the pictures in a folder by opening one of the pictures and then clicking <gui>Next</gui> and <gui>Previous</gui> (for example). You can also view an <em>image gallery</em>, with small previews of all of the pictures in a folder shown at once.</p>
+<p>Du kan snabbat bläddra igenom alla dina bilder i en mapp genom att öppna en av bilderna och sedan till exempel klicka på <gui>Nästa</gui> och <gui>Föregående</gui>. Du kan också visa ett <em>bildgalleri</em> med miniatyrbilder för alla bilder i en mapp på en gång.</p>
 
 <section id="browse">
- <title>Browse through all pictures in a folder</title>
- <p>If you have a folder containing several pictures, you can conveniently 
- browse through all of the pictures without having to open them individually.</p>
+ <title>Bläddra genom alla bilder i en mapp</title>
+ <p>Om du har en mapp som innehåller flera bilder kan du enkelt bläddra genom alla bilderna utan att öppna dem individuellt.</p>
  <steps>
   <item>
-   <p><link xref="open">Open</link> any one of the pictures from the folder 
-   you want to browse through.</p>
+   <p><link xref="open">Öppna</link> vilken som helst av bilderna i mappen som du vill bläddra genom.</p>
   </item>
   <item>
-   <p>Click <gui>Next</gui> and <gui>Previous</gui> in 
-   the <link xref="toolbar">toolbar</link>, or press the <key>Right</key> and 
-   <key>Left</key> keys, to flip between pictures.</p>
-   <p>Alternatively, you can use the <key>Up</key> and <key>Down</key> keys, 
-   or <key>Space bar</key> and <key>Backspace</key> keys. You can also click 
-   <guiseq><gui>Go</gui><gui>Previous Image</gui></guiseq> and 
-   <guiseq><gui>Go</gui><gui>Next Image</gui></guiseq>.</p>
+   <p>Klicka på <gui>Nästa</gui> och <gui>Föregående</gui> i <link xref="toolbar">verktygsfältet</link>, eller tryck på <key>Höger</key>- och <key>Vänster</key>-tangenterna för att växla mellan bilder.</p>
+   <p>Alternativt kan du använda <key>Upp</key>- och <key>Ner</key>-tangenterna eller tangenterna <key>Blanksteg</key> och <key>Backsteg</key>. Du kan också klicka på <guiseq><gui>Gå</gui><gui>Föregående bild</gui></guiseq> och <guiseq><gui>Gå</gui><gui>Nästa bild</gui></guiseq>.</p>
   </item>
   <item>
-   <p>You can browse through the pictures in fullscreen mode by clicking
-<guiseq><gui>View</gui><gui>Fullscreen</gui></guiseq> or by pressing
-<key>F11</key>. Use the keyboard keys to flip between pictures in fullscreen 
-mode.</p>
- <p>To return to normal viewing, press <key>Esc</key> or <key>F11</key>.</p>
+   <p>Du kan bläddra genom bilderna i helskärmsläge genom att klicka på <guiseq><gui>Visa</gui><gui>Helskärm</gui></guiseq> eller genom att trycka på <key>F11</key>. Använd tangentbordet för att växa mellan bilder i helskärmsläge.</p>
+ <p>För att återgå till normal visning tryck på <key>Esc</key> eller <key>F11</key>.</p>
   </item>
  </steps>
 </section>
 
 
-<section id="image-gallery"><title>Browse the image gallery</title>
- <p>The <em>image gallery</em> shows small previews (thumbnails) of all of 
- the pictures in a folder at once. This makes it easier to quickly browse 
- through large collections of pictures.</p>
+<section id="image-gallery"><title>Bläddra genom bildgalleriet</title>
+ <p><em>Bildgalleriet</em> visar miniatyrbilder för alla bilder i en mapp på en gång. Detta gör det enklare att snabbt bläddra genom stora samlingar av bilder.</p>
  
  <steps>
   <item> 
-   <p>To show the image gallery, click <guiseq><gui>View</gui><gui>Image 
-  Gallery</gui></guiseq>, or press <key>F9</key>.</p>
+   <p>För att visa bildgalleriet, klicka på <guiseq><gui>Visa</gui><gui>Bildgalleri</gui></guiseq>, eller tryck på <key>F9</key>.</p>
   </item>
   <item>
-   <p>Click on a picture in the gallery to show it full-size.</p>
-   <p>You can also use the <key>Left</key> and <key>Right</key> keys to skip 
-   through the pictures in the gallery</p>
+   <p>Klicka på en bild i galleriet för att visa den i full storlek.</p>
+   <p>Du kan också använda <key>Vänster</key>- och <key>Höger</key>-tangenterna för att växla mellan bilderna i galleriet</p>
   </item>
   <item>
-   <p>To hide the gallery, click <guiseq><gui>View</gui><gui>Image 
-   Gallery</gui></guiseq> again, or press <key>F9</key>.</p>
+   <p>För att dölja galleriet klicka på <guiseq><gui>Visa</gui><gui>Bildgalleri</gui></guiseq> igen, eller tryck på <key>F9</key>.</p>
   </item>
  </steps>
  </section>

@@ -3,7 +3,7 @@
 
   <info>
     <link type="guide" xref="index#edit"/>
-    <desc>Click <guiseq><gui>Image</gui><gui>Open with</gui></guiseq> to edit a picture using an external image editor.</desc>
+    <desc>Klicka på <guiseq><gui>Bild</gui><gui>Öppna med</gui></guiseq> för att redigera en bild med en extern bildredigerare.</desc>
 
     <revision pkgversion="3.2" version="0.1" date="2011-09-06" status="final"/>
     <credit type="author">
@@ -15,40 +15,51 @@
       <email>fabianapsimoes@gmail.com</email>
     </credit>
     <license>
-      <p>Creative Commons Share Alike 3.0</p>
+      <p>Creative Commons DelaLika 3.0</p>
     </license>
 
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Daniel Nylander</mal:name>
+      <mal:email>po@danielnylander.se</mal:email>
+      <mal:years>2007, 2008, 2009</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Henrik Löwendahl</mal:name>
+      <mal:email>henrik.lowendahl@purplescout.se</mal:email>
+      <mal:years>2011</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Sebastian Rasmussen</mal:name>
+      <mal:email>sebras@gmail.com</mal:email>
+      <mal:years>2016</mal:years>
+    </mal:credit>
   </info>
-<title>Edit or delete a picture</title>
+<title>Redigera eller ta bort en bild</title>
 
-<section id="edit"><title>Edit a picture</title>
-<p>The image viewer can only be used to view pictures; it can't edit them. 
-For that, you must use a picture editing application, like the GIMP image 
-editor. To open a picture for editing in a different application:</p>
+<section id="edit"><title>Redigera en bild</title>
+<p>Bildvisaren kan endast användas för att visa bilder, den kan inte redigera dem. För att göra det måste du använda ett bildredigeringsprogram, så som bildredigeraren GIMP. För att öppna en bild för redigering i ett annat program:</p>
 <steps>
  <item>
-  <p>Click <guiseq><gui>Image</gui><gui>Open with</gui></guiseq>,
-or right-click on the image.</p>
+  <p>Klicka på <guiseq><gui>Bild</gui><gui>Öppna med</gui></guiseq> eller högerklicka på bilden.</p>
  </item>
  <item>
-  <p>Select the application you want to use to edit the picture.</p>
+  <p>Välj programmet du vill använda för att redigera bilden.</p>
  </item>
  <item>
-  <p>When you are finished editing, save it and close the
-other application.</p>
+  <p>När du är färdig med redigeringen, spara den och stäng det andra programmet.</p>
  </item>
  <item>
-  <p>The <app>image viewer</app> will detect that the 
-picture has been changed and will reload it.</p>
+  <p><app>Bildvisare</app> kommer att upptäcka att bilden har ändrats och kommer att läsa in den på nytt.</p>
  </item>
 </steps>
 </section>
 
 <section id="delete">
-<title>Delete a picture</title>
-<p>To delete a picture that you don't want any more, click 
-<guiseq><gui>Edit</gui><gui>Move to Trash</gui></guiseq>, or 
-right-click the picture and select <gui>Move to Trash</gui>.</p>
+<title>Ta bort en bild</title>
+<p>För att ta bort en bild som du inte längre vill ha, klicka på <guiseq><gui>Redigera</gui><gui>Flytta till papperskorgen</gui></guiseq> eller högerklicka på bilden och välj <gui>Flytta till papperskorgen</gui>.</p>
 </section>
 
 </page>

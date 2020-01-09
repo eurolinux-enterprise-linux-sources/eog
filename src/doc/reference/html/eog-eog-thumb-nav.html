@@ -2,13 +2,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Eye of GNOME Reference Manual: EogThumbNav</title>
+<title>EogThumbNav: Eye of GNOME Reference Manual</title>
 <meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
 <link rel="home" href="index.html" title="Eye of GNOME Reference Manual">
 <link rel="up" href="ch01.html" title="User Interface">
 <link rel="prev" href="EogFileChooser.html" title="EogFileChooser">
 <link rel="next" href="eog-eog-thumb-view.html" title="EogThumbView">
-<meta name="generator" content="GTK-Doc V1.21.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.25 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -150,8 +150,6 @@ EogThumbNav implements
 </div>
 <div class="refsect1">
 <a name="eog-eog-thumb-nav.description"></a><h2>Description</h2>
-<p>
-</p>
 </div>
 <div class="refsect1">
 <a name="eog-eog-thumb-nav.functions_details"></a><h2>Functions</h2>
@@ -163,7 +161,7 @@ eog_thumb_nav_new (<em class="parameter"><code><span class="type">GtkWidget</spa
                    <em class="parameter"><code><span class="type">gboolean</span> show_buttons</code></em>);</pre>
 <p>Creates a new thumbnail navigation widget.</p>
 <div class="refsect3">
-<a name="id-1.2.2.5.10.2.5"></a><h4>Parameters</h4>
+<a name="eog-thumb-nav-new.parameters"></a><h4>Parameters</h4>
 <div class="informaltable"><table width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
@@ -190,9 +188,8 @@ eog_thumb_nav_new (<em class="parameter"><code><span class="type">GtkWidget</spa
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.2.5.10.2.6"></a><h4>Returns</h4>
+<a name="eog-thumb-nav-new.returns"></a><h4>Returns</h4>
 <p> a new <a class="link" href="eog-eog-thumb-nav.html#EogThumbNav"><span class="type">EogThumbNav</span></a> object.</p>
-<p></p>
 </div>
 </div>
 <hr>
@@ -202,7 +199,7 @@ eog_thumb_nav_new (<em class="parameter"><code><span class="type">GtkWidget</spa
 eog_thumb_nav_get_show_buttons (<em class="parameter"><code><a class="link" href="eog-eog-thumb-nav.html#EogThumbNav"><span class="type">EogThumbNav</span></a> *nav</code></em>);</pre>
 <p>Gets whether the navigation buttons are visible.</p>
 <div class="refsect3">
-<a name="id-1.2.2.5.10.3.5"></a><h4>Parameters</h4>
+<a name="eog-thumb-nav-get-show-buttons.parameters"></a><h4>Parameters</h4>
 <div class="informaltable"><table width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
@@ -217,10 +214,9 @@ eog_thumb_nav_get_show_buttons (<em class="parameter"><code><a class="link" href
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.2.5.10.3.6"></a><h4>Returns</h4>
+<a name="eog-thumb-nav-get-show-buttons.returns"></a><h4>Returns</h4>
 <p> <code class="literal">TRUE</code> if the navigation buttons are visible,
 <code class="literal">FALSE</code> otherwise.</p>
-<p></p>
 </div>
 </div>
 <hr>
@@ -232,7 +228,7 @@ eog_thumb_nav_set_show_buttons (<em class="parameter"><code><a class="link" href
 <p>Sets whether the navigation buttons to the left and right of the
 widget should be visible.</p>
 <div class="refsect3">
-<a name="id-1.2.2.5.10.4.5"></a><h4>Parameters</h4>
+<a name="eog-thumb-nav-set-show-buttons.parameters"></a><h4>Parameters</h4>
 <div class="informaltable"><table width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
@@ -262,7 +258,7 @@ eog_thumb_nav_get_mode (<em class="parameter"><code><a class="link" href="eog-eo
 <p>Gets the navigation mode in <em class="parameter"><code>nav</code></em>
 .</p>
 <div class="refsect3">
-<a name="id-1.2.2.5.10.5.5"></a><h4>Parameters</h4>
+<a name="eog-thumb-nav-get-mode.parameters"></a><h4>Parameters</h4>
 <div class="informaltable"><table width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
@@ -277,9 +273,8 @@ eog_thumb_nav_get_mode (<em class="parameter"><code><a class="link" href="eog-eo
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.2.5.10.5.6"></a><h4>Returns</h4>
+<a name="eog-thumb-nav-get-mode.returns"></a><h4>Returns</h4>
 <p> A value in <a class="link" href="eog-eog-thumb-nav.html#EogThumbNavMode" title="enum EogThumbNavMode"><span class="type">EogThumbNavMode</span></a>.</p>
-<p></p>
 </div>
 </div>
 <hr>
@@ -291,7 +286,7 @@ eog_thumb_nav_set_mode (<em class="parameter"><code><a class="link" href="eog-eo
 <p>Sets the navigation mode in <em class="parameter"><code>nav</code></em>
 . See <a class="link" href="eog-eog-thumb-nav.html#EogThumbNavMode" title="enum EogThumbNavMode"><span class="type">EogThumbNavMode</span></a> for details.</p>
 <div class="refsect3">
-<a name="id-1.2.2.5.10.6.5"></a><h4>Parameters</h4>
+<a name="eog-thumb-nav-set-mode.parameters"></a><h4>Parameters</h4>
 <div class="informaltable"><table width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
@@ -318,10 +313,8 @@ eog_thumb_nav_set_mode (<em class="parameter"><code><a class="link" href="eog-eo
 <a name="eog-eog-thumb-nav.other_details"></a><h2>Types and Values</h2>
 <div class="refsect2">
 <a name="EogThumbNavMode"></a><h3>enum EogThumbNavMode</h3>
-<p>
-</p>
 <div class="refsect3">
-<a name="id-1.2.2.5.11.2.4"></a><h4>Members</h4>
+<a name="EogThumbNavMode.members"></a><h4>Members</h4>
 <div class="informaltable"><table width="100%" border="0">
 <colgroup>
 <col width="300px" class="enum_members_name">
@@ -331,23 +324,23 @@ eog_thumb_nav_set_mode (<em class="parameter"><code><a class="link" href="eog-eo
 <tbody>
 <tr>
 <td class="enum_member_name"><p><a name="EOG-THUMB-NAV-MODE-ONE-ROW:CAPS"></a>EOG_THUMB_NAV_MODE_ONE_ROW</p></td>
-<td class="enum_member_description"> </td>
-<td class="enum_member_annotations"> </td>
+<td> </td>
+<td> </td>
 </tr>
 <tr>
 <td class="enum_member_name"><p><a name="EOG-THUMB-NAV-MODE-ONE-COLUMN:CAPS"></a>EOG_THUMB_NAV_MODE_ONE_COLUMN</p></td>
-<td class="enum_member_description"> </td>
-<td class="enum_member_annotations"> </td>
+<td> </td>
+<td> </td>
 </tr>
 <tr>
 <td class="enum_member_name"><p><a name="EOG-THUMB-NAV-MODE-MULTIPLE-ROWS:CAPS"></a>EOG_THUMB_NAV_MODE_MULTIPLE_ROWS</p></td>
-<td class="enum_member_description"> </td>
-<td class="enum_member_annotations"> </td>
+<td> </td>
+<td> </td>
 </tr>
 <tr>
 <td class="enum_member_name"><p><a name="EOG-THUMB-NAV-MODE-MULTIPLE-COLUMNS:CAPS"></a>EOG_THUMB_NAV_MODE_MULTIPLE_COLUMNS</p></td>
-<td class="enum_member_description"> </td>
-<td class="enum_member_annotations"> </td>
+<td> </td>
+<td> </td>
 </tr>
 </tbody>
 </table></div>
@@ -357,8 +350,6 @@ eog_thumb_nav_set_mode (<em class="parameter"><code><a class="link" href="eog-eo
 <div class="refsect2">
 <a name="EogThumbNav-struct"></a><h3>struct EogThumbNav</h3>
 <pre class="programlisting">struct EogThumbNav;</pre>
-<p>
-</p>
 </div>
 </div>
 <div class="refsect1">
@@ -389,7 +380,6 @@ eog_thumb_nav_set_mode (<em class="parameter"><code><a class="link" href="eog-eo
 </div>
 </div>
 <div class="footer">
-<hr>
-          Generated by GTK-Doc V1.21.1</div>
+<hr>Generated by GTK-Doc V1.25</div>
 </body>
 </html>

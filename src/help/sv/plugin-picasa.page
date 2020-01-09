@@ -3,7 +3,7 @@
 
   <info>
    <link type="guide" xref="index#plugins"/>
-   <desc>Easily upload pictures to PicasaWeb directly from the Image Viewer.</desc>
+   <desc>Skicka enkelt upp bilder till PicasaWeb direkt från Bildvisaren.</desc>
 
    <revision pkgversion="3.4.3" version="0.1" date="2012-08-11" status="final"/>
    <credit type="author">
@@ -11,21 +11,34 @@
      <email>fabianapsimoes@gmail.com</email>
    </credit>
    <license>
-     <p>Creative Commons Share Alike 3.0</p>
+     <p>Creative Commons DelaLika 3.0</p>
    </license>
 
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Daniel Nylander</mal:name>
+      <mal:email>po@danielnylander.se</mal:email>
+      <mal:years>2007, 2008, 2009</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Henrik Löwendahl</mal:name>
+      <mal:email>henrik.lowendahl@purplescout.se</mal:email>
+      <mal:years>2011</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Sebastian Rasmussen</mal:name>
+      <mal:email>sebras@gmail.com</mal:email>
+      <mal:years>2016</mal:years>
+    </mal:credit>
   </info>
 
-<title>Upload photos to <app>PicasaWeb</app></title>
+<title>Skicka upp foton till <app>PicasaWeb</app></title>
 
-<p><em>PicasaWeb</em> is a photo album service that lets you share pictures with
-people online. You can add a shortcut button that provides a convenient way of uploading 
-pictures to PicasaWeb.</p>
+<p><em>PicasaWeb</em> är en fotoalbumtjänst som låter dig dela bilder med människor på nätet. Du kan lägga till en genvägsknapp som ger dig ett enkelt sätt att skicka upp bilder till PicasaWeb.</p>
 
-<p>To do this, make sure that <link xref="plugins">eog-plugins</link> is
-installed. Then, click <guiseq><gui>Edit</gui><gui>Preferences</gui></guiseq>,
-go to the <gui>Plugins</gui> tab and check <gui>PicasaWeb Uploader</gui>.</p>
-<p>This will give you a convenient <guiseq><gui>Tools</gui><gui>Upload to
-PicasaWeb</gui></guiseq> menu item.</p>
+<p>För att göra detta, säkerställ att <link xref="plugins">eog-plugins</link> är installerat. Klicka sedan på <guiseq><gui>Redigera</gui><gui>Inställningar</gui></guiseq>, gå till fliken <gui>Insticksmoduler</gui> och kryssa i <gui>Skicka till Picasa Web</gui>.</p>
+<p>Detta kommer att ge dig ett praktiskt menyobjekt <guiseq><gui>Verktyg</gui><gui>Skicka upp till PicasaWeb</gui></guiseq>.</p>
 
 </page>

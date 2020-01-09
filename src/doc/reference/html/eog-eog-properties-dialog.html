@@ -2,13 +2,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Eye of GNOME Reference Manual: EogPropertiesDialog</title>
+<title>EogPropertiesDialog: Eye of GNOME Reference Manual</title>
 <meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
 <link rel="home" href="index.html" title="Eye of GNOME Reference Manual">
 <link rel="up" href="ch01.html" title="User Interface">
 <link rel="prev" href="ch01.html" title="User Interface">
 <link rel="next" href="eog-eog-list-store.html" title="EogListStore">
-<meta name="generator" content="GTK-Doc V1.21.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.25 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -93,13 +93,13 @@
 </tr>
 <tr>
 <td class="property_type">
-<span class="type">GtkAction</span> *</td>
+<span class="type">gchar</span> *</td>
 <td class="property_name"><a class="link" href="eog-eog-properties-dialog.html#EogPropertiesDialog--next-action" title="The “next-action” property">next-action</a></td>
 <td class="property_flags">Read / Write / Construct Only</td>
 </tr>
 <tr>
 <td class="property_type">
-<span class="type">GtkAction</span> *</td>
+<span class="type">gchar</span> *</td>
 <td class="property_name"><a class="link" href="eog-eog-properties-dialog.html#EogPropertiesDialog--prev-action" title="The “prev-action” property">prev-action</a></td>
 <td class="property_flags">Read / Write / Construct Only</td>
 </tr>
@@ -151,8 +151,6 @@ EogPropertiesDialog implements
 </div>
 <div class="refsect1">
 <a name="eog-eog-properties-dialog.description"></a><h2>Description</h2>
-<p>
-</p>
 </div>
 <div class="refsect1">
 <a name="eog-eog-properties-dialog.functions_details"></a><h2>Functions</h2>
@@ -161,10 +159,27 @@ EogPropertiesDialog implements
 <pre class="programlisting"><span class="returnvalue">GtkWidget</span> *
 eog_properties_dialog_new (<em class="parameter"><code><span class="type">GtkWindow</span> *parent</code></em>,
                            <em class="parameter"><code><a class="link" href="eog-eog-thumb-view.html#EogThumbView"><span class="type">EogThumbView</span></a> *thumbview</code></em>,
-                           <em class="parameter"><code><span class="type">GtkAction</span> *next_image_action</code></em>,
-                           <em class="parameter"><code><span class="type">GtkAction</span> *previous_image_action</code></em>);</pre>
+                           <em class="parameter"><code>const <span class="type">gchar</span> *next_image_action</code></em>,
+                           <em class="parameter"><code>const <span class="type">gchar</span> *previous_image_action</code></em>);</pre>
+<p>If <code class="literal">parent</code> implements <span class="type">GActionMap</span> its actions will be automatically
+inserted in the "win" namespace.</p>
 <div class="refsect3">
-<a name="id-1.2.2.2.10.2.4"></a><h4>Returns</h4>
+<a name="eog-properties-dialog-new.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>parent</p></td>
+<td class="parameter_description"><p>the dialog's parent window</p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="eog-properties-dialog-new.returns"></a><h4>Returns</h4>
 <p> a new <a class="link" href="eog-eog-properties-dialog.html#EogPropertiesDialog"><span class="type">EogPropertiesDialog</span></a>. </p>
 <p><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>][<acronym title="Override the parsed C type with given type."><span class="acronym">type</span></acronym> EogPropertiesDialog]</span></p>
 </div>
@@ -175,8 +190,6 @@ eog_properties_dialog_new (<em class="parameter"><code><span class="type">GtkWin
 <pre class="programlisting"><span class="returnvalue">void</span>
 eog_properties_dialog_update (<em class="parameter"><code><a class="link" href="eog-eog-properties-dialog.html#EogPropertiesDialog"><span class="type">EogPropertiesDialog</span></a> *prop</code></em>,
                               <em class="parameter"><code><a class="link" href="eog-eog-image.html#EogImage"><span class="type">EogImage</span></a> *image</code></em>);</pre>
-<p>
-</p>
 </div>
 <hr>
 <div class="refsect2">
@@ -184,8 +197,6 @@ eog_properties_dialog_update (<em class="parameter"><code><a class="link" href="
 <pre class="programlisting"><span class="returnvalue">void</span>
 eog_properties_dialog_set_page (<em class="parameter"><code><a class="link" href="eog-eog-properties-dialog.html#EogPropertiesDialog"><span class="type">EogPropertiesDialog</span></a> *prop</code></em>,
                                 <em class="parameter"><code><a class="link" href="eog-eog-properties-dialog.html#EogPropertiesDialogPage" title="enum EogPropertiesDialogPage"><span class="type">EogPropertiesDialogPage</span></a> page</code></em>);</pre>
-<p>
-</p>
 </div>
 <hr>
 <div class="refsect2">
@@ -194,18 +205,14 @@ eog_properties_dialog_set_page (<em class="parameter"><code><a class="link" href
 eog_properties_dialog_set_netbook_mode
                                (<em class="parameter"><code><a class="link" href="eog-eog-properties-dialog.html#EogPropertiesDialog"><span class="type">EogPropertiesDialog</span></a> *dlg</code></em>,
                                 <em class="parameter"><code><span class="type">gboolean</span> enable</code></em>);</pre>
-<p>
-</p>
 </div>
 </div>
 <div class="refsect1">
 <a name="eog-eog-properties-dialog.other_details"></a><h2>Types and Values</h2>
 <div class="refsect2">
 <a name="EogPropertiesDialogPage"></a><h3>enum EogPropertiesDialogPage</h3>
-<p>
-</p>
 <div class="refsect3">
-<a name="id-1.2.2.2.11.2.4"></a><h4>Members</h4>
+<a name="EogPropertiesDialogPage.members"></a><h4>Members</h4>
 <div class="informaltable"><table width="100%" border="0">
 <colgroup>
 <col width="300px" class="enum_members_name">
@@ -215,23 +222,23 @@ eog_properties_dialog_set_netbook_mode
 <tbody>
 <tr>
 <td class="enum_member_name"><p><a name="EOG-PROPERTIES-DIALOG-PAGE-GENERAL:CAPS"></a>EOG_PROPERTIES_DIALOG_PAGE_GENERAL</p></td>
-<td class="enum_member_description"> </td>
-<td class="enum_member_annotations"> </td>
+<td> </td>
+<td> </td>
 </tr>
 <tr>
 <td class="enum_member_name"><p><a name="EOG-PROPERTIES-DIALOG-PAGE-EXIF:CAPS"></a>EOG_PROPERTIES_DIALOG_PAGE_EXIF</p></td>
-<td class="enum_member_description"> </td>
-<td class="enum_member_annotations"> </td>
+<td> </td>
+<td> </td>
 </tr>
 <tr>
 <td class="enum_member_name"><p><a name="EOG-PROPERTIES-DIALOG-PAGE-DETAILS:CAPS"></a>EOG_PROPERTIES_DIALOG_PAGE_DETAILS</p></td>
-<td class="enum_member_description"> </td>
-<td class="enum_member_annotations"> </td>
+<td> </td>
+<td> </td>
 </tr>
 <tr>
 <td class="enum_member_name"><p><a name="EOG-PROPERTIES-DIALOG-N-PAGES:CAPS"></a>EOG_PROPERTIES_DIALOG_N_PAGES</p></td>
-<td class="enum_member_description"> </td>
-<td class="enum_member_annotations"> </td>
+<td> </td>
+<td> </td>
 </tr>
 </tbody>
 </table></div>
@@ -241,8 +248,6 @@ eog_properties_dialog_set_netbook_mode
 <div class="refsect2">
 <a name="EogPropertiesDialog-struct"></a><h3>struct EogPropertiesDialog</h3>
 <pre class="programlisting">struct EogPropertiesDialog;</pre>
-<p>
-</p>
 </div>
 </div>
 <div class="refsect1">
@@ -257,16 +262,18 @@ eog_properties_dialog_set_netbook_mode
 <hr>
 <div class="refsect2">
 <a name="EogPropertiesDialog--next-action"></a><h3>The <code class="literal">“next-action”</code> property</h3>
-<pre class="programlisting">  “next-action”              <span class="type">GtkAction</span> *</pre>
+<pre class="programlisting">  “next-action”              <span class="type">gchar</span> *</pre>
 <p>Action for Next button.</p>
 <p>Flags: Read / Write / Construct Only</p>
+<p>Default value: NULL</p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="EogPropertiesDialog--prev-action"></a><h3>The <code class="literal">“prev-action”</code> property</h3>
-<pre class="programlisting">  “prev-action”              <span class="type">GtkAction</span> *</pre>
+<pre class="programlisting">  “prev-action”              <span class="type">gchar</span> *</pre>
 <p>Action for Prev button.</p>
 <p>Flags: Read / Write / Construct Only</p>
+<p>Default value: NULL</p>
 </div>
 <hr>
 <div class="refsect2">
@@ -278,7 +285,6 @@ eog_properties_dialog_set_netbook_mode
 </div>
 </div>
 <div class="footer">
-<hr>
-          Generated by GTK-Doc V1.21.1</div>
+<hr>Generated by GTK-Doc V1.25</div>
 </body>
 </html>

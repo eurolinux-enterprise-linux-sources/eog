@@ -17,9 +17,7 @@
   </info>
 
 <title>現在の画像をデスクトップの背景にする</title>
-<p>To set the picture that you are currently viewing as the background 
-image on your desktop, click <guiseq><gui>Image</gui><gui>Set as Wallpaper</gui>
-</guiseq>.</p>
+<p>現在表示中の画像をデスクトップの背景画像に設定するには、<guiseq><gui>画像</gui><gui>壁紙にする</gui></guiseq>をクリックします。</p>
 
-<p>これは、直ちに背景を表示中の画像に変更します。<gui>背景</gui>の設定ウィンドウを利用して画像の表示を変更したいか尋ねられます。<gui>隠す</gui>をクリックした場合は、このメッセージは消えます。</p>
+<p>この操作をすると、表示中の画像が背景画像に設定されます。その後、<gui>背景</gui>設定パネルで背景の外観を調整するかどうかを尋ねるメッセージが表示されます。<gui>隠す</gui>をクリックするとメッセージは消えます。</p>
 </page>

@@ -1,8 +1,8 @@
 AC_PREREQ(2.59)
 
 m4_define(eog_major_version,  3)
-m4_define(eog_minor_version, 14)
-m4_define(eog_micro_version,  3)
+m4_define(eog_minor_version, 20)
+m4_define(eog_micro_version,  5)
 m4_define(eog_version, eog_major_version.eog_minor_version.eog_micro_version)
 
 AC_INIT([eog], eog_version, [http://bugzilla.gnome.org/enter_bug.cgi?product=eog], [eog])
@@ -43,7 +43,7 @@ AC_PATH_PROG([GLIB_MKENUMS],[glib-mkenums])
 
 PKG_PROG_PKG_CONFIG
 
-GTK_DOC_CHECK(1.16)
+GTK_DOC_CHECK([1.16], [--flavour no-tmpl])
 
 AC_CHECK_FUNCS(strptime)
 
@@ -85,10 +85,10 @@ YELP_HELP_INIT
 # GNOME Libs
 # **********
 
-GTK_REQUIRED=3.14.0
-GLIB_REQUIRED=2.38.0
+GTK_REQUIRED=3.19.11
+GLIB_REQUIRED=2.42.0
 GNOME_DESKTOP_REQUIRED=2.91.2
-GDKPIXBUF_REQUIRED=2.4.0
+GDKPIXBUF_REQUIRED=2.30.0
 GTK_PRINT_REQUIRED=3.5.4
 SHARED_MIME_INFO_REQUIRED=0.20
 EXEMPI_REQUIRED=1.99.5
@@ -263,13 +263,6 @@ AC_SUBST(LIBJPEG)
 AM_CONDITIONAL(ENABLE_JPEG, test x$have_jpeg = xyes)
 AM_CONDITIONAL(HAVE_LIBJPEG_80, test "x$have_libjpeg_80" = xyes)
 
-# ************************************
-# libXML2 (required for toolbareditor)
-# ************************************
-
-LIBXML2_REQUIRED=2.0
-PKG_CHECK_MODULES(LIBXML2, [libxml-2.0 >= $LIBXML2_REQUIRED])
-
 # ***************
 # RSVG (optional for scaling svg image)
 # ***************
@@ -334,8 +327,6 @@ AC_CONFIG_FILES([
 Makefile
 src/Makefile
 jpegutils/Makefile
-cut-n-paste/Makefile
-cut-n-paste/toolbar-editor/Makefile
 help/Makefile
 po/Makefile.in
 data/Makefile

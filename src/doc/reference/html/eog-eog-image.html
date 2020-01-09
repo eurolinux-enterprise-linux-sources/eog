@@ -2,13 +2,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Eye of GNOME Reference Manual: EogImage</title>
+<title>EogImage: Eye of GNOME Reference Manual</title>
 <meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
 <link rel="home" href="index.html" title="Eye of GNOME Reference Manual">
 <link rel="up" href="ch02.html" title="Image data and manipulation">
 <link rel="prev" href="ch02.html" title="Image data and manipulation">
 <link rel="next" href="EogImageSaveInfo.html" title="EogImageSaveInfo">
-<meta name="generator" content="GTK-Doc V1.21.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.25 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -42,23 +42,11 @@
 </colgroup>
 <tbody>
 <tr>
-<td class="define_keyword">#define</td>
-<td class="function_name"><a class="link" href="eog-eog-image.html#EOG-IMAGE-DATA-ALL:CAPS" title="EOG_IMAGE_DATA_ALL">EOG_IMAGE_DATA_ALL</a></td>
-</tr>
-<tr>
 <td class="function_type">
 <span class="returnvalue">GQuark</span>
 </td>
 <td class="function_name">
 <a class="link" href="eog-eog-image.html#eog-image-error-quark" title="eog_image_error_quark ()">eog_image_error_quark</a> <span class="c_punctuation">()</span>
-</td>
-</tr>
-<tr>
-<td class="function_type">
-<a class="link" href="eog-eog-image.html#EogImage"><span class="returnvalue">EogImage</span></a> *
-</td>
-<td class="function_name">
-<a class="link" href="eog-eog-image.html#eog-image-new" title="eog_image_new ()">eog_image_new</a> <span class="c_punctuation">()</span>
 </td>
 </tr>
 <tr>
@@ -355,6 +343,22 @@
 <a class="link" href="eog-eog-image.html#eog-image-start-animation" title="eog_image_start_animation ()">eog_image_start_animation</a> <span class="c_punctuation">()</span>
 </td>
 </tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gboolean</span>
+</td>
+<td class="function_name">
+<a class="link" href="eog-eog-image.html#eog-image-is-file-writable" title="eog_image_is_file_writable ()">eog_image_is_file_writable</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
+<tr>
+<td class="function_type">
+<span class="returnvalue">gboolean</span>
+</td>
+<td class="function_name">
+<a class="link" href="eog-eog-image.html#eog-image-is-multipaged" title="eog_image_is_multipaged ()">eog_image_is_multipaged</a> <span class="c_punctuation">()</span>
+</td>
+</tr>
 </tbody>
 </table></div>
 </div>
@@ -413,6 +417,10 @@
 <td class="function_name"><a class="link" href="eog-eog-image.html#EogImageData" title="enum EogImageData">EogImageData</a></td>
 </tr>
 <tr>
+<td class="define_keyword">#define</td>
+<td class="function_name"><a class="link" href="eog-eog-image.html#EOG-IMAGE-DATA-ALL:CAPS" title="EOG_IMAGE_DATA_ALL">EOG_IMAGE_DATA_ALL</a></td>
+</tr>
+<tr>
 <td class="datatype_keyword">enum</td>
 <td class="function_name"><a class="link" href="eog-eog-image.html#EogImageError" title="enum EogImageError">EogImageError</a></td>
 </tr>
@@ -443,52 +451,20 @@
 </div>
 <div class="refsect1">
 <a name="eog-eog-image.description"></a><h2>Description</h2>
-<p>
-</p>
 </div>
 <div class="refsect1">
 <a name="eog-eog-image.functions_details"></a><h2>Functions</h2>
 <div class="refsect2">
-<a name="EOG-IMAGE-DATA-ALL:CAPS"></a><h3>EOG_IMAGE_DATA_ALL</h3>
-<pre class="programlisting">#define             EOG_IMAGE_DATA_ALL</pre>
-<p>
-</p>
-</div>
-<hr>
-<div class="refsect2">
 <a name="eog-image-error-quark"></a><h3>eog_image_error_quark ()</h3>
 <pre class="programlisting"><span class="returnvalue">GQuark</span>
 eog_image_error_quark (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
-<p>
-</p>
-<div class="refsect3">
-<a name="id-1.2.3.2.9.3.5"></a><h4>Returns</h4>
-<p></p>
-</div>
-</div>
-<hr>
-<div class="refsect2">
-<a name="eog-image-new"></a><h3>eog_image_new ()</h3>
-<pre class="programlisting"><a class="link" href="eog-eog-image.html#EogImage"><span class="returnvalue">EogImage</span></a> *
-eog_image_new (<em class="parameter"><code>const <span class="type">char</span> *txt_uri</code></em>);</pre>
-<p>
-</p>
-<div class="refsect3">
-<a name="id-1.2.3.2.9.4.5"></a><h4>Returns</h4>
-<p></p>
-</div>
 </div>
 <hr>
 <div class="refsect2">
 <a name="eog-image-new-file"></a><h3>eog_image_new_file ()</h3>
 <pre class="programlisting"><a class="link" href="eog-eog-image.html#EogImage"><span class="returnvalue">EogImage</span></a> *
-eog_image_new_file (<em class="parameter"><code><span class="type">GFile</span> *file</code></em>);</pre>
-<p>
-</p>
-<div class="refsect3">
-<a name="id-1.2.3.2.9.5.5"></a><h4>Returns</h4>
-<p></p>
-</div>
+eog_image_new_file (<em class="parameter"><code><span class="type">GFile</span> *file</code></em>,
+                    <em class="parameter"><code>const <span class="type">gchar</span> *caption</code></em>);</pre>
 </div>
 <hr>
 <div class="refsect2">
@@ -498,20 +474,12 @@ eog_image_load (<em class="parameter"><code><a class="link" href="eog-eog-image.
                 <em class="parameter"><code><a class="link" href="eog-eog-image.html#EogImageData" title="enum EogImageData"><span class="type">EogImageData</span></a> data2read</code></em>,
                 <em class="parameter"><code><a class="link" href="eog-eog-jobs.html#EogJob"><span class="type">EogJob</span></a> *job</code></em>,
                 <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
-<p>
-</p>
-<div class="refsect3">
-<a name="id-1.2.3.2.9.6.5"></a><h4>Returns</h4>
-<p></p>
-</div>
 </div>
 <hr>
 <div class="refsect2">
 <a name="eog-image-cancel-load"></a><h3>eog_image_cancel_load ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 eog_image_cancel_load (<em class="parameter"><code><a class="link" href="eog-eog-image.html#EogImage"><span class="type">EogImage</span></a> *img</code></em>);</pre>
-<p>
-</p>
 </div>
 <hr>
 <div class="refsect2">
@@ -519,28 +487,18 @@ eog_image_cancel_load (<em class="parameter"><code><a class="link" href="eog-eog
 <pre class="programlisting"><span class="returnvalue">gboolean</span>
 eog_image_has_data (<em class="parameter"><code><a class="link" href="eog-eog-image.html#EogImage"><span class="type">EogImage</span></a> *img</code></em>,
                     <em class="parameter"><code><a class="link" href="eog-eog-image.html#EogImageData" title="enum EogImageData"><span class="type">EogImageData</span></a> data</code></em>);</pre>
-<p>
-</p>
-<div class="refsect3">
-<a name="id-1.2.3.2.9.8.5"></a><h4>Returns</h4>
-<p></p>
-</div>
 </div>
 <hr>
 <div class="refsect2">
 <a name="eog-image-data-ref"></a><h3>eog_image_data_ref ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 eog_image_data_ref (<em class="parameter"><code><a class="link" href="eog-eog-image.html#EogImage"><span class="type">EogImage</span></a> *img</code></em>);</pre>
-<p>
-</p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="eog-image-data-unref"></a><h3>eog_image_data_unref ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 eog_image_data_unref (<em class="parameter"><code><a class="link" href="eog-eog-image.html#EogImage"><span class="type">EogImage</span></a> *img</code></em>);</pre>
-<p>
-</p>
 </div>
 <hr>
 <div class="refsect2">
@@ -548,8 +506,6 @@ eog_image_data_unref (<em class="parameter"><code><a class="link" href="eog-eog-
 <pre class="programlisting"><span class="returnvalue">void</span>
 eog_image_set_thumbnail (<em class="parameter"><code><a class="link" href="eog-eog-image.html#EogImage"><span class="type">EogImage</span></a> *img</code></em>,
                          <em class="parameter"><code><span class="type">GdkPixbuf</span> *pixbuf</code></em>);</pre>
-<p>
-</p>
 </div>
 <hr>
 <div class="refsect2">
@@ -559,12 +515,6 @@ eog_image_save_as_by_info (<em class="parameter"><code><a class="link" href="eog
                            <em class="parameter"><code><a class="link" href="EogImageSaveInfo.html" title="EogImageSaveInfo"><span class="type">EogImageSaveInfo</span></a> *source</code></em>,
                            <em class="parameter"><code><a class="link" href="EogImageSaveInfo.html" title="EogImageSaveInfo"><span class="type">EogImageSaveInfo</span></a> *target</code></em>,
                            <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
-<p>
-</p>
-<div class="refsect3">
-<a name="id-1.2.3.2.9.12.5"></a><h4>Returns</h4>
-<p></p>
-</div>
 </div>
 <hr>
 <div class="refsect2">
@@ -573,12 +523,6 @@ eog_image_save_as_by_info (<em class="parameter"><code><a class="link" href="eog
 eog_image_save_by_info (<em class="parameter"><code><a class="link" href="eog-eog-image.html#EogImage"><span class="type">EogImage</span></a> *img</code></em>,
                         <em class="parameter"><code><a class="link" href="EogImageSaveInfo.html" title="EogImageSaveInfo"><span class="type">EogImageSaveInfo</span></a> *source</code></em>,
                         <em class="parameter"><code><span class="type">GError</span> **error</code></em>);</pre>
-<p>
-</p>
-<div class="refsect3">
-<a name="id-1.2.3.2.9.13.5"></a><h4>Returns</h4>
-<p></p>
-</div>
 </div>
 <hr>
 <div class="refsect2">
@@ -587,7 +531,7 @@ eog_image_save_by_info (<em class="parameter"><code><a class="link" href="eog-eo
 eog_image_get_pixbuf (<em class="parameter"><code><a class="link" href="eog-eog-image.html#EogImage"><span class="type">EogImage</span></a> *img</code></em>);</pre>
 <p>Gets the <span class="type">GdkPixbuf</span> of the image</p>
 <div class="refsect3">
-<a name="id-1.2.3.2.9.14.5"></a><h4>Parameters</h4>
+<a name="eog-image-get-pixbuf.parameters"></a><h4>Parameters</h4>
 <div class="informaltable"><table width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
@@ -602,7 +546,7 @@ eog_image_get_pixbuf (<em class="parameter"><code><a class="link" href="eog-eog-
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.3.2.9.14.6"></a><h4>Returns</h4>
+<a name="eog-image-get-pixbuf.returns"></a><h4>Returns</h4>
 <p> a <span class="type">GdkPixbuf</span>. </p>
 <p><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
 </div>
@@ -615,7 +559,7 @@ eog_image_get_thumbnail (<em class="parameter"><code><a class="link" href="eog-e
 <p>Gets the thumbnail pixbuf for <em class="parameter"><code>img</code></em>
 </p>
 <div class="refsect3">
-<a name="id-1.2.3.2.9.15.5"></a><h4>Parameters</h4>
+<a name="eog-image-get-thumbnail.parameters"></a><h4>Parameters</h4>
 <div class="informaltable"><table width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
@@ -630,7 +574,7 @@ eog_image_get_thumbnail (<em class="parameter"><code><a class="link" href="eog-e
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.3.2.9.15.6"></a><h4>Returns</h4>
+<a name="eog-image-get-thumbnail.returns"></a><h4>Returns</h4>
 <p> a <span class="type">GdkPixbuf</span> with a thumbnail. </p>
 <p><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
 </div>
@@ -642,76 +586,42 @@ eog_image_get_thumbnail (<em class="parameter"><code><a class="link" href="eog-e
 eog_image_get_size (<em class="parameter"><code><a class="link" href="eog-eog-image.html#EogImage"><span class="type">EogImage</span></a> *img</code></em>,
                     <em class="parameter"><code><span class="type">gint</span> *width</code></em>,
                     <em class="parameter"><code><span class="type">gint</span> *height</code></em>);</pre>
-<p>
-</p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="eog-image-get-bytes"></a><h3>eog_image_get_bytes ()</h3>
 <pre class="programlisting"><span class="returnvalue">goffset</span>
 eog_image_get_bytes (<em class="parameter"><code><a class="link" href="eog-eog-image.html#EogImage"><span class="type">EogImage</span></a> *img</code></em>);</pre>
-<p>
-</p>
-<div class="refsect3">
-<a name="id-1.2.3.2.9.17.5"></a><h4>Returns</h4>
-<p></p>
-</div>
 </div>
 <hr>
 <div class="refsect2">
 <a name="eog-image-is-modified"></a><h3>eog_image_is_modified ()</h3>
 <pre class="programlisting"><span class="returnvalue">gboolean</span>
 eog_image_is_modified (<em class="parameter"><code><a class="link" href="eog-eog-image.html#EogImage"><span class="type">EogImage</span></a> *img</code></em>);</pre>
-<p>
-</p>
-<div class="refsect3">
-<a name="id-1.2.3.2.9.18.5"></a><h4>Returns</h4>
-<p></p>
-</div>
 </div>
 <hr>
 <div class="refsect2">
 <a name="eog-image-modified"></a><h3>eog_image_modified ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 eog_image_modified (<em class="parameter"><code><a class="link" href="eog-eog-image.html#EogImage"><span class="type">EogImage</span></a> *img</code></em>);</pre>
-<p>
-</p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="eog-image-get-caption"></a><h3>eog_image_get_caption ()</h3>
 <pre class="programlisting">const <span class="returnvalue">gchar</span> *
 eog_image_get_caption (<em class="parameter"><code><a class="link" href="eog-eog-image.html#EogImage"><span class="type">EogImage</span></a> *img</code></em>);</pre>
-<p>
-</p>
-<div class="refsect3">
-<a name="id-1.2.3.2.9.20.5"></a><h4>Returns</h4>
-<p></p>
-</div>
 </div>
 <hr>
 <div class="refsect2">
 <a name="eog-image-get-collate-key"></a><h3>eog_image_get_collate_key ()</h3>
 <pre class="programlisting">const <span class="returnvalue">gchar</span> *
 eog_image_get_collate_key (<em class="parameter"><code><a class="link" href="eog-eog-image.html#EogImage"><span class="type">EogImage</span></a> *img</code></em>);</pre>
-<p>
-</p>
-<div class="refsect3">
-<a name="id-1.2.3.2.9.21.5"></a><h4>Returns</h4>
-<p></p>
-</div>
 </div>
 <hr>
 <div class="refsect2">
 <a name="eog-image-get-exif-info"></a><h3>eog_image_get_exif_info ()</h3>
 <pre class="programlisting"><span class="returnvalue">ExifData</span> *
 eog_image_get_exif_info (<em class="parameter"><code><a class="link" href="eog-eog-image.html#EogImage"><span class="type">EogImage</span></a> *img</code></em>);</pre>
-<p>
-</p>
-<div class="refsect3">
-<a name="id-1.2.3.2.9.22.5"></a><h4>Returns</h4>
-<p></p>
-</div>
 </div>
 <hr>
 <div class="refsect2">
@@ -722,7 +632,7 @@ eog_image_get_xmp_info (<em class="parameter"><code><a class="link" href="eog-eo
  or NULL if compiled without
 libexempi support.</p>
 <div class="refsect3">
-<a name="id-1.2.3.2.9.23.5"></a><h4>Parameters</h4>
+<a name="eog-image-get-xmp-info.parameters"></a><h4>Parameters</h4>
 <div class="informaltable"><table width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
@@ -737,7 +647,7 @@ libexempi support.</p>
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.3.2.9.23.6"></a><h4>Returns</h4>
+<a name="eog-image-get-xmp-info.returns"></a><h4>Returns</h4>
 <p> the xmp data. </p>
 <p><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
 </div>
@@ -750,7 +660,7 @@ eog_image_get_file (<em class="parameter"><code><a class="link" href="eog-eog-im
 <p>Gets the <span class="type">GFile</span> associated with <em class="parameter"><code>img</code></em>
 </p>
 <div class="refsect3">
-<a name="id-1.2.3.2.9.24.5"></a><h4>Parameters</h4>
+<a name="eog-image-get-file.parameters"></a><h4>Parameters</h4>
 <div class="informaltable"><table width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
@@ -765,7 +675,7 @@ eog_image_get_file (<em class="parameter"><code><a class="link" href="eog-eog-im
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.3.2.9.24.6"></a><h4>Returns</h4>
+<a name="eog-image-get-file.returns"></a><h4>Returns</h4>
 <p> a <span class="type">GFile</span>. </p>
 <p><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
 </div>
@@ -775,24 +685,12 @@ eog_image_get_file (<em class="parameter"><code><a class="link" href="eog-eog-im
 <a name="eog-image-get-uri-for-display"></a><h3>eog_image_get_uri_for_display ()</h3>
 <pre class="programlisting"><span class="returnvalue">gchar</span> *
 eog_image_get_uri_for_display (<em class="parameter"><code><a class="link" href="eog-eog-image.html#EogImage"><span class="type">EogImage</span></a> *img</code></em>);</pre>
-<p>
-</p>
-<div class="refsect3">
-<a name="id-1.2.3.2.9.25.5"></a><h4>Returns</h4>
-<p></p>
-</div>
 </div>
 <hr>
 <div class="refsect2">
 <a name="eog-image-get-status"></a><h3>eog_image_get_status ()</h3>
 <pre class="programlisting"><a class="link" href="eog-eog-image.html#EogImageStatus" title="enum EogImageStatus"><span class="returnvalue">EogImageStatus</span></a>
 eog_image_get_status (<em class="parameter"><code><a class="link" href="eog-eog-image.html#EogImage"><span class="type">EogImage</span></a> *img</code></em>);</pre>
-<p>
-</p>
-<div class="refsect3">
-<a name="id-1.2.3.2.9.26.5"></a><h4>Returns</h4>
-<p></p>
-</div>
 </div>
 <hr>
 <div class="refsect2">
@@ -801,28 +699,18 @@ eog_image_get_status (<em class="parameter"><code><a class="link" href="eog-eog-
 eog_image_transform (<em class="parameter"><code><a class="link" href="eog-eog-image.html#EogImage"><span class="type">EogImage</span></a> *img</code></em>,
                      <em class="parameter"><code><a class="link" href="eog-eog-transform.html#EogTransform"><span class="type">EogTransform</span></a> *trans</code></em>,
                      <em class="parameter"><code><a class="link" href="eog-eog-jobs.html#EogJob"><span class="type">EogJob</span></a> *job</code></em>);</pre>
-<p>
-</p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="eog-image-autorotate"></a><h3>eog_image_autorotate ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 eog_image_autorotate (<em class="parameter"><code><a class="link" href="eog-eog-image.html#EogImage"><span class="type">EogImage</span></a> *img</code></em>);</pre>
-<p>
-</p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="eog-image-get-profile"></a><h3>eog_image_get_profile ()</h3>
 <pre class="programlisting"><span class="returnvalue">cmsHPROFILE</span>
 eog_image_get_profile (<em class="parameter"><code><a class="link" href="eog-eog-image.html#EogImage"><span class="type">EogImage</span></a> *img</code></em>);</pre>
-<p>
-</p>
-<div class="refsect3">
-<a name="id-1.2.3.2.9.29.5"></a><h4>Returns</h4>
-<p></p>
-</div>
 </div>
 <hr>
 <div class="refsect2">
@@ -830,16 +718,12 @@ eog_image_get_profile (<em class="parameter"><code><a class="link" href="eog-eog
 <pre class="programlisting"><span class="returnvalue">void</span>
 eog_image_apply_display_profile (<em class="parameter"><code><a class="link" href="eog-eog-image.html#EogImage"><span class="type">EogImage</span></a> *img</code></em>,
                                  <em class="parameter"><code><span class="type">cmsHPROFILE</span> display_profile</code></em>);</pre>
-<p>
-</p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="eog-image-undo"></a><h3>eog_image_undo ()</h3>
 <pre class="programlisting"><span class="returnvalue">void</span>
 eog_image_undo (<em class="parameter"><code><a class="link" href="eog-eog-image.html#EogImage"><span class="type">EogImage</span></a> *img</code></em>);</pre>
-<p>
-</p>
 </div>
 <hr>
 <div class="refsect2">
@@ -848,7 +732,7 @@ eog_image_undo (<em class="parameter"><code><a class="link" href="eog-eog-image.
 eog_image_get_supported_mime_types (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
 <p>Gets the list of supported mimetypes</p>
 <div class="refsect3">
-<a name="id-1.2.3.2.9.32.5"></a><h4>Returns</h4>
+<a name="eog-image-get-supported-mime-types.returns"></a><h4>Returns</h4>
 <p> a <span class="type">GList</span> of supported mimetypes. </p>
 <p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>][<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> utf8]</span></p>
 </div>
@@ -858,12 +742,6 @@ eog_image_get_supported_mime_types (<em class="parameter"><code><span class="typ
 <a name="eog-image-is-supported-mime-type"></a><h3>eog_image_is_supported_mime_type ()</h3>
 <pre class="programlisting"><span class="returnvalue">gboolean</span>
 eog_image_is_supported_mime_type (<em class="parameter"><code>const <span class="type">char</span> *mime_type</code></em>);</pre>
-<p>
-</p>
-<div class="refsect3">
-<a name="id-1.2.3.2.9.33.5"></a><h4>Returns</h4>
-<p></p>
-</div>
 </div>
 <hr>
 <div class="refsect2">
@@ -873,7 +751,7 @@ eog_image_file_changed (<em class="parameter"><code><a class="link" href="eog-eo
 <p>Marks the image file contents as changed. Also, emits
 EogImage::file-changed signal.</p>
 <div class="refsect3">
-<a name="id-1.2.3.2.9.34.5"></a><h4>Parameters</h4>
+<a name="eog-image-file-changed.parameters"></a><h4>Parameters</h4>
 <div class="informaltable"><table width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
@@ -893,12 +771,6 @@ EogImage::file-changed signal.</p>
 <a name="eog-image-is-file-changed"></a><h3>eog_image_is_file_changed ()</h3>
 <pre class="programlisting"><span class="returnvalue">gboolean</span>
 eog_image_is_file_changed (<em class="parameter"><code><a class="link" href="eog-eog-image.html#EogImage"><span class="type">EogImage</span></a> *img</code></em>);</pre>
-<p>
-</p>
-<div class="refsect3">
-<a name="id-1.2.3.2.9.35.5"></a><h4>Returns</h4>
-<p></p>
-</div>
 </div>
 <hr>
 <div class="refsect2">
@@ -908,7 +780,7 @@ eog_image_get_metadata_status (<em class="parameter"><code><a class="link" href=
 <p>Returns the current status of the image metadata, that is,
 whether the metadata has not been read yet, is ready, or not available at all.</p>
 <div class="refsect3">
-<a name="id-1.2.3.2.9.36.5"></a><h4>Parameters</h4>
+<a name="eog-image-get-metadata-status.parameters"></a><h4>Parameters</h4>
 <div class="informaltable"><table width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
@@ -923,9 +795,8 @@ whether the metadata has not been read yet, is ready, or not available at all.</
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.3.2.9.36.6"></a><h4>Returns</h4>
+<a name="eog-image-get-metadata-status.returns"></a><h4>Returns</h4>
 <p> one of <a class="link" href="eog-eog-image.html#EogImageMetadataStatus" title="enum EogImageMetadataStatus"><span class="type">EogImageMetadataStatus</span></a></p>
-<p></p>
 </div>
 </div>
 <hr>
@@ -933,23 +804,33 @@ whether the metadata has not been read yet, is ready, or not available at all.</
 <a name="eog-image-get-svg"></a><h3>eog_image_get_svg ()</h3>
 <pre class="programlisting"><span class="returnvalue">RsvgHandle</span> *
 eog_image_get_svg (<em class="parameter"><code><a class="link" href="eog-eog-image.html#EogImage"><span class="type">EogImage</span></a> *img</code></em>);</pre>
-<p>
-</p>
-<div class="refsect3">
-<a name="id-1.2.3.2.9.37.5"></a><h4>Returns</h4>
-<p></p>
-</div>
 </div>
 <hr>
 <div class="refsect2">
 <a name="eog-image-get-transform"></a><h3>eog_image_get_transform ()</h3>
 <pre class="programlisting"><a class="link" href="eog-eog-transform.html#EogTransform"><span class="returnvalue">EogTransform</span></a> *
 eog_image_get_transform (<em class="parameter"><code><a class="link" href="eog-eog-image.html#EogImage"><span class="type">EogImage</span></a> *img</code></em>);</pre>
-<p>
-</p>
+<p>Get <em class="parameter"><code>img</code></em>
+ transform.</p>
 <div class="refsect3">
-<a name="id-1.2.3.2.9.38.5"></a><h4>Returns</h4>
-<p></p>
+<a name="eog-image-get-transform.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>img</p></td>
+<td class="parameter_description"><p>a <a class="link" href="eog-eog-image.html#EogImage"><span class="type">EogImage</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="eog-image-get-transform.returns"></a><h4>Returns</h4>
+<p> A <a class="link" href="eog-eog-transform.html#EogTransform"><span class="type">EogTransform</span></a>. </p>
+<p><span class="annotation">[<acronym title="Don't free data after the code is done."><span class="acronym">transfer none</span></acronym>]</span></p>
 </div>
 </div>
 <hr>
@@ -959,7 +840,7 @@ eog_image_get_transform (<em class="parameter"><code><a class="link" href="eog-e
 eog_image_is_animation (<em class="parameter"><code><a class="link" href="eog-eog-image.html#EogImage"><span class="type">EogImage</span></a> *img</code></em>);</pre>
 <p>Checks whether a given image is animated.</p>
 <div class="refsect3">
-<a name="id-1.2.3.2.9.39.5"></a><h4>Parameters</h4>
+<a name="eog-image-is-animation.parameters"></a><h4>Parameters</h4>
 <div class="informaltable"><table width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
@@ -974,9 +855,8 @@ eog_image_is_animation (<em class="parameter"><code><a class="link" href="eog-eo
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.3.2.9.39.6"></a><h4>Returns</h4>
+<a name="eog-image-is-animation.returns"></a><h4>Returns</h4>
 <p> <span class="type">TRUE</span> if it is an animated image, <span class="type">FALSE</span> otherwise.</p>
-<p></p>
 </div>
 </div>
 <hr>
@@ -984,12 +864,6 @@ eog_image_is_animation (<em class="parameter"><code><a class="link" href="eog-eo
 <a name="eog-image-is-svg"></a><h3>eog_image_is_svg ()</h3>
 <pre class="programlisting"><span class="returnvalue">gboolean</span>
 eog_image_is_svg (<em class="parameter"><code><a class="link" href="eog-eog-image.html#EogImage"><span class="type">EogImage</span></a> *img</code></em>);</pre>
-<p>
-</p>
-<div class="refsect3">
-<a name="id-1.2.3.2.9.40.5"></a><h4>Returns</h4>
-<p></p>
-</div>
 </div>
 <hr>
 <div class="refsect2">
@@ -998,7 +872,7 @@ eog_image_is_svg (<em class="parameter"><code><a class="link" href="eog-eog-imag
 eog_image_start_animation (<em class="parameter"><code><a class="link" href="eog-eog-image.html#EogImage"><span class="type">EogImage</span></a> *img</code></em>);</pre>
 <p>Starts playing an animated image.</p>
 <div class="refsect3">
-<a name="id-1.2.3.2.9.41.5"></a><h4>Parameters</h4>
+<a name="eog-image-start-animation.parameters"></a><h4>Parameters</h4>
 <div class="informaltable"><table width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
@@ -1013,21 +887,76 @@ eog_image_start_animation (<em class="parameter"><code><a class="link" href="eog
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.3.2.9.41.6"></a><h4>Returns</h4>
+<a name="eog-image-start-animation.returns"></a><h4>Returns</h4>
 <p> <code class="literal">TRUE</code> on success, <code class="literal">FALSE</code> if <em class="parameter"><code>img</code></em>
 is already playing or isn't an animated image.</p>
-<p></p>
 </div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="eog-image-is-file-writable"></a><h3>eog_image_is_file_writable ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+eog_image_is_file_writable (<em class="parameter"><code><a class="link" href="eog-eog-image.html#EogImage"><span class="type">EogImage</span></a> *img</code></em>);</pre>
+<p>Evaluate if the user has write permission on the image file.</p>
+<div class="refsect3">
+<a name="eog-image-is-file-writable.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>img</p></td>
+<td class="parameter_description"><p>a <a class="link" href="eog-eog-image.html#EogImage"><span class="type">EogImage</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="eog-image-is-file-writable.returns"></a><h4>Returns</h4>
+<p> <code class="literal">TRUE</code> on success, <code class="literal">FALSE</code> if the user hasn't write permissions on it,
+or <em class="parameter"><code>img</code></em>
+is not an <a class="link" href="eog-eog-image.html#EogImage"><span class="type">EogImage</span></a>.</p>
+</div>
+</div>
+<hr>
+<div class="refsect2">
+<a name="eog-image-is-multipaged"></a><h3>eog_image_is_multipaged ()</h3>
+<pre class="programlisting"><span class="returnvalue">gboolean</span>
+eog_image_is_multipaged (<em class="parameter"><code><a class="link" href="eog-eog-image.html#EogImage"><span class="type">EogImage</span></a> *img</code></em>);</pre>
+<p>Check whether the image actually contains multiple images/pages.
+This can happen for TIFF files. GIF animations are not multipaged.</p>
+<p>Note that this only works if the image data is loaded.</p>
+<div class="refsect3">
+<a name="eog-image-is-multipaged.parameters"></a><h4>Parameters</h4>
+<div class="informaltable"><table width="100%" border="0">
+<colgroup>
+<col width="150px" class="parameters_name">
+<col class="parameters_description">
+<col width="200px" class="parameters_annotations">
+</colgroup>
+<tbody><tr>
+<td class="parameter_name"><p>img</p></td>
+<td class="parameter_description"><p>an <a class="link" href="eog-eog-image.html#EogImage"><span class="type">EogImage</span></a></p></td>
+<td class="parameter_annotations"> </td>
+</tr></tbody>
+</table></div>
+</div>
+<div class="refsect3">
+<a name="eog-image-is-multipaged.returns"></a><h4>Returns</h4>
+<p> <code class="literal">TRUE</code> if <em class="parameter"><code>img</code></em>
+is multipaged, <code class="literal">FALSE</code> if not or the image data wasn't loaded.</p>
+</div>
+<p class="since">Since: 3.18</p>
 </div>
 </div>
 <div class="refsect1">
 <a name="eog-eog-image.other_details"></a><h2>Types and Values</h2>
 <div class="refsect2">
 <a name="EogImageData"></a><h3>enum EogImageData</h3>
-<p>
-</p>
 <div class="refsect3">
-<a name="id-1.2.3.2.10.2.4"></a><h4>Members</h4>
+<a name="EogImageData.members"></a><h4>Members</h4>
 <div class="informaltable"><table width="100%" border="0">
 <colgroup>
 <col width="300px" class="enum_members_name">
@@ -1037,23 +966,23 @@ is already playing or isn't an animated image.</p>
 <tbody>
 <tr>
 <td class="enum_member_name"><p><a name="EOG-IMAGE-DATA-IMAGE:CAPS"></a>EOG_IMAGE_DATA_IMAGE</p></td>
-<td class="enum_member_description"> </td>
-<td class="enum_member_annotations"> </td>
+<td> </td>
+<td> </td>
 </tr>
 <tr>
 <td class="enum_member_name"><p><a name="EOG-IMAGE-DATA-DIMENSION:CAPS"></a>EOG_IMAGE_DATA_DIMENSION</p></td>
-<td class="enum_member_description"> </td>
-<td class="enum_member_annotations"> </td>
+<td> </td>
+<td> </td>
 </tr>
 <tr>
 <td class="enum_member_name"><p><a name="EOG-IMAGE-DATA-EXIF:CAPS"></a>EOG_IMAGE_DATA_EXIF</p></td>
-<td class="enum_member_description"> </td>
-<td class="enum_member_annotations"> </td>
+<td> </td>
+<td> </td>
 </tr>
 <tr>
 <td class="enum_member_name"><p><a name="EOG-IMAGE-DATA-XMP:CAPS"></a>EOG_IMAGE_DATA_XMP</p></td>
-<td class="enum_member_description"> </td>
-<td class="enum_member_annotations"> </td>
+<td> </td>
+<td> </td>
 </tr>
 </tbody>
 </table></div>
@@ -1061,11 +990,14 @@ is already playing or isn't an animated image.</p>
 </div>
 <hr>
 <div class="refsect2">
+<a name="EOG-IMAGE-DATA-ALL:CAPS"></a><h3>EOG_IMAGE_DATA_ALL</h3>
+<pre class="programlisting">#define             EOG_IMAGE_DATA_ALL</pre>
+</div>
+<hr>
+<div class="refsect2">
 <a name="EogImageError"></a><h3>enum EogImageError</h3>
-<p>
-</p>
 <div class="refsect3">
-<a name="id-1.2.3.2.10.3.4"></a><h4>Members</h4>
+<a name="EogImageError.members"></a><h4>Members</h4>
 <div class="informaltable"><table width="100%" border="0">
 <colgroup>
 <col width="300px" class="enum_members_name">
@@ -1075,43 +1007,43 @@ is already playing or isn't an animated image.</p>
 <tbody>
 <tr>
 <td class="enum_member_name"><p><a name="EOG-IMAGE-ERROR-SAVE-NOT-LOCAL:CAPS"></a>EOG_IMAGE_ERROR_SAVE_NOT_LOCAL</p></td>
-<td class="enum_member_description"> </td>
-<td class="enum_member_annotations"> </td>
+<td> </td>
+<td> </td>
 </tr>
 <tr>
 <td class="enum_member_name"><p><a name="EOG-IMAGE-ERROR-NOT-LOADED:CAPS"></a>EOG_IMAGE_ERROR_NOT_LOADED</p></td>
-<td class="enum_member_description"> </td>
-<td class="enum_member_annotations"> </td>
+<td> </td>
+<td> </td>
 </tr>
 <tr>
 <td class="enum_member_name"><p><a name="EOG-IMAGE-ERROR-NOT-SAVED:CAPS"></a>EOG_IMAGE_ERROR_NOT_SAVED</p></td>
-<td class="enum_member_description"> </td>
-<td class="enum_member_annotations"> </td>
+<td> </td>
+<td> </td>
 </tr>
 <tr>
 <td class="enum_member_name"><p><a name="EOG-IMAGE-ERROR-VFS:CAPS"></a>EOG_IMAGE_ERROR_VFS</p></td>
-<td class="enum_member_description"> </td>
-<td class="enum_member_annotations"> </td>
+<td> </td>
+<td> </td>
 </tr>
 <tr>
 <td class="enum_member_name"><p><a name="EOG-IMAGE-ERROR-FILE-EXISTS:CAPS"></a>EOG_IMAGE_ERROR_FILE_EXISTS</p></td>
-<td class="enum_member_description"> </td>
-<td class="enum_member_annotations"> </td>
+<td> </td>
+<td> </td>
 </tr>
 <tr>
 <td class="enum_member_name"><p><a name="EOG-IMAGE-ERROR-TMP-FILE-FAILED:CAPS"></a>EOG_IMAGE_ERROR_TMP_FILE_FAILED</p></td>
-<td class="enum_member_description"> </td>
-<td class="enum_member_annotations"> </td>
+<td> </td>
+<td> </td>
 </tr>
 <tr>
 <td class="enum_member_name"><p><a name="EOG-IMAGE-ERROR-GENERIC:CAPS"></a>EOG_IMAGE_ERROR_GENERIC</p></td>
-<td class="enum_member_description"> </td>
-<td class="enum_member_annotations"> </td>
+<td> </td>
+<td> </td>
 </tr>
 <tr>
 <td class="enum_member_name"><p><a name="EOG-IMAGE-ERROR-UNKNOWN:CAPS"></a>EOG_IMAGE_ERROR_UNKNOWN</p></td>
-<td class="enum_member_description"> </td>
-<td class="enum_member_annotations"> </td>
+<td> </td>
+<td> </td>
 </tr>
 </tbody>
 </table></div>
@@ -1122,16 +1054,12 @@ is already playing or isn't an animated image.</p>
 <a name="EOG-IMAGE-ERROR:CAPS"></a><h3>EOG_IMAGE_ERROR</h3>
 <pre class="programlisting">#define EOG_IMAGE_ERROR eog_image_error_quark ()
 </pre>
-<p>
-</p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="EogImageMetadataStatus"></a><h3>enum EogImageMetadataStatus</h3>
-<p>
-</p>
 <div class="refsect3">
-<a name="id-1.2.3.2.10.5.4"></a><h4>Members</h4>
+<a name="EogImageMetadataStatus.members"></a><h4>Members</h4>
 <div class="informaltable"><table width="100%" border="0">
 <colgroup>
 <col width="300px" class="enum_members_name">
@@ -1141,18 +1069,18 @@ is already playing or isn't an animated image.</p>
 <tbody>
 <tr>
 <td class="enum_member_name"><p><a name="EOG-IMAGE-METADATA-NOT-READ:CAPS"></a>EOG_IMAGE_METADATA_NOT_READ</p></td>
-<td class="enum_member_description"> </td>
-<td class="enum_member_annotations"> </td>
+<td> </td>
+<td> </td>
 </tr>
 <tr>
 <td class="enum_member_name"><p><a name="EOG-IMAGE-METADATA-NOT-AVAILABLE:CAPS"></a>EOG_IMAGE_METADATA_NOT_AVAILABLE</p></td>
-<td class="enum_member_description"> </td>
-<td class="enum_member_annotations"> </td>
+<td> </td>
+<td> </td>
 </tr>
 <tr>
 <td class="enum_member_name"><p><a name="EOG-IMAGE-METADATA-READY:CAPS"></a>EOG_IMAGE_METADATA_READY</p></td>
-<td class="enum_member_description"> </td>
-<td class="enum_member_annotations"> </td>
+<td> </td>
+<td> </td>
 </tr>
 </tbody>
 </table></div>
@@ -1161,10 +1089,8 @@ is already playing or isn't an animated image.</p>
 <hr>
 <div class="refsect2">
 <a name="EogImageStatus"></a><h3>enum EogImageStatus</h3>
-<p>
-</p>
 <div class="refsect3">
-<a name="id-1.2.3.2.10.6.4"></a><h4>Members</h4>
+<a name="EogImageStatus.members"></a><h4>Members</h4>
 <div class="informaltable"><table width="100%" border="0">
 <colgroup>
 <col width="300px" class="enum_members_name">
@@ -1174,28 +1100,28 @@ is already playing or isn't an animated image.</p>
 <tbody>
 <tr>
 <td class="enum_member_name"><p><a name="EOG-IMAGE-STATUS-UNKNOWN:CAPS"></a>EOG_IMAGE_STATUS_UNKNOWN</p></td>
-<td class="enum_member_description"> </td>
-<td class="enum_member_annotations"> </td>
+<td> </td>
+<td> </td>
 </tr>
 <tr>
 <td class="enum_member_name"><p><a name="EOG-IMAGE-STATUS-LOADING:CAPS"></a>EOG_IMAGE_STATUS_LOADING</p></td>
-<td class="enum_member_description"> </td>
-<td class="enum_member_annotations"> </td>
+<td> </td>
+<td> </td>
 </tr>
 <tr>
 <td class="enum_member_name"><p><a name="EOG-IMAGE-STATUS-LOADED:CAPS"></a>EOG_IMAGE_STATUS_LOADED</p></td>
-<td class="enum_member_description"> </td>
-<td class="enum_member_annotations"> </td>
+<td> </td>
+<td> </td>
 </tr>
 <tr>
 <td class="enum_member_name"><p><a name="EOG-IMAGE-STATUS-SAVING:CAPS"></a>EOG_IMAGE_STATUS_SAVING</p></td>
-<td class="enum_member_description"> </td>
-<td class="enum_member_annotations"> </td>
+<td> </td>
+<td> </td>
 </tr>
 <tr>
 <td class="enum_member_name"><p><a name="EOG-IMAGE-STATUS-FAILED:CAPS"></a>EOG_IMAGE_STATUS_FAILED</p></td>
-<td class="enum_member_description"> </td>
-<td class="enum_member_annotations"> </td>
+<td> </td>
+<td> </td>
 </tr>
 </tbody>
 </table></div>
@@ -1205,8 +1131,6 @@ is already playing or isn't an animated image.</p>
 <div class="refsect2">
 <a name="EogImage-struct"></a><h3>EogImage</h3>
 <pre class="programlisting">typedef struct _EogImage EogImage;</pre>
-<p>
-</p>
 </div>
 </div>
 <div class="refsect1">
@@ -1216,30 +1140,6 @@ is already playing or isn't an animated image.</p>
 <pre class="programlisting"><span class="returnvalue">void</span>
 user_function (<a class="link" href="eog-eog-image.html#EogImage"><span class="type">EogImage</span></a> *eogimage,
                <span class="type">gpointer</span>  user_data)</pre>
-<p>
-</p>
-<div class="refsect3">
-<a name="id-1.2.3.2.11.2.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
-<colgroup>
-<col width="150px" class="parameters_name">
-<col class="parameters_description">
-<col width="200px" class="parameters_annotations">
-</colgroup>
-<tbody>
-<tr>
-<td class="parameter_name"><p>eogimage</p></td>
-<td class="parameter_description"><p>the object which received the signal.</p></td>
-<td class="parameter_annotations"> </td>
-</tr>
-<tr>
-<td class="parameter_name"><p>user_data</p></td>
-<td class="parameter_description"><p>user data set when the signal handler was connected.</p></td>
-<td class="parameter_annotations"> </td>
-</tr>
-</tbody>
-</table></div>
-</div>
 <p>Flags: Run Last</p>
 </div>
 <hr>
@@ -1248,30 +1148,6 @@ user_function (<a class="link" href="eog-eog-image.html#EogImage"><span class="t
 <pre class="programlisting"><span class="returnvalue">void</span>
 user_function (<a class="link" href="eog-eog-image.html#EogImage"><span class="type">EogImage</span></a> *eogimage,
                <span class="type">gpointer</span>  user_data)</pre>
-<p>
-</p>
-<div class="refsect3">
-<a name="id-1.2.3.2.11.3.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
-<colgroup>
-<col width="150px" class="parameters_name">
-<col class="parameters_description">
-<col width="200px" class="parameters_annotations">
-</colgroup>
-<tbody>
-<tr>
-<td class="parameter_name"><p>eogimage</p></td>
-<td class="parameter_description"><p>the object which received the signal.</p></td>
-<td class="parameter_annotations"> </td>
-</tr>
-<tr>
-<td class="parameter_name"><p>user_data</p></td>
-<td class="parameter_description"><p>user data set when the signal handler was connected.</p></td>
-<td class="parameter_annotations"> </td>
-</tr>
-</tbody>
-</table></div>
-</div>
 <p>Flags: Run Last</p>
 </div>
 <hr>
@@ -1284,7 +1160,7 @@ user_function (<a class="link" href="eog-eog-image.html#EogImage"><span class="t
 <p>The ::next-frame signal will be emitted each time an animated image
 advances to the next frame.</p>
 <div class="refsect3">
-<a name="id-1.2.3.2.11.4.5"></a><h4>Parameters</h4>
+<a name="EogImage-next-frame.parameters"></a><h4>Parameters</h4>
 <div class="informaltable"><table width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
@@ -1319,30 +1195,6 @@ advances to the next frame.</p>
 user_function (<a class="link" href="eog-eog-image.html#EogImage"><span class="type">EogImage</span></a> *eogimage,
                <span class="type">gfloat</span>    arg1,
                <span class="type">gpointer</span>  user_data)</pre>
-<p>
-</p>
-<div class="refsect3">
-<a name="id-1.2.3.2.11.5.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
-<colgroup>
-<col width="150px" class="parameters_name">
-<col class="parameters_description">
-<col width="200px" class="parameters_annotations">
-</colgroup>
-<tbody>
-<tr>
-<td class="parameter_name"><p>eogimage</p></td>
-<td class="parameter_description"><p>the object which received the signal.</p></td>
-<td class="parameter_annotations"> </td>
-</tr>
-<tr>
-<td class="parameter_name"><p>user_data</p></td>
-<td class="parameter_description"><p>user data set when the signal handler was connected.</p></td>
-<td class="parameter_annotations"> </td>
-</tr>
-</tbody>
-</table></div>
-</div>
 <p>Flags: Run Last</p>
 </div>
 <hr>
@@ -1353,30 +1205,6 @@ user_function (<a class="link" href="eog-eog-image.html#EogImage"><span class="t
                <span class="type">gint</span>      arg1,
                <span class="type">gint</span>      arg2,
                <span class="type">gpointer</span>  user_data)</pre>
-<p>
-</p>
-<div class="refsect3">
-<a name="id-1.2.3.2.11.6.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
-<colgroup>
-<col width="150px" class="parameters_name">
-<col class="parameters_description">
-<col width="200px" class="parameters_annotations">
-</colgroup>
-<tbody>
-<tr>
-<td class="parameter_name"><p>eogimage</p></td>
-<td class="parameter_description"><p>the object which received the signal.</p></td>
-<td class="parameter_annotations"> </td>
-</tr>
-<tr>
-<td class="parameter_name"><p>user_data</p></td>
-<td class="parameter_description"><p>user data set when the signal handler was connected.</p></td>
-<td class="parameter_annotations"> </td>
-</tr>
-</tbody>
-</table></div>
-</div>
 <p>Flags: Run Last</p>
 </div>
 <hr>
@@ -1385,36 +1213,11 @@ user_function (<a class="link" href="eog-eog-image.html#EogImage"><span class="t
 <pre class="programlisting"><span class="returnvalue">void</span>
 user_function (<a class="link" href="eog-eog-image.html#EogImage"><span class="type">EogImage</span></a> *eogimage,
                <span class="type">gpointer</span>  user_data)</pre>
-<p>
-</p>
-<div class="refsect3">
-<a name="id-1.2.3.2.11.7.5"></a><h4>Parameters</h4>
-<div class="informaltable"><table width="100%" border="0">
-<colgroup>
-<col width="150px" class="parameters_name">
-<col class="parameters_description">
-<col width="200px" class="parameters_annotations">
-</colgroup>
-<tbody>
-<tr>
-<td class="parameter_name"><p>eogimage</p></td>
-<td class="parameter_description"><p>the object which received the signal.</p></td>
-<td class="parameter_annotations"> </td>
-</tr>
-<tr>
-<td class="parameter_name"><p>user_data</p></td>
-<td class="parameter_description"><p>user data set when the signal handler was connected.</p></td>
-<td class="parameter_annotations"> </td>
-</tr>
-</tbody>
-</table></div>
-</div>
 <p>Flags: Run Last</p>
 </div>
 </div>
 </div>
 <div class="footer">
-<hr>
-          Generated by GTK-Doc V1.21.1</div>
+<hr>Generated by GTK-Doc V1.25</div>
 </body>
 </html>

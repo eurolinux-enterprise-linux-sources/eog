@@ -54,7 +54,6 @@
 #define EOG_CONF_FULLSCREEN_UPSCALE		"upscale"
 #define EOG_CONF_FULLSCREEN_SECONDS		"seconds"
 
-#define EOG_CONF_UI_TOOLBAR			"toolbar"
 #define EOG_CONF_UI_STATUSBAR			"statusbar"
 #define EOG_CONF_UI_IMAGE_GALLERY		"image-gallery"
 #define EOG_CONF_UI_IMAGE_GALLERY_POSITION	"image-gallery-position"
@@ -65,7 +64,6 @@
 #define EOG_CONF_UI_DISABLE_TRASH_CONFIRMATION	"disable-trash-confirmation"
 #define EOG_CONF_UI_FILECHOOSER_XDG_FALLBACK	"filechooser-xdg-fallback"
 #define EOG_CONF_UI_PROPSDIALOG_NETBOOK_MODE	"propsdialog-netbook-mode"
-#define EOG_CONF_UI_EXTERNAL_EDITOR		"external-editor"
 
 #define EOG_CONF_PLUGINS_ACTIVE_PLUGINS         "active-plugins"
 

@@ -3,7 +3,7 @@
 
   <info>
     <link type="guide" xref="index#tips"/>
-    <desc><link xref="preferences#view">Image view</link>, <link xref="preferences#slideshow">slideshow</link> and <link xref="preferences#plugins">plugins</link>.</desc>
+    <desc><link xref="preferences#view">Bildvisning</link>, <link xref="preferences#slideshow">bildspel</link> och <link xref="preferences#plugins">insticksmoduler</link>.</desc>
 
     <revision pkgversion="3.2" version="0.1" date="2011-09-06" status="final"/>
     <credit type="author">
@@ -11,59 +11,59 @@
       <email>tiffany@antopolski.com</email>
     </credit>
     <license>
-      <p>Creative Commons Share Alike 3.0</p>
+      <p>Creative Commons DelaLika 3.0</p>
     </license>
 
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Daniel Nylander</mal:name>
+      <mal:email>po@danielnylander.se</mal:email>
+      <mal:years>2007, 2008, 2009</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Henrik Löwendahl</mal:name>
+      <mal:email>henrik.lowendahl@purplescout.se</mal:email>
+      <mal:years>2011</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Sebastian Rasmussen</mal:name>
+      <mal:email>sebras@gmail.com</mal:email>
+      <mal:years>2016</mal:years>
+    </mal:credit>
   </info>
 
 <title>Inställningar</title>
-<p>This topic explains all of the settings that you can change in the 
-image viewer. Click <guiseq><gui>Edit</gui><gui>Preferences</gui></guiseq> to 
-start changing the preferences.</p>
+<p>Detta ämne förklarar alla inställningar du kan ändra i bildvisaren. Klicka på <guiseq><gui>Redigera</gui><gui>Inställningar</gui></guiseq> för att börja ändra inställningarna.</p>
 
 <links type="section"/>
 
 <section id="view">
-<title>Image view preferences</title>
+<title>Bildvisarinställningar</title>
 <media type="image" src="figures/image-view-prefs.png" style="floatend" width="300"/>
 <terms>
   <item>
-    <title>Image enhancements</title>
-    <p>Select <gui>Smooth images when zoomed out</gui> to enable <em>image 
-    smoothing</em> when you zoom in and out. This makes low-resolution 
-    (pixelated) pictures look better by smoothing out jagged edges.</p>
-    <p>If you enable <gui>Automatic orientation</gui>, pictures will be 
-    automatically rotated according to their <em>Exif metadata</em>. This is 
-    information about a picture that is automatically inserted by a digital 
-    camera, and can include details on which way up the camera was held when 
-    the picture was taken. For example, when automatic orientation is 
-    enabled, portrait photos are automatically rotated upright. The rotation 
-    is not saved until you <link xref="flip-rotate#rotate">save the rotated 
-    image</link>.</p> 
-    <p>Automatic orientation does not work with all pictures; only pictures 
-    taken using a camera that saves Exif orientation metadata will be rotated.</p>
+    <title>Bildförbättringar</title>
+    <p>Välj <gui>Mjuka upp bilder när de är utzoomade</gui> för att aktivera <em>bildutjämning</em> när du zoomar in och ut. Detta får lågupplösta (pixelerade) bilder att se bättre ut genom att utjämna taggiga kanter.</p>
+    <p>Om du aktiverar <gui>Automatisk orientering</gui> kommer bilder automatiskt att roteras enligt deras <em>Exif-metadata</em>. Detta är information om en bild som automatiskt infogas av en digitalkamera och kan inkludera detaljer om hur kamerans hölls när bilden togs. När automatisk orientering är aktiverat kommer till exempel porträttfoton automatiskt att roteras så att de är stående. Rotationen sparas inte förrän du <link xref="flip-rotate#rotate">sparar den roterade bilden</link>.</p> 
+    <p>Automatisk orientering fungerar inte med alla bilder; bara bilder som tagits med en kamera som sparar Exif-metadata med orientering kommer att roteras.</p>
   </item>
   <item>
-    <title>Transparent parts</title>
-     <p>Select one of the following
-     options to determine how the transparent parts of a picture are displayed, 
-     if it has any:</p>
+    <title>Genomskinliga delar</title>
+     <p>Välj en av följande alternativ för att bestämma hur de genomskinliga delarna av en bild ska visas, om sådana finns:</p>
     <list>
       <item>
-       <p><gui>As check pattern:</gui></p>
+       <p><gui>Som rutmönster:</gui></p>
        <p>Visar alla genomskinliga delar av bilden i ett rutnätsmönster.</p>
       </item>
       <item>
-       <p><gui>As custom color:</gui></p>
-       <p>Displays any transparent parts of the image in a solid color that 
-       you specify by clicking on the color selector button.</p>
+       <p><gui>Som anpassad färg:</gui></p>
+       <p>Visar genomskinliga delar av bilden med en enda färg som du anger genom att klicka på färgväljarknappen.</p>
       </item>
       <item>
-       <p><gui>As background:</gui></p>
-       <p>Displays any transparent parts of the image in the 
-       <gui>Background</gui> color, if <gui>As custom color</gui> under 
-       <gui>Background</gui> is checked. Otherwise, the default background 
-       color is used.</p>
+       <p><gui>Som bakgrund:</gui></p>
+       <p>Visar genomskinliga delar av bilden som <gui>Bakgrundsfärg</gui> om <gui>Som anpassad färg</gui> under <gui>Bakgrund</gui> är ikryssad. Annars kommer standardbakgrundsfärgen att användas.</p>
       </item>
     </list>
   </item>
@@ -72,44 +72,32 @@ start changing the preferences.</p>
 
 
 <section id="slideshow">
-<title>Slide show preferences</title>
+<title>Bildspelsinställningar</title>
 <media type="image" src="figures/slideshow-prefs.png" style="floatend" width="300"/> 
-<p>To customize slideshow settings:</p>
+<p>Anpassa bildspelsinställningar:</p>
 <list>
  <item>
-  <p>Under <gui>Image Zoom</gui> you can select if you would like pictures 
-  that are smaller than the screen to be expanded so that they fit the 
-  screen.</p>
+  <p>Under <gui>Bildzoomning</gui> kan du välja om du vill att bilder som är mindre än skärmen ska expanderas så att de anpassas till skärmen.</p>
  </item>
  <item>
-  <p>Under <gui>Sequence</gui> you can select how many seconds each picture 
-  should be displayed for (between 1 and 100) before the next picture is 
-  shown.</p>
+  <p>Under <gui>Sekvens</gui> kan du välja hur många sekunder varje bild bör visas under (mellan 1 och 100) innan nästa bild visas.</p>
  </item>
  <item>
-  <p>Check <gui>Loop sequence</gui> if you want the slideshow to repeat 
-  continuously. If unchecked, the slideshow will start at the picture you 
-  selected, and finish at the last picture in the folder.</p>
+  <p>Kryssa i <gui>Slingsekvens</gui> om du vill att bildspelet ska repetera kontinuerligt. Om ej ikryssad kommer bildspelet att starta med bilden som du valt och avslutas med den sista bilden i mappen.</p>
  </item>
 </list>
 </section>
 
 
 <section id="plugins">
-<title>Plugin preferences</title>
+<title>Insticksmodulsinställningar</title>
 
 <media type="image" src="figures/plugins-all.png" width="300" style="floatend"/>
 <media type="image" src="figures/prefs-plugins.png" width="300" style="floatstart"/>
 
-<p>Here you can check/uncheck any additional features you would like
-to activate or deactivate. The picture on the left shows the plugins that are 
-available by default.</p>
+<p>Här kan du kryssa i/kryssa ur vilka ytterligare funktioner du vill aktivera eller inaktivera. Bilden till vänster visar insticksmodulerna som är tillgängliga som standard.</p>
 
-<p>You may also wish to install the 
-<link xref="plugins">eog-plugins package</link>, which contains plugins 
-providing a number of extra features. After installing it, you will be able to 
-activate <link xref="index#plugins">additional plugins</link>, like the ones 
-shown in the picture on the right.</p>
+<p>Du kan också vilja installera paketet <link xref="plugins">eog-plugins</link> som innehåller insticksmoduler som tillhandahåller ett antal extra funktioner. Efter att du installerat det kan du aktivera <link xref="index#plugins">ytterligare insticksmoduler</link> så som de som visas i bilden till höger.</p>
 </section>
 
 </page>

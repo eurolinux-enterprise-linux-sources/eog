@@ -10,9 +10,16 @@ from dogtail import i18n
 
 @step(u'Open About dialog')
 def open_about_dialog(context):
-    context.app.menu(translate('Help')).click()
-    context.app.menu(translate('Help')).menuItem(translate('About')).click()
+    context.execute_steps(u"""
+        * Click "About" in GApplication menu
+    """)
     context.about_dialog = context.app.dialog(translate('About Image Viewer'))
+
+
+@step(u'Open and close About dialog')
+def open_and_close_about_dialog(context):
+    context.execute_steps(u'* Click "About" in GApplication menu')
+    keyCombo("<Esc>")
 
 
 @then(u'Website link to wiki is displayed')
@@ -41,26 +48,35 @@ def open_file_via_menu(context, filename):
 
 @then(u'image size is {width:d}x{height:d}')
 def image_size_is(context, width, height):
-    for attempt in xrange(0, 10):
-        width_text = context.app.child(roleName='page tab list').child(translate('Width:')).parent.children[-1].text
-        if width_text == '':
+    size_text = None
+    for attempt in range(0, 10):
+        size_child = context.app.child(roleName='page tab list').child(translate('Size'))
+        size_text = size_child.parent.children[11].text
+        if size_text == '':
             sleep(0.5)
             continue
         else:
             break
-    height_text = context.app.child(roleName='page tab list').child(translate('Height:')).parent.children[-1].text
     try:
-        actual_width = int(width_text.split(' ')[0])
-        actual_height = int(height_text.split(' ')[0])
+        actual_width = size_text.split(' \xc3\x97 ')[0].strip()
+        actual_height = size_text.split(' \xc3\x97 ')[1].split(' ')[0].strip()
     except Exception:
         raise Exception("Incorrect width/height is been displayed")
-    assert actual_width == width
-    assert actual_height == height
+    assert int(actual_width) == width, "Expected width to be '%s', but was '%s'" % (width, actual_width)
+    assert int(actual_height) == height, "Expected height to be '%s', but was '%s'" % (height, actual_height)
 
 
 @step(u'Rotate the image clockwise')
 def rotate_image_clockwise(context):
-    context.app.child(roleName='tool bar').child(translate('Right')).click()
+    btn = context.app.child(description=translate('Rotate the image 90 degrees to the left'))
+    context.app.child(roleName='drawing area').point()
+    sleep(1)
+    btn.click()
+
+
+@step(u'Click Fullscreen button on headerbar')
+def click_fullscreen(context):
+    context.app.child(translate('Fullscreen')).click()
 
 
 @step(u'Open context menu for current image')
@@ -84,15 +100,11 @@ def sidepanel_displayed(context, state):
     assert actual == (state == 'displayed')
 
 
-def app_is_not_fullscreen(context):
-    import ipdb; ipdb.set_trace()
-
-
 @then(u'application is {negative:w} fullscreen anymore')
 @then(u'application is displayed fullscreen')
 def app_displayed_fullscreen(context, negative=None):
     sleep(0.5)
-    actual = not context.app.child(roleName='menu bar').showing
+    actual = context.app.child(roleName='drawing area').position[1] == 0
     assert actual == (negative is None)
 
 
@@ -140,16 +152,10 @@ def select_menuitem(context, menu):
     current.menuItem(translate(menu_item[-1])).click()
 
 
-@step(u'Select and close "{menu}" menu')
-def select_menuitem_and_close_it(context, menu):
-    context.execute_steps('* Select "%s" menu' % menu)
+@step(u'Open and close hamburger menu')
+def select_hamburger_and_close_it(context):
+    context.app.child('Menu').click()
     keyCombo("<Esc>")
-
-
-@step(u'Open "Image -> Save As" menu')
-def open_save_as_menu(context):
-    context.app.menu(translate("Image")).click()
-    context.app.menu(translate("Image")).findChildren(lambda x: 'Save As' in x.name)[0].click()
 
 
 @step(u'Select "{name}" window')

@@ -3,7 +3,7 @@
 
   <info>
     <link type="guide" xref="index#advanced"/>
-    <desc>A list of all keyboard shortcuts.</desc>
+    <desc>En lista över alla tangentbordsgenvägar.</desc>
 
     <revision pkgversion="3.2" version="0.1" date="2011-09-05" status="final"/>
     <credit type="author">
@@ -11,146 +11,162 @@
        <email>tiffany.antopolski@gmail.com</email>
     </credit>
     <license>
-      <p>Creative Commons Share Alike 3.0</p>
+      <p>Creative Commons DelaLika 3.0</p>
     </license>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Daniel Nylander</mal:name>
+      <mal:email>po@danielnylander.se</mal:email>
+      <mal:years>2007, 2008, 2009</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Henrik Löwendahl</mal:name>
+      <mal:email>henrik.lowendahl@purplescout.se</mal:email>
+      <mal:years>2011</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Sebastian Rasmussen</mal:name>
+      <mal:email>sebras@gmail.com</mal:email>
+      <mal:years>2016</mal:years>
+    </mal:credit>
   </info>
 
-<title>Keyboard shortcuts</title>
+<title>Tangentbordsgenvägar</title>
 
-<p>This is a list of all of the keyboard shortcuts that you can use in the 
-image viewer.</p>
+<p>Detta är en lista över alla tangentbordsgenvägar som du kan använda i bildvisaren.</p>
 
 <section id="open-close-save-print">
-  <title>Opening, closing, saving and printing</title>
+  <title>Öppna, stäng, spara och skriv ut</title>
   <table frame="all" rules="cols" shade="rows">
     <tr>
-        <td><p>Open an image file</p></td>
+        <td><p>Öppna en bildfil</p></td>
         <td><p><keyseq><key>Ctrl</key><key>O</key></keyseq></p></td>
     </tr>
     <tr>
-        <td><p>Save the image with the same filename</p></td>
+        <td><p>Spara bilden med samma filnamn</p></td>
         <td><p><keyseq><key>Ctrl</key><key>S</key></keyseq></p></td>
     </tr>
     <tr>
-        <td><p>Save a copy of the current image with a new file
-name</p></td>
-        <td><p><keyseq><key>Shift</key><key>Ctrl</key><key>S</key></keyseq></p></td>
+        <td><p>Spara en kopia av aktuell bild under ett nytt filnamn</p></td>
+        <td><p><keyseq><key>Skift</key><key>Ctrl</key><key>S</key></keyseq></p></td>
     </tr>
     <tr>
-        <td><p>Print the current image</p></td>
+        <td><p>Skriv ut aktuell bild</p></td>
         <td><p><keyseq><key>Ctrl</key><key>P</key></keyseq></p></td>
     </tr>
     <tr>
-        <td><p>Close the current window</p></td>
+        <td><p>Stäng aktuellt fönster</p></td>
         <td><p><keyseq><key>Ctrl</key><key>W</key></keyseq></p></td>
     </tr>
     <tr>
-        <td><p>Set the image as your desktop background</p></td>
+        <td><p>Ställ in bilden som din skrivbordsbakgrund</p></td>
         <td><p><keyseq><key>Ctrl</key><key>F8</key></keyseq></p></td>
     </tr>
   </table>
 </section>
 
 <section id="viewing">
-    <title>Viewing images</title>
+    <title>Visa bilder</title>
 <table frame="all" rules="cols" shade="rows">
     <tr>
-        <td><p>Go to the previous image in the folder</p></td>
-        <td><p><key>Back space</key> / <key>Left</key></p></td>
+        <td><p>Gå till föregående bild i mappen</p></td>
+        <td><p><key>Backsteg</key> / <key>Vänster</key></p></td>
     </tr>
     <tr>
-        <td><p>Go to the next image in the folder</p></td>
-        <td><p><key>Space bar</key> / <key>Right</key></p></td>
+        <td><p>Gå till nästa bild i mappen</p></td>
+        <td><p><key>Blanksteg</key> / <key>Höger</key></p></td>
     </tr>
     <tr>
-        <td><p>Go to first image in the folder</p></td>
+        <td><p>Gå till den första bilden i mappen</p></td>
         <td><p><keyseq><key>Alt</key><key>Home</key></keyseq></p></td>
     </tr>
     <tr>
-        <td><p>Go to the last image in the folder</p></td>
+        <td><p>Gå till den sista bilden i mappen</p></td>
          <td><p><keyseq><key>Alt</key><key>End</key></keyseq></p></td>
     </tr>
     <tr>
-        <td><p>Choose a random image in the folder</p></td>
+        <td><p>Välj en slumpmässig bild i mappen</p></td>
         <td><p><keyseq><key>Ctrl</key><key>M</key></keyseq></p></td>
     </tr>
     <tr>
-    	<td><p>View the image gallery</p></td>
+    	<td><p>Visa bildgalleriet</p></td>
         <td><p><key>F9</key></p></td>
     </tr>
     <tr>
-    	<td><p>View fullscreen</p></td>
+    	<td><p>Visa i helskärmsläge</p></td>
          <td><p><key>F11</key></p></td>
     </tr>
 
     <tr>
-    	<td><p>View slideshow</p></td>
+    	<td><p>Visa bildspel</p></td>
          <td><p><key>F5</key></p></td>
     </tr>
     <tr>
-    	<td><p>Actual size</p></td>
-         <td><p><keyseq><key>Ctrl</key><key>0</key></keyseq> (Zero)</p></td>
+    	<td><p>Verklig storlek</p></td>
+         <td><p><keyseq><key>Ctrl</key><key>0</key></keyseq> (Noll)</p></td>
     </tr>
     <tr>
-    	<td><p>Best fit</p></td>
+    	<td><p>Bästa anpassning</p></td>
          <td><p><key>F</key></p></td>
     </tr>
     <tr>
-    	<td><p>Scroll around a large image</p></td>
-         <td><p><keyseq><key>Alt</key><key>arrow keys</key></keyseq></p></td>
+    	<td><p>Rulla runt i en stor bild</p></td>
+         <td><p><keyseq><key>Alt</key><key>piltangenter</key></keyseq></p></td>
     </tr>
 </table>
 </section>
 
 <section id="copy">
-    <title>Copy an image to paste into another application</title>
+    <title>Kopiera en bild för att sedan klistra in i ett annat program</title>
 <table frame="all" rules="cols" shade="rows">
     <tr>
-        <td><p>Copy</p></td>
+        <td><p>Kopiera</p></td>
         <td><p><keyseq><key>Ctrl</key><key>C</key></keyseq></p></td>
     </tr>
 </table>
 </section>
 
 <section id="zoom-rotate">
-    <title>Zoom and rotate</title>
+    <title>Zooma och rotera</title>
 <table frame="all" rules="cols" shade="rows">
     <tr>
-    	<td><p>Zoom in</p></td>
+    	<td><p>Zooma in</p></td>
          <td><p><key>+</key></p></td>
     </tr>
     <tr>
-    	<td><p>Zoom out</p></td>
+    	<td><p>Zooma ut</p></td>
          <td><p><key>-</key></p></td>
     </tr>
     <tr>
-    	<td><p>Rotate clockwise</p></td>
+    	<td><p>Rotera medurs</p></td>
          <td><p><keyseq><key>Ctrl</key><key>R</key></keyseq></p></td>
     </tr>
     <tr>
-    	<td><p>Rotate counter-clockwise</p></td>
-         <td><p><keyseq><key>Shift</key><key>Ctrl</key><key>R</key></keyseq></p></td>
+    	<td><p>Rotera moturs</p></td>
+         <td><p><keyseq><key>Skift</key><key>Ctrl</key><key>R</key></keyseq></p></td>
     </tr>
 </table>
 </section>
 
 <section id="other">
-    <title>Other</title>
+    <title>Övrigt</title>
 <table frame="all" rules="cols" shade="rows">
     <tr>
-        <td><p>View side pane</p></td>
+        <td><p>Visa sidopanel</p></td>
         <td><p><keyseq><key>Ctrl</key><key>F9</key></keyseq></p></td>
     </tr>
     <tr>
-        <td><p>View image properties</p></td>
-        <td><p><keyseq><key>Alt</key><key>Return</key></keyseq></p></td>
+        <td><p>Visa bildegenskaper</p></td>
+        <td><p><keyseq><key>Alt</key><key>Retur</key></keyseq></p></td>
     </tr>
     <tr>
-        <td><p>Undo</p></td>
+        <td><p>Ångra</p></td>
         <td><p><keyseq><key>Ctrl</key><key>Z</key></keyseq></p></td>
     </tr>
     <tr>
-        <td><p>Help</p></td>
+        <td><p>Hjälp</p></td>
         <td><p><key>F1</key></p></td>
     </tr>
 </table>

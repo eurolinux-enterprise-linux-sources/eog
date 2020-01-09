@@ -23,21 +23,20 @@ gsettings_SCHEMAS = org.gnome.eog.gschema.xml
 gsettingsconvertdir = $(datadir)/GConf/gsettings
 gsettingsconvert_DATA = eog.convert
 
-uidir = $(pkgdatadir)
-ui_DATA = \
-	eog-toolbar.xml
-
 pkgconfigdir = $(libdir)/pkgconfig
 pkgconfig_DATA = eog.pc
 
 EXTRA_DIST =			\
-	$(ui_DATA)		\
+	fullscreen-toolbar.ui	\
 	eog.css			\
 	eog-app-menu.xml	\
+	eog-gear-menu.ui	\
 	eog-image-properties-dialog.ui	\
 	eog-multiple-save-as-dialog.ui	\
 	eog-preferences-dialog.ui \
-	eog-ui.xml		\
+	help-overlay.ui		\
+	metadata-sidebar.ui	\
+	popup-menus.ui		\
 	$(DESKTOP_IN_FILES)	\
 	$(appdata_in_files)	\
 	eog.convert

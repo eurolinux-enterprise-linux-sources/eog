@@ -4,7 +4,7 @@
   <info>
    <link type="guide" xref="index#plugins"/>
    <link type="seealso" xref="preferences#slideshow"/>
-   <desc>Show photos in a random order when playing a slideshow.</desc>
+   <desc>Visa foton i slumpmässig ordning under ett bildspel.</desc>
 
    <revision pkgversion="3.2" version="0.1" date="2011-09-06" status="final"/>
    <credit type="author">
@@ -12,20 +12,35 @@
      <email>tiffany.antopolski@gmail.com</email>
    </credit>
    <license>
-     <p>Creative Commons Share Alike 3.0</p>
+     <p>Creative Commons DelaLika 3.0</p>
    </license>
 
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Daniel Nylander</mal:name>
+      <mal:email>po@danielnylander.se</mal:email>
+      <mal:years>2007, 2008, 2009</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Henrik Löwendahl</mal:name>
+      <mal:email>henrik.lowendahl@purplescout.se</mal:email>
+      <mal:years>2011</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Sebastian Rasmussen</mal:name>
+      <mal:email>sebras@gmail.com</mal:email>
+      <mal:years>2016</mal:years>
+    </mal:credit>
   </info>
 
-<title>Slideshow shuffle</title>
+<title>Slumpmässigt bildspel</title>
 
-<p>You can make it so that pictures are shown in a random order when you start 
-a <link xref="slideshow">slideshow</link>.</p>
+<p>Du kan göra så att bilder visas i slumpmässig ordning när du startar ett <link xref="slideshow">bildspel</link>.</p>
 
-<p>To do this, click <guiseq><gui>Edit</gui><gui>Preferences</gui></guiseq> and 
-go to the <gui>Plugins</gui> tab. Then, check <gui>Slideshow Shuffle</gui> and 
-click <gui>Close</gui>.</p>
+<p>För att göra detta, klicka på <guiseq><gui>Redigera</gui><gui>Inställningar</gui></guiseq> och gå till fliken <gui>Insticksmoduler</gui>. Kryssa sedan i <gui>Blandat bildspel</gui> och klicka på <gui>Stäng</gui>.</p>
 
-<p>In order to enable this feature, you need to have installed <link xref="plugins">eog-plugins</link>.</p>
+<p>För att aktivera denna funktion måste du ha <link xref="plugins">eog-plugins</link> installerat.</p>
 
 </page>

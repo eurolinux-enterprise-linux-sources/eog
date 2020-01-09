@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8" standalone="no"?>
-<!DOCTYPE book PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "">
 <book xmlns="http://www.devhelp.net/book" title="Eye of GNOME Reference Manual" link="index.html" author="" name="eog" version="2" language="c">
   <chapters>
     <sub name="API Reference" link="rn01.html">
@@ -143,11 +142,10 @@
     <keyword type="signal" name="The “previous-image” signal" link="EogScrollView.html#EogScrollView-previous-image"/>
     <keyword type="signal" name="The “rotation-changed” signal" link="EogScrollView.html#EogScrollView-rotation-changed"/>
     <keyword type="signal" name="The “zoom-changed” signal" link="EogScrollView.html#EogScrollView-zoom-changed"/>
-    <keyword type="macro" name="EOG_WINDOW_ERROR" link="eog-eog-window.html#EOG-WINDOW-ERROR:CAPS"/>
     <keyword type="function" name="eog_window_new ()" link="eog-eog-window.html#eog-window-new"/>
+    <keyword type="function" name="eog_window_get_gear_menu_section ()" link="eog-eog-window.html#eog-window-get-gear-menu-section"/>
     <keyword type="function" name="eog_window_get_mode ()" link="eog-eog-window.html#eog-window-get-mode"/>
     <keyword type="function" name="eog_window_set_mode ()" link="eog-eog-window.html#eog-window-set-mode"/>
-    <keyword type="function" name="eog_window_get_ui_manager ()" link="eog-eog-window.html#eog-window-get-ui-manager"/>
     <keyword type="function" name="eog_window_get_store ()" link="eog-eog-window.html#eog-window-get-store"/>
     <keyword type="function" name="eog_window_get_view ()" link="eog-eog-window.html#eog-window-get-view"/>
     <keyword type="function" name="eog_window_get_sidebar ()" link="eog-eog-window.html#eog-window-get-sidebar"/>
@@ -158,6 +156,7 @@
     <keyword type="function" name="eog_window_open_file_list ()" link="eog-eog-window.html#eog-window-open-file-list"/>
     <keyword type="function" name="eog_window_is_empty ()" link="eog-eog-window.html#eog-window-is-empty"/>
     <keyword type="function" name="eog_window_reload_image ()" link="eog-eog-window.html#eog-window-reload-image"/>
+    <keyword type="macro" name="EOG_WINDOW_ERROR" link="eog-eog-window.html#EOG-WINDOW-ERROR:CAPS"/>
     <keyword type="enum" name="enum EogWindowGalleryPos" link="eog-eog-window.html#EogWindowGalleryPos"/>
     <keyword type="enum" name="enum EogWindowMode" link="eog-eog-window.html#EogWindowMode"/>
     <keyword type="enum" name="enum EogWindowError" link="eog-eog-window.html#EogWindowError"/>
@@ -196,9 +195,7 @@
     <keyword type="function" name="eog_save_as_dialog_get_converter ()" link="eog-eog-save-as-dialog-helper.html#eog-save-as-dialog-get-converter"/>
     <keyword type="function" name="eog_image_load_error_message_area_new ()" link="eog-eog-error-message-area.html#eog-image-load-error-message-area-new"/>
     <keyword type="function" name="eog_no_images_error_message_area_new ()" link="eog-eog-error-message-area.html#eog-no-images-error-message-area-new"/>
-    <keyword type="macro" name="EOG_IMAGE_DATA_ALL" link="eog-eog-image.html#EOG-IMAGE-DATA-ALL:CAPS"/>
     <keyword type="function" name="eog_image_error_quark ()" link="eog-eog-image.html#eog-image-error-quark"/>
-    <keyword type="function" name="eog_image_new ()" link="eog-eog-image.html#eog-image-new"/>
     <keyword type="function" name="eog_image_new_file ()" link="eog-eog-image.html#eog-image-new-file"/>
     <keyword type="function" name="eog_image_load ()" link="eog-eog-image.html#eog-image-load"/>
     <keyword type="function" name="eog_image_cancel_load ()" link="eog-eog-image.html#eog-image-cancel-load"/>
@@ -236,7 +233,10 @@
     <keyword type="function" name="eog_image_is_animation ()" link="eog-eog-image.html#eog-image-is-animation"/>
     <keyword type="function" name="eog_image_is_svg ()" link="eog-eog-image.html#eog-image-is-svg"/>
     <keyword type="function" name="eog_image_start_animation ()" link="eog-eog-image.html#eog-image-start-animation"/>
+    <keyword type="function" name="eog_image_is_file_writable ()" link="eog-eog-image.html#eog-image-is-file-writable"/>
+    <keyword type="function" name="eog_image_is_multipaged ()" link="eog-eog-image.html#eog-image-is-multipaged" since="3.18"/>
     <keyword type="enum" name="enum EogImageData" link="eog-eog-image.html#EogImageData"/>
+    <keyword type="macro" name="EOG_IMAGE_DATA_ALL" link="eog-eog-image.html#EOG-IMAGE-DATA-ALL:CAPS"/>
     <keyword type="enum" name="enum EogImageError" link="eog-eog-image.html#EogImageError"/>
     <keyword type="macro" name="EOG_IMAGE_ERROR" link="eog-eog-image.html#EOG-IMAGE-ERROR:CAPS"/>
     <keyword type="enum" name="enum EogImageMetadataStatus" link="eog-eog-image.html#EogImageMetadataStatus"/>
@@ -281,9 +281,6 @@
     <keyword type="function" name="eog_application_open_uri_list ()" link="eog-eog-application.html#eog-application-open-uri-list"/>
     <keyword type="function" name="eog_application_open_file_list ()" link="eog-eog-application.html#eog-application-open-file-list"/>
     <keyword type="function" name="eog_application_open_uris ()" link="eog-eog-application.html#eog-application-open-uris"/>
-    <keyword type="function" name="eog_application_get_toolbars_model ()" link="eog-eog-application.html#eog-application-get-toolbars-model"/>
-    <keyword type="function" name="eog_application_save_toolbars_model ()" link="eog-eog-application.html#eog-application-save-toolbars-model"/>
-    <keyword type="function" name="eog_application_reset_toolbars_model ()" link="eog-eog-application.html#eog-application-reset-toolbars-model"/>
     <keyword type="function" name="eog_application_screensaver_enable ()" link="eog-eog-application.html#eog-application-screensaver-enable"/>
     <keyword type="function" name="eog_application_screensaver_disable ()" link="eog-eog-application.html#eog-application-screensaver-disable"/>
     <keyword type="macro" name="EOG_APP" link="eog-eog-application.html#EOG-APP:CAPS"/>
@@ -308,13 +305,11 @@
     <keyword type="macro" name="EOG_CONF_FULLSCREEN_LOOP" link="eog-eog-config-keys.html#EOG-CONF-FULLSCREEN-LOOP:CAPS"/>
     <keyword type="macro" name="EOG_CONF_FULLSCREEN_UPSCALE" link="eog-eog-config-keys.html#EOG-CONF-FULLSCREEN-UPSCALE:CAPS"/>
     <keyword type="macro" name="EOG_CONF_FULLSCREEN_SECONDS" link="eog-eog-config-keys.html#EOG-CONF-FULLSCREEN-SECONDS:CAPS"/>
-    <keyword type="macro" name="EOG_CONF_UI_TOOLBAR" link="eog-eog-config-keys.html#EOG-CONF-UI-TOOLBAR:CAPS"/>
     <keyword type="macro" name="EOG_CONF_UI_STATUSBAR" link="eog-eog-config-keys.html#EOG-CONF-UI-STATUSBAR:CAPS"/>
     <keyword type="macro" name="EOG_CONF_UI_SIDEBAR" link="eog-eog-config-keys.html#EOG-CONF-UI-SIDEBAR:CAPS"/>
     <keyword type="macro" name="EOG_CONF_UI_SCROLL_BUTTONS" link="eog-eog-config-keys.html#EOG-CONF-UI-SCROLL-BUTTONS:CAPS"/>
     <keyword type="macro" name="EOG_CONF_UI_DISABLE_CLOSE_CONFIRMATION" link="eog-eog-config-keys.html#EOG-CONF-UI-DISABLE-CLOSE-CONFIRMATION:CAPS"/>
     <keyword type="macro" name="EOG_CONF_UI_DISABLE_TRASH_CONFIRMATION" link="eog-eog-config-keys.html#EOG-CONF-UI-DISABLE-TRASH-CONFIRMATION:CAPS"/>
-    <keyword type="macro" name="EOG_CONF_UI_EXTERNAL_EDITOR" link="eog-eog-config-keys.html#EOG-CONF-UI-EXTERNAL-EDITOR:CAPS"/>
     <keyword type="macro" name="EOG_CONF_UI_FILECHOOSER_XDG_FALLBACK" link="eog-eog-config-keys.html#EOG-CONF-UI-FILECHOOSER-XDG-FALLBACK:CAPS"/>
     <keyword type="macro" name="EOG_CONF_UI_IMAGE_GALLERY" link="eog-eog-config-keys.html#EOG-CONF-UI-IMAGE-GALLERY:CAPS"/>
     <keyword type="macro" name="EOG_CONF_UI_IMAGE_GALLERY_POSITION" link="eog-eog-config-keys.html#EOG-CONF-UI-IMAGE-GALLERY-POSITION:CAPS"/>
@@ -376,28 +371,22 @@
     <keyword type="function" name="eog_pixbuf_get_common_suffix ()" link="eog-eog-pixbuf-util.html#eog-pixbuf-get-common-suffix"/>
     <keyword type="function" name="zoom_fit_size ()" link="eog-zoom.html#zoom-fit-size"/>
     <keyword type="function" name="zoom_fit_scale ()" link="eog-zoom.html#zoom-fit-scale"/>
-    <keyword type="macro" name="EOG_TYPE_JOB_THUMBNAIL" link="eog-eog-jobs.html#EOG-TYPE-JOB-THUMBNAIL:CAPS"/>
     <keyword type="macro" name="EOG_JOB_THUMBNAIL()" link="eog-eog-jobs.html#EOG-JOB-THUMBNAIL:CAPS"/>
     <keyword type="macro" name="EOG_JOB_THUMBNAIL_CLASS()" link="eog-eog-jobs.html#EOG-JOB-THUMBNAIL-CLASS:CAPS"/>
     <keyword type="macro" name="EOG_IS_JOB_THUMBNAIL()" link="eog-eog-jobs.html#EOG-IS-JOB-THUMBNAIL:CAPS"/>
-    <keyword type="macro" name="EOG_TYPE_JOB_LOAD" link="eog-eog-jobs.html#EOG-TYPE-JOB-LOAD:CAPS"/>
     <keyword type="macro" name="EOG_JOB_LOAD()" link="eog-eog-jobs.html#EOG-JOB-LOAD:CAPS"/>
     <keyword type="macro" name="EOG_JOB_LOAD_CLASS()" link="eog-eog-jobs.html#EOG-JOB-LOAD-CLASS:CAPS"/>
     <keyword type="macro" name="EOG_IS_JOB_LOAD()" link="eog-eog-jobs.html#EOG-IS-JOB-LOAD:CAPS"/>
-    <keyword type="macro" name="EOG_TYPE_JOB_MODEL" link="eog-eog-jobs.html#EOG-TYPE-JOB-MODEL:CAPS"/>
     <keyword type="macro" name="EOG_JOB_MODEL()" link="eog-eog-jobs.html#EOG-JOB-MODEL:CAPS"/>
     <keyword type="macro" name="EOG_JOB_MODEL_CLASS()" link="eog-eog-jobs.html#EOG-JOB-MODEL-CLASS:CAPS"/>
     <keyword type="macro" name="EOG_IS_JOB_MODEL()" link="eog-eog-jobs.html#EOG-IS-JOB-MODEL:CAPS"/>
-    <keyword type="macro" name="EOG_TYPE_JOB_TRANSFORM" link="eog-eog-jobs.html#EOG-TYPE-JOB-TRANSFORM:CAPS"/>
     <keyword type="macro" name="EOG_JOB_TRANSFORM()" link="eog-eog-jobs.html#EOG-JOB-TRANSFORM:CAPS"/>
     <keyword type="macro" name="EOG_JOB_TRANSFORM_CLASS()" link="eog-eog-jobs.html#EOG-JOB-TRANSFORM-CLASS:CAPS"/>
     <keyword type="macro" name="EOG_IS_JOB_TRANSFORM()" link="eog-eog-jobs.html#EOG-IS-JOB-TRANSFORM:CAPS"/>
-    <keyword type="macro" name="EOG_TYPE_JOB_SAVE" link="eog-eog-jobs.html#EOG-TYPE-JOB-SAVE:CAPS"/>
     <keyword type="macro" name="EOG_JOB_SAVE()" link="eog-eog-jobs.html#EOG-JOB-SAVE:CAPS"/>
     <keyword type="macro" name="EOG_JOB_SAVE_CLASS()" link="eog-eog-jobs.html#EOG-JOB-SAVE-CLASS:CAPS"/>
     <keyword type="macro" name="EOG_IS_JOB_SAVE()" link="eog-eog-jobs.html#EOG-IS-JOB-SAVE:CAPS"/>
     <keyword type="macro" name="EOG_JOB_SAVE_GET_CLASS()" link="eog-eog-jobs.html#EOG-JOB-SAVE-GET-CLASS:CAPS"/>
-    <keyword type="macro" name="EOG_TYPE_JOB_SAVE_AS" link="eog-eog-jobs.html#EOG-TYPE-JOB-SAVE-AS:CAPS"/>
     <keyword type="macro" name="EOG_JOB_SAVE_AS()" link="eog-eog-jobs.html#EOG-JOB-SAVE-AS:CAPS"/>
     <keyword type="macro" name="EOG_JOB_SAVE_AS_CLASS()" link="eog-eog-jobs.html#EOG-JOB-SAVE-AS-CLASS:CAPS"/>
     <keyword type="macro" name="EOG_IS_JOB_SAVE_AS()" link="eog-eog-jobs.html#EOG-IS-JOB-SAVE-AS:CAPS"/>
@@ -419,6 +408,12 @@
     <keyword type="function" name="eog_job_save_as_new ()" link="eog-eog-jobs.html#eog-job-save-as-new"/>
     <keyword type="function" name="eog_job_copy_get_type ()" link="eog-eog-jobs.html#eog-job-copy-get-type"/>
     <keyword type="function" name="eog_job_copy_new ()" link="eog-eog-jobs.html#eog-job-copy-new"/>
+    <keyword type="macro" name="EOG_TYPE_JOB_THUMBNAIL" link="eog-eog-jobs.html#EOG-TYPE-JOB-THUMBNAIL:CAPS"/>
+    <keyword type="macro" name="EOG_TYPE_JOB_LOAD" link="eog-eog-jobs.html#EOG-TYPE-JOB-LOAD:CAPS"/>
+    <keyword type="macro" name="EOG_TYPE_JOB_MODEL" link="eog-eog-jobs.html#EOG-TYPE-JOB-MODEL:CAPS"/>
+    <keyword type="macro" name="EOG_TYPE_JOB_TRANSFORM" link="eog-eog-jobs.html#EOG-TYPE-JOB-TRANSFORM:CAPS"/>
+    <keyword type="macro" name="EOG_TYPE_JOB_SAVE" link="eog-eog-jobs.html#EOG-TYPE-JOB-SAVE:CAPS"/>
+    <keyword type="macro" name="EOG_TYPE_JOB_SAVE_AS" link="eog-eog-jobs.html#EOG-TYPE-JOB-SAVE-AS:CAPS"/>
     <keyword type="struct" name="EogJob" link="eog-eog-jobs.html#EogJob-struct"/>
     <keyword type="struct" name="struct EogJobThumbnail" link="eog-eog-jobs.html#EogJobThumbnail-struct"/>
     <keyword type="struct" name="struct EogJobLoad" link="eog-eog-jobs.html#EogJobLoad-struct"/>
@@ -433,5 +428,106 @@
     <keyword type="function" name="eog_job_scheduler_init ()" link="eog-EogJobScheduler.html#eog-job-scheduler-init"/>
     <keyword type="function" name="eog_job_scheduler_add_job ()" link="eog-EogJobScheduler.html#eog-job-scheduler-add-job"/>
     <keyword type="function" name="eog_job_scheduler_add_job_with_priority ()" link="eog-EogJobScheduler.html#eog-job-scheduler-add-job-with-priority"/>
+    <keyword type="constant" name="EOG_PROPERTIES_DIALOG_PAGE_GENERAL" link="eog-eog-properties-dialog.html#EOG-PROPERTIES-DIALOG-PAGE-GENERAL:CAPS"/>
+    <keyword type="constant" name="EOG_PROPERTIES_DIALOG_PAGE_EXIF" link="eog-eog-properties-dialog.html#EOG-PROPERTIES-DIALOG-PAGE-EXIF:CAPS"/>
+    <keyword type="constant" name="EOG_PROPERTIES_DIALOG_PAGE_DETAILS" link="eog-eog-properties-dialog.html#EOG-PROPERTIES-DIALOG-PAGE-DETAILS:CAPS"/>
+    <keyword type="constant" name="EOG_PROPERTIES_DIALOG_N_PAGES" link="eog-eog-properties-dialog.html#EOG-PROPERTIES-DIALOG-N-PAGES:CAPS"/>
+    <keyword type="constant" name="EOG_LIST_STORE_THUMBNAIL" link="eog-eog-list-store.html#EOG-LIST-STORE-THUMBNAIL:CAPS"/>
+    <keyword type="constant" name="EOG_LIST_STORE_THUMB_SET" link="eog-eog-list-store.html#EOG-LIST-STORE-THUMB-SET:CAPS"/>
+    <keyword type="constant" name="EOG_LIST_STORE_EOG_IMAGE" link="eog-eog-list-store.html#EOG-LIST-STORE-EOG-IMAGE:CAPS"/>
+    <keyword type="constant" name="EOG_LIST_STORE_EOG_JOB" link="eog-eog-list-store.html#EOG-LIST-STORE-EOG-JOB:CAPS"/>
+    <keyword type="constant" name="EOG_LIST_STORE_NUM_COLUMNS" link="eog-eog-list-store.html#EOG-LIST-STORE-NUM-COLUMNS:CAPS"/>
+    <keyword type="constant" name="EOG_THUMB_NAV_MODE_ONE_ROW" link="eog-eog-thumb-nav.html#EOG-THUMB-NAV-MODE-ONE-ROW:CAPS"/>
+    <keyword type="constant" name="EOG_THUMB_NAV_MODE_ONE_COLUMN" link="eog-eog-thumb-nav.html#EOG-THUMB-NAV-MODE-ONE-COLUMN:CAPS"/>
+    <keyword type="constant" name="EOG_THUMB_NAV_MODE_MULTIPLE_ROWS" link="eog-eog-thumb-nav.html#EOG-THUMB-NAV-MODE-MULTIPLE-ROWS:CAPS"/>
+    <keyword type="constant" name="EOG_THUMB_NAV_MODE_MULTIPLE_COLUMNS" link="eog-eog-thumb-nav.html#EOG-THUMB-NAV-MODE-MULTIPLE-COLUMNS:CAPS"/>
+    <keyword type="constant" name="EOG_THUMB_VIEW_SELECT_CURRENT" link="eog-eog-thumb-view.html#EOG-THUMB-VIEW-SELECT-CURRENT:CAPS"/>
+    <keyword type="constant" name="EOG_THUMB_VIEW_SELECT_LEFT" link="eog-eog-thumb-view.html#EOG-THUMB-VIEW-SELECT-LEFT:CAPS"/>
+    <keyword type="constant" name="EOG_THUMB_VIEW_SELECT_RIGHT" link="eog-eog-thumb-view.html#EOG-THUMB-VIEW-SELECT-RIGHT:CAPS"/>
+    <keyword type="constant" name="EOG_THUMB_VIEW_SELECT_FIRST" link="eog-eog-thumb-view.html#EOG-THUMB-VIEW-SELECT-FIRST:CAPS"/>
+    <keyword type="constant" name="EOG_THUMB_VIEW_SELECT_LAST" link="eog-eog-thumb-view.html#EOG-THUMB-VIEW-SELECT-LAST:CAPS"/>
+    <keyword type="constant" name="EOG_THUMB_VIEW_SELECT_RANDOM" link="eog-eog-thumb-view.html#EOG-THUMB-VIEW-SELECT-RANDOM:CAPS"/>
+    <keyword type="constant" name="EOG_TRANSP_BACKGROUND" link="EogScrollView.html#EOG-TRANSP-BACKGROUND:CAPS"/>
+    <keyword type="constant" name="EOG_TRANSP_CHECKED" link="EogScrollView.html#EOG-TRANSP-CHECKED:CAPS"/>
+    <keyword type="constant" name="EOG_TRANSP_COLOR" link="EogScrollView.html#EOG-TRANSP-COLOR:CAPS"/>
+    <keyword type="constant" name="EOG_ZOOM_MODE_FREE" link="EogScrollView.html#EOG-ZOOM-MODE-FREE:CAPS"/>
+    <keyword type="constant" name="EOG_ZOOM_MODE_SHRINK_TO_FIT" link="EogScrollView.html#EOG-ZOOM-MODE-SHRINK-TO-FIT:CAPS"/>
+    <keyword type="constant" name="EOG_WINDOW_GALLERY_POS_BOTTOM" link="eog-eog-window.html#EOG-WINDOW-GALLERY-POS-BOTTOM:CAPS"/>
+    <keyword type="constant" name="EOG_WINDOW_GALLERY_POS_LEFT" link="eog-eog-window.html#EOG-WINDOW-GALLERY-POS-LEFT:CAPS"/>
+    <keyword type="constant" name="EOG_WINDOW_GALLERY_POS_TOP" link="eog-eog-window.html#EOG-WINDOW-GALLERY-POS-TOP:CAPS"/>
+    <keyword type="constant" name="EOG_WINDOW_GALLERY_POS_RIGHT" link="eog-eog-window.html#EOG-WINDOW-GALLERY-POS-RIGHT:CAPS"/>
+    <keyword type="constant" name="EOG_WINDOW_MODE_UNKNOWN" link="eog-eog-window.html#EOG-WINDOW-MODE-UNKNOWN:CAPS"/>
+    <keyword type="constant" name="EOG_WINDOW_MODE_NORMAL" link="eog-eog-window.html#EOG-WINDOW-MODE-NORMAL:CAPS"/>
+    <keyword type="constant" name="EOG_WINDOW_MODE_FULLSCREEN" link="eog-eog-window.html#EOG-WINDOW-MODE-FULLSCREEN:CAPS"/>
+    <keyword type="constant" name="EOG_WINDOW_MODE_SLIDESHOW" link="eog-eog-window.html#EOG-WINDOW-MODE-SLIDESHOW:CAPS"/>
+    <keyword type="constant" name="EOG_WINDOW_ERROR_CONTROL_NOT_FOUND" link="eog-eog-window.html#EOG-WINDOW-ERROR-CONTROL-NOT-FOUND:CAPS"/>
+    <keyword type="constant" name="EOG_WINDOW_ERROR_UI_NOT_FOUND" link="eog-eog-window.html#EOG-WINDOW-ERROR-UI-NOT-FOUND:CAPS"/>
+    <keyword type="constant" name="EOG_WINDOW_ERROR_NO_PERSIST_FILE_INTERFACE" link="eog-eog-window.html#EOG-WINDOW-ERROR-NO-PERSIST-FILE-INTERFACE:CAPS"/>
+    <keyword type="constant" name="EOG_WINDOW_ERROR_IO" link="eog-eog-window.html#EOG-WINDOW-ERROR-IO:CAPS"/>
+    <keyword type="constant" name="EOG_WINDOW_ERROR_TRASH_NOT_FOUND" link="eog-eog-window.html#EOG-WINDOW-ERROR-TRASH-NOT-FOUND:CAPS"/>
+    <keyword type="constant" name="EOG_WINDOW_ERROR_GENERIC" link="eog-eog-window.html#EOG-WINDOW-ERROR-GENERIC:CAPS"/>
+    <keyword type="constant" name="EOG_WINDOW_ERROR_UNKNOWN" link="eog-eog-window.html#EOG-WINDOW-ERROR-UNKNOWN:CAPS"/>
+    <keyword type="constant" name="EOG_STARTUP_FULLSCREEN" link="eog-eog-window.html#EOG-STARTUP-FULLSCREEN:CAPS"/>
+    <keyword type="constant" name="EOG_STARTUP_SLIDE_SHOW" link="eog-eog-window.html#EOG-STARTUP-SLIDE-SHOW:CAPS"/>
+    <keyword type="constant" name="EOG_STARTUP_DISABLE_GALLERY" link="eog-eog-window.html#EOG-STARTUP-DISABLE-GALLERY:CAPS"/>
+    <keyword type="constant" name="EOG_STARTUP_SINGLE_WINDOW" link="eog-eog-window.html#EOG-STARTUP-SINGLE-WINDOW:CAPS"/>
+    <keyword type="constant" name="EOG_IMAGE_DATA_IMAGE" link="eog-eog-image.html#EOG-IMAGE-DATA-IMAGE:CAPS"/>
+    <keyword type="constant" name="EOG_IMAGE_DATA_DIMENSION" link="eog-eog-image.html#EOG-IMAGE-DATA-DIMENSION:CAPS"/>
+    <keyword type="constant" name="EOG_IMAGE_DATA_EXIF" link="eog-eog-image.html#EOG-IMAGE-DATA-EXIF:CAPS"/>
+    <keyword type="constant" name="EOG_IMAGE_DATA_XMP" link="eog-eog-image.html#EOG-IMAGE-DATA-XMP:CAPS"/>
+    <keyword type="constant" name="EOG_IMAGE_ERROR_SAVE_NOT_LOCAL" link="eog-eog-image.html#EOG-IMAGE-ERROR-SAVE-NOT-LOCAL:CAPS"/>
+    <keyword type="constant" name="EOG_IMAGE_ERROR_NOT_LOADED" link="eog-eog-image.html#EOG-IMAGE-ERROR-NOT-LOADED:CAPS"/>
+    <keyword type="constant" name="EOG_IMAGE_ERROR_NOT_SAVED" link="eog-eog-image.html#EOG-IMAGE-ERROR-NOT-SAVED:CAPS"/>
+    <keyword type="constant" name="EOG_IMAGE_ERROR_VFS" link="eog-eog-image.html#EOG-IMAGE-ERROR-VFS:CAPS"/>
+    <keyword type="constant" name="EOG_IMAGE_ERROR_FILE_EXISTS" link="eog-eog-image.html#EOG-IMAGE-ERROR-FILE-EXISTS:CAPS"/>
+    <keyword type="constant" name="EOG_IMAGE_ERROR_TMP_FILE_FAILED" link="eog-eog-image.html#EOG-IMAGE-ERROR-TMP-FILE-FAILED:CAPS"/>
+    <keyword type="constant" name="EOG_IMAGE_ERROR_GENERIC" link="eog-eog-image.html#EOG-IMAGE-ERROR-GENERIC:CAPS"/>
+    <keyword type="constant" name="EOG_IMAGE_ERROR_UNKNOWN" link="eog-eog-image.html#EOG-IMAGE-ERROR-UNKNOWN:CAPS"/>
+    <keyword type="constant" name="EOG_IMAGE_METADATA_NOT_READ" link="eog-eog-image.html#EOG-IMAGE-METADATA-NOT-READ:CAPS"/>
+    <keyword type="constant" name="EOG_IMAGE_METADATA_NOT_AVAILABLE" link="eog-eog-image.html#EOG-IMAGE-METADATA-NOT-AVAILABLE:CAPS"/>
+    <keyword type="constant" name="EOG_IMAGE_METADATA_READY" link="eog-eog-image.html#EOG-IMAGE-METADATA-READY:CAPS"/>
+    <keyword type="constant" name="EOG_IMAGE_STATUS_UNKNOWN" link="eog-eog-image.html#EOG-IMAGE-STATUS-UNKNOWN:CAPS"/>
+    <keyword type="constant" name="EOG_IMAGE_STATUS_LOADING" link="eog-eog-image.html#EOG-IMAGE-STATUS-LOADING:CAPS"/>
+    <keyword type="constant" name="EOG_IMAGE_STATUS_LOADED" link="eog-eog-image.html#EOG-IMAGE-STATUS-LOADED:CAPS"/>
+    <keyword type="constant" name="EOG_IMAGE_STATUS_SAVING" link="eog-eog-image.html#EOG-IMAGE-STATUS-SAVING:CAPS"/>
+    <keyword type="constant" name="EOG_IMAGE_STATUS_FAILED" link="eog-eog-image.html#EOG-IMAGE-STATUS-FAILED:CAPS"/>
+    <keyword type="constant" name="EOG_TRANSFORM_NONE" link="eog-eog-transform.html#EOG-TRANSFORM-NONE:CAPS"/>
+    <keyword type="constant" name="EOG_TRANSFORM_ROT_90" link="eog-eog-transform.html#EOG-TRANSFORM-ROT-90:CAPS"/>
+    <keyword type="constant" name="EOG_TRANSFORM_ROT_180" link="eog-eog-transform.html#EOG-TRANSFORM-ROT-180:CAPS"/>
+    <keyword type="constant" name="EOG_TRANSFORM_ROT_270" link="eog-eog-transform.html#EOG-TRANSFORM-ROT-270:CAPS"/>
+    <keyword type="constant" name="EOG_TRANSFORM_FLIP_HORIZONTAL" link="eog-eog-transform.html#EOG-TRANSFORM-FLIP-HORIZONTAL:CAPS"/>
+    <keyword type="constant" name="EOG_TRANSFORM_FLIP_VERTICAL" link="eog-eog-transform.html#EOG-TRANSFORM-FLIP-VERTICAL:CAPS"/>
+    <keyword type="constant" name="EOG_TRANSFORM_TRANSPOSE" link="eog-eog-transform.html#EOG-TRANSFORM-TRANSPOSE:CAPS"/>
+    <keyword type="constant" name="EOG_TRANSFORM_TRANSVERSE" link="eog-eog-transform.html#EOG-TRANSFORM-TRANSVERSE:CAPS"/>
+    <keyword type="constant" name="EOG_DEBUG_NO_DEBUG" link="eog-eog-debug.html#EOG-DEBUG-NO-DEBUG:CAPS"/>
+    <keyword type="constant" name="EOG_DEBUG_WINDOW" link="eog-eog-debug.html#EOG-DEBUG-WINDOW:CAPS"/>
+    <keyword type="constant" name="EOG_DEBUG_VIEW" link="eog-eog-debug.html#EOG-DEBUG-VIEW:CAPS"/>
+    <keyword type="constant" name="EOG_DEBUG_JOBS" link="eog-eog-debug.html#EOG-DEBUG-JOBS:CAPS"/>
+    <keyword type="constant" name="EOG_DEBUG_THUMBNAIL" link="eog-eog-debug.html#EOG-DEBUG-THUMBNAIL:CAPS"/>
+    <keyword type="constant" name="EOG_DEBUG_IMAGE_DATA" link="eog-eog-debug.html#EOG-DEBUG-IMAGE-DATA:CAPS"/>
+    <keyword type="constant" name="EOG_DEBUG_IMAGE_LOAD" link="eog-eog-debug.html#EOG-DEBUG-IMAGE-LOAD:CAPS"/>
+    <keyword type="constant" name="EOG_DEBUG_IMAGE_SAVE" link="eog-eog-debug.html#EOG-DEBUG-IMAGE-SAVE:CAPS"/>
+    <keyword type="constant" name="EOG_DEBUG_LIST_STORE" link="eog-eog-debug.html#EOG-DEBUG-LIST-STORE:CAPS"/>
+    <keyword type="constant" name="EOG_DEBUG_PREFERENCES" link="eog-eog-debug.html#EOG-DEBUG-PREFERENCES:CAPS"/>
+    <keyword type="constant" name="EOG_DEBUG_PRINTING" link="eog-eog-debug.html#EOG-DEBUG-PRINTING:CAPS"/>
+    <keyword type="constant" name="EOG_DEBUG_LCMS" link="eog-eog-debug.html#EOG-DEBUG-LCMS:CAPS"/>
+    <keyword type="constant" name="EOG_DEBUG_PLUGINS" link="eog-eog-debug.html#EOG-DEBUG-PLUGINS:CAPS"/>
+    <keyword type="constant" name="EOG_UC_STRING" link="eog-eog-uri-converter.html#EOG-UC-STRING:CAPS"/>
+    <keyword type="constant" name="EOG_UC_FILENAME" link="eog-eog-uri-converter.html#EOG-UC-FILENAME:CAPS"/>
+    <keyword type="constant" name="EOG_UC_COUNTER" link="eog-eog-uri-converter.html#EOG-UC-COUNTER:CAPS"/>
+    <keyword type="constant" name="EOG_UC_COMMENT" link="eog-eog-uri-converter.html#EOG-UC-COMMENT:CAPS"/>
+    <keyword type="constant" name="EOG_UC_DATE" link="eog-eog-uri-converter.html#EOG-UC-DATE:CAPS"/>
+    <keyword type="constant" name="EOG_UC_TIME" link="eog-eog-uri-converter.html#EOG-UC-TIME:CAPS"/>
+    <keyword type="constant" name="EOG_UC_DAY" link="eog-eog-uri-converter.html#EOG-UC-DAY:CAPS"/>
+    <keyword type="constant" name="EOG_UC_MONTH" link="eog-eog-uri-converter.html#EOG-UC-MONTH:CAPS"/>
+    <keyword type="constant" name="EOG_UC_YEAR" link="eog-eog-uri-converter.html#EOG-UC-YEAR:CAPS"/>
+    <keyword type="constant" name="EOG_UC_HOUR" link="eog-eog-uri-converter.html#EOG-UC-HOUR:CAPS"/>
+    <keyword type="constant" name="EOG_UC_MINUTE" link="eog-eog-uri-converter.html#EOG-UC-MINUTE:CAPS"/>
+    <keyword type="constant" name="EOG_UC_SECOND" link="eog-eog-uri-converter.html#EOG-UC-SECOND:CAPS"/>
+    <keyword type="constant" name="EOG_UC_END" link="eog-eog-uri-converter.html#EOG-UC-END:CAPS"/>
+    <keyword type="constant" name="EOG_UC_ERROR_INVALID_UNICODE" link="eog-eog-uri-converter.html#EOG-UC-ERROR-INVALID-UNICODE:CAPS"/>
+    <keyword type="constant" name="EOG_UC_ERROR_INVALID_CHARACTER" link="eog-eog-uri-converter.html#EOG-UC-ERROR-INVALID-CHARACTER:CAPS"/>
+    <keyword type="constant" name="EOG_UC_ERROR_EQUAL_FILENAMES" link="eog-eog-uri-converter.html#EOG-UC-ERROR-EQUAL-FILENAMES:CAPS"/>
+    <keyword type="constant" name="EOG_UC_ERROR_UNKNOWN" link="eog-eog-uri-converter.html#EOG-UC-ERROR-UNKNOWN:CAPS"/>
   </functions>
 </book>

@@ -2,8 +2,6 @@ if ENABLE_JPEG
 jpeg_LIB = $(top_builddir)/jpegutils/libeog-jpegutils.la
 endif
 
-toolbar_LIB = $(top_builddir)/cut-n-paste/toolbar-editor/libtoolbareditor.la
-
 pkglib_LTLIBRARIES = libeog.la
 
 bin_PROGRAMS = eog
@@ -134,12 +132,10 @@ endif HAVE_EXEMPI
 
 libeog_la_CPPFLAGS =						\
 	-I$(top_srcdir)/jpegutils				\
-	-I$(top_srcdir)/cut-n-paste/toolbar-editor		\
 	-DG_LOG_DOMAIN=\"EOG\"					\
 	-DEOG_PREFIX=\""${prefix}"\"				\
 	-DEOG_DATA_DIR=\""$(pkgdatadir)"\"			\
 	-DEOG_LOCALE_DIR=\""$(datadir)/locale"\"		\
-	-DEOG_PIXMAPS_DIR=\""$(datadir)/pixmaps/eog"\"		\
 	-DEOG_PLUGIN_DIR=\""$(libdir)/eog/plugins"\"		\
 	-DLIBDIR=\""$(libdir)"\"
 
@@ -149,7 +145,6 @@ libeog_la_CFLAGS =						\
 
 libeog_la_LIBADD = \
 	$(EOG_LIBS)	\
-	$(toolbar_LIB)	\
 	$(jpeg_LIB)	\
 	$(LIBJPEG)	\
 	$(LIBM)
@@ -167,7 +162,6 @@ libeog_la_LDFLAGS = -avoid-version -export-dynamic -no-undefined -export-symbols
 eog_SOURCES = main.c
 
 eog_CFLAGS = 							\
-	-I$(top_srcdir)/cut-n-paste/toolbar-editor		\
 	$(EOG_CFLAGS)						\
 	-DEOG_DATA_DIR=\""$(pkgdatadir)"\"			\
 	-DEOG_LOCALE_DIR=\""$(datadir)/locale"\"                \
@@ -186,7 +180,9 @@ BUILT_SOURCES = 			\
 	eog-resources.c			\
 	$(MARSHAL_OUTPUT)
 
-eog-resources.c: eog.gresource.xml $(shell $(GLIB_COMPILE_RESOURCES) --sourcedir=$(top_srcdir)/data --generate-dependencies eog.gresource.xml)
+eog_resources_deps = $(shell $(GLIB_COMPILE_RESOURCES) --sourcedir=$(top_srcdir)/data --generate-dependencies $(top_srcdir)/src/eog.gresource.xml)
+
+eog-resources.c: $(top_srcdir)/src/eog.gresource.xml $(eog_resources_deps)
 	$(AM_V_GEN) $(GLIB_COMPILE_RESOURCES) "$<" --target=$@ \
          --sourcedir=$(top_srcdir)/data --c-name _eog --generate-source
 

@@ -39,6 +39,6 @@
  </item>
 </steps>
 
-<p>Algunes de les pestanyes que s'han mencionat no es mostren en alguns models d'impressora. Això és deu a que els <em>controladors de les impressores</em> no permeten canviar els paràmetres. Per exemple, si no veieu la pestanya <gui>Qualitat de la imatge</gui>, segurament es deu a que els controladors de la impressora que s'utilitzen no admeten aquests paràmetres.</p>
+<p>Algunes de les pestanyes que s'han mencionat no es mostren en alguns models d'impressora. Això és deu a què els <em>controladors de les impressores</em> no permeten canviar els paràmetres. Per exemple, si no veieu la pestanya <gui>Qualitat de la imatge</gui>, segurament es deu a què els controladors de la impressora que s'utilitzen no admeten aquests paràmetres.</p>
 
 </page>

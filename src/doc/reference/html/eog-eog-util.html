@@ -2,13 +2,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Eye of GNOME Reference Manual: eog-util</title>
+<title>eog-util: Eye of GNOME Reference Manual</title>
 <meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
 <link rel="home" href="index.html" title="Eye of GNOME Reference Manual">
 <link rel="up" href="ch05.html" title="Utilities">
 <link rel="prev" href="eog-eog-uri-converter.html" title="EogURIConverter">
 <link rel="next" href="eog-eog-exif-util.html" title="eog-exif-util">
-<meta name="generator" content="GTK-Doc V1.21.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.25 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -131,8 +131,6 @@
 </div>
 <div class="refsect1">
 <a name="eog-eog-util.description"></a><h2>Description</h2>
-<p>
-</p>
 </div>
 <div class="refsect1">
 <a name="eog-eog-util.functions_details"></a><h2>Functions</h2>
@@ -141,20 +139,12 @@
 <pre class="programlisting"><span class="returnvalue">void</span>
 eog_util_show_help (<em class="parameter"><code>const <span class="type">gchar</span> *section</code></em>,
                     <em class="parameter"><code><span class="type">GtkWindow</span> *parent</code></em>);</pre>
-<p>
-</p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="eog-util-make-valid-utf8"></a><h3>eog_util_make_valid_utf8 ()</h3>
 <pre class="programlisting"><span class="returnvalue">gchar</span> *
 eog_util_make_valid_utf8 (<em class="parameter"><code>const <span class="type">gchar</span> *name</code></em>);</pre>
-<p>
-</p>
-<div class="refsect3">
-<a name="id-1.2.6.4.5.3.5"></a><h4>Returns</h4>
-<p></p>
-</div>
 </div>
 <hr>
 <div class="refsect2">
@@ -162,36 +152,18 @@ eog_util_make_valid_utf8 (<em class="parameter"><code>const <span class="type">g
 <pre class="programlisting"><span class="returnvalue">GSList</span> *
 eog_util_parse_uri_string_list_to_file_list
                                (<em class="parameter"><code>const <span class="type">gchar</span> *uri_list</code></em>);</pre>
-<p>
-</p>
-<div class="refsect3">
-<a name="id-1.2.6.4.5.4.5"></a><h4>Returns</h4>
-<p></p>
-</div>
 </div>
 <hr>
 <div class="refsect2">
 <a name="eog-util-string-list-to-file-list"></a><h3>eog_util_string_list_to_file_list ()</h3>
 <pre class="programlisting"><span class="returnvalue">GSList</span> *
 eog_util_string_list_to_file_list (<em class="parameter"><code><span class="type">GSList</span> *string_list</code></em>);</pre>
-<p>
-</p>
-<div class="refsect3">
-<a name="id-1.2.6.4.5.5.5"></a><h4>Returns</h4>
-<p></p>
-</div>
 </div>
 <hr>
 <div class="refsect2">
 <a name="eog-util-strings-to-file-list"></a><h3>eog_util_strings_to_file_list ()</h3>
 <pre class="programlisting"><span class="returnvalue">GSList</span> *
 eog_util_strings_to_file_list (<em class="parameter"><code><span class="type">gchar</span> **strings</code></em>);</pre>
-<p>
-</p>
-<div class="refsect3">
-<a name="id-1.2.6.4.5.6.5"></a><h4>Returns</h4>
-<p></p>
-</div>
 </div>
 <hr>
 <div class="refsect2">
@@ -199,24 +171,12 @@ eog_util_strings_to_file_list (<em class="parameter"><code><span class="type">gc
 <pre class="programlisting"><span class="returnvalue">GSList</span> *
 eog_util_string_array_to_list (<em class="parameter"><code>const <span class="type">gchar</span> **files</code></em>,
                                <em class="parameter"><code><span class="type">gboolean</span> create_uri</code></em>);</pre>
-<p>
-</p>
-<div class="refsect3">
-<a name="id-1.2.6.4.5.7.5"></a><h4>Returns</h4>
-<p></p>
-</div>
 </div>
 <hr>
 <div class="refsect2">
 <a name="eog-util-string-array-make-absolute"></a><h3>eog_util_string_array_make_absolute ()</h3>
 <pre class="programlisting"><span class="returnvalue">gchar</span> **
 eog_util_string_array_make_absolute (<em class="parameter"><code><span class="type">gchar</span> **files</code></em>);</pre>
-<p>
-</p>
-<div class="refsect3">
-<a name="id-1.2.6.4.5.8.5"></a><h4>Returns</h4>
-<p></p>
-</div>
 </div>
 <hr>
 <div class="refsect2">
@@ -224,24 +184,12 @@ eog_util_string_array_make_absolute (<em class="parameter"><code><span class="ty
 <pre class="programlisting"><span class="returnvalue">gboolean</span>
 eog_util_launch_desktop_file (<em class="parameter"><code>const <span class="type">gchar</span> *filename</code></em>,
                               <em class="parameter"><code><span class="type">guint32</span> user_time</code></em>);</pre>
-<p>
-</p>
-<div class="refsect3">
-<a name="id-1.2.6.4.5.9.5"></a><h4>Returns</h4>
-<p></p>
-</div>
 </div>
 <hr>
 <div class="refsect2">
 <a name="eog-util-dot-dir"></a><h3>eog_util_dot_dir ()</h3>
 <pre class="programlisting">const    <span class="returnvalue">gchar</span> *
 eog_util_dot_dir (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
-<p>
-</p>
-<div class="refsect3">
-<a name="id-1.2.6.4.5.10.5"></a><h4>Returns</h4>
-<p></p>
-</div>
 </div>
 <hr>
 <div class="refsect2">
@@ -251,7 +199,7 @@ eog_util_file_is_persistent (<em class="parameter"><code><span class="type">GFil
 <p>Checks whether <em class="parameter"><code>file</code></em>
  is a non-removable local mount.</p>
 <div class="refsect3">
-<a name="id-1.2.6.4.5.11.5"></a><h4>Parameters</h4>
+<a name="eog-util-file-is-persistent.parameters"></a><h4>Parameters</h4>
 <div class="informaltable"><table width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
@@ -266,11 +214,10 @@ eog_util_file_is_persistent (<em class="parameter"><code><span class="type">GFil
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.6.4.5.11.6"></a><h4>Returns</h4>
+<a name="eog-util-file-is-persistent.returns"></a><h4>Returns</h4>
 <p> <code class="literal">TRUE</code> if <em class="parameter"><code>file</code></em>
 is in a non-removable mount,
 <code class="literal">FALSE</code> otherwise or when it is remote.</p>
-<p></p>
 </div>
 </div>
 <hr>
@@ -281,7 +228,7 @@ eog_util_filename_get_extension (<em class="parameter"><code>const <span class="
 <p>Returns a reasonably good guess of the file extension of <em class="parameter"><code>filename</code></em>
 .</p>
 <div class="refsect3">
-<a name="id-1.2.6.4.5.12.5"></a><h4>Parameters</h4>
+<a name="eog-util-filename-get-extension.parameters"></a><h4>Parameters</h4>
 <div class="informaltable"><table width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
@@ -296,10 +243,9 @@ eog_util_filename_get_extension (<em class="parameter"><code>const <span class="
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.6.4.5.12.6"></a><h4>Returns</h4>
+<a name="eog-util-filename-get-extension.returns"></a><h4>Returns</h4>
 <p> a newly allocated string with the file extension of <em class="parameter"><code>filename</code></em>
 .</p>
-<p></p>
 </div>
 </div>
 </div>
@@ -308,7 +254,6 @@ eog_util_filename_get_extension (<em class="parameter"><code>const <span class="
 </div>
 </div>
 <div class="footer">
-<hr>
-          Generated by GTK-Doc V1.21.1</div>
+<hr>Generated by GTK-Doc V1.25</div>
 </body>
 </html>

@@ -3,7 +3,7 @@
 
   <info>
    <link type="guide" xref="index#plugins"/>
-   <desc>Adjusts the zoom to fit a picture's full width into the window.</desc>
+   <desc>Justerar zoomnivån för att en bilds fullständiga bredd ska få plats i fönstret.</desc>
 
    <revision pkgversion="3.2" version="0.1" date="2011-09-06" status="final"/>
    <credit type="author">
@@ -11,20 +11,35 @@
      <email>tiffany.antopolski@gmail.com</email>
    </credit>
    <license>
-     <p>Creative Commons Share Alike 3.0</p>
+     <p>Creative Commons DelaLika 3.0</p>
    </license>
 
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Daniel Nylander</mal:name>
+      <mal:email>po@danielnylander.se</mal:email>
+      <mal:years>2007, 2008, 2009</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Henrik Löwendahl</mal:name>
+      <mal:email>henrik.lowendahl@purplescout.se</mal:email>
+      <mal:years>2011</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Sebastian Rasmussen</mal:name>
+      <mal:email>sebras@gmail.com</mal:email>
+      <mal:years>2016</mal:years>
+    </mal:credit>
   </info>
 
-<title>Zoom to fit picture width</title>
+<title>Zooma för att passa bildens bredd</title>
 
-<p>Activate the <app>Zoom to fit image width</app> plugin if you want pictures 
-to be expanded to fill the full width of the window.</p>
+<p>Aktivera insticksmodulen <app>Zooma för att passa bildens bredd</app> om du vill att bilder ska expanderas till att fylla ut fönstrets fullständiga bredd.</p>
 
-<p>To do this, click <guiseq><gui>Edit</gui><gui>Preferences</gui></guiseq> and 
-go to the <gui>Plugins</gui> tab. Then, check <gui>Zoom to fit image width</gui> 
-and click <gui>Close</gui>.</p>
+<p>För att göra detta, klicka på <guiseq><gui>Redigera</gui><gui>Inställningar</gui></guiseq> och gå till fliken <gui>Insticksmoduler</gui>. Kryssa sedan i <gui>Zooma för att passa bildens bredd</gui> och klicka på <gui>Stäng</gui>.</p>
 
-<p>In order to add this functionality, you will need to have installed <link xref="plugins">eog-plugins</link>.</p>
+<p>För att lägga till denna funktionalitet måste du ha <link xref="plugins">eog-plugins</link> installerat.</p>
 
 </page>

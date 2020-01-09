@@ -29,7 +29,7 @@
  <p>Per defecte, la barra d'eines conté únicament un conjunt bàsic d'eines. Podeu afegir-ne modificant la barra d'eines:</p>
  <steps>
  <item>
-  <p>Assegureu-vos de que la barra d'eines no està oculta.</p>
+  <p>Assegureu-vos que la barra d'eines no està oculta.</p>
  </item>
  <item>
   <p>Feu clic a <guiseq><gui>Edita</gui><gui>Barra d'eines</gui></guiseq>.</p>

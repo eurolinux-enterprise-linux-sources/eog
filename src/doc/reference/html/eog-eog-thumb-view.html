@@ -2,13 +2,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Eye of GNOME Reference Manual: EogThumbView</title>
+<title>EogThumbView: Eye of GNOME Reference Manual</title>
 <meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
 <link rel="home" href="index.html" title="Eye of GNOME Reference Manual">
 <link rel="up" href="ch01.html" title="User Interface">
 <link rel="prev" href="eog-eog-thumb-nav.html" title="EogThumbNav">
 <link rel="next" href="EogScrollView.html" title="EogScrollView">
-<meta name="generator" content="GTK-Doc V1.21.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.25 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -153,8 +153,6 @@ EogThumbView implements
 </div>
 <div class="refsect1">
 <a name="eog-eog-thumb-view.description"></a><h2>Description</h2>
-<p>
-</p>
 </div>
 <div class="refsect1">
 <a name="eog-eog-thumb-view.functions_details"></a><h2>Functions</h2>
@@ -164,9 +162,8 @@ EogThumbView implements
 eog_thumb_view_new (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
 <p>Creates a new <a class="link" href="eog-eog-thumb-view.html#EogThumbView"><span class="type">EogThumbView</span></a> object.</p>
 <div class="refsect3">
-<a name="id-1.2.2.6.9.2.5"></a><h4>Returns</h4>
+<a name="eog-thumb-view-new.returns"></a><h4>Returns</h4>
 <p> a newly created <a class="link" href="eog-eog-thumb-view.html#EogThumbView"><span class="type">EogThumbView</span></a>.</p>
-<p></p>
 </div>
 </div>
 <hr>
@@ -180,7 +177,7 @@ eog_thumb_view_set_model (<em class="parameter"><code><a class="link" href="eog-
 was set during <em class="parameter"><code>store</code></em>
  creation, its thumbnail will be selected and visible.</p>
 <div class="refsect3">
-<a name="id-1.2.2.6.9.3.5"></a><h4>Parameters</h4>
+<a name="eog-thumb-view-set-model.parameters"></a><h4>Parameters</h4>
 <div class="informaltable"><table width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
@@ -211,7 +208,7 @@ eog_thumb_view_set_item_height (<em class="parameter"><code><a class="link" href
 <p>Sets the height of each thumbnail in <em class="parameter"><code>thumbview</code></em>
 .</p>
 <div class="refsect3">
-<a name="id-1.2.2.6.9.4.5"></a><h4>Parameters</h4>
+<a name="eog-thumb-view-set-item-height.parameters"></a><h4>Parameters</h4>
 <div class="informaltable"><table width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
@@ -241,7 +238,7 @@ eog_thumb_view_get_n_selected (<em class="parameter"><code><a class="link" href=
 <p>Gets the number of images that are currently selected in <em class="parameter"><code>thumbview</code></em>
 .</p>
 <div class="refsect3">
-<a name="id-1.2.2.6.9.5.5"></a><h4>Parameters</h4>
+<a name="eog-thumb-view-get-n-selected.parameters"></a><h4>Parameters</h4>
 <div class="informaltable"><table width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
@@ -256,10 +253,9 @@ eog_thumb_view_get_n_selected (<em class="parameter"><code><a class="link" href=
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.2.6.9.5.6"></a><h4>Returns</h4>
+<a name="eog-thumb-view-get-n-selected.returns"></a><h4>Returns</h4>
 <p> the number of selected images in <em class="parameter"><code>thumbview</code></em>
 .</p>
-<p></p>
 </div>
 </div>
 <hr>
@@ -273,7 +269,7 @@ is not ensured to be really the first selected image in <em class="parameter"><c
 , but
 generally, it will be.</p>
 <div class="refsect3">
-<a name="id-1.2.2.6.9.6.5"></a><h4>Parameters</h4>
+<a name="eog-thumb-view-get-first-selected-image.parameters"></a><h4>Parameters</h4>
 <div class="informaltable"><table width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
@@ -288,7 +284,7 @@ generally, it will be.</p>
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.2.6.9.6.6"></a><h4>Returns</h4>
+<a name="eog-thumb-view-get-first-selected-image.returns"></a><h4>Returns</h4>
 <p> A <a class="link" href="eog-eog-image.html#EogImage"><span class="type">EogImage</span></a>. </p>
 <p><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
 </div>
@@ -301,7 +297,7 @@ eog_thumb_view_get_selected_images (<em class="parameter"><code><a class="link" 
 <p>Gets a list with the currently selected images. Note that a new reference is
 hold for each image and the list must be freed with <code class="function">g_list_free()</code>.</p>
 <div class="refsect3">
-<a name="id-1.2.2.6.9.7.5"></a><h4>Parameters</h4>
+<a name="eog-thumb-view-get-selected-images.parameters"></a><h4>Parameters</h4>
 <div class="informaltable"><table width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
@@ -316,7 +312,7 @@ hold for each image and the list must be freed with <code class="function">g_lis
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.2.6.9.7.6"></a><h4>Returns</h4>
+<a name="eog-thumb-view-get-selected-images.returns"></a><h4>Returns</h4>
 <p> A newly allocated list of <a class="link" href="eog-eog-image.html#EogImage"><span class="type">EogImage</span></a>'s. </p>
 <p><span class="annotation">[<acronym title="Generics and defining elements of containers and arrays."><span class="acronym">element-type</span></acronym> EogImage][<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
 </div>
@@ -334,7 +330,7 @@ natural selection according to the <a class="link" href="eog-eog-thumb-view.html
 used, p.g., when <a class="link" href="eog-eog-thumb-view.html#EOG-THUMB-VIEW-SELECT-RIGHT:CAPS"><code class="literal">EOG_THUMB_VIEW_SELECT_RIGHT</code></a> is the selected change,
 the first thumbnail will be selected.</p>
 <div class="refsect3">
-<a name="id-1.2.2.6.9.8.5"></a><h4>Parameters</h4>
+<a name="eog-thumb-view-select-single.parameters"></a><h4>Parameters</h4>
 <div class="informaltable"><table width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
@@ -369,7 +365,7 @@ If <em class="parameter"><code>deselect_other</code></em>
  is <code class="literal">TRUE</code>, all other selected images will be
 deselected.</p>
 <div class="refsect3">
-<a name="id-1.2.2.6.9.9.5"></a><h4>Parameters</h4>
+<a name="eog-thumb-view-set-current-image.parameters"></a><h4>Parameters</h4>
 <div class="informaltable"><table width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
@@ -405,7 +401,7 @@ eog_thumb_view_set_thumbnail_popup (<em class="parameter"><code><a class="link" 
 <p>Set the contextual menu to be used with the thumbnails in the
 widget. This can be done only once.</p>
 <div class="refsect3">
-<a name="id-1.2.2.6.9.10.5"></a><h4>Parameters</h4>
+<a name="eog-thumb-view-set-thumbnail-popup.parameters"></a><h4>Parameters</h4>
 <div class="informaltable"><table width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
@@ -432,10 +428,8 @@ widget. This can be done only once.</p>
 <a name="eog-eog-thumb-view.other_details"></a><h2>Types and Values</h2>
 <div class="refsect2">
 <a name="EogThumbViewSelectionChange"></a><h3>enum EogThumbViewSelectionChange</h3>
-<p>
-</p>
 <div class="refsect3">
-<a name="id-1.2.2.6.10.2.4"></a><h4>Members</h4>
+<a name="EogThumbViewSelectionChange.members"></a><h4>Members</h4>
 <div class="informaltable"><table width="100%" border="0">
 <colgroup>
 <col width="300px" class="enum_members_name">
@@ -445,33 +439,33 @@ widget. This can be done only once.</p>
 <tbody>
 <tr>
 <td class="enum_member_name"><p><a name="EOG-THUMB-VIEW-SELECT-CURRENT:CAPS"></a>EOG_THUMB_VIEW_SELECT_CURRENT</p></td>
-<td class="enum_member_description"> </td>
-<td class="enum_member_annotations"> </td>
+<td> </td>
+<td> </td>
 </tr>
 <tr>
 <td class="enum_member_name"><p><a name="EOG-THUMB-VIEW-SELECT-LEFT:CAPS"></a>EOG_THUMB_VIEW_SELECT_LEFT</p></td>
-<td class="enum_member_description"> </td>
-<td class="enum_member_annotations"> </td>
+<td> </td>
+<td> </td>
 </tr>
 <tr>
 <td class="enum_member_name"><p><a name="EOG-THUMB-VIEW-SELECT-RIGHT:CAPS"></a>EOG_THUMB_VIEW_SELECT_RIGHT</p></td>
-<td class="enum_member_description"> </td>
-<td class="enum_member_annotations"> </td>
+<td> </td>
+<td> </td>
 </tr>
 <tr>
 <td class="enum_member_name"><p><a name="EOG-THUMB-VIEW-SELECT-FIRST:CAPS"></a>EOG_THUMB_VIEW_SELECT_FIRST</p></td>
-<td class="enum_member_description"> </td>
-<td class="enum_member_annotations"> </td>
+<td> </td>
+<td> </td>
 </tr>
 <tr>
 <td class="enum_member_name"><p><a name="EOG-THUMB-VIEW-SELECT-LAST:CAPS"></a>EOG_THUMB_VIEW_SELECT_LAST</p></td>
-<td class="enum_member_description"> </td>
-<td class="enum_member_annotations"> </td>
+<td> </td>
+<td> </td>
 </tr>
 <tr>
 <td class="enum_member_name"><p><a name="EOG-THUMB-VIEW-SELECT-RANDOM:CAPS"></a>EOG_THUMB_VIEW_SELECT_RANDOM</p></td>
-<td class="enum_member_description"> </td>
-<td class="enum_member_annotations"> </td>
+<td> </td>
+<td> </td>
 </tr>
 </tbody>
 </table></div>
@@ -481,13 +475,10 @@ widget. This can be done only once.</p>
 <div class="refsect2">
 <a name="EogThumbView-struct"></a><h3>struct EogThumbView</h3>
 <pre class="programlisting">struct EogThumbView;</pre>
-<p>
-</p>
 </div>
 </div>
 </div>
 <div class="footer">
-<hr>
-          Generated by GTK-Doc V1.21.1</div>
+<hr>Generated by GTK-Doc V1.25</div>
 </body>
 </html>

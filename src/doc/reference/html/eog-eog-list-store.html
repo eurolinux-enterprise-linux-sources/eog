@@ -2,13 +2,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Eye of GNOME Reference Manual: EogListStore</title>
+<title>EogListStore: Eye of GNOME Reference Manual</title>
 <meta name="generator" content="DocBook XSL Stylesheets V1.78.1">
 <link rel="home" href="index.html" title="Eye of GNOME Reference Manual">
 <link rel="up" href="ch01.html" title="User Interface">
 <link rel="prev" href="eog-eog-properties-dialog.html" title="EogPropertiesDialog">
 <link rel="next" href="EogFileChooser.html" title="EogFileChooser">
-<meta name="generator" content="GTK-Doc V1.21.1 (XML mode)">
+<meta name="generator" content="GTK-Doc V1.25 (XML mode)">
 <link rel="stylesheet" href="style.css" type="text/css">
 </head>
 <body bgcolor="white" text="black" link="#0000FF" vlink="#840084" alink="#0000FF">
@@ -186,8 +186,6 @@ EogListStore implements
 </div>
 <div class="refsect1">
 <a name="eog-eog-list-store.description"></a><h2>Description</h2>
-<p>
-</p>
 </div>
 <div class="refsect1">
 <a name="eog-eog-list-store.functions_details"></a><h2>Functions</h2>
@@ -197,9 +195,8 @@ EogListStore implements
 eog_list_store_new (<em class="parameter"><code><span class="type">void</span></code></em>);</pre>
 <p>Creates a new and empty <a class="link" href="eog-eog-list-store.html#EogListStore"><span class="type">EogListStore</span></a>.</p>
 <div class="refsect3">
-<a name="id-1.2.2.3.9.2.5"></a><h4>Returns</h4>
+<a name="eog-list-store-new.returns"></a><h4>Returns</h4>
 <p> a newly created <a class="link" href="eog-eog-list-store.html#EogListStore"><span class="type">EogListStore</span></a>.</p>
-<p></p>
 </div>
 </div>
 <hr>
@@ -210,7 +207,7 @@ eog_list_store_new_from_glist (<em class="parameter"><code><span class="type">GL
 <p>Creates a new <a class="link" href="eog-eog-list-store.html#EogListStore"><span class="type">EogListStore</span></a> from a list of <a class="link" href="eog-eog-image.html#EogImage"><span class="type">EogImage</span></a>'s.
 The given list must be <code class="literal">NULL</code>-terminated.</p>
 <div class="refsect3">
-<a name="id-1.2.2.3.9.3.5"></a><h4>Parameters</h4>
+<a name="eog-list-store-new-from-glist.parameters"></a><h4>Parameters</h4>
 <div class="informaltable"><table width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
@@ -225,9 +222,8 @@ The given list must be <code class="literal">NULL</code>-terminated.</p>
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.2.3.9.3.6"></a><h4>Returns</h4>
+<a name="eog-list-store-new-from-glist.returns"></a><h4>Returns</h4>
 <p> a new <a class="link" href="eog-eog-list-store.html#EogListStore"><span class="type">EogListStore</span></a>.</p>
-<p></p>
 </div>
 </div>
 <hr>
@@ -240,7 +236,7 @@ eog_list_store_append_image (<em class="parameter"><code><a class="link" href="e
 . The thumbnail of the image is not
 loaded and will only be loaded if the thumbnail is made visible.</p>
 <div class="refsect3">
-<a name="id-1.2.2.3.9.4.5"></a><h4>Parameters</h4>
+<a name="eog-list-store-append-image.parameters"></a><h4>Parameters</h4>
 <div class="informaltable"><table width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
@@ -279,7 +275,7 @@ only one file and this is a regular file, then all the images in the same
 directory will be added as well to <em class="parameter"><code>store</code></em>
 .</p>
 <div class="refsect3">
-<a name="id-1.2.2.3.9.5.6"></a><h4>Parameters</h4>
+<a name="eog-list-store-add-files.parameters"></a><h4>Parameters</h4>
 <div class="informaltable"><table width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
@@ -311,7 +307,7 @@ eog_list_store_remove_image (<em class="parameter"><code><a class="link" href="e
  from <em class="parameter"><code>store</code></em>
 .</p>
 <div class="refsect3">
-<a name="id-1.2.2.3.9.6.5"></a><h4>Parameters</h4>
+<a name="eog-list-store-remove-image.parameters"></a><h4>Parameters</h4>
 <div class="informaltable"><table width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
@@ -346,7 +342,7 @@ eog_list_store_get_pos_by_image (<em class="parameter"><code><a class="link" hre
 is not stored in <em class="parameter"><code>store</code></em>
 , -1 is returned.</p>
 <div class="refsect3">
-<a name="id-1.2.2.3.9.7.5"></a><h4>Parameters</h4>
+<a name="eog-list-store-get-pos-by-image.parameters"></a><h4>Parameters</h4>
 <div class="informaltable"><table width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
@@ -368,11 +364,10 @@ is not stored in <em class="parameter"><code>store</code></em>
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.2.3.9.7.6"></a><h4>Returns</h4>
+<a name="eog-list-store-get-pos-by-image.returns"></a><h4>Returns</h4>
 <p> the position of <em class="parameter"><code>image</code></em>
 in <em class="parameter"><code>store</code></em>
 or -1 if not found.</p>
-<p></p>
 </div>
 </div>
 <hr>
@@ -387,7 +382,7 @@ eog_list_store_get_image_by_pos (<em class="parameter"><code><a class="link" hre
 no image at position <em class="parameter"><code>pos</code></em>
 , <code class="literal">NULL</code> is returned.</p>
 <div class="refsect3">
-<a name="id-1.2.2.3.9.8.5"></a><h4>Parameters</h4>
+<a name="eog-list-store-get-image-by-pos.parameters"></a><h4>Parameters</h4>
 <div class="informaltable"><table width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
@@ -409,7 +404,7 @@ no image at position <em class="parameter"><code>pos</code></em>
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.2.3.9.8.6"></a><h4>Returns</h4>
+<a name="eog-list-store-get-image-by-pos.returns"></a><h4>Returns</h4>
 <p> the <a class="link" href="eog-eog-image.html#EogImage"><span class="type">EogImage</span></a> in position <em class="parameter"><code>pos</code></em>
 or <code class="literal">NULL</code>. </p>
 <p><span class="annotation">[<acronym title="Free data after the code is done."><span class="acronym">transfer full</span></acronym>]</span></p>
@@ -424,7 +419,7 @@ eog_list_store_get_pos_by_iter (<em class="parameter"><code><a class="link" href
 <p>Gets the position of the image pointed by <em class="parameter"><code>iter</code></em>
 .</p>
 <div class="refsect3">
-<a name="id-1.2.2.3.9.9.5"></a><h4>Parameters</h4>
+<a name="eog-list-store-get-pos-by-iter.parameters"></a><h4>Parameters</h4>
 <div class="informaltable"><table width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
@@ -447,10 +442,9 @@ eog_list_store_get_pos_by_iter (<em class="parameter"><code><a class="link" href
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.2.3.9.9.6"></a><h4>Returns</h4>
+<a name="eog-list-store-get-pos-by-iter.returns"></a><h4>Returns</h4>
 <p> The position of the image pointed by <em class="parameter"><code>iter</code></em>
 .</p>
-<p></p>
 </div>
 </div>
 <hr>
@@ -460,7 +454,7 @@ eog_list_store_get_pos_by_iter (<em class="parameter"><code><a class="link" href
 eog_list_store_length (<em class="parameter"><code><a class="link" href="eog-eog-list-store.html#EogListStore"><span class="type">EogListStore</span></a> *store</code></em>);</pre>
 <p>Returns the number of images in the store.</p>
 <div class="refsect3">
-<a name="id-1.2.2.3.9.10.5"></a><h4>Parameters</h4>
+<a name="eog-list-store-length.parameters"></a><h4>Parameters</h4>
 <div class="informaltable"><table width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
@@ -475,10 +469,9 @@ eog_list_store_length (<em class="parameter"><code><a class="link" href="eog-eog
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.2.3.9.10.6"></a><h4>Returns</h4>
+<a name="eog-list-store-length.returns"></a><h4>Returns</h4>
 <p> The number of images in <em class="parameter"><code>store</code></em>
 .</p>
-<p></p>
 </div>
 </div>
 <hr>
@@ -489,7 +482,7 @@ eog_list_store_get_initial_pos (<em class="parameter"><code><a class="link" href
 <p>Gets the position of the <a class="link" href="eog-eog-image.html#EogImage"><span class="type">EogImage</span></a> that should be loaded first.
 If not set, it returns -1.</p>
 <div class="refsect3">
-<a name="id-1.2.2.3.9.11.5"></a><h4>Parameters</h4>
+<a name="eog-list-store-get-initial-pos.parameters"></a><h4>Parameters</h4>
 <div class="informaltable"><table width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
@@ -504,9 +497,8 @@ If not set, it returns -1.</p>
 </table></div>
 </div>
 <div class="refsect3">
-<a name="id-1.2.2.3.9.11.6"></a><h4>Returns</h4>
+<a name="eog-list-store-get-initial-pos.returns"></a><h4>Returns</h4>
 <p> the position of the image to be loaded first or -1.</p>
-<p></p>
 </div>
 </div>
 <hr>
@@ -518,7 +510,7 @@ eog_list_store_thumbnail_set (<em class="parameter"><code><a class="link" href="
 <p>Sets the thumbnail for the image pointed by <em class="parameter"><code>iter</code></em>
 .</p>
 <div class="refsect3">
-<a name="id-1.2.2.3.9.12.5"></a><h4>Parameters</h4>
+<a name="eog-list-store-thumbnail-set.parameters"></a><h4>Parameters</h4>
 <div class="informaltable"><table width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
@@ -551,7 +543,7 @@ eog_list_store_thumbnail_unset (<em class="parameter"><code><a class="link" href
 , changing
 it to a "busy" icon.</p>
 <div class="refsect3">
-<a name="id-1.2.2.3.9.13.5"></a><h4>Parameters</h4>
+<a name="eog-list-store-thumbnail-unset.parameters"></a><h4>Parameters</h4>
 <div class="informaltable"><table width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
@@ -583,7 +575,7 @@ eog_list_store_thumbnail_refresh (<em class="parameter"><code><a class="link" hr
 <p>Refreshes the thumbnail for the image pointed by <em class="parameter"><code>iter</code></em>
 .</p>
 <div class="refsect3">
-<a name="id-1.2.2.3.9.14.5"></a><h4>Parameters</h4>
+<a name="eog-list-store-thumbnail-refresh.parameters"></a><h4>Parameters</h4>
 <div class="informaltable"><table width="100%" border="0">
 <colgroup>
 <col width="150px" class="parameters_name">
@@ -613,16 +605,12 @@ eog_list_store_thumbnail_refresh (<em class="parameter"><code><a class="link" hr
 <a name="EOG-LIST-STORE-THUMB-SIZE:CAPS"></a><h3>EOG_LIST_STORE_THUMB_SIZE</h3>
 <pre class="programlisting">#define EOG_LIST_STORE_THUMB_SIZE 90
 </pre>
-<p>
-</p>
 </div>
 <hr>
 <div class="refsect2">
 <a name="EogListStoreColumn"></a><h3>enum EogListStoreColumn</h3>
-<p>
-</p>
 <div class="refsect3">
-<a name="id-1.2.2.3.10.3.4"></a><h4>Members</h4>
+<a name="EogListStoreColumn.members"></a><h4>Members</h4>
 <div class="informaltable"><table width="100%" border="0">
 <colgroup>
 <col width="300px" class="enum_members_name">
@@ -632,28 +620,28 @@ eog_list_store_thumbnail_refresh (<em class="parameter"><code><a class="link" hr
 <tbody>
 <tr>
 <td class="enum_member_name"><p><a name="EOG-LIST-STORE-THUMBNAIL:CAPS"></a>EOG_LIST_STORE_THUMBNAIL</p></td>
-<td class="enum_member_description"> </td>
-<td class="enum_member_annotations"> </td>
+<td> </td>
+<td> </td>
 </tr>
 <tr>
 <td class="enum_member_name"><p><a name="EOG-LIST-STORE-THUMB-SET:CAPS"></a>EOG_LIST_STORE_THUMB_SET</p></td>
-<td class="enum_member_description"> </td>
-<td class="enum_member_annotations"> </td>
+<td> </td>
+<td> </td>
 </tr>
 <tr>
 <td class="enum_member_name"><p><a name="EOG-LIST-STORE-EOG-IMAGE:CAPS"></a>EOG_LIST_STORE_EOG_IMAGE</p></td>
-<td class="enum_member_description"> </td>
-<td class="enum_member_annotations"> </td>
+<td> </td>
+<td> </td>
 </tr>
 <tr>
 <td class="enum_member_name"><p><a name="EOG-LIST-STORE-EOG-JOB:CAPS"></a>EOG_LIST_STORE_EOG_JOB</p></td>
-<td class="enum_member_description"> </td>
-<td class="enum_member_annotations"> </td>
+<td> </td>
+<td> </td>
 </tr>
 <tr>
 <td class="enum_member_name"><p><a name="EOG-LIST-STORE-NUM-COLUMNS:CAPS"></a>EOG_LIST_STORE_NUM_COLUMNS</p></td>
-<td class="enum_member_description"> </td>
-<td class="enum_member_annotations"> </td>
+<td> </td>
+<td> </td>
 </tr>
 </tbody>
 </table></div>
@@ -663,13 +651,10 @@ eog_list_store_thumbnail_refresh (<em class="parameter"><code><a class="link" hr
 <div class="refsect2">
 <a name="EogListStore-struct"></a><h3>struct EogListStore</h3>
 <pre class="programlisting">struct EogListStore;</pre>
-<p>
-</p>
 </div>
 </div>
 </div>
 <div class="footer">
-<hr>
-          Generated by GTK-Doc V1.21.1</div>
+<hr>Generated by GTK-Doc V1.25</div>
 </body>
 </html>

@@ -30,7 +30,7 @@
  <p>Si les voleu seleccionar totes, premeu <keyseq><key>Ctrl</key><key>A</key></keyseq>.</p>
  </item>
  <item>
-  <p>Feu clic a <guiseq><gui>Imatge</gui><gui>Anomena i desa</gui></guiseq>. Us apareixerà un finestra amb diverses opcions per establir el nom de fitxer (la imatge de sota mostra com és la finestra).</p>
+  <p>Feu clic a <guiseq><gui>Imatge</gui><gui>Anomena i desa</gui></guiseq>. Us apareixerà una finestra amb diverses opcions per establir el nom de fitxer (la imatge de sota mostra com és la finestra).</p>
  </item>
  <item>
   <p>Per defecte les imatges que s'han canviat de nom es desen a la carpeta actual. Per desar-les en algun altre lloc canvieu la <gui>Carpeta de destinació</gui>.</p>

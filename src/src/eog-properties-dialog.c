@@ -66,7 +66,6 @@ struct _EogPropertiesDialogPrivate {
 	EogPropertiesDialogPage current_page;
 
 	GtkWidget      *notebook;
-	GtkWidget      *close_button;
 	GtkWidget      *next_button;
 	GtkWidget      *previous_button;
 
@@ -114,10 +113,37 @@ struct _EogPropertiesDialogPrivate {
 G_DEFINE_TYPE_WITH_PRIVATE (EogPropertiesDialog, eog_properties_dialog, GTK_TYPE_DIALOG);
 
 static void
+parent_file_display_name_query_info_cb (GObject *source_object,
+					GAsyncResult *res,
+					gpointer user_data)
+{
+	EogPropertiesDialog *prop_dlg = EOG_PROPERTIES_DIALOG (user_data);
+	GFile *parent_file = G_FILE (source_object);
+	GFileInfo *file_info;
+	gchar *display_name;
+
+
+	file_info = g_file_query_info_finish (parent_file, res, NULL);
+	if (file_info == NULL) {
+		display_name = g_file_get_basename (parent_file);
+	} else {
+		display_name = g_strdup (
+			g_file_info_get_display_name (file_info));
+		g_object_unref (file_info);
+	}
+	gtk_button_set_label (GTK_BUTTON (prop_dlg->priv->folder_button),
+			      display_name);
+	gtk_widget_set_sensitive (prop_dlg->priv->folder_button, TRUE);
+
+	g_free (display_name);
+	g_object_unref (prop_dlg);
+}
+
+static void
 pd_update_general_tab (EogPropertiesDialog *prop_dlg,
 		       EogImage            *image)
 {
-	gchar *bytes_str, *dir_str;
+	gchar *bytes_str;
 	gchar *width_str, *height_str;
 	GFile *file, *parent_file;
 	GFileInfo *file_info;
@@ -172,16 +198,23 @@ pd_update_general_tab (EogPropertiesDialog *prop_dlg,
 		/* file is root directory itself */
 		parent_file = g_object_ref (file);
 	}
-	dir_str = g_file_get_basename (parent_file);
-	gtk_button_set_label (GTK_BUTTON (prop_dlg->priv->folder_button),
-			      dir_str);
+
+	gtk_widget_set_sensitive (prop_dlg->priv->folder_button, FALSE);
+	gtk_button_set_label (GTK_BUTTON (prop_dlg->priv->folder_button), NULL);
 	g_free (prop_dlg->priv->folder_button_uri);
 	prop_dlg->priv->folder_button_uri = g_file_get_uri (parent_file);
-	g_object_unref (parent_file);
 
+	g_file_query_info_async (parent_file,
+				 G_FILE_ATTRIBUTE_STANDARD_DISPLAY_NAME,
+				 G_FILE_QUERY_INFO_NONE,
+				 G_PRIORITY_DEFAULT,
+				 NULL,
+				 parent_file_display_name_query_info_cb,
+				 g_object_ref (prop_dlg));
+
+	g_object_unref (parent_file);
 	g_free (type_str);
 	g_free (bytes_str);
-	g_free (dir_str);
 }
 
 #if HAVE_EXEMPI
@@ -447,16 +480,22 @@ eog_properties_dialog_set_netbook_mode (EogPropertiesDialog *dlg,
 
 #ifdef HAVE_METADATA
 	if (enable) {
-		gtk_widget_reparent (priv->metadata_details_sw,
-				     priv->metadata_details_box);
+		g_object_ref (priv->metadata_details_sw);
+		gtk_container_remove (GTK_CONTAINER (gtk_widget_get_parent (priv->metadata_details_sw)),
+				      priv->metadata_details_sw);
+		gtk_container_add (GTK_CONTAINER (priv->metadata_details_box), priv->metadata_details_sw);
+		g_object_unref (priv->metadata_details_sw);
 		// Only show details box if metadata is being displayed
 		if (gtk_widget_get_visible (priv->metadata_box))
 			gtk_widget_show_all (priv->metadata_details_box);
 
 		gtk_widget_hide (priv->metadata_details_expander);
 	} else {
-		gtk_widget_reparent (priv->metadata_details_sw,
-				     priv->metadata_details_expander);
+		g_object_ref (priv->metadata_details_sw);
+		gtk_container_remove (GTK_CONTAINER (gtk_widget_get_parent (priv->metadata_details_sw)),
+				      priv->metadata_details_sw);
+		gtk_container_add (GTK_CONTAINER (priv->metadata_details_expander), priv->metadata_details_sw);
+		g_object_unref (priv->metadata_details_sw);
 		gtk_widget_show_all (priv->metadata_details_expander);
 
 		if (gtk_notebook_get_current_page (GTK_NOTEBOOK (priv->notebook)) == EOG_PROPERTIES_DIALOG_PAGE_DETAILS)
@@ -483,13 +522,13 @@ eog_properties_dialog_set_property (GObject      *object,
 						   g_value_get_boolean (value));
 			break;
 		case PROP_NEXT_ACTION:
-			gtk_activatable_set_related_action (GTK_ACTIVATABLE (prop_dlg->priv->next_button),
-							    g_value_get_object(value));
+			gtk_actionable_set_action_name (GTK_ACTIONABLE (prop_dlg->priv->next_button),
+							g_value_get_string (value));
 			gtk_button_set_always_show_image(GTK_BUTTON(prop_dlg->priv->next_button), TRUE);
 			break;
 		case PROP_PREV_ACTION:
-			gtk_activatable_set_related_action (GTK_ACTIVATABLE (prop_dlg->priv->previous_button),
-							    g_value_get_object(value));
+			gtk_actionable_set_action_name (GTK_ACTIONABLE (prop_dlg->priv->previous_button),
+							g_value_get_string (value));
 			gtk_button_set_always_show_image(GTK_BUTTON(prop_dlg->priv->previous_button), TRUE);
 			break;
 		default:
@@ -515,6 +554,20 @@ eog_properties_dialog_get_property (GObject    *object,
 			g_value_set_boolean (value,
 					     prop_dlg->priv->netbook_mode);
 			break;
+		case PROP_NEXT_ACTION:
+		{
+			const gchar* action = gtk_actionable_get_action_name (
+						      GTK_ACTIONABLE (prop_dlg->priv->next_button));
+			g_value_set_string (value, action);
+			break;
+		}
+		case PROP_PREV_ACTION:
+		{
+			const gchar* action = gtk_actionable_get_action_name (
+						      GTK_ACTIONABLE (prop_dlg->priv->previous_button));
+			g_value_set_string (value, action);
+			break;
+		}
 		default:
 			G_OBJECT_WARN_INVALID_PROPERTY_ID (object, prop_id,
 							   pspec);
@@ -562,9 +615,7 @@ eog_properties_dialog_class_init (EogPropertiesDialogClass *klass)
 							      EOG_TYPE_THUMB_VIEW,
 							      G_PARAM_READWRITE |
 							      G_PARAM_CONSTRUCT_ONLY |
-							      G_PARAM_STATIC_NAME |
-							      G_PARAM_STATIC_NICK |
-							      G_PARAM_STATIC_BLURB));
+							      G_PARAM_STATIC_STRINGS));
 	g_object_class_install_property (g_object_class, PROP_NETBOOK_MODE,
 					 g_param_spec_boolean ("netbook-mode",
 					 		      "Netbook Mode",
@@ -574,26 +625,22 @@ eog_properties_dialog_class_init (EogPropertiesDialogClass *klass)
 							      G_PARAM_STATIC_STRINGS));
 	g_object_class_install_property (g_object_class,
 					 PROP_NEXT_ACTION,
-					 g_param_spec_object ("next-action",
+					 g_param_spec_string ("next-action",
 							      "Next Action",
 							      "Action for Next button",
-							      GTK_TYPE_ACTION,
+							      NULL,
 							      G_PARAM_READWRITE |
 							      G_PARAM_CONSTRUCT_ONLY |
-							      G_PARAM_STATIC_NAME |
-							      G_PARAM_STATIC_NICK |
-							      G_PARAM_STATIC_BLURB));
+							      G_PARAM_STATIC_STRINGS));
 	g_object_class_install_property (g_object_class,
 					 PROP_PREV_ACTION,
-					 g_param_spec_object ("prev-action",
+					 g_param_spec_string ("prev-action",
 							      "Prev Action",
 							      "Action for Prev button",
-							      GTK_TYPE_ACTION,
+							      NULL,
 							      G_PARAM_READWRITE |
 							      G_PARAM_CONSTRUCT_ONLY |
-							      G_PARAM_STATIC_NAME |
-							      G_PARAM_STATIC_NICK |
-							      G_PARAM_STATIC_BLURB));
+							      G_PARAM_STATIC_STRINGS));
 
 	gtk_widget_class_set_template_from_resource ((GtkWidgetClass *) klass, "/org/gnome/eog/ui/eog-image-properties-dialog.ui");
 
@@ -607,9 +654,6 @@ eog_properties_dialog_class_init (EogPropertiesDialogClass *klass)
 	gtk_widget_class_bind_template_child_private(wklass,
 						     EogPropertiesDialog,
 						     next_button);
-	gtk_widget_class_bind_template_child_private(wklass,
-						     EogPropertiesDialog,
-						     close_button);
 	gtk_widget_class_bind_template_child_private(wklass,
 						     EogPropertiesDialog,
 						     thumbnail_image);
@@ -728,11 +772,6 @@ eog_properties_dialog_init (EogPropertiesDialog *prop_dlg)
 			  G_CALLBACK (gtk_widget_hide_on_delete),
 			  prop_dlg);
 
-	g_signal_connect_swapped (priv->close_button,
-				  "clicked",
-				  G_CALLBACK (gtk_widget_hide_on_delete),
-				  prop_dlg);
-
 	gtk_widget_set_tooltip_text (GTK_WIDGET (priv->folder_button),
 				     _("Show the folder which contains this "
 				       "file in the file manager"));
@@ -786,36 +825,40 @@ eog_properties_dialog_init (EogPropertiesDialog *prop_dlg)
 
 /**
  * eog_properties_dialog_new:
- * @parent: 
+ * @parent: the dialog's parent window
  * @thumbview: 
  * @next_image_action: 
  * @previous_image_action: 
  *
- * 
+ * If %parent implements #GActionMap its actions will be automatically
+ * inserted in the "win" namespace.
  *
  * Returns: (transfer full) (type EogPropertiesDialog): a new #EogPropertiesDialog
  **/
 GtkWidget *
 eog_properties_dialog_new (GtkWindow    *parent,
 			   EogThumbView *thumbview,
-			   GtkAction    *next_image_action,
-			   GtkAction    *previous_image_action)
+			   const gchar  *next_image_action,
+			   const gchar  *previous_image_action)
 {
 	GObject *prop_dlg;
 
 	g_return_val_if_fail (GTK_IS_WINDOW (parent), NULL);
 	g_return_val_if_fail (EOG_IS_THUMB_VIEW (thumbview), NULL);
-	g_return_val_if_fail (GTK_IS_ACTION (next_image_action), NULL);
-	g_return_val_if_fail (GTK_IS_ACTION (previous_image_action), NULL);
 
 	prop_dlg = g_object_new (EOG_TYPE_PROPERTIES_DIALOG,
 			     	 "thumbview", thumbview,
 				 "next-action", next_image_action,
 				 "prev-action", previous_image_action,
+				 "use-header-bar", TRUE,
 			     	 NULL);
 
-	if (parent) {
-		gtk_window_set_transient_for (GTK_WINDOW (prop_dlg), parent);
+	gtk_window_set_transient_for (GTK_WINDOW (prop_dlg), parent);
+
+	if (G_LIKELY (G_IS_ACTION_GROUP (parent))) {
+		gtk_widget_insert_action_group (GTK_WIDGET (prop_dlg),
+						"win",
+						G_ACTION_GROUP (parent));
 	}
 
 	return GTK_WIDGET (prop_dlg);

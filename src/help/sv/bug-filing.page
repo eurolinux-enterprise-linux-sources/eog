@@ -3,7 +3,7 @@
 
   <info>
     <link type="guide" xref="index#get-involved"/>
-    <desc>File a bug against the <app>image viewer</app>.</desc>
+    <desc>Rapportera ett fel i <app>bildvisaren</app>.</desc>
 
     <revision pkgversion="3.2" version="0.1" date="2011-09-05" status="final"/>
     <credit type="author">
@@ -11,35 +11,35 @@
       <email>tiffany@antopolski.com</email>
     </credit>
     <license>
-      <p>Creative Commons Share Alike 3.0</p>
+      <p>Creative Commons DelaLika 3.0</p>
     </license>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Daniel Nylander</mal:name>
+      <mal:email>po@danielnylander.se</mal:email>
+      <mal:years>2007, 2008, 2009</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Henrik Löwendahl</mal:name>
+      <mal:email>henrik.lowendahl@purplescout.se</mal:email>
+      <mal:years>2011</mal:years>
+    </mal:credit>
+  
+    <mal:credit xmlns:mal="http://projectmallard.org/1.0/" type="translator copyright">
+      <mal:name>Sebastian Rasmussen</mal:name>
+      <mal:email>sebras@gmail.com</mal:email>
+      <mal:years>2016</mal:years>
+    </mal:credit>
   </info>
 
-<title>Report a problem with the image viewer</title>
-<p>
- The <gui>image viewer</gui> is maintained by a volunteer community.  You are welcome to participate.
- </p>
+<title>Rapportera ett fel med bildvisaren</title>
+<p><gui>Bildvisare</gui> underhålls av en frivillig gemenskap. Du är välkommen att deltaga.</p>
 
-<p>
-   If you experience problems with the image viewer (for example, if it crashes or behaves unexpectedly), or if it is missing some feature that you think it should have, please file a <em>bug report</em> by clicking on the link <link href="https://bugzilla.gnome.org/"/>. Bug reports are how software developers keep track of problems so that they can fix them.
-   </p>
-   <p>
-   To participate, you need an account which will give you the ability to file bugs and make comments.  Also, you need to register so you can receive updates by email about the status of your bug. If you don't already have an account, just click on the <gui>New Account</gui> link to create one.
-   </p>
-   <p>
-   Once you have an account, log in, and click <guiseq><gui>File a
-Bug</gui><gui>Core</gui><gui>eog</gui></guiseq>.
-   Before reporting a bug, please read the <link href="https://bugzilla.gnome.org/page.cgi?id=bug-writing.html">bug writing
-guidelines</link>,  and please <link href="https://bugzilla.gnome.org/browse.cgi?product=eog">browse</link> for the bug to see if it already exists.
-   </p>
-   <p>
-   To file your bug, choose the component in the <gui>Component</gui> menu.  If you are not sure which component your bug pertains to, choose <gui>general</gui>.
-   </p>
-   <p>
-   If you are requesting a new feature, choose <gui>enhancement</gui> in the <gui>Severity</gui> menu.
-   Fill in the Summary and Description sections and click <gui>Commit</gui>.
-   </p>
-   <p>
-      Your report will be given an ID number, and its status will be updated as it is being dealt with. Bugs can take a while to be fixed, and the software developers might ask you for further information to help them figure out what the problem is.
-   </p>
+<p>Om du upplever problem med bildvisaren (t.ex. om den kraschar eller beter sig på ett oväntat sätt), eller om den saknar någon funktion som du tycker att den borde ha, rapportera en <em>felrapport</em> genom att klicka på länken <link href="https://bugzilla.gnome.org/"/>. Felrapporter är sättet på vilket programutvecklare håller reda på problem så att de kan åtgärda dem.</p>
+   <p>För att deltaga måste du ha ett konto som ger dig möjlighet att rapportera fel och göra kommentarer. Du måste också registrera dig så att du kan få uppdateringar via e-post om tillståndet för din felrapport. Om du inte redan har ett konto, klicka bara på länken <gui>New Account</gui> för att skapa ett.</p>
+   <p>När du har ett konto, logga in och klicka på <guiseq><gui>File a Bug</gui><gui>Core</gui><gui>eog</gui></guiseq>. Innan du rapporterar ett fel, läs igenom <link href="https://bugzilla.gnome.org/page.cgi?id=bug-writing.html">riktlinjer för att skriva felrapporter</link>, och <link href="https://bugzilla.gnome.org/browse.cgi?product=eog">bläddra</link> genom existerande felrapporter för att se om den redan finns.</p>
+   <p>För att rapportera ett fel, välj komponenten i menyn <gui>Component</gui>. Om du inte är säker på vilken komponent ditt fel rör, välj <gui>general</gui>.</p>
+   <p>Om du önskar en ny funktion, välj <gui>enhancement</gui> i menyn <gui>Severity</gui>. Fyll i avsnitten sammanfattning och beskrivning och klicka på <gui>Commit</gui>.</p>
+   <p>Din rapport kommer att få ett ID-nummer och dess status kommer att uppdateras allt eftersom den hanteras. Fel kan ta ett tag att åtgärda och programutvecklarna kan begära vidare information för att hjälpa dem att reda ut vad problemet är.</p>
 </page>
